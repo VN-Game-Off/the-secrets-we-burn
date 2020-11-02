@@ -31,16 +31,25 @@
 	box-sizing: border-box;
 }
 
-body {
-	background: url("../assets/ui/pausebg.png");
-	/* color: white; */
-	background-position: center;
-	background-size: cover;
-	font-family: 'Lato', sans-serif;
+/* body {
+	
 }
 
-settings-screen {
+settings-screen, menu-screen {
 	color: white;
+} */
+
+.btn-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn-container button{
+	background: none;
+	border-radius: 25px;
+	border: 2px solid white;
 }
 
 h3{
@@ -154,7 +163,14 @@ button:hover {}
 
 /* General Styling for Menu Screens */
 
-[data-screen] {}
+[data-screen] {
+	background: url("../assets/ui/pausebg.png");
+	/* color: white; */
+	background-position: center;
+	background-size: cover;
+	font-family: 'Lato', sans-serif;
+	color: white;
+}
 
 /**
  * ===========================
@@ -182,7 +198,7 @@ main-menu {
 /* Main Menu Buttons Styling */
 
 [data-screen="main"] button {
-	text-align: center;
+	/* text-align: center; */
 	background: rgb(54, 1, 103);
 	background: -moz-linear-gradient(180deg, rgba(54, 1, 103, 0.85) 0%, rgba(107, 7, 114, 0.85) 25%, rgba(207, 38, 138, 0.85) 50%, rgba(230, 92, 156, 0.85) 75%, rgba(251, 140, 171, 0.85) 100%);
 	background: -webkit-linear-gradient(180deg, rgba(54, 1, 103, 0.85) 0%, rgba(107, 7, 114, 0.85) 25%, rgba(207, 38, 138, 0.85) 50%, rgba(230, 92, 156, 0.85) 75%, rgba(251, 140, 171, 0.85) 100%);
@@ -190,6 +206,29 @@ main-menu {
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#360167", endColorstr="#fb8cab", GradientType=1);
 	border-radius: 25px;
 	border: 1.5px solid white;
+	display: flex;
+	align-items: center;
+	/* justify-content: center; */
+}
+
+[data-string="Settings"]{
+	/* text-align: center; */
+}
+
+[data-screen="main"] .icon {
+	/* justify-self: left; */
+	/* color: red; */
+	justify-self: left;
+	/* padding-left: 3%; */
+	/* align-self: flex-start; */
+	/* text-align: left; */
+	/* margin-right: 5%; */
+	width:40%;
+}
+
+[data-screen="main"] .icon + span{
+	/* color: red; */
+	/* width: 45%; */
 }
 
 /**

@@ -29,7 +29,7 @@
 const { $_ready, $_ } = Monogatari;
 
 // 1. Outside the $_ready function:
-monogatari.registerComponent(ElementNew);
+monogatari.registerComponent(Menu);
 // monogatari.registerComponent(Settings);
 
 
@@ -78,6 +78,14 @@ document.addEventListener('mousedown', function (event) {
 	}
 })
 
+monogatari.translation('English', {
+	'Stats': 'Stats',
+	'Menu': 'Menu',
+	'Shop': 'Shop',
+	'Social Media': 'Social Media',
+	'More': 'More'
+});
+
 
 $_ready(() => {
 	// 2. Inside the $_ready function:
@@ -87,6 +95,8 @@ $_ready(() => {
 
 	monogatari.init('#monogatari').then(() => {
 		// 3. Inside the init function:
+
+		// Remove Quick Menu Buttons
 		monogatari.component('quick-menu').removeButton('Back');
 		monogatari.component('quick-menu').removeButton('Save');
 		monogatari.component('quick-menu').removeButton('Load');
@@ -94,10 +104,52 @@ $_ready(() => {
 		monogatari.component('quick-menu').removeButton('Quit');
 		monogatari.component('quick-menu').removeButton('Log');
 		monogatari.component('quick-menu').removeButton('AutoPlay');
+
+		// Remove Main Menu buttons
 		monogatari.component('main-menu').removeButton('Load');
 		monogatari.component('main-menu').removeButton('Help');
+		monogatari.component('main-menu').removeButton('Settings');
+		monogatari.component('main-menu').removeButton('Start');
+
+		const buttonsWithIcons = [
+
+			{
+				string: 'Start',
+				icon: 'fas fa-play icon',
+				data: {
+					action: 'start',
+				}
+			},
+
+			{
+				string: 'Settings',
+				icon: 'fas fa-cog icon',
+				data: {
+					action: 'open-screen',
+					open: 'settings'
+				}
+			},
+			{
+				string: 'More',
+				icon: 'fas fa-bars icon',
+				data: {
+					action: 'open-screen',
+					open: 'menu'
+				}
+			},
 
 
+
+
+
+		]
+
+		buttonsWithIcons.map((item) => {
+			monogatari.component('main-menu').addButton(item);
+		})
+		// monogatari.component('main-menu').addButton(pauseMenuButton);
+		// monogatari.component('main-menu').addButton(settingsButton);
+		monogatari.component('quick-menu').addButton(buttonsWithIcons[buttonsWithIcons.length-1]);
 	});
 
 
