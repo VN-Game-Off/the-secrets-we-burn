@@ -1,9 +1,9 @@
 {
-	"short_name": "Monogatari",
-	"name": "Monogatari Visual Novel",
+	"short_name": "Cardinal",
+	"name": "Cardinal Base",
 	"background_color": "#F7F7F7",
 	"theme_color": "#F7F7F7",
-	"orientation": "landscape",
+	"orientation": "portrait",
 	"display": "fullscreen",
 	"start_url": "index.html",
 	"icons": [
