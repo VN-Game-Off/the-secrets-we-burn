@@ -19,7 +19,8 @@
 
 /* General Style */
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+
 @font-face {
 	font-family: 'League Spartan';
 	src: url('../assets/ui/fonts/leaguespartan-bold-webfont.woff2') format('woff2'), url('../assets/ui/fonts/leaguespartan-bold-webfont.woff') format('woff');
@@ -29,13 +30,10 @@
 
 * {
 	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
 }
 
-/* body {
-	
-}
-
-settings-screen, menu-screen {
+/* settings-screen, menu-screen {
 	color: white;
 } */
 

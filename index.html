@@ -10,8 +10,8 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
-	<meta http-equiv="Content-Security-Policy"
-		content="default-src 'self' https:; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; script-src 'self' 'unsafe-eval'">
+	<!-- <meta http-equiv="Content-Security-Policy"
+		content="default-src 'self' https:; style-src https://fonts.googleapis.com/ https://www.gstatic.com 'unsafe-inline'; img-src 'self' data: https:; script-src 'self' https://www.gstatic.com 'unsafe-eval'"> -->
 	<meta name="description" content="">
 	<!--Page description. No longer than 155 characters.-->
 	<meta name="keywords" content="">
@@ -168,25 +168,9 @@
 
 	<!-- TODO: Add SDKs for Firebase products that you want to use
 					https://firebase.google.com/docs/web/setup#available-libraries -->
-	<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
-
-	<script>
-		// Your web app's Firebase configuration
-		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-		var firebaseConfig = {
-			apiKey: "AIzaSyCIMf1dbkck7oqr9KckwMYDp3DUqMGPMsY",
-			authDomain: "cardinal-c5e88.firebaseapp.com",
-			databaseURL: "https://cardinal-c5e88.firebaseio.com",
-			projectId: "cardinal-c5e88",
-			storageBucket: "cardinal-c5e88.appspot.com",
-			messagingSenderId: "570953798387",
-			appId: "1:570953798387:web:6ddf50961f8d257d485d86",
-			measurementId: "G-505GN0VW78"
-		};
-		// Initialize Firebase
-		firebase.initializeApp(firebaseConfig);
-		firebase.analytics();
-	</script>
+	<script defer src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+	<script defer src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+	<script defer src="./init-firebase.js"></script>
 </body>
 
 </html>

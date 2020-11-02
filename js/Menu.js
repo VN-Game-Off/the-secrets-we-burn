@@ -1,16 +1,24 @@
 class Menu extends Monogatari.ScreenComponent {
-    render () {
+    render() {
 
-        
+
         const ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+        ui.start('#firebaseui-auth-container', {
+            signInOptions: [
+                firebase.auth.EmailAuthProvider.PROVIDER_ID
+            ],
+            // Other config options...
+        });
+
 
         // const autoSaveEnabled = this.engine.setting ('AutoSave') != 0 && typeof this.engine.setting ('AutoSave') === 'number'
 
         const buttonList = [
             {
                 string: 'Shop',
-                data:{
-                    action:'none'
+                data: {
+                    action: 'none'
                 }
             },
 
@@ -24,15 +32,15 @@ class Menu extends Monogatari.ScreenComponent {
 
             {
                 string: 'Help',
-                data:{
+                data: {
                     action: 'open-screen',
-                    open:'help'
+                    open: 'help'
                 }
             },
-            
+
         ]
 
-        const allButtons = buttonList.map((button)=>{
+        const allButtons = buttonList.map((button) => {
 
             const element = document.createElement('button')
 
