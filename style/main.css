@@ -35,10 +35,14 @@
 
 body {
 	background: url("../assets/ui/pausebg.png");
-	color: white;
+	/* color: white; */
 	background-position: center;
 	background-size: cover;
 	font-family: 'Lato', sans-serif;
+}
+
+settings-screen{
+	color: white;
 }
 
 h2{
@@ -55,7 +59,19 @@ h2{
 	vertical-align: middle;
 	/* border: 2px solid white; */
 	padding-top: 3%;
-	text-align: left;
+	/* padding-left: 150px; */
+	/* text-align: left; */
+}
+
+input[type="range"]{
+	-webkit-appearance: none;  /* Override default CSS styles */
+	appearance: none;
+	width: 100%; /* Full-width */
+	height: 25px; /* Specified height */
+	outline: none; /* Remove outline */
+	opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+	-webkit-transition: .2s; /* 0.2 seconds transition on hover */
+	transition: opacity .2s;
 }
 
 .top.left[data-action="back"]{

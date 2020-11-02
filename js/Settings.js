@@ -1,4 +1,5 @@
-class SettingsScreen extends ScreenComponent {
+
+class Settings extends Monogatari.ScreenComponent {
 
 	static bind () {
 		// Fix for select labels
@@ -202,8 +203,7 @@ class SettingsScreen extends ScreenComponent {
 	}
 }
 
-SettingsScreen.tag = 'settings-screen';
+Settings.tag = 'settings';
 
 
-
-export default SettingsScreen;
+// export default Settings;

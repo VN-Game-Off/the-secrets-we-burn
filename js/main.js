@@ -1,4 +1,7 @@
 'use strict';
+
+// const { default: SettingsScreen } = require("./Settings");
+
 /* global Monogatari */
 /* global monogatari */
 
@@ -27,6 +30,8 @@ const { $_ready, $_ } = Monogatari;
 
 // 1. Outside the $_ready function:
 monogatari.registerComponent(ElementNew);
+// monogatari.registerComponent(Settings);
+
 
 // monogatari.component('quick-menu').removeButton('Save');
 // monogatari.component ('quick-menu').removeButton ('Load');
@@ -39,21 +44,21 @@ monogatari.registerComponent(ElementNew);
 // })
 
 
-function distractionFree () {
-	if (monogatari.global ('playing')) {
+function distractionFree() {
+	if (monogatari.global('playing')) {
 		// Check if the distraction free is currently enabled
-		if (monogatari.global ('distraction_free') === true) {
+		if (monogatari.global('distraction_free') === true) {
 			// monogatari.element ().find ('[data-component="quick-menu"] [data-action="distraction-free"] [data-string]').text (monogatari.string ('Hide'));
 			// monogatari.element ().find ('[data-component="quick-menu"] [data-action="distraction-free"] [data-icon]').replaceWith ('<span class="fas fa-eye" data-action="distraction-free"></span>');
-			monogatari.element ().find ('[data-component="new-menu"]').removeClass ('transparent');
-			monogatari.element ().find ('[data-component="text-box"]').show ();
-			monogatari.global ('distraction_free', false);
+			monogatari.element().find('[data-component="new-menu"]').removeClass('transparent');
+			monogatari.element().find('[data-component="text-box"]').show();
+			monogatari.global('distraction_free', false);
 		} else {
 			// monogatari.element ().find ('[data-component="quick-menu"] [data-action="distraction-free"] [data-string]').text (monogatari.string ('Show'));
 			// monogatari.element ().find ('[data-component="quick-menu"] [data-action="distraction-free"] [data-icon]').replaceWith ('<span class="fas fa-eye-slash" data-action="distraction-free"></span>');
-			monogatari.element ().find ('[data-component="new-menu"]').addClass ('transparent');
-			monogatari.element ().find ('[data-component="text-box"]').hide();
-			monogatari.global ('distraction_free', true);
+			monogatari.element().find('[data-component="new-menu"]').addClass('transparent');
+			monogatari.element().find('[data-component="text-box"]').hide();
+			monogatari.global('distraction_free', true);
 		}
 	}
 }
@@ -82,14 +87,18 @@ $_ready(() => {
 
 	monogatari.init('#monogatari').then(() => {
 		// 3. Inside the init function:
-		monogatari.component ('quick-menu').removeButton ('Back');
-		monogatari.component ('quick-menu').removeButton ('Save');
-		monogatari.component ('quick-menu').removeButton ('Load');
-		monogatari.component ('quick-menu').removeButton ('Settings');
-		monogatari.component ('quick-menu').removeButton ('Quit');
-		monogatari.component ('quick-menu').removeButton ('Log');
-		monogatari.component ('quick-menu').removeButton ('AutoPlay');
-		monogatari.component ('main-menu').removeButton ('Load');
-		monogatari.component ('main-menu').removeButton ('Help');
+		monogatari.component('quick-menu').removeButton('Back');
+		monogatari.component('quick-menu').removeButton('Save');
+		monogatari.component('quick-menu').removeButton('Load');
+		monogatari.component('quick-menu').removeButton('Settings');
+		monogatari.component('quick-menu').removeButton('Quit');
+		monogatari.component('quick-menu').removeButton('Log');
+		monogatari.component('quick-menu').removeButton('AutoPlay');
+		monogatari.component('main-menu').removeButton('Load');
+		monogatari.component('main-menu').removeButton('Help');
+
+
 	});
+
+
 });
