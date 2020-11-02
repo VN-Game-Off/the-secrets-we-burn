@@ -1,5 +1,9 @@
 class Menu extends Monogatari.ScreenComponent {
     render () {
+
+        
+        const ui = new firebaseui.auth.AuthUI(firebase.auth());
+
         // const autoSaveEnabled = this.engine.setting ('AutoSave') != 0 && typeof this.engine.setting ('AutoSave') === 'number'
 
         const buttonList = [

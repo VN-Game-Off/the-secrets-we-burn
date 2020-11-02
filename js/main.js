@@ -152,5 +152,4 @@ $_ready(() => {
 		monogatari.component('quick-menu').addButton(buttonsWithIcons[buttonsWithIcons.length-1]);
 	});
 
-
 });
