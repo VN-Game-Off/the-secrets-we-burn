@@ -89,6 +89,7 @@ $_ready(() => {
 		monogatari.component ('quick-menu').removeButton ('Quit');
 		monogatari.component ('quick-menu').removeButton ('Log');
 		monogatari.component ('quick-menu').removeButton ('AutoPlay');
-		
+		monogatari.component ('main-menu').removeButton ('Load');
+		monogatari.component ('main-menu').removeButton ('Help');
 	});
 });

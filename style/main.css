@@ -19,7 +19,55 @@
 
 /* General Style */
 
-body {}
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+@font-face {
+    font-family: 'League Spartan';
+    src: url('../assets/ui/fonts/leaguespartan-bold-webfont.woff2') format('woff2'),
+         url('../assets/ui/fonts/leaguespartan-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+	box-sizing: border-box;
+}
+
+body {
+	background: url("../assets/ui/pausebg.png");
+	color: white;
+	background-position: center;
+	background-size: cover;
+	font-family: 'Lato', sans-serif;
+}
+
+h2{
+	/* background: rgb(54,1,103);
+	background: -moz-linear-gradient(180deg, rgba(54,1,103,0.85) 0%, rgba(107,7,114,0.85) 25%, rgba(207,38,138,0.85) 50%, rgba(230,92,156,0.85) 75%, rgba(251,140,171,0.85) 100%);
+	background: -webkit-linear-gradient(180deg, rgba(54,1,103,0.85) 0%, rgba(107,7,114,0.85) 25%, rgba(207,38,138,0.85) 50%, rgba(230,92,156,0.85) 75%, rgba(251,140,171,0.85) 100%);
+	background: linear-gradient(180deg, rgba(54,1,103,0.85) 0%, rgba(107,7,114,0.85) 25%, rgba(207,38,138,0.85) 50%, rgba(230,92,156,0.85) 75%, rgba(251,140,171,0.85) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#360167",endColorstr="#fb8cab",GradientType=1); 
+	padding: 2% 0; */
+	font-family: 'League Spartan';
+	font-size: 36px;
+	/* vertical-align: center; */
+	display: inline-block;
+	vertical-align: middle;
+	/* border: 2px solid white; */
+	padding-top: 3%;
+	text-align: left;
+}
+
+.top.left[data-action="back"]{
+	background-color: #00000000;
+	border: 2px solid white;
+	border-radius: 15px;
+	
+}
+
+.top.left{
+	
+}
 
 /* Simple Button styles*/
 
@@ -41,11 +89,33 @@ button:hover {}
 
 /* Main Menu Styling */
 
-[data-screen="main"] {}
+[data-screen="main"] {
+	background: url('../assets/ui/mainbg.png');
+	background-position: center;
+	background-size: cover;
+	/* align-items: center; */
+}
+
+main-menu {
+	align-self: center;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	bottom: 0;
+}
 
 /* Main Menu Buttons Styling */
 
-[data-screen="main"] button {}
+[data-screen="main"] button {
+	text-align: center;
+	background: rgb(54,1,103);
+	background: -moz-linear-gradient(180deg, rgba(54,1,103,0.85) 0%, rgba(107,7,114,0.85) 25%, rgba(207,38,138,0.85) 50%, rgba(230,92,156,0.85) 75%, rgba(251,140,171,0.85) 100%);
+	background: -webkit-linear-gradient(180deg, rgba(54,1,103,0.85) 0%, rgba(107,7,114,0.85) 25%, rgba(207,38,138,0.85) 50%, rgba(230,92,156,0.85) 75%, rgba(251,140,171,0.85) 100%);
+	background: linear-gradient(180deg, rgba(54,1,103,0.85) 0%, rgba(107,7,114,0.85) 25%, rgba(207,38,138,0.85) 50%, rgba(230,92,156,0.85) 75%, rgba(251,140,171,0.85) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#360167",endColorstr="#fb8cab",GradientType=1); 
+	border-radius: 25px;
+	border: 1.5px solid white;
+}
 
 /**
  * ===========================
@@ -103,7 +173,6 @@ button:hover {}
 
 [data-screen="game"] [data-image] {}
 
-
 /* .fa-eye-slash {
 	opacity: 0;
 }
@@ -129,14 +198,28 @@ button:hover {}
  */
 
 [data-component="quick-menu"] {
-	bottom: 0;
+	/* bottom: 0;
 	top: auto;
-	color: white;
+	color: white; */
+	border: none;
+}
+
+[data-component="quick-menu"] button {
+	color: blue;
+}
+
+[data-component="quick-menu"] button:hover, [data-component="quick-menu"] button:focus {
+	/* bottom: 0;
+	top: auto;
+	color: white; */
+	border: none;
 }
 
 /* Quick Menu Buttons Style on Hover */
 
-[data-component="quick-menu"] span:hover {}
+[data-component="quick-menu"] span:hover {
+	/* bord */
+}
 
 /* Quick Menu Buttons Icon Style */
 
