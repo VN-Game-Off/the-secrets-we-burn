@@ -82,8 +82,9 @@ monogatari.translation('English', {
 	'Stats': 'Stats',
 	'Menu': 'Menu',
 	'Shop': 'Shop',
-	'Social Media': 'Social Media',
-	'More': 'More'
+	'SocialMedia': 'Social Media',
+	'More': 'More',
+	'BackupRestore': 'Backup & Restore'
 });
 
 
@@ -122,8 +123,8 @@ $_ready(() => {
 			},
 
 			{
-				string: 'Settings',
-				icon: 'fas fa-cog icon',
+				string: 'BackupRestore',
+				icon: 'fas fa-save icon',
 				data: {
 					action: 'open-screen',
 					open: 'settings'
@@ -137,10 +138,6 @@ $_ready(() => {
 					open: 'menu'
 				}
 			},
-
-
-
-
 
 		]
 

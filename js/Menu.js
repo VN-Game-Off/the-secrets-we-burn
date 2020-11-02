@@ -5,13 +5,33 @@ class Menu extends Monogatari.ScreenComponent {
         const buttonList = [
             {
                 string: 'Shop',
+                icon: 'fas fa-shopping-basket icon',
                 data: {
                     action: 'none'
                 }
             },
 
             {
+                string: 'Settings',
+                icon: 'fas fa-cog icon',
+                data: {
+                    action: 'open-screen',
+                    open: 'settings'
+                }
+            },
+
+            {
+                string: 'SocialMedia',
+                icon: 'fas fa-share-alt icon',
+                data: {
+                    action: 'open-screen',
+                    open: 'help'
+                }
+            },
+
+            {
                 string: 'Help',
+                icon: 'fas fa-question-circle icon',
                 data: {
                     action: 'open-screen',
                     open: 'help'
@@ -25,7 +45,9 @@ class Menu extends Monogatari.ScreenComponent {
             const element = document.createElement('button')
 
             element.innerHTML = `
-            <span data-action=${button.data.action} data-open=${button.data.open} data-string=${button.string}></span>
+            <span class="${button.icon}"></span>
+            <span data-action=${button.data.action} data-open=${button.data.open} data-string=${button.string}>
+            </span>
             `
             return element.outerHTML
         }).join(' ')

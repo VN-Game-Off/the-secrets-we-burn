@@ -42,12 +42,20 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	height:100%
 }
 
 .btn-container button{
 	background: none;
 	border-radius: 25px;
 	border: 2px solid white;
+	display: flex;
+	align-items: center;
+	width: 60%;
+}
+
+.btn-container button .icon{
+	width: 40%;
 }
 
 h3{
@@ -191,6 +199,7 @@ main-menu {
 	align-items: center;
 	position: absolute;
 	bottom: 0;
+	width:70%;
 }
 
 /* Main Menu Buttons Styling */
@@ -206,6 +215,7 @@ main-menu {
 	border: 1.5px solid white;
 	display: flex;
 	align-items: center;
+	width: 100%;
 	/* justify-content: center; */
 }
 
@@ -221,12 +231,15 @@ main-menu {
 	/* align-self: flex-start; */
 	/* text-align: left; */
 	/* margin-right: 5%; */
-	width:40%;
+	width:30%;
 }
 
 [data-screen="main"] .icon + span{
 	/* color: red; */
 	/* width: 45%; */
+	text-align: center;
+	align-self: center;
+	justify-self: center;
 }
 
 /**
