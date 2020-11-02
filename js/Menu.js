@@ -1,17 +1,5 @@
 class Menu extends Monogatari.ScreenComponent {
     render() {
-
-
-        const ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-        ui.start('#firebaseui-auth-container', {
-            signInOptions: [
-                firebase.auth.EmailAuthProvider.PROVIDER_ID
-            ],
-            // Other config options...
-        });
-
-
         // const autoSaveEnabled = this.engine.setting ('AutoSave') != 0 && typeof this.engine.setting ('AutoSave') === 'number'
 
         const buttonList = [
@@ -19,14 +7,6 @@ class Menu extends Monogatari.ScreenComponent {
                 string: 'Shop',
                 data: {
                     action: 'none'
-                }
-            },
-
-            {
-                string: 'Settings',
-                data: {
-                    action: 'open-screen',
-                    open: 'settings'
                 }
             },
 
@@ -52,6 +32,7 @@ class Menu extends Monogatari.ScreenComponent {
 
         return `
             <button class="top left" data-action="back"><span class="fas fa-arrow-left"></span></button>
+
             <h2 data-string="Menu">Load</h2>
             <div data-ui="inner-menu" class="btn-container">
             ${allButtons}
