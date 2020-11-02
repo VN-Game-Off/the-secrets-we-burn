@@ -20,16 +20,14 @@
 /* General Style */
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-
 @font-face {
-    font-family: 'League Spartan';
-    src: url('../assets/ui/fonts/leaguespartan-bold-webfont.woff2') format('woff2'),
-         url('../assets/ui/fonts/leaguespartan-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'League Spartan';
+	src: url('../assets/ui/fonts/leaguespartan-bold-webfont.woff2') format('woff2'), url('../assets/ui/fonts/leaguespartan-bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 
-*{
+* {
 	box-sizing: border-box;
 }
 
@@ -41,11 +39,11 @@ body {
 	font-family: 'Lato', sans-serif;
 }
 
-settings-screen{
+settings-screen {
 	color: white;
 }
 
-h2{
+h2 {
 	/* background: rgb(54,1,103);
 	background: -moz-linear-gradient(180deg, rgba(54,1,103,0.85) 0%, rgba(107,7,114,0.85) 25%, rgba(207,38,138,0.85) 50%, rgba(230,92,156,0.85) 75%, rgba(251,140,171,0.85) 100%);
 	background: -webkit-linear-gradient(180deg, rgba(54,1,103,0.85) 0%, rgba(107,7,114,0.85) 25%, rgba(207,38,138,0.85) 50%, rgba(230,92,156,0.85) 75%, rgba(251,140,171,0.85) 100%);
@@ -63,27 +61,84 @@ h2{
 	/* text-align: left; */
 }
 
-input[type="range"]{
-	-webkit-appearance: none;  /* Override default CSS styles */
+input[type="range"] {
+	-webkit-appearance: none;
+	/* Override default CSS styles */
 	appearance: none;
-	width: 100%; /* Full-width */
-	height: 25px; /* Specified height */
-	outline: none; /* Remove outline */
-	opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-	-webkit-transition: .2s; /* 0.2 seconds transition on hover */
+	width: 100%;
+	/* Full-width */
+	height: 25px;
+	/* Specified height */
+	outline: none;
+	/* Remove outline */
+	opacity: 0.7;
+	/* Set transparency (for mouse-over effects on hover) */
+	-webkit-transition: .2s;
+	/* 0.2 seconds transition on hover */
 	transition: opacity .2s;
+	display: inline-block;
+	text-align: center;
+	align-self: center;
+	justify-content: center;
+	align-content: center;
+	margin-right: 0;
+	margin-left: 0;
+	/* background-color: #9a905d; */
 }
 
-.top.left[data-action="back"]{
-	background-color: #00000000;
+input[type="range"]::-webkit-slider-runnable-track {
+	background: white;
+}
+
+input[type="range"]::-moz-range-track {
+	background: white;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	/* Override default look */
+	appearance: none;
+	width: 25px;
+	/* Set a specific slider handle width */
+	height: 25px;
+	/* Slider handle height */
+	border-radius: 100%;
+	/* Slider handle height */
+	background: linear-gradient(180deg, rgba(54, 1, 103, 0.85) 0%, rgba(107, 7, 114, 0.85) 25%, rgba(207, 38, 138, 0.85) 50%, rgba(230, 92, 156, 0.85) 75%, rgba(251, 140, 171, 0.85) 100%);
+	border: 2px solid white;
+	/* Green background */
+	cursor: pointer;
+	border-radius: 100%;
+	/* Cursor on hover */
+}
+
+input[type="range"]::-moz-range-thumb {
+	width: 25px;
+	/* Set a specific slider handle width */
+	height: 25px;
+	border-radius: 100%;
+	/* Slider handle height */
+	background: linear-gradient(180deg, rgba(54, 1, 103, 0.85) 0%, rgba(107, 7, 114, 0.85) 25%, rgba(207, 38, 138, 0.85) 50%, rgba(230, 92, 156, 0.85) 75%, rgba(251, 140, 171, 0.85) 100%);
+	border: 2px solid white;
+	/* Green background */
+	cursor: pointer;
+	/* Cursor on hover */
+}
+
+.top.left[data-action="back"] {
+	background-color: #242424;
 	border: 2px solid white;
 	border-radius: 15px;
-	
+	padding: 0;
 }
 
-.top.left{
-	
+.top.left[data-action="back"] .fa-arrow-left {
+	/* color: red; */
+	/* padding: 0;
+	margin: 0; */
 }
+
+.top.left {}
 
 /* Simple Button styles*/
 
@@ -124,11 +179,11 @@ main-menu {
 
 [data-screen="main"] button {
 	text-align: center;
-	background: rgb(54,1,103);
-	background: -moz-linear-gradient(180deg, rgba(54,1,103,0.85) 0%, rgba(107,7,114,0.85) 25%, rgba(207,38,138,0.85) 50%, rgba(230,92,156,0.85) 75%, rgba(251,140,171,0.85) 100%);
-	background: -webkit-linear-gradient(180deg, rgba(54,1,103,0.85) 0%, rgba(107,7,114,0.85) 25%, rgba(207,38,138,0.85) 50%, rgba(230,92,156,0.85) 75%, rgba(251,140,171,0.85) 100%);
-	background: linear-gradient(180deg, rgba(54,1,103,0.85) 0%, rgba(107,7,114,0.85) 25%, rgba(207,38,138,0.85) 50%, rgba(230,92,156,0.85) 75%, rgba(251,140,171,0.85) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#360167",endColorstr="#fb8cab",GradientType=1); 
+	background: rgb(54, 1, 103);
+	background: -moz-linear-gradient(180deg, rgba(54, 1, 103, 0.85) 0%, rgba(107, 7, 114, 0.85) 25%, rgba(207, 38, 138, 0.85) 50%, rgba(230, 92, 156, 0.85) 75%, rgba(251, 140, 171, 0.85) 100%);
+	background: -webkit-linear-gradient(180deg, rgba(54, 1, 103, 0.85) 0%, rgba(107, 7, 114, 0.85) 25%, rgba(207, 38, 138, 0.85) 50%, rgba(230, 92, 156, 0.85) 75%, rgba(251, 140, 171, 0.85) 100%);
+	background: linear-gradient(180deg, rgba(54, 1, 103, 0.85) 0%, rgba(107, 7, 114, 0.85) 25%, rgba(207, 38, 138, 0.85) 50%, rgba(230, 92, 156, 0.85) 75%, rgba(251, 140, 171, 0.85) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#360167", endColorstr="#fb8cab", GradientType=1);
 	border-radius: 25px;
 	border: 1.5px solid white;
 }
