@@ -34,16 +34,22 @@
 	color: #8d8379;
 }
 
+button {
+	width: 15rem;
+}
+
 /* settings-screen, menu-screen {
 	color: white;
 } */
+
+/* CUSTOM PAUSE MENU */
 
 .btn-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 70%
+	/* height: 70% */
 }
 
 .btn-container button {
@@ -51,10 +57,30 @@
 	/* border-radius: 25px;
 	border: 2px solid white; */
 	background: url('../assets/ui/buttonBg.png');
+	
 	display: flex;
 	align-items: center;
-	width: 60%;
+	/* width: 60%; */
+	width: 20rem;
 }
+
+.btn-container button.special{
+	background: url('../assets/ui/close.png');
+	background-size: 100% 100%;
+	border: 1.5px solid #89744b;
+}
+
+.btn-container button.special span{
+	color: #f8eee1;
+	text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.19);
+}
+
+.btn-container button.special svg path{
+	fill: #f8eee1;
+	text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.19);
+}
+
+
 
 .btn-container button .icon {
 	width: 40%;
@@ -86,6 +112,7 @@ h2 {
 	background-color: rgb(21, 23, 25);
 	opacity: 0.949;
 	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+
 	border-radius: 0;
 	padding: 0;
 	margin: .5rem;
@@ -128,6 +155,63 @@ h2 {
 	padding: 0;
 	margin: 0;
 }
+
+/* CUSTOM SKILLS SCREEN */
+
+.col {
+	display: flex;
+	flex-direction: column;
+}
+
+.col h3 {
+	border-top: 2px solid rgb(144, 122, 78);
+	border-bottom: 2px solid rgb(144, 122, 78);
+
+	font-size: 1.2rem;
+	
+	text-transform: uppercase;
+	font-weight: 400;
+	text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.6);
+
+	padding: 1% 0;
+	
+	margin-top: 4%;
+	margin-bottom: 4%;
+
+	background: url('../assets/ui/header.png');
+}
+
+.skill-container{
+	display: flex;
+	justify-content: center;
+
+	text-align: left;
+	width: 95%;
+
+	align-items: center;
+
+	margin: 0 auto;
+
+	/* margin-bottom: 10%; */
+}
+
+.skill-container div{
+	display: flex;
+	flex-direction: column;
+	margin-left: 2%;
+}
+
+.skill-container img {
+	width: 25%;
+}
+
+.skill-name{
+	color: #f8eee1;
+	font-family: 'Lora';
+	font-size: 1.5rem;
+}
+
+
 
 /* Simple Button styles*/
 
@@ -208,7 +292,7 @@ main-menu {
 	align-items: center;
 	position: absolute;
 	bottom: 0;
-	width: 70%;
+	/* width: 70%; */
 }
 
 /* Main Menu Buttons Styling */
@@ -220,7 +304,8 @@ main-menu {
 	/* border: 1.5px solid white; */
 	display: flex;
 	align-items: center;
-	width: 70%;
+	/* width: 70%; */
+	/* padding: 10%; */
 	/* justify-content: center; */
 }
 
@@ -241,6 +326,10 @@ main-menu {
 	text-align: center;
 	align-self: center;
 	justify-self: center;
+}
+
+[data-screen="main"] button span {
+	margin-right: 2%;
 }
 
 /**
@@ -388,20 +477,29 @@ main-menu {
  */
 
 [data-component="quick-menu"] {
-	/* bottom: 0;
-	top: auto;
-	color: white; */
-	/* border: none; */
 	background: none;
+
+	margin-top: 2%;
 }
 
-[data-component="quick-menu"] button {}
+[data-component="quick-menu"] button {
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(144, 122, 78);
+	background-color: rgb(21, 23, 25);
+	opacity: 0.90;
+	border-radius: 0;
+
+	width: 1.8rem;
+	height: 1.8rem;
+}
 
 [data-component="quick-menu"] button:hover, [data-component="quick-menu"] button:focus {
-	/* bottom: 0;
-	top: auto;
-	color: white; */
-	border: none;
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(144, 122, 78);
+	background-color: rgb(21, 23, 25);
+	opacity: 1;
 }
 
 /* Quick Menu Buttons Style on Hover */
@@ -412,13 +510,15 @@ main-menu {
 
 /* Quick Menu Buttons Icon Style */
 
-[data-component="quick-menu"]>span>.fa {}
+[data-component="quick-menu"]>span>.fa {
+
+}
 
 .transparent {
 	opacity: 0;
 }
 
-[data-component="new-menu"] {
+[data-component="quick-menu"] {
 	position: absolute;
 }
 
@@ -516,11 +616,22 @@ input[type="range"]::-moz-range-progress {
 @media screen and (min-width: 37.56255em) {
 	/* Styles for the desktop version of the Quick Menu */
 	/* Quick Menu Style */
-	[data-component="new-menu"] {}
+	[data-component="quick-menu"] {
+		bottom: 20px;
+		
+	}
 	/* Quick Menu Buttons Style */
-	[data-component="new-menu"] span {}
-	/* Quick Menu Buttons Style on Hover */
-	[data-component="new-menu"] span:hover {}
+	[data-component="quick-menu"] button {
+		width: auto;
+		height: auto;
+		padding: 0 1%;
+		
+		opacity: 1;
+	}
+
+	.skill-container img{
+		width: 100px;
+	}
 }
 
 /** Medium Devices, Tablets (992px)**/

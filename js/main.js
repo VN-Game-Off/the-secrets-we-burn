@@ -29,7 +29,8 @@
 const { $_ready, $_ } = Monogatari;
 
 // 1. Outside the $_ready function:
-monogatari.registerComponent(Menu);
+monogatari.registerComponent(Menu)
+monogatari.registerComponent(Skills)
 // monogatari.registerComponent(ElementNew);
 
 // monogatari.registerComponent(FinalSave);
@@ -90,6 +91,8 @@ const more = {
 	}
 }
 
+
+
 const buttonsWithIcons = [
 
 	{
@@ -148,8 +151,31 @@ monogatari.translation('English', {
 	'More': 'More',
 	'BackupRestore': 'Backup & Restore',
 	'History': 'History',
-	'MainMenu': 'Main Menu'
-});
+	'MainMenu': 'Main Menu',
+	'Skills': 'Skills'
+})
+
+
+monogatari.storage({
+	skills: {
+		combat: {
+			img: '',
+			name: '',
+			desc: ''
+		},
+		survival: {
+			img: '',
+			name: '',
+			desc: ''
+		},
+		interpersonal: {
+			img: '',
+			name: '',
+			desc: ''
+		},
+	}
+})
+
 
 
 $_ready(() => {
@@ -194,12 +220,14 @@ $_ready(() => {
 		monogatari.component('quick-menu').removeButton('Quit');
 		// monogatari.component('quick-menu').removeButton('Log');
 		monogatari.component('quick-menu').removeButton('AutoPlay');
+		// monogatari.component('quick-menu').addButton('Skip');
 
 		// Remove Main Menu buttons
 		monogatari.component('main-menu').removeButton('Load');
 		monogatari.component('main-menu').removeButton('Help');
 		monogatari.component('main-menu').removeButton('Settings');
 		monogatari.component('main-menu').removeButton('Start');
+
 
 		buttonsWithIcons.map((item) => {
 			monogatari.component('main-menu').addButton(item);
@@ -209,6 +237,7 @@ $_ready(() => {
 		// monogatari.component('main-menu').addButton(pauseMenuButton);
 		// monogatari.component('main-menu').addButton(settingsButton);
 		monogatari.component('quick-menu').addButton(more);
+
 	});
 
 });

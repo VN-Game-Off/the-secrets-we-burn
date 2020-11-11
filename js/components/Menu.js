@@ -5,6 +5,16 @@ class Menu extends Monogatari.ScreenComponent {
         const buttonList = [
 
             {
+                string: 'Skills',
+                icon: 'fas fa-user-plus icon',
+                data: {
+                    action: 'open-screen',
+                    open: 'skills'
+                }
+            },
+
+
+            {
                 string: 'Save',
                 icon: 'fas fa-save icon',
                 data: {
@@ -60,7 +70,7 @@ class Menu extends Monogatari.ScreenComponent {
 
         ]
 
-        const allButtons = buttonList.map((button) => {
+        const allButtons = buttonList.map((button, index) => {
 
             const element = document.createElement('button')
 
@@ -72,11 +82,24 @@ class Menu extends Monogatari.ScreenComponent {
                 element.setAttribute('data-open', button.data.open)
             }
 
-            element.innerHTML = `
+            if (index === 0) {
+                element.classList.add('special')
+
+                element.innerHTML = `
+                    <span class="${button.icon}"></span>
+                    <span data-string=${button.string}>
+                    </span>
+                `
+            }
+
+            else {
+
+                element.innerHTML = `
                 <span class="${button.icon}"></span>
                 <span data-string=${button.string}>
                 </span>
                 `
+            }
 
             return element.outerHTML
 
