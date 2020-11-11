@@ -15,7 +15,7 @@ class Menu extends Monogatari.ScreenComponent {
                 string: 'History',
                 icon: 'fas fa-comments icon',
                 data: {
-                    action: 'none'
+                    action: 'dialog-log'
                 }
             },
 
@@ -61,11 +61,25 @@ class Menu extends Monogatari.ScreenComponent {
 
             const element = document.createElement('button')
 
-            element.innerHTML = `
-            <span class="${button.icon}"></span>
-            <span data-action=${button.data.action} data-open=${button.data.open} data-string=${button.string}>
-            </span>
-            `
+            if (button.data.open != undefined) {
+
+                element.innerHTML = `
+                <span class="${button.icon}"></span>
+                <span data-action=${button.data.action} data-open=${button.data.open} data-string=${button.string}>
+                </span>
+                `
+            }
+
+            else {
+
+                element.innerHTML = `
+                <span class="${button.icon}"></span>
+                <span data-action=${button.data.action} data-string=${button.string}>
+                </span>
+                `
+
+            }
+
             return element.outerHTML
         }).join(' ')
 

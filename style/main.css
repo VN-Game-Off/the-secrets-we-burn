@@ -20,10 +20,7 @@
 /* General Style */
 
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
-
-
 @import url('https://fonts.googleapis.com/css2?family=Cambo&family=Lora:wght@400;500;600;700&family=PT+Serif&display=swap');
-
 @font-face {
 	font-family: 'League Spartan';
 	src: url('../assets/ui/fonts/leaguespartan-bold-webfont.woff2') format('woff2'), url('../assets/ui/fonts/leaguespartan-bold-webfont.woff') format('woff');
@@ -41,28 +38,30 @@
 	color: white;
 } */
 
-.btn-container{
+.btn-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height:70%
+	height: 70%
 }
 
-.btn-container button{
-	background: none;
-	border-radius: 25px;
-	border: 2px solid white;
+.btn-container button {
+	/* background: none; */
+	/* border-radius: 25px;
+	border: 2px solid white; */
+
+	background: url('../assets/ui/buttonBg.png');
 	display: flex;
 	align-items: center;
 	width: 60%;
 }
 
-.btn-container button .icon{
+.btn-container button .icon {
 	width: 40%;
 }
 
-h3{
+h3 {
 	font-size: 30px;
 }
 
@@ -73,8 +72,6 @@ h2 {
 	background: linear-gradient(180deg, rgba(54,1,103,0.85) 0%, rgba(107,7,114,0.85) 25%, rgba(207,38,138,0.85) 50%, rgba(230,92,156,0.85) 75%, rgba(251,140,171,0.85) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#360167",endColorstr="#fb8cab",GradientType=1); 
 	padding: 2% 0; */
-
-
 	background: url('../assets/ui/header.png');
 	background-size: cover;
 	font-weight: 400;
@@ -105,8 +102,6 @@ input[type="range"] {
 	background-color: #1b1d1e;
 	box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
 	/* padding: 5%; */
-
-
 	transition: opacity .2s;
 	display: inline-block;
 	text-align: center;
@@ -150,20 +145,16 @@ input[type="range"]::-webkit-slider-thumb {
 
 input[type="range"]::-moz-range-thumb {
 	width: 15px;
-
 	height: 25px;
-
 	/* border-style: solid;
 	border-width: 2px;
 	border-color: rgb(58, 50, 33); */
 	border: none;
 	background: url('../assets/ui/handler.png');
 	background-size: contain;
-
 	border-radius: 0;
 	cursor: pointer;
 	opacity: 1;
-
 }
 
 .top.left[data-action="back"] {
@@ -198,20 +189,18 @@ button:hover {}
 [data-screen]:not([data-screen="game"]) {
 	/* background: url("../assets/ui/pausebg.png"); */
 	/* color: white; */
-
 	border-style: solid;
 	border-width: 1px;
 	border-color: rgb(144, 122, 78);
 	background-color: #141618;
 	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
-
 	background-position: center;
 	background-size: cover;
 	font-family: 'Lato', sans-serif;
 	color: white;
 }
 
-h3{
+h3 {
 	color: rgb(204, 188, 170);
 }
 
@@ -236,7 +225,7 @@ main-menu {
 	align-items: center;
 	position: absolute;
 	bottom: 0;
-	width:70%;
+	width: 70%;
 }
 
 /* Main Menu Buttons Styling */
@@ -260,10 +249,10 @@ main-menu {
 	/* align-self: flex-start; */
 	/* text-align: left; */
 	/* margin-right: 5%; */
-	width:30%;
+	width: 30%;
 }
 
-[data-screen="main"] .icon + span{
+[data-screen="main"] .icon+span {
 	/* color: red; */
 	/* width: 45%; */
 	text-align: center;
@@ -301,7 +290,21 @@ main-menu {
 
 /* Choice Buttons style */
 
-[data-component="choice-container"] button {}
+[data-component="choice-container"] button {
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(144, 122, 78);
+	background-color: rgb(27, 29, 30);
+	opacity: 0.949;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+
+	color: #998f81;
+	text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35);
+	font-size: 1.2rem;
+	line-height: 1.412;
+	border-radius: 0;
+	width: 100%;
+}
 
 /* Choice Button Style on Hover */
 
@@ -309,11 +312,34 @@ main-menu {
 
 /* Text Box styling */
 
-[data-component="text-box"] {}
+[data-component="text-box"] {
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(69, 60, 42);
+	background-color: rgb(27, 29, 30);
+	box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.35);
+
+	color: rgb(106, 94, 83);
+	text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35);
+	font-size: 1.2rem;
+	line-height: 1.412;
+}
 
 /* Character Name Style */
 
-[data-ui="who"] {}
+[data-ui="who"] {
+	border-bottom: 1.5px solid rgb(144, 122, 78);
+	/* text-align: center; */
+	/* padding-top: 2%; */
+	font: 'Lora';
+}
+
+[data-ui="say"] {
+	/* border-bottom: 1.5px solid rgb(144, 122, 78); */
+	/* text-align: center; */
+	margin-top: 10px;
+	/* font: 'Lora'; */
+}
 
 /* Style for Centered Text */
 
@@ -355,11 +381,11 @@ main-menu {
 	/* bottom: 0;
 	top: auto;
 	color: white; */
-	border: none;
+	/* border: none; */
+	background: none;
 }
 
 [data-component="quick-menu"] button {
-	color: blue;
 }
 
 [data-component="quick-menu"] button:hover, [data-component="quick-menu"] button:focus {
@@ -378,7 +404,6 @@ main-menu {
 /* Quick Menu Buttons Icon Style */
 
 [data-component="quick-menu"]>span>.fa {
-	color: white;
 }
 
 /**

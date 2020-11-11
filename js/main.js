@@ -165,7 +165,7 @@ $_ready(() => {
 		monogatari.component('quick-menu').removeButton('Load');
 		monogatari.component('quick-menu').removeButton('Settings');
 		monogatari.component('quick-menu').removeButton('Quit');
-		monogatari.component('quick-menu').removeButton('Log');
+		// monogatari.component('quick-menu').removeButton('Log');
 		monogatari.component('quick-menu').removeButton('AutoPlay');
 
 		// Remove Main Menu buttons
