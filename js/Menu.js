@@ -12,6 +12,23 @@ class Menu extends Monogatari.ScreenComponent {
             },
 
             {
+                string: 'History',
+                icon: 'fas fa-comments icon',
+                data: {
+                    action: 'none'
+                }
+            },
+
+            {
+                string: 'MainMenu',
+                icon: 'fas fa-home icon',
+                data: {
+                    action: 'open-screen',
+                    open: 'main'
+                }
+            },
+
+            {
                 string: 'Settings',
                 icon: 'fas fa-cog icon',
                 data: {

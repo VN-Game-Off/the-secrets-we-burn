@@ -30,7 +30,7 @@ const { $_ready, $_ } = Monogatari;
 
 // 1. Outside the $_ready function:
 monogatari.registerComponent(Menu);
-// monogatari.registerComponent(Settings);
+// monogatari.registerComponent(ElementNew);
 
 
 // monogatari.component('quick-menu').removeButton('Save');
@@ -44,24 +44,24 @@ monogatari.registerComponent(Menu);
 // })
 
 
-function distractionFree() {
-	if (monogatari.global('playing')) {
-		// Check if the distraction free is currently enabled
-		if (monogatari.global('distraction_free') === true) {
-			// monogatari.element ().find ('[data-component="quick-menu"] [data-action="distraction-free"] [data-string]').text (monogatari.string ('Hide'));
-			// monogatari.element ().find ('[data-component="quick-menu"] [data-action="distraction-free"] [data-icon]').replaceWith ('<span class="fas fa-eye" data-action="distraction-free"></span>');
-			monogatari.element().find('[data-component="new-menu"]').removeClass('transparent');
-			monogatari.element().find('[data-component="text-box"]').show();
-			monogatari.global('distraction_free', false);
-		} else {
-			// monogatari.element ().find ('[data-component="quick-menu"] [data-action="distraction-free"] [data-string]').text (monogatari.string ('Show'));
-			// monogatari.element ().find ('[data-component="quick-menu"] [data-action="distraction-free"] [data-icon]').replaceWith ('<span class="fas fa-eye-slash" data-action="distraction-free"></span>');
-			monogatari.element().find('[data-component="new-menu"]').addClass('transparent');
-			monogatari.element().find('[data-component="text-box"]').hide();
-			monogatari.global('distraction_free', true);
-		}
-	}
-}
+// function distractionFree() {
+// 	if (monogatari.global('playing')) {
+// 		// Check if the distraction free is currently enabled
+// 		if (monogatari.global('distraction_free') === true) {
+// 			// monogatari.element ().find ('[data-component="quick-menu"] [data-action="distraction-free"] [data-string]').text (monogatari.string ('Hide'));
+// 			// monogatari.element ().find ('[data-component="quick-menu"] [data-action="distraction-free"] [data-icon]').replaceWith ('<span class="fas fa-eye" data-action="distraction-free"></span>');
+// 			monogatari.element().find('[data-component="new-menu"]').removeClass('transparent');
+// 			monogatari.element().find('[data-component="text-box"]').show();
+// 			monogatari.global('distraction_free', false);
+// 		} else {
+// 			// monogatari.element ().find ('[data-component="quick-menu"] [data-action="distraction-free"] [data-string]').text (monogatari.string ('Show'));
+// 			// monogatari.element ().find ('[data-component="quick-menu"] [data-action="distraction-free"] [data-icon]').replaceWith ('<span class="fas fa-eye-slash" data-action="distraction-free"></span>');
+// 			monogatari.element().find('[data-component="new-menu"]').addClass('transparent');
+// 			monogatari.element().find('[data-component="text-box"]').hide();
+// 			monogatari.global('distraction_free', true);
+// 		}
+// 	}
+// }
 
 document.addEventListener('mousedown', function (event) {
 	event.stopPropagation()
@@ -78,13 +78,75 @@ document.addEventListener('mousedown', function (event) {
 	}
 })
 
+
+const more = {
+	string: 'More',
+	icon: 'fas fa-bars icon',
+	data: {
+		action: 'open-screen',
+		open: 'menu'
+	}
+}
+
+const buttonsWithIcons = [
+
+	{
+		string: 'Start',
+		icon: 'fas fa-play icon',
+		data: {
+			action: 'start',
+		}
+	},
+
+	{
+		string: 'Load',
+		icon: 'fas fa-save icon',
+		data: {
+			action: 'open-screen',
+			open: 'load'
+		}
+	},
+
+	{
+		string: 'Settings',
+		icon: 'fas fa-cog icon',
+		data: {
+			action: 'open-screen',
+			open: 'settings'
+		}
+	},
+
+	{
+		string: 'SocialMedia',
+		icon: 'fas fa-share-alt icon',
+		data: {
+			action: 'open-screen',
+			open: 'help'
+		}
+	},
+
+	{
+		string: 'Help',
+		icon: 'fas fa-question-circle icon',
+		data: {
+			action: 'open-screen',
+			open: 'help'
+		}
+	},
+
+	
+
+]
+
 monogatari.translation('English', {
 	'Stats': 'Stats',
 	'Menu': 'Menu',
 	'Shop': 'Shop',
 	'SocialMedia': 'Social Media',
 	'More': 'More',
-	'BackupRestore': 'Backup & Restore'
+	'BackupRestore': 'Backup & Restore',
+	'History': 'History',
+	'MainMenu': 'Main Menu'
 });
 
 
@@ -112,41 +174,14 @@ $_ready(() => {
 		monogatari.component('main-menu').removeButton('Settings');
 		monogatari.component('main-menu').removeButton('Start');
 
-		const buttonsWithIcons = [
-
-			{
-				string: 'Start',
-				icon: 'fas fa-play icon',
-				data: {
-					action: 'start',
-				}
-			},
-
-			{
-				string: 'BackupRestore',
-				icon: 'fas fa-save icon',
-				data: {
-					action: 'open-screen',
-					open: 'settings'
-				}
-			},
-			{
-				string: 'More',
-				icon: 'fas fa-bars icon',
-				data: {
-					action: 'open-screen',
-					open: 'menu'
-				}
-			},
-
-		]
-
 		buttonsWithIcons.map((item) => {
 			monogatari.component('main-menu').addButton(item);
 		})
+
+		
 		// monogatari.component('main-menu').addButton(pauseMenuButton);
 		// monogatari.component('main-menu').addButton(settingsButton);
-		monogatari.component('quick-menu').addButton(buttonsWithIcons[buttonsWithIcons.length-1]);
+		monogatari.component('quick-menu').addButton(more);
 	});
 
 });
