@@ -3,19 +3,22 @@ class Menu extends Monogatari.ScreenComponent {
         // const autoSaveEnabled = this.engine.setting ('AutoSave') != 0 && typeof this.engine.setting ('AutoSave') === 'number'
 
         const buttonList = [
+
             {
-                string: 'Shop',
-                icon: 'fas fa-shopping-basket icon',
+                string: 'Save',
+                icon: 'fas fa-save icon',
                 data: {
-                    action: 'none'
+                    action: 'open-screen',
+                    open: 'save'
                 }
             },
 
             {
-                string: 'History',
-                icon: 'fas fa-comments icon',
+                string: 'Load',
+                icon: 'fas fa-redo icon',
                 data: {
-                    action: 'dialog-log'
+                    action: 'open-screen',
+                    open: 'load'
                 }
             },
 
@@ -82,7 +85,7 @@ class Menu extends Monogatari.ScreenComponent {
         return `
             <button class="top left" data-action="back"><span class="fas fa-arrow-left"></span></button>
 
-            <h2 data-string="Menu">Load</h2>
+            <h2 data-string="Menu"></h2>
             <div data-ui="inner-menu" class="btn-container">
             ${allButtons}
             </div>

@@ -32,6 +32,9 @@ const { $_ready, $_ } = Monogatari;
 monogatari.registerComponent(Menu);
 monogatari.registerComponent(ElementNew);
 
+// monogatari.registerComponent(FinalSave);
+
+
 
 // monogatari.component('quick-menu').removeButton('Save');
 // monogatari.component ('quick-menu').removeButton ('Load');
@@ -78,7 +81,6 @@ document.addEventListener('mousedown', function (event) {
 	}
 })
 
-
 const more = {
 	string: 'More',
 	icon: 'fas fa-bars icon',
@@ -100,7 +102,7 @@ const buttonsWithIcons = [
 
 	{
 		string: 'Load',
-		icon: 'fas fa-save icon',
+		icon: 'fas fa-redo icon',
 		data: {
 			action: 'open-screen',
 			open: 'load'
@@ -134,7 +136,7 @@ const buttonsWithIcons = [
 		}
 	},
 
-	
+
 
 ]
 
@@ -155,6 +157,31 @@ $_ready(() => {
 	// $_('[data-ui="quick-menu"] [data-action="back"]').remove ();
 
 	// console.log(menu)
+	monogatari.component('save-screen').template(() => {
+		return `
+				<button class="top left" data-action="back"><span class="fas fa-arrow-left"></span></button>
+				<h2 data-string="Save"></h2>
+				<div class="horizontal horizontal--center">
+					<input type="text" placeholder="Save Slot Name" data-input="slotName" data-content="slot-name" required>
+					<button data-string="Save" data-action="save">Save</button>
+				</div>
+				<div data-ui="slots" data-content="slots" class="row row--spaced padded">
+				<slot-container label=${monogatari.setting('SaveLabel')} type="save"></slot-container>
+				</div>
+			`
+	})
+
+	monogatari.component('dialog-log').template(() => {
+		return `
+			<button class="close-right" data-action="dialog-log"><span class="fas fa-times"></span></button>
+			<div class="modal__content">
+			<h2 data-string="History"></h2>
+				<div data-content="log">
+					<div class="text--center padded" data-string="NoDialogsAvailable" data-content="placeholder">No dialogs available. Dialogs will appear here as they show up.</div>
+					</div>
+			</div>
+		`
+	})
 
 	monogatari.init('#monogatari').then(() => {
 		// 3. Inside the init function:
@@ -165,7 +192,7 @@ $_ready(() => {
 		monogatari.component('quick-menu').removeButton('Load');
 		monogatari.component('quick-menu').removeButton('Settings');
 		monogatari.component('quick-menu').removeButton('Quit');
-		monogatari.component('quick-menu').removeButton('Log');
+		// monogatari.component('quick-menu').removeButton('Log');
 		monogatari.component('quick-menu').removeButton('AutoPlay');
 
 		// Remove Main Menu buttons
@@ -178,7 +205,7 @@ $_ready(() => {
 			monogatari.component('main-menu').addButton(item);
 		})
 
-		
+
 		// monogatari.component('main-menu').addButton(pauseMenuButton);
 		// monogatari.component('main-menu').addButton(settingsButton);
 		monogatari.component('quick-menu').addButton(more);
