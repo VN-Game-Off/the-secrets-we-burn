@@ -91,7 +91,7 @@ h2 {
 	margin: .5rem;
 	height: 2rem;
 	width: 2rem;
-	z-index: 99999;
+	/* z-index: 99999; */
 }
 
 .top.left[data-action="back"] .fa-arrow-left{
@@ -109,6 +109,7 @@ h2 {
 	opacity: 0.949;
 	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
 	border-radius: 0;
+
 	padding: 0;
 	margin: .5rem;
 	height: 2rem;
@@ -250,11 +251,27 @@ main-menu {
 
 /* Slots Style */
 
-[data-component="save-slot"] figure {}
+[data-component="save-slot"] {
+	border-style: solid;
+	border-width: 2px;
+	border-color: rgb(144, 122, 78);
+	background-color: rgb(21, 23, 25);
+	opacity: 0.949;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+
+	/* border-radius: 10px; */
+	/* padding: 2%; */
+}
 
 /* Slot's Image Style */
 
-[data-component="save-slot"] img {}
+[data-component="save-slot"] img {
+	/* border-radius: 10px 10px 0px 0px; */
+}
+
+[data-component="save-slot"] .background {
+	/* border-radius: 10px 10px 0px 0px; */
+}
 
 /* Slots Title Style */
 
@@ -262,8 +279,21 @@ main-menu {
 
 /* Slots Delete Button Style */
 
-[data-component="save-slot"] button {}
+[data-component="save-slot"] button {
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(144, 122, 78);
+	background-color: rgb(21, 23, 25);
+	opacity: 0.949;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 100%;
 
+	margin-right: 1%;
+}
+
+[data-component="save-slot"] .badge{
+	/* border-radius: 10px 0 0 0; */
+}
 /**
  * ===========================
  * Game Elements Styling
@@ -281,7 +311,7 @@ main-menu {
 	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
 	color: #998f81;
 	text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35);
-	font-size: 1.2rem;
+	/* font-size: 1.2rem; */
 	line-height: 1.412;
 	border-radius: 0;
 	width: 100%;
@@ -301,7 +331,7 @@ main-menu {
 	box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.35);
 	color: rgb(106, 94, 83);
 	text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35);
-	font-size: 1.2rem;
+	/* font-size: 1.2rem; */
 	line-height: 1.412;
 }
 
