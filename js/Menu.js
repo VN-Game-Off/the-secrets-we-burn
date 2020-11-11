@@ -61,26 +61,22 @@ class Menu extends Monogatari.ScreenComponent {
 
             const element = document.createElement('button')
 
+            element.setAttribute('icon', button.icon)
+            element.setAttribute('data-action', button.data.action)
+
             if (button.data.open != undefined) {
 
-                element.innerHTML = `
-                <span class="${button.icon}"></span>
-                <span data-action=${button.data.action} data-open=${button.data.open} data-string=${button.string}>
-                </span>
-                `
+                element.setAttribute('data-open', button.data.open)
             }
 
-            else {
-
-                element.innerHTML = `
+            element.innerHTML = `
                 <span class="${button.icon}"></span>
-                <span data-action=${button.data.action} data-string=${button.string}>
+                <span data-string=${button.string}>
                 </span>
                 `
-
-            }
 
             return element.outerHTML
+
         }).join(' ')
 
         return `

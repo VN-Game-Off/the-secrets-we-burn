@@ -406,6 +406,14 @@ main-menu {
 [data-component="quick-menu"]>span>.fa {
 }
 
+.transparent {
+	opacity: 0;
+}
+
+[data-component="new-menu"] {
+	position: absolute;
+}
+
 /**
  * ===========================
  * Range Styling

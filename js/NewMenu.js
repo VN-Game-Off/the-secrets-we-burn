@@ -1,54 +1,47 @@
 class ElementNew extends Monogatari.MenuComponent {
 
-    constructor() {
-        super()
-        this.state = {
-            button: {
+    render() {
 
+        const buttonList = [
+            {
                 string: 'Hide',
                 icon: 'fas fa-eye',
                 data: {
                     action: 'distraction-free'
                 }
+            },
+        ]
+
+        return buttonList.map((button) => {
+            // A user could create a custom element to display all or specific
+            // buttons. If no element was set on the button's definition, we'll
+            // assume it to be a simple button.
+            if (typeof button.element !== 'string') {
+                button.element = 'button';
             }
-        }
 
-    }
+            const element = document.createElement(button.element);
 
-    static init() {
-
-    }
-
-    render() {
-
-        // (this.global ('distraction_free') === true) {\n\t\t\t\tthis.element ().find ('[data-component=\"quick-menu\"] [data-action=\"distraction-free\"] [data-string]').text (this.string ('Hide'));\n\t\t\t\tthis.element ().find ('[data-component=\"quick-menu\"] [data-action=\"distraction-free\"] [data-icon]').replaceWith ('<span class=\"fas fa-eye\" data-action=\"distraction-free\"></span>');\n\t\t\t\tthis.element ().find ('[data-component=\"quick-menu\"]').removeClass ('transparent');\n\t\t\t\tthis.element ().find ('[data-component=\"text-box\"]').show ();\n\t\t\t\tthis.global ('distraction_free', false);\n\t\t\t} else {\n\t\t\t\tthis.element ().find ('[data-component=\"quick-menu\"] [data-action=\"distraction-free\"] [data-string]').text (this.string ('Show'));\n\t\t\t\tthis.element ().find ('[data-component=\"quick-menu\"] 
-
-        // if (this.global('distraction_free')){
-        //     console.log("Hidee")
-        // }
-
-        // const button =
-        const element = document.createElement('button')
-
-        if (typeof this.state.button.data === 'object') {
-            for (const key of Object.keys(this.state.button.data)) {
-                element.dataset[key] = this.state.button.data[key];
+            if (typeof button.data === 'object') {
+                for (const key of Object.keys(button.data)) {
+                    element.dataset[key] = button.data[key];
+                }
             }
-        }
 
-        element.setAttribute('icon', this.state.button.icon);
-        element.setAttribute('string', this.state.button.string);
+            element.setAttribute('icon', button.icon);
+            element.setAttribute('string', button.string);
 
-        element.setAttribute('tabindex', 0);
+            element.setAttribute('tabindex', 0);
 
-        element.innerHTML = `
-            <span class="${this.state.button.icon}"></span>
-            <span icon="" data-string="${this.state.button.string}"></span>
-        `;
+            element.innerHTML = `
+				<span class="${button.icon}"></span>
+				<span data-string="${button.string}"></span>
+			`;
 
-        return element.outerHTML
+            return element.outerHTML;
+        }).join(' ');
     }
 
 }
 
-ElementNew.tag = "new-menu";
+ElementNew.tag = 'new-menu';
