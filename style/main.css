@@ -616,6 +616,21 @@ input[type="range"]::-moz-range-progress {
 @media screen and (min-width: 37.56255em) {
 	/* Styles for the desktop version of the Quick Menu */
 	/* Quick Menu Style */
+
+	h2 {
+		padding-top: 2%;
+		margin-bottom: 2%;
+	}
+
+	.top.left[data-action="back"]{
+		top:2%;
+		left: 1%;
+		width:4rem;
+		height:4rem;
+	}
+
+
+
 	[data-component="quick-menu"] {
 		bottom: 20px;
 		
