@@ -30,7 +30,7 @@ const { $_ready, $_ } = Monogatari;
 
 // 1. Outside the $_ready function:
 monogatari.registerComponent(Menu);
-monogatari.registerComponent(ElementNew);
+// monogatari.registerComponent(ElementNew);
 
 // monogatari.registerComponent(FinalSave);
 
