@@ -76,6 +76,7 @@ h2 {
 
 
 	background: url('../assets/ui/header.png');
+	background-size: cover;
 	font-weight: 400;
 	color: rgb(185, 179, 171);
 	text-transform: uppercase;
