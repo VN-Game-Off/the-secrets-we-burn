@@ -35,8 +35,6 @@ monogatari.registerComponent(Skills)
 
 // monogatari.registerComponent(FinalSave);
 
-const key = config.KEY
-
 
 
 // monogatari.component('quick-menu').removeButton('Save');
