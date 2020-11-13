@@ -34,7 +34,6 @@ monogatari.registerComponent(Skills)
 // monogatari.registerComponent(ElementNew);
 
 // monogatari.registerComponent(FinalSave);
-const key = config.VAL
 
 // monogatari.component('quick-menu').removeButton('Save');
 // monogatari.component ('quick-menu').removeButton ('Load');
