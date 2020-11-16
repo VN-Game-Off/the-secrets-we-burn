@@ -203,6 +203,7 @@ h2 {
 
 .skill-container img {
 	width: 25%;
+	min-width: 25%;
 }
 
 .skill-name{
@@ -650,7 +651,12 @@ input[type="range"]::-moz-range-progress {
 
 /** Medium Devices, Tablets (992px)**/
 
-@media screen and (min-width: 62em) {}
+@media screen and (min-width: 62em) {
+	.skill-container img {
+		min-width: 200px;
+		width: 200px;
+	}
+}
 
 /** HD Screen, Large Devices, Wide Screens, Desktop (1200px) **/
 
