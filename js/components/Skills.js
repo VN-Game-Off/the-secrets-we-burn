@@ -13,7 +13,7 @@ class Skills extends Monogatari.ScreenComponent {
             <img src="./assets/ui/square.png"></img>
             <div>
                 <span class="skill-name" id="combat-name">???</span>
-                <span class="skill-desc" id="combat-desc">My greatest asset is yet to be discovered.</span>
+                <span class="skill-desc" id="combat-desc">My weapon of choice is yet to be known.</span>
             </div>
         </div>
 
@@ -22,7 +22,7 @@ class Skills extends Monogatari.ScreenComponent {
             <img src="./assets/ui/square.png"></img>
             <div>
                 <span class="skill-name" id="survival-name">???</span>
-                <span class="skill-desc" id="survival-desc">My greatest asset is yet to be discovered.</span>
+                <span class="skill-desc" id="survival-desc">To survive, my greatest asset has yet to be discovered.</span>
             </div>
         </div>
 
@@ -31,7 +31,7 @@ class Skills extends Monogatari.ScreenComponent {
             <img src="./assets/ui/square.png"></img>
             <div>
                 <span class="skill-name" id="interpersonal-name">???</span>
-                <span class="skill-desc" id="interpersonal-desc">My greatest asset is yet to be discovered.</span>
+                <span class="skill-desc" id="interpersonal-desc">My most advantageous trait has yet to be revealed.</span>
             </div>
         </div>
 
