@@ -212,6 +212,55 @@ h2 {
 	font-size: 1.5rem;
 }
 
+.right {
+	position: fixed;
+	right: 20%;
+	top:20%;
+	background-color: none;
+}
+
+.hideInput input {
+	display: none;
+}
+
+[type="submit"]{
+	background: url('../assets/ui/close.png');
+	border: 1px solid gold;
+}
+
+.imgChoice {
+	top: 20%;
+	left: -10%;
+}
+
+[data-speaking="n"]{
+	font-style: italic;
+}
+
+/* [data-choice="Bow & Arrow"]{
+	background-image: url('../assets/ui/skills/bow.png') !important;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 120%;
+	border: none !important;
+}
+[data-choice="Sword"]{
+	background-image: url('../assets/ui/skills/swords.png') !important;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 120%;
+	border: none !important;
+}
+[data-choice="Knuckle-Dusters"]{
+	background-image: url('../assets/ui/skills/fist.png') !important;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 120%;
+	border: none !important;
+} */
 
 
 /* Simple Button styles*/
@@ -255,21 +304,18 @@ h2[data-string="History"]{
 	height: 100%; */
 }
 
-dialog-log .modal__content [data-content="log"]{
-	/* max-width: 100%;
-	max-height: 100%; */
-}
-
 [data-string="Close"]{
 	background: url('../assets/ui/close.png');
 	padding: 10%;
 }
 
-[data-content="log"] {
-}
 
 h3 {
 	color: rgb(204, 188, 170);
+}
+
+.accent{
+	color: #3C85B1;
 }
 
 /**
@@ -404,7 +450,7 @@ main-menu {
 	/* font-size: 1.2rem; */
 	line-height: 1.412;
 	border-radius: 0;
-	width: 100%;
+	/* width: 100%; */
 }
 
 /* Choice Button Style on Hover */
