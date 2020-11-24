@@ -5,9 +5,7 @@ monogatari.storage({
 	player: {
 		name: ''
 	},
-
-	combat: {
-		url: 'EMPTY',
-		name: 'EMPTY'
-	}
+	combat: {},
+	survival: {},
+	interpersonal: {}
 });

@@ -150,7 +150,8 @@ monogatari.translation('English', {
 	'BackupRestore': 'Backup & Restore',
 	'History': 'History',
 	'MainMenu': 'Main Menu',
-	'Skills': 'Skills'
+	'Skills': 'Skills',
+	'Understood': 'Understood'
 })
 
 
