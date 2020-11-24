@@ -1,0 +1,4 @@
+Prologue_intro === winglessseraph
+Prologue_loop === winglesseraph  
+Saikai637 === winglessseraph (needs to be converted from .ogg) 
+Title_Castle === WarpedFantasyMusic Pack by Andrew Isaias
