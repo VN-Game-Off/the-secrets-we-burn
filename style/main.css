@@ -249,6 +249,13 @@ game-screen[data-screen="game"]{
 	overflow-y: hidden;
 }
 
+.NOTIF{
+	color: white;
+	/* -webkit-text-stroke: #141618 1px; */
+	/* font-weight: 400; */
+	text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55);
+}
+
 [data-speaking="n"]{
 	font-style: italic;
 }
@@ -258,6 +265,14 @@ game-screen[data-screen="game"]{
 	width: 100%; */
 	transform: translateY(-10%) scale(1.15);
 	/* overflow: hidden; */
+}
+
+.closer {
+	transform: translateY(-10%) scale(1.4);
+}
+
+.further {
+	transform: scale(1);;
 }
 
 /* [data-choice="Bow & Arrow"]{

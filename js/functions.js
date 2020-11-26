@@ -4,10 +4,10 @@ function notify(myText) {
     myNotification.appendChild(node);
     let gameScreen = document.querySelector("game-screen");
     gameScreen.appendChild(myNotification);
+    myNotification.classList.add("NOTIF")
     myNotification.classList.add("animated");
     myNotification.classList.add("fadeOutUp")
     myNotification.classList.add("right");
-    myNotification.classList.add("NOTIF")
 
     setTimeout(()=> {destroyNotif()}, 2000)
 }
