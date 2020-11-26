@@ -393,7 +393,16 @@ monogatari.script({
 		"m But— {{player.name}}, we’re adventurers. ",
 		"p We <i>were</i> adventurers. ",
 		"show character m sad",
-		"But you… you love adventuring. You love helping others!"
-		
+		"n But you… you love adventuring. You love helping others!",
+		"show character m happy",
+		"m {{player.name}}… Just trust me. Once you go, you’ll completely change your mind. I know it. I know <i>you.</i> ",
+		"m We have a whole <i>life</i> of adventures waiting for us! One full of no regrets.",
+		"show character m neutralSweat",
+		"m <i>I</i> don’t want you to regret anything… ",
+		"show character m shock",
+		"p There isn’t anything to regret. I like it here. It’s peaceful. Do you not like it here?"
+
+
+
 	]
 });
