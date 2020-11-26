@@ -349,7 +349,7 @@ monogatari.script({
 		"show character m angry",
 		"m You’re too young to be reminiscing glory days, {{player.name}}!",
 		"show character m shock",
-		"m Last year's {{combat.name}} could do serious damage. You practically tore through every monster you met! ",
+		"m Last year your {{combat.name}} could do serious damage. You practically tore through every monster you met! ",
 		"p That was then. ",
 		"n She places a hand tentatively on my shoulder. ",
 		"show character m sad",
