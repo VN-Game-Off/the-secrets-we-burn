@@ -9,6 +9,12 @@ monogatari.action('message').messages({
 			<p><a href='https://developers.monogatari.io/documentation/'>Documentation</a> - Everything you need to know.</p>
 			<p><a href='https://monogatari.io/demo/'>Demo</a> - A simple Demo.</p>
 		`
+	},
+	'Skill': {
+		title: 'TIP',
+		body: `
+		You’re about to make your first skill choice! Skill choices shape your hero, choose carefully. It could later mean life or death.
+		`
 	}
 });
 
@@ -62,7 +68,8 @@ monogatari.assets('sounds', {
 	'swordWoosh': 'Sword Woosh 1.wav',
 	'dullThud': 'Sword hit armor 1.wav',
 	'punch': 'Punch 2.wav',
-	'punch2': 'Punch 8.wav'
+	'punch2': 'Punch 8.wav',
+	'mudRun': 'Footsteps Dirt (Running) 5.wav'
 });
 
 // Define the videos used in the game.
@@ -83,12 +90,36 @@ monogatari.assets('scenes', {
 
 // Define the Characters
 monogatari.characters({
-	'y': {
-		name: 'Yui',
-		color: '#5bcaff'
-	},
 	'n': {
 		name: ''
+	},
+	'v': {
+		name: 'Voice'
+	},
+	'm': {
+		name: 'Maya',
+		directory: 'Maya',
+		sprites: {
+			angryBlush: 'MayaBlushAngry.png',
+			neutralBlush: 'MayaBlushNeutral.png',
+			shockBlush: 'MayaBlushShock.png',
+
+			angry: 'MayaAngry.png',
+			happy: 'MayaHappy.png',
+			neutral: 'MayaNeutral.png',
+			sad: 'MayaSad.png',
+			shock: 'MayaShock.png',
+
+			angrySweat: 'MayaSweatAngry.png',
+			happySweat: 'MayaSweatHappy.png',
+			neutralSweat: 'MayaSweatNeutral.png',
+			sadSweat: 'MayaSweatSad.png',
+			shockSweat: 'MayaSweatShock.png',
+
+			angryUI: 'MayaUIAngry.png',
+			happyUI: 'MayaUIHappy.png',
+			shockUI: 'MayaUIShock.png'
+		}
 	}
 });
 
@@ -102,12 +133,7 @@ monogatari.script({
 		'n From here the setting sun had only begun to soak the town below in its warm orange hue, and although beautiful, time is running out.',
 		'n I steady my breath, ready to pull back my favoured...',
 
-		{
-			'Input': {
-				'Text': '<b>TIP:</b> You’re about to make your first skill choice! Skill choices shape your hero, choose carefully. It could later mean life or death.',
-				'Class': 'hideInput'
-			}
-		},
+		"show message Skill",
 
 		{
 			'Choice': {
@@ -195,7 +221,7 @@ monogatari.script({
 
 	'TalkToMaya': [
 		"n My own hands don’t feel like they’re mine.",
-		"I try again to focus when a sudden, familiar voice calls out my name:",
+		"n I try again to focus when a sudden, familiar voice calls out my name:",
 		{
 			'Input': {
 				'Text': 'Enter your name',
@@ -208,8 +234,21 @@ monogatari.script({
 				'Revert': () => {
 					monogatari.storage({ player: { name: '' } });
 				},
-				'Warning': 'You must enter a name!'
+				'Warning': 'You must enter a name!',
+
+				'Attributes': {
+					'placeholder': 'Adel',
+					'minlength': 3,
+					'maxlength': 20
+				}
 			}
-		}
+		},
+		"play sound mudRun with loop",
+		"v {{player.name}}!",
+		"stop sound mudRun with fade 2",
+		"n I pivot back, catching the owner of the voice sprinting up the hillside. She waves at me wildly, balancing the bounce in her gait with the bobbing satchel at her hip.",
+		"show character m shock with zoomIn",
+		"My best friend, Maya.",
+		"show character"
 	]
 });

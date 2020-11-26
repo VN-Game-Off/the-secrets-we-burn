@@ -28,6 +28,10 @@
 	font-style: normal;
 }
 
+html{
+	overflow: hidden;
+}
+
 * {
 	box-sizing: border-box;
 	font-family: 'Cambo', sans-serif;
@@ -90,7 +94,7 @@ h3 {
 	font-size: 30px;
 }
 
-h2 {
+h2, [data-content="title"] {
 	background: url('../assets/ui/header.png');
 	background-size: cover;
 	font-weight: 400;
@@ -103,6 +107,14 @@ h2 {
 	display: inline-block;
 	vertical-align: middle;
 	padding-bottom: 2%;
+}
+[data-content="title"]{
+	width: 100%;
+	background: none;
+}
+
+[data-content="body"]{
+	text-align: center;
 }
 
 .top.left[data-action="back"]{
@@ -233,8 +245,19 @@ h2 {
 	left: -10%;
 }
 
+game-screen[data-screen="game"]{
+	overflow-y: hidden;
+}
+
 [data-speaking="n"]{
 	font-style: italic;
+}
+
+[data-character="m"]{
+	/* height: 100%;
+	width: 100%; */
+	transform: translateY(-10%) scale(1.15);
+	/* overflow: hidden; */
 }
 
 /* [data-choice="Bow & Arrow"]{
@@ -304,9 +327,13 @@ h2[data-string="History"]{
 	height: 100%; */
 }
 
+message-modal div{
+	padding: 0;
+}
+
 [data-string="Close"]{
 	background: url('../assets/ui/close.png');
-	padding: 10%;
+	/* padding: 10%; */
 }
 
 

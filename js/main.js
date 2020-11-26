@@ -212,7 +212,7 @@ $_ready(() => {
 		// 3. Inside the init function:
 
 		// Remove Quick Menu Buttons
-		monogatari.component('quick-menu').removeButton('Back');
+		// monogatari.component('quick-menu').removeButton('Back');
 		monogatari.component('quick-menu').removeButton('Save');
 		monogatari.component('quick-menu').removeButton('Load');
 		monogatari.component('quick-menu').removeButton('Settings');
