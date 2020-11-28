@@ -1162,7 +1162,7 @@ monogatari.script({
 		"n Whilst most people in Hwen meant no harm, it wasn’t a place the average contractor came for ‘heroic feats’.",
 		'n No, it was probably just errands going to the highest bidder. ',
 		"n Maybe if we’re lucky, we might gather the lost sheep of a wealthy farmer, or play private investigator for the adulterous couple. ",
-		'show character m shock with bounceIn',
+		'show character m shock with bounceIn at closer',
 		'm How long were you planning to wallow in front of the guild?',
 		'p Maya! How long have you been here?',
 		'p I was about to go find you.',
