@@ -21,6 +21,12 @@ monogatari.action('message').messages({
 		body: `
 		Some choices shape your personality. Personality choices will begin to affect your future interactions.
 		`
+	},
+	'Valour': {
+		title: 'TIP',
+		body: `
+		Valour represents your experience as an adventurer. Make choices that increase your skills in the face of adversity.
+		`
 	}
 });
 
@@ -56,7 +62,7 @@ monogatari.assets('gallery', {
 
 // Define the music used in the game.
 monogatari.assets('music', {
-
+	'Day1': '2_Day_1_Master.mp3'
 });
 
 // Define the voice files used in the game.
@@ -66,21 +72,35 @@ monogatari.assets('voices', {
 
 // Define the sounds used in the game.
 monogatari.assets('sounds', {
+
 	'arrowFly': 'Arrow Flying Past 1.wav',
+	'arrowFly2': 'Arrow Flying Past 2.wav',
+	'arrowFly3': 'Arrow Flying Past 3.wav',
+
 	'pullString': 'Pulling string back (Bow) 1.wav',
 	'pullString2': 'Pulling string back (Bow) 15.wav',
-	'arrowFly2': 'Releasing string (Bow) 13.wav',
+	'releaseString': 'Releasing string (Bow) 13.wav',
+
 	'unsheathe': 'Sword Unsheathed Sound Effect - High Quality.mp3',
 	'swordWoosh': 'Sword Woosh 1.wav',
+	'swordWoosh2': 'Sword Woosh 9.wav',
+	'swordWoosh3': 'Sword Woosh 11.wav',
 	'dullThud': 'Sword hit armor 1.wav',
+
 	'punch': 'Punch 2.wav',
 	'punch2': 'Punch 8.wav',
-	'mudRun': 'Footsteps Dirt (Running) 5.wav',
+
 	'water': 'Water 8.wav',
+	'wind': 'wind.mp3',
+
 	'rustle': 'rustle.mp3',
 	'rustle2': 'rustle2.mp3',
-	'wind': 'wind.mp3',
-	'footstepsFour': 'footstepsLoop.mp3'
+	'rustle3': 'plastic bag rustle.mp3',
+	'rustle4': 'ShakeSmallTarp.mp3',
+
+	'mudRun': 'Footsteps Dirt (Running) 5.wav',
+	'footstepsFour': 'footstepsLoop.mp3',
+	'bell': 'Bell Sound Effect.mp3'
 });
 
 // Define the videos used in the game.
@@ -95,7 +115,8 @@ monogatari.assets('images', {
 
 // Define the backgrounds for each scene.
 monogatari.assets('scenes', {
-	'sunsetMountain': 'sunsetMountain.jpg'
+	'sunsetMountain': 'sunsetMountain.jpg',
+	'nightTown': 'ID003_Western-Castle_night.jpg'
 });
 
 
@@ -110,6 +131,13 @@ monogatari.characters({
 
 	'p': {
 		name: '{{player.name}}'
+	},
+	
+	'b': {
+		name: '{{baker}}',
+		sprites: {
+			base: 'baker.png'
+		}
 	},
 
 	'm': {
@@ -150,6 +178,7 @@ monogatari.script({
 	// The game starts here.
 	'Start': [
 		'show scene sunsetMountain',
+		'play music Day1',
 		'n I was not followed.',
 		'n I make sure of it as I set down my satchel, flask, and belongings on the weathered grass, glancing occasionally behind.',
 		'n I know I have nothing to hide. Nothing that would be seen as dangerous, or questionable, but I didn’t need the attention.',
@@ -196,7 +225,7 @@ monogatari.script({
 		"n In the same beat, I reach for my side-belt quiver and draw the next arrow.",
 		"n I convince myself that I am pushing out a fog from my mind’s eye.",
 		"n That I only need practice.",
-		"play sound arrowFly2",
+		"play sound releaseString",
 		"n The arrow falters again.",
 		"n And again.",
 		"n At one point, when I held a bow, I felt most like myself, but now…",
@@ -683,7 +712,254 @@ monogatari.script({
 
 		'play sound footstepsFour',
 		'n I try to stop her, but like the trickster she is, Maya effortlessly slips out of my grasp. ',
-		'hide character m with zoomOut'
+		'hide character m with bounceOut',
+		'play sound rustle2',
+		'n An ache courses through my body. Partly from training, partly from being friends with Maya. ',
+		'n Maya’s always been a trouble-maker, but she wasn’t wrong. I have been getting rustier, even while practising every day.',
+		'n There’s still some time before tonight. ',
+		'n If I practice further, I could redeem some of today. Get some confidence before whatever’s next.',
+		'n Or I might just end up worsening my technique. ',
+		{
+			'Choice': {
+				'Push myself and continue training': {
+					'Text': 'Push myself and continue training',
+					'Do': 'jump PushChoice'
+				},
+				'Finish training and rest': {
+					'Text': 'Finish training and rest',
+					'Do': 'jump StopRestChoice'
+				}
+			}
+		}
+	],
+
+	'PushChoice': [
+		'show message Valour',
+		function () {
+			increaseValour(5)
+			notify(`+5 Valour`)
+			monogatari.storage().trained = true
+		},
+		'n More practice seems like a reasonable decision.',
+		'n Going up against local adventurers, even Hwen ones, requires me to be in better shape. ',
+		'n I stand upright. Now that the sun has settled, there’s a cool breeze against my cheek. ',
+		'n It’s quiet enough to focus.',
+
+		{
+			'Conditional': {
+				'Condition': checkWeapon,
+				'bow': 'jump BowPushTrain',
+				'sword': 'jump SwordPushTrain',
+				'fists': 'jump FistsPushTrain'
+			}
+		},
+	],
+
+	'BowPushTrain': [
+		'n The row of trees further back make for decent enough targets. ',
+		'n They’re far enough that I can ignore my earlier arrows. The ones now embedded in the soil. ',
+		{
+
+			'Choice': {
+				'Line up an arrow': {
+					'Text': 'Line up an arrow',
+					'Do': 'next'
+				}
+			}
+		},
+
+		'play sound pullString3',
+
+		'n The first arrow hits the ground with a humiliating thwack, just like before. ',
+
+		'play sound arrowFly',
+
+		'n The next shot is the same. ',
+		'n Victory only comes to me when an arrow finally connects with the base of a tree trunk. ',
+		'play sound rustle2',
+		'n It almost makes the heat in my upper back worth it. ',
+		'n My focus shifts from the posture of my arm and bow, and more on the targets before me. ',
+		{
+			'Choice': {
+				'Keep going': {
+					'Text': 'Keep going',
+					'Do': 'next'
+				}
+			}
+		},
+
+		'play sound arrowFly2 loop',
+		'Every shot after becomes more desperate and wild, I only care about the results. ',
+		'stop sound with fade 2',
+		'jump PushTrainEnd'
+	],
+
+	'SwordPushTrain': [
+		'play sound unsheathe',
+		'n I point my sword southwards, slipping from a ready position I navigate between offensive and defensive manoeuvres.',
+		'play sound swordWoosh2',
+		'n One, strike. Two, counterstrike.',
+		'play sound dullThud',
+		'n Three, raise the hilt besides my temple and strike forward. ',
+		{
+			'Choice': {
+				'Down and across!': {
+					'Text': 'Down and across!',
+					'Do': 'next'
+				}
+			}
+		},
+		'n With every step, I leave no room for interference. ',
+		'n Too much force and I’ll send myself flying, too little, and I won’t make a dent. ',
+		{
+			'Choice': {
+				'Keep going': {
+					'Text': 'Keep going',
+					'Do': 'next'
+				}
+			}
+		},
+
+		'play sound swordWoosh loop',
+		'n I resolve to wild swinging, hoping to build mobility and power. ',
+		'stop sound with fade 2',
+		'n Every ache will make me stronger come tomorrow. ',
+		'jump PushTrainEnd'
+	],
+
+	'FistsPushTrain': [
+		'n I wince, slipping the carved knuckle-dusters back over my fingers. ',
+		'n There are aches and pains. I ignore them and envision my target. Focus, {{player.name}}. ',
+		{
+			'Choice': {
+				'Envision': {
+					'Text': 'Envision',
+					'Do': 'next'
+				}
+			}
+		},
+		'play sound rustle',
+		'n The stray tree ahead becomes the face, the neck, the stomach, even the small of a would-be enemy’s back. ',
+		'n Knees bent and heel raised, I throw my shot.',
+		'play sound punch2',
+		'n The first punch lacks weight. ',
+		{
+			'Choice': {
+				'Try again': {
+					'Text': 'Try again',
+					'Do': 'next'
+				}
+			}
+		},
+		'play sound punch loop',
+		'I cross over to my rear hand, the one I use to guard, and throw continuous punches at the bare bark. ',
+		'My knuckles burn.',
+		'stop sound with fade 2',
+		{
+			'Choice': {
+				'Keep going': {
+					'Text': 'Keep going',
+					'Do': 'next'
+				}
+			}
+		},
+		'play sound punch2 loop',
+		'n I keep going, grazing my hands with attempted uppercuts and wide punches. ',
+		'stop sound with fade 2',
+		'n Unfurling my bruised hands, I step back. I barely see an indent left behind in the trunk. ',
+		'jump PushTrainEnd'
+	],
+
+	'PushTrainEnd': [
+		'n After more rounds, the warm purple and orange tones of the sky slip into a star-spangled blackness. ',
+		// CHANGE BG HERE
+		'play sound bell',
+		'n In the distance the curfew bells harmonise, stirring the local wildlife. ',
+		'play sound rustle3',
+		'n Although it’s safe to be out, it would be unwise to stay any longer. ',
+		'n I pack up my things and make my way down the hill. ',
+		'n Every step is weighted and I wish for nothing more than to throw myself into a hot spring.',
+		'n But Maya has made other plans for me. ',
+
+		'jump Evening'
+	],
+
+	'StopRestChoice': [
+		'show message Valour',
+		function(){
+			increaseValour(10)
+			notify(`+10 Valour`)
+		},
+		'n It’s best not to risk it. ',
+		'n Whatever happens from here on will require my full attention. I’ll find somewhere to rest nearby.',
+		'n With my bag slung over my shoulder, I venture back down the hillside towards the town. ',
+		'show scene nightTown with fadeIn',
+		// SFX: Quiet town ambience
+		'n On the other side, the roads are calm with only a few stray stragglers making their way home. ',
+		{
+			'Choice': {
+				'Find the guild':{
+					'Text': 'Find the guild',
+					'Do': 'next'
+				}
+			}
+		},
+		'show character b base with fadeIn',
+		'b Warm rye, fresh rye! Squire’s loaves and a baker’s dozen!',
+		'b {{player.name}}! Is that you lurking about?',
+		'b Don’t be a stranger! I have a gift for you!',
+		'n My eyes meet with the enthusiastic figure in the shadows, lifting a lantern towards me. ',
+		'n Under the subtle glow, his body sits slumped opposite a butcher’s shop. His cart resting just off the side of the road. ',
+		function(){
+			monogatari.storage().baker='Rohese'
+		},
+		'p Are you not going home?',
+		'b Of course, there’s near no-one to sell to so late, except the drunkards.',
+		'play sound rustle4',
+		'n From his cart he pulls out an item wrapped in paper and presents it to me. ',
+		'b But drunkards don’t appreciate genius. Try this.',
+		{
+			'Choice': {
+				'Politely decline':{
+					'Text': 'Politely decline',
+					'Do': 'jump FriendlyDecline'
+				},
+				'Jokingly decline': {
+					'Text': 'Jokingly decline',
+					'Do': 'jump PlayfulDecline'
+				},
+				'Assertively decline': {
+					'Text': 'Assertively decline',
+					'Do': 'jump AssertiveDecline'
+				}
+			}
+		},
+	],
+
+	'FriendlyDecline': [
+		updatePersonality(friendly, 1),
+		notify(`+${friendly}`),
+		'p I’m not so hungry, but thank you.',
+		'jump AfterDecline'
+	],
+
+	'PlayfulDecline': [
+		updatePersonality(joking, 1),
+		notify(`+${joking}`),
+		'p I try not to make a habit of taking unidentified items from curious street vendors.',
+		'jump AfterDecline'
+	],
+
+	'AssertiveDecline': [
+		updatePersonality(assertive, 1),
+		notify(`+${assertive}`),
+		'I would rather not.',
+		'jump AfterDecline'
+	],
+
+	'AfterDecline': [
+		'Hello'
 	]
+
 
 });

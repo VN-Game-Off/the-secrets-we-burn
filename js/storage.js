@@ -8,6 +8,8 @@ monogatari.storage({
 		gender: '',
 	},
 
+	baker: 'Crier',
+
 	hp:60,
 	valor: 0,
 
@@ -17,5 +19,7 @@ monogatari.storage({
 
 	combat: {},
 	survival: {},
-	interpersonal: {}
+	interpersonal: {},
+
+	trained: false
 });

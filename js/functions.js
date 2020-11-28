@@ -33,6 +33,25 @@ function checkPersonality () {
     return assertive
 }
 
+function checkWeapon(){
+
+    if (monogatari.storage('combat').name==='Bow & Arrow'){
+        return 'bow'
+    }
+
+    else if (monogatari.storage('combat').name==='Fists'){
+        return 'fists'
+    }
+
+    return 'sword'
+}
+
+function increaseValour(value){
+    const toUpdate = monogatari.storage('valour')
+    monogatari.storage().valour = toUpdate+value
+    
+}
+
 function destroyNotif () {
     const toDestroy = document.getElementsByClassName("NOTIF")
     // console.log(toDestroy)
