@@ -1627,7 +1627,7 @@ monogatari.script({
 
 				'Refuse, it seems like a hassle': {
 					'Text': 'Refuse, it seems like a hassle',
-					'Do': 'RefuseSharply'
+					'Do': 'jump RefuseSharply'
 				},
 
 				'Help Maya out, it can’t hurt': {
@@ -2135,7 +2135,33 @@ monogatari.script({
 
 		'show character m sad',
 		'm No… no, something smells fishy here. ',
-		'p Yeah, Maya. That’s the smell of people.'
+		'p Yeah, Maya. That’s the smell of people.',
+		
+		'show character m angry',
+		'm Sometimes you are so rude.',
+		
+		'show character m neutral',
+		'm OK, alternative plan! You sit down; I have something I want to check.',
+		
+		'show character m happyUI',
+		'm Great!',
+
+		'hide character m with fadeOut',
+		'n Maya bounces off in the other direction, leaving me in a corner away from the rest of the guild. ',
+
+		// SFX: Crowd Laughing,
+
+		'n I expect her to be shooed away, but after a risky joke or two she fits right in. ',
+		'n Are my people skills that awful?',
+
+		'n …Is that even something I can fix?',
+
+		'jump Information'
+	],
+
+
+	'Information': [
+		
 	]
 
 
