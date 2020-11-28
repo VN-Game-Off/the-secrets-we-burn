@@ -857,7 +857,7 @@ monogatari.script({
 		'n The headache coming over me pales in comparison to what Maya has signed me up for.',
 		{
 			'Conditional': {
-				'Condition': function(){
+				'Condition': function () {
 					return checkPersonality()
 				},
 
@@ -930,7 +930,7 @@ monogatari.script({
 
 		{
 			'Conditional': {
-				'Condition': function(){
+				'Condition': function () {
 					imgNotify('combat')
 					return checkWeapon()
 				},
@@ -1623,17 +1623,23 @@ monogatari.script({
 				'Don’t bother': {
 					'Text': 'Don’t bother',
 					'Do': 'jump DontBother'
-				},
-
-				'Help Maya out, it can’t hurt': {
-					'Text': 'Help Maya out, it can’t hurt',
-					'Do': 'jump CollectIntel'
-				},
+				},	
 
 				'Refuse, it seems like a hassle': {
 					'Text': 'Refuse, it seems like a hassle',
 					'Do': 'RefuseSharply'
-				}
+				},
+
+				'Help Maya out, it can’t hurt': {
+					'Text': `<i class="fas fa-gem"></i>Help Maya out, it can’t hurt
+
+					`,
+					'Do': 'jump CollectIntel',
+					'Clickable': function () {
+						return document.monetization && document.monetization.state === 'started'
+					},
+					'Class': 'special tooltip'
+				},
 			}
 		}
 
@@ -1802,7 +1808,10 @@ monogatari.script({
 				},
 				'Stop Looking': {
 					'Text': 'Stop looking',
-					'Do': 'jump StopLooking'
+					'Do': 'jump StopLooking',
+					'Clickable': function () {
+						return monogatari.storage('booth') && monogatari.storage('desk') && monogatari.storage('bar')
+					}
 				}
 			}
 		}
@@ -1926,16 +1935,16 @@ monogatari.script({
 		'm We would know something if people were nicer!',
 		'show character m sad',
 		'm Let’s just try somewhere else.',
-		
+
 		'jump CollectIntelCheckpoint'
 	],
-	
-	
+
+
 	'FrontDesk': [
 		function () {
 			monogatari.storage().desk = true
 		},
-		
+
 		'p Can’t go wrong with the first line of defence.',
 		'show character m shock',
 		'm How did I never see the front desk?',
@@ -1944,15 +1953,15 @@ monogatari.script({
 
 		'hide character m',
 		'n I put myself in line, ready to secure something more official than the odd rumour.',
-		
+
 		'play sound rustle2',
 		'n We step forward.',
 		'rn Hwen’s Adventurer guild, which expedition are you submitting?',
 		'p Oh, we’re not submitting anything. We have some questions.',
-		
+
 		'rn The front desk is for applications and request fulfilment.',
 		'p What about general inquiries?',
-		
+
 		'rn We don’t <i>do</i> general inquiries. Try the town crier, next.',
 		'show character m shock with fadeIn',
 		'm The town crier isn’t back till morning!',
@@ -1978,41 +1987,41 @@ monogatari.script({
 		'show character m neutral',
 		'p We could try window seats?',
 		'p They seem to be gathering a crowd.',
-		
+
 		'n She nods thoughtfully.',
 
 		'show character m happy',
 		'm I’m feeling hopeful. Let’s do it.',
 		'play sound footstepsFour',
 		'n Up ahead, the dimly lit booths are surrounded by an observant crowd.',
-		
+
 		'play sound cards',
 		'n No-one notices our approach. Rather, their scrutiny is focused on two seated players.',
-		
+
 		'n The one closest to us is an older man with stark white hair and a peppered beard, unbothered by the onlookers.',
-		
+
 		'n The other is a woman with a sharp freckled face and beige locks cut just below her chin.',
 		'show character m happyUI',
-		
+
 		'm Room for two more?',
 		'show character m happy',
-		
+
 		'n No-one looks up.',
-		
+
 		'om It’s a two-person game, bugger off.',
 		'show character m angry',
-		
+
 		'n Maya brow twitches at the response.',
-		
+
 		'p That might be the best we’re going to get. We should just go.',
 		'show character m sad',
-		
+
 		'n She sighs, taking a half step in the other direction, then stops.',
 		'show character m shock',
 		'm It’s just, for a two person game you both play so <i>poorly.</i>',
-		
+
 		'p Ma—<i>Ow!</i>',
-		
+
 		'play sound dullThud',
 		'show character m neutral',
 		'n A dull pain shoots through my toes, a warning to keep my mouth shut.',
@@ -2021,11 +2030,11 @@ monogatari.script({
 		'om Big words from a small lass.',
 		'om I suggest you start learning to mind your own business.',
 		'om It’ll save you a lot of trouble.',
-		
+
 		'show character m happy',
 		'm Oh, we will.',
 		'm We just thought you could use some tips.',
-		
+
 		'n She glances overs over the board.',
 		'show character m sadSweat',
 		'm It’s the least we could do.',
@@ -2033,7 +2042,7 @@ monogatari.script({
 		'n I regret offering my help.',
 		{
 			'Conditional': {
-				'Condition': function(){
+				'Condition': function () {
 					imgNotify('survival')
 					return checkSurvival()
 				},
@@ -2044,7 +2053,7 @@ monogatari.script({
 		}
 	],
 
-	'PerceptionBluff':[
+	'PerceptionBluff': [
 		'p Anyone can tell you aren’t playing fairly.',
 		'n It’s fortunate that I don’t have to bluff. ',
 		'n It takes me glance to notice this game variation heavily favours one player.',
@@ -2071,7 +2080,7 @@ monogatari.script({
 
 		'om Is that a threat?',
 
-		function(){
+		function () {
 			checkGender()
 		},
 
@@ -2113,9 +2122,22 @@ monogatari.script({
 		'fw Let’s go, father.',
 		'vibrate 100',
 		'She clips my shoulder on the way out. ',
+		'jump CollectIntelCheckpoint'
+	],
 
-		'fw Let’s go, father. ' 
+	'StopLooking': [
+		'p Maybe, we should call it a night?',
+		'show character m shock',
+		'm What? No, we just got here!',
+		'p Yeah, two hours ago.',
+		'p Any longer and we’ll start aggravating people. ',
+		'p You said it yourself, we’re <i>rusty.</i>',
+
+		'show character m sad',
+		'm No… no, something smells fishy here. ',
+		'p Yeah, Maya. That’s the smell of people.'
 	]
+
 
 
 });
