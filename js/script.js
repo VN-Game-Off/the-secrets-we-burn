@@ -48,116 +48,116 @@ monogatari.action('notification').notifications({
 
 // Define the Particles JS Configurations used in the game
 monogatari.action('particles').particles({
-    'fireSparks': {
-        'particles': {
-            'number': {
-                'value': 400,
-                'density': {
-                    'enable': true,
-                    'value_area': 3000
-                }
-            },
-            'color': {
-                'value': '#fc0000'
-            },
-            'shape': {
-                'type': 'circle',
-                'stroke': {
-                    'width': 0,
-                    'color': '#000000'
-                },
-                'polygon': {
-                    'nb_sides': 3
-                },
-                'image': {
-                    'src': 'img/github.svg',
-                    'width': 100,
-                    'height': 100
-                }
-            },
-            'opacity': {
-                'value': 0.5,
-                'random': true,
-                'anim': {
-                    'enable': false,
-                    'speed': 1,
-                    'opacity_min': 0.1,
-                    'sync': false
-                }
-            },
-            'size': {
-                'value': 2,
-                'random': true,
-                'anim': {
-                    'enable': true,
-                    'speed': 5,
-                    'size_min': 0,
-                    'sync': false
-                }
-            },
-            'line_linked': {
-                'enable': false,
-                'distance': 500,
-                'color': '#ffffff',
-                'opacity': 0.4,
-                'width': 2
-            },
-            'move': {
-                'enable': true,
-                'speed': 7.8914764163227265,
-                'direction': 'top',
-                'random': true,
-                'straight': false,
-                'out_mode': 'out',
-                'bounce': false,
-                'attract': {
-                    'enable': false,
-                    'rotateX': 600,
-                    'rotateY': 1200
-                }
-            }
-        },
-        'interactivity': {
-            'detect_on': 'canvas',
-            'events': {
-                'onhover': {
-                    'enable': false,
-                    'mode': 'bubble'
-                },
-                'onclick': {
-                    'enable': false,
-                    'mode': 'repulse'
-                },
-                'resize': true
-            },
-            'modes': {
-                'grab': {
-                    'distance': 400,
-                    'line_linked': {
-                        'opacity': 0.5
-                    }
-                },
-                'bubble': {
-                    'distance': 400,
-                    'size': 4,
-                    'duration': 0.3,
-                    'opacity': 1,
-                    'speed': 3
-                },
-                'repulse': {
-                    'distance': 200,
-                    'duration': 0.4
-                },
-                'push': {
-                    'particles_nb': 4
-                },
-                'remove': {
-                    'particles_nb': 2
-                }
-            }
-        },
-        'retina_detect': true
-    }
+	'fireSparks': {
+		'particles': {
+			'number': {
+				'value': 400,
+				'density': {
+					'enable': true,
+					'value_area': 3000
+				}
+			},
+			'color': {
+				'value': '#fc0000'
+			},
+			'shape': {
+				'type': 'circle',
+				'stroke': {
+					'width': 0,
+					'color': '#000000'
+				},
+				'polygon': {
+					'nb_sides': 3
+				},
+				'image': {
+					'src': 'img/github.svg',
+					'width': 100,
+					'height': 100
+				}
+			},
+			'opacity': {
+				'value': 0.5,
+				'random': true,
+				'anim': {
+					'enable': false,
+					'speed': 1,
+					'opacity_min': 0.1,
+					'sync': false
+				}
+			},
+			'size': {
+				'value': 2,
+				'random': true,
+				'anim': {
+					'enable': true,
+					'speed': 5,
+					'size_min': 0,
+					'sync': false
+				}
+			},
+			'line_linked': {
+				'enable': false,
+				'distance': 500,
+				'color': '#ffffff',
+				'opacity': 0.4,
+				'width': 2
+			},
+			'move': {
+				'enable': true,
+				'speed': 7.8914764163227265,
+				'direction': 'top',
+				'random': true,
+				'straight': false,
+				'out_mode': 'out',
+				'bounce': false,
+				'attract': {
+					'enable': false,
+					'rotateX': 600,
+					'rotateY': 1200
+				}
+			}
+		},
+		'interactivity': {
+			'detect_on': 'canvas',
+			'events': {
+				'onhover': {
+					'enable': false,
+					'mode': 'bubble'
+				},
+				'onclick': {
+					'enable': false,
+					'mode': 'repulse'
+				},
+				'resize': true
+			},
+			'modes': {
+				'grab': {
+					'distance': 400,
+					'line_linked': {
+						'opacity': 0.5
+					}
+				},
+				'bubble': {
+					'distance': 400,
+					'size': 4,
+					'duration': 0.3,
+					'opacity': 1,
+					'speed': 3
+				},
+				'repulse': {
+					'distance': 200,
+					'duration': 0.4
+				},
+				'push': {
+					'particles_nb': 4
+				},
+				'remove': {
+					'particles_nb': 2
+				}
+			}
+		},
+		'retina_detect': true
+	}
 });
 
 // Define the canvas objects used in the game
@@ -194,6 +194,7 @@ monogatari.assets('sounds', {
 	'eating': 'BiteIntoAndChewApple.mp3',
 	'horse': '497693__leo153__2-horse-carriage.wav',
 	'door': '440644__seansecret__violently-closing-wooden-door.wav',
+	'cards': '423767__someonecool15__card-shuffling.mp3',
 
 	'arrowFly': 'Arrow Flying Past 1.wav',
 	'arrowFly2': 'Arrow Flying Past 2.wav',
@@ -219,6 +220,7 @@ monogatari.assets('sounds', {
 	'rustle2': 'rustle2.mp3',
 	'rustle3': 'plastic bag rustle.mp3',
 	'rustle4': 'ShakeSmallTarp.mp3',
+	'coins': 'RustleOfCoins.mp3',
 
 	'mudRun': 'Footsteps Dirt (Running) 5.wav',
 	'footstepsFour': 'footstepsLoop.mp3',
@@ -257,7 +259,7 @@ monogatari.characters({
 		name: '{{player.name}}'
 	},
 
-	
+
 
 	'm': {
 		name: 'Maya',
@@ -321,6 +323,18 @@ monogatari.characters({
 
 	'r': {
 		name: 'Raina'
+	},
+
+	'bp': {
+		name: 'Barkeep'
+	},
+
+	'ad': {
+		name: 'Adventurer'
+	},
+
+	'rn': {
+		name: 'Reception'
 	}
 
 });
@@ -1326,18 +1340,18 @@ monogatari.script({
 		'p So what were you doing instead? Watching me from the shadows?',
 		{
 			'Conditional': {
-				
-				'Condition': function(){
+
+				'Condition': function () {
 					return monogatari.storage('survival').name
 				},
-				
+
 				'Concealment': 'jump MayaConcealment',
 				'Strength': 'jump MayaStrength',
 				'Perception': 'jump MayaPerception'
 			}
 		}
 	],
-	
+
 	'MayaStrength': [
 		'show character m neutral',
 		'm Yup, watching you look like a big dummy marching down here like you own the place. ',
@@ -1349,7 +1363,7 @@ monogatari.script({
 		'n She flexes, mimicking a hunched and confident walk. ',
 		'jump ActuallyEnter'
 	],
-	
+
 	'MayaPerception': [
 		'show character m shockSweat',
 		'm I was curious to see how long you’d stand there waiting. ',
@@ -1362,21 +1376,21 @@ monogatari.script({
 		'm I might have a chance, but I barely come up to your shoulder. ',
 		'p I was <i>not</i> standing in a bush. ',
 		'n She sighs hopelessly. Her hand over her heart.',
-		
+
 		'm Whatever helps you sleep at night, {{player.name}}.',
 		'jump ActuallyEnter'
 	],
-	
+
 	'MayaConcealment': [
 		'show character m happy',
 		'm Hey, great minds think alike!',
-		function(){
-			if (monogatari.storage('player').gender==='female'){
+		function () {
+			if (monogatari.storage('player').gender === 'female') {
 				monogatari.storage('player').lord = 'Lady'
 				monogatari.storage('player').master = 'Master'
 			}
-			
-			else if (monogatari.storage('player').gender==='enby'){
+
+			else if (monogatari.storage('player').gender === 'enby') {
 				monogatari.storage('player').lord = 'Ruler'
 				monogatari.storage('player').master = 'Sovereign'
 			}
@@ -1392,7 +1406,7 @@ monogatari.script({
 		'n Maya jumps towards me, pointing her small arrowhead at my throat.',
 		'jump ActuallyEnter'
 	],
-	
+
 	'ActuallyEnter': [
 		'stop music with fade 3',
 		'play music Night1 with fade 5',
@@ -1412,22 +1426,22 @@ monogatari.script({
 		// [Maya, neutral with blush]
 		'show character m neutralBlush',
 		'm Things change!',
-		
+
 		'p And this has nothing to do with anything you may have said earlier to them?',
-		
+
 		// [Maya, angry with blush]
 		'show character m angryBlush',
-		
+
 		'm Of course not.',
-		
+
 		'm In no way does this have anything to do with perceived authority or prior encounters I may or may not have had.',
-		
+
 		'p Noted.',
-		
-		
+
+
 		// [Maya, neutral]
 		'show character m neutral',
-		
+
 		'She stands behind me with an encouraging smile. Her chest puffed out proudly for full effect. ',
 
 		{
@@ -1467,8 +1481,8 @@ monogatari.script({
 		'n A hushed conversation just opposite me catches my attention. ',
 
 		{
-			'Conditional':{
-				'Condition': function(){
+			'Conditional': {
+				'Condition': function () {
 					return monogatari.storage('survival').name
 				},
 				'Strength': 'I lean forward with arms resting on a table. The key to not being noticed is to look like you belong.',
@@ -1526,9 +1540,9 @@ monogatari.script({
 		'n She slides into the seat beside me.',
 		'jump Schmooze'
 	],
-	
+
 	'QuestionMaya': [
-		function(){
+		function () {
 			updateRelationship('Maya', 5)
 			notify('+5 Maya')
 		},
@@ -1551,7 +1565,7 @@ monogatari.script({
 		'm {{player.name}}. I’m a professional.',
 		'jump Schmooze'
 	],
-	
+
 	'Schmooze': [
 		'show character m shock',
 		'm I was right behind you when I overheard the juiciest gossip.',
@@ -1560,7 +1574,412 @@ monogatari.script({
 		'm It’s called passing by strategically.',
 		'm Let me finish the story!',
 
-		'p OK, OK.'
+		'p OK, OK.',
+		'show character m happy',
+		'm Right. It sounds like most of the good quests have been stolen, except for this one quest no-one is snatching up.',
+		'm Something, something escort noble? Knight? I’m not sure.',
+
+		'p If it’s so good, why does no-one want it?',
+		'show character m sad',
+		'm Um, I didn’t get that far.',
+
+		'show character m happyUI',
+		'm But, I think if we do a little networking we can find something out!',
+
+
+		'show character m neutral',
+		'm Want to join me?',
+
+
+		'p In… chatting up random, potentially overprotective adventurers?',
+
+		'n She shrugs.',
+
+		'm Practice your people skills.',
+
+		{
+			'Choice': {
+				'Class': 'fadeIn',
+
+				'Don’t bother': {
+					'Text': 'Don’t bother',
+					'Do': 'jump DontBother'
+				},
+
+				'Help Maya out, it can’t hurt': {
+					'Text': 'Help Maya out, it can’t hurt',
+					'Do': 'jump CollectIntel'
+				},
+
+				'Refuse, it seems like a hassle': {
+					'Text': 'Refuse, it seems like a hassle',
+					'Do': 'RefuseSharply'
+				}
+			}
+		}
+
+	],
+
+	'DontBother': [
+		function () {
+			increaseValour(10)
+			notify('+10 Valour')
+		},
+		'show character m shock',
+		'p I don’t think it’ll be worth the effort.',
+		'm Why not?',
+		'p Look at it from their perspective.',
+
+		'p Two fresh-faced nosy adventurers come in asking questions about the only good job left?',
+		'show character m sad',
+		'p We don’t know what this crowd is like, but I don’t see them being very… forthcoming with information.',
+
+		'p At least, not to my face. I guess you seem harmless enough.',
+		'show character m angryBlush',
+		'm Harmless?!',
+
+		'show character m angry',
+		'p You’re good at getting information from people.',
+		'p If we both try, we’ll just draw attention to ourselves.',
+
+		'show character m sad',
+		'm I thought you were being lazy but that’s a good point.',
+		'n She sighs.',
+
+		'm What if I need backup?!',
+
+		{
+			'Choice': {
+				'“Don’t start any fights…”': {
+					'Text': ' “Don’t start any fights…”',
+					'Do': 'DontStartFights'
+				},
+				'“Then I’ll come running.”': {
+					'Text': '“Then I’ll come running.”',
+					'Do': 'ThenIllComeRunning'
+				}
+			}
+		}
+	],
+
+	'DontStartFights': [
+		'p Don’t start any fights and you’ll be fine!',
+		'show character m angry',
+		'm Why would I start a fight?!',
+		'n I give her a look. ',
+		'jump AfterBackup'
+	],
+
+	'ThenIllComeRunning': [
+		'p Then I’ll come running.',
+		'show character m neutral',
+		'p You got this!',
+		'jump AfterBackup'
+	],
+
+	'AfterBackup': [
+		'p Don’t worry, I’ll hold down the fort.',
+		'p Me coming along will only ruin your chances.',
+
+		'show character m shock',
+		'm Fine… but keep your ears open for anything useful!',
+
+		'p Yes, Ma’am.',
+		'jump Information'
+	],
+
+	'RefuseSharply': [
+		function () {
+			updateRelationship('Maya', -5)
+			notify('-5 Maya')
+
+			updatePersonality(assertive, 1)
+			setTimeout(() => { notify(`+${assertive}`) }, 2500)
+		},
+
+		'p No.',
+		'show character m happy',
+		'm Great, so—',
+		'show character m angry',
+		'm What, really?',
+		// 'show character m angry',
+		'p Maya, I only came down because you got us into this mess.',
+		'p I’m not going to escalate it and start making enemies here.',
+
+		'm How would we be making enemies? That doesn’t even make sense.',
+
+		'p Look, we may have done some adventuring in the past, but things have most likely changed a bit.',
+
+		'p People won’t trust us now.',
+		'm Some?! I only <i>know</i> you because of adventuring.',
+
+		'p I’m just trying to be rational here. ',
+		'show character m sad',
+		'm Forget it. I’ll just go alone.',
+
+		'm Just at least wait for me. ',
+		'n She gives me one last look, before storming over to a group on the far side.',
+
+		'jump Information'
+
+	],
+
+	'CollectIntel': [
+		function () {
+			increaseValour(5)
+			notify('+5 Valour')
+
+			updatePersonality(friendly, 1)
+			updateRelationship('Maya', 10)
+
+			setTimeout(() => { notify(`+${friendly}`) }, 2500)
+			setTimeout(() => { notify(`+10 Maya`) }, 5000)
+		},
+
+		'show character m happy',
+		'p Sure, what’s the worst that could happen?',
+
+		'show character m neutral',
+		'm Why do you always assume something bad could happen?',
+		'm Have some confidence, {{player.name}}!',
+
+		'p Hey, do you want my help or not?',
+		'n She sighs.',
+
+		'm Fine, lets go.',
+
+		'm I’m certain if we put our dashing skills together, we’ll get somewhere, <i>right?</i>',
+
+		'p It sounds probable.',
+		'm So, where should we check out first?',
+
+		'jump CollectIntelCheckpoint'
+
+	],
+
+	'CollectIntelCheckpoint': [
+		{
+			'Choice': {
+				'The Bar': {
+					'Text': 'The Bar',
+					'Do': 'jump TheBar',
+					'Condition': function () {
+						return !monogatari.storage('bar')
+					}
+				},
+				'The Front Desk': {
+					'Text': 'The Front Desk',
+					'Do': 'jump FrontDesk',
+					'Condition': function () {
+						return !monogatari.storage('desk')
+					}
+				},
+				'The Booth Seats': {
+					'Text': 'The Booth Seats',
+					'Do': 'jump BoothSeats',
+					'Condition': function () {
+						return !monogatari.storage('booth')
+					}
+				},
+				'Stop Looking': {
+					'Text': 'Stop looking',
+					'Do': 'jump StopLooking'
+				}
+			}
+		}
+	],
+
+	'TheBar': [
+
+		function () {
+			monogatari.storage().bar = true
+		},
+
+		'p Maybe the bar?',
+		'p That’s where people usually go to spill their secrets?',
+		'show character m happy',
+		'm Oh, that genius!',
+		'n Maya clasps her hands together in delight and makes her way towards the barkeep.',
+		'hide character m with fadeOut',
+		'play sound coins',
+		// SFX: Cup being put down on wooden surface. Or sliding across surface,
+		'bp And for you?',
+		'p I’m good for now. Thanks.',
+		'n He leaves, and Maya takes a swig of her own drink.',
+
+		'show character m sad with fadeIn',
+		'm This is terrible.',
+		// 'show character m sad with fadeIn',
+		'p Yeah, I could tell.',
+		// SFX: Cup putting put down aggressively
+		'n She puts the tankard down, pretending to forget it was ever there. ',
+		// SFX: Cup being put down gently,
+		'ad First taste of Ol’ Meggy?',
+		'n A tall woman slides into the seat beside us. Her face shadowed by a large hood and thin strands of black hair.',
+		'show character m shockUI',
+		'm Oh, I only ordered an ale.',
+		'ad That’s not what I meant… ',
+		'n She nods towards a short woman vigorously sweeping by the front door.',
+		'p The owner?',
+		'n The speaker looks up with confused blue eyes.',
+
+		'ad Meggy isn’t the owner. The owner is much worse. ',
+		'p Oh. ',
+		'ad No, she just sort of comes here and cleans. She’s very territorial about it. ',
+
+		'show character m neutral',
+		'p …',
+		'm …',
+
+		'ad It’s better if you don’t ask.',
+
+		'p Wasn’t even considering it.',
+
+		'n Maya leans in, nudging me forward.',
+
+		'p We—We haven’t gotten familiar with the regulars around here, yet.',
+
+		'ad We?',
+
+		'show character m happy',
+		'n Maya pokes her head in front of us, extending her hand. ',
+
+		'm Hello!',
+
+		'm I’m Maya!',
+
+		'ad A duo? How cute.',
+		'show character m neutral',
+
+		'n The stranger doesn’t return the greeting, forcing Maya to retract her hand.',
+		'n I try to keep the conversation going.',
+
+		'p I’m a little surprised about how busy this place is.',
+
+		'p I didn’t think Hwen would be an adventuring hotspot.',
+
+		'show character m happy',
+
+		'p Right, so is something special happening?',
+
+		'n She looks at us horrified. ',
+		'ad You aren’t serious? ',
+		'ad You think I’d tell you for free?',
+
+		'p Uh… ',
+
+		'n She rolls her eyes. ',
+
+		'ad The bar is for exchanging.',
+		'ad Information?',
+
+		'p Perfect! We’re trying to find out more about—',
+
+		'ad It’s not for free, and a little insulting you’d assume it was.',
+
+		'p Ah… Well, we can pay?',
+
+		'n She smirks. One eyebrow raised in curiosity.',
+
+		'show character m shock',
+
+		'ad I don’t know if you’re stupid or just cute. ',
+
+		'p Uh, thanks?',
+		'n The stranger lets out a low whistle, picking her drink up from the table.',
+
+		'ad I don’t know where you usually do things, but when you come to a place like this, turn up with something other than weak points.',
+
+		'n She leaves with an empty smile, far less interested and courteous than before. ',
+		'n Did we fail some sort of test?',
+		'p Uh… what just happened?',
+
+		'show character m sad',
+		'm I don’t… know?',
+		'n Maya grabs her drink and downs it in frustration.',
+
+		'show character m angry',
+		'm Why is everyone here so mean?!',
+		'm  We don’t have any weak points!',
+
+		'p Other than knowing nothing.',
+		'show character m shock',
+		'm We would know something if people were nicer!',
+		'show character m sad',
+		'm Let’s just try somewhere else.',
+		
+		'jump CollectIntelCheckpoint'
+	],
+	
+	
+	'FrontDesk': [
+		function () {
+			monogatari.storage().desk = true
+		},
+		
+		'p Can’t go wrong with the first line of defence.',
+		'show character m shock',
+		'm How did I never see the front desk?',
+		'n I tap my temple.',
+		'show character m neutral',
+
+		'hide character m',
+		'n I put myself in line, ready to secure something more official than the odd rumour.',
+		
+		'play sound rustle2',
+		'n We step forward.',
+		'rn Hwen’s Adventurer guild, which expedition are you submitting?',
+		'p Oh, we’re not submitting anything. We have some questions.',
+		
+		'rn The front desk is for applications and request fulfilment.',
+		'p What about general inquiries?',
+		
+		'rn We don’t <i>do</i> general inquiries. Try the town crier, next.',
+		'show character m shock with fadeIn',
+		'm The town crier isn’t back till morning!',
+
+		'rn Then maybe you should try again in the morning.',
+		'rn We don’t do general inquiries.',
+		'rn <i>Next.</i>',
+
+
+		'n She looks past us, beckoning the next adventurer forward.',
+		'show character m sad',
+		'm Let’s just… try somewhere else.',
+
+		'n May turns around in a hurry, searching for another source of information.',
+		'jump CollectIntelCheckpoint'
+	],
+
+	'BoothSeats': [
+		function () {
+			monogatari.storage().booth = true
+		},
+
+		'show character m neutral',
+		'p We could try window seats?',
+		'p They seem to be gathering a crowd.',
+		
+		'n She nods thoughtfully.',
+
+		'show character m happy',
+		'm I’m feeling hopeful. Let’s do it.',
+		'play sound footstepsFour',
+		'n Up ahead, the dimly lit booths are surrounded by an observant crowd.',
+		
+		'play sound cards',
+		'n No-one notices our approach. Rather, their scrutiny is focused on two seated players.',
+		
+		'n The one closest to us is an older man with stark white hair and a peppered beard, unbothered by the onlookers.',
+		
+		'n The other is a woman with a sharp freckled face and beige locks cut just below her chin.',
+		'show character m happyUI',
+		
+		'm Room for two more?',
+
+		
 	]
+
+
 
 });

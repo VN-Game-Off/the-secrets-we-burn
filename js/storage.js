@@ -15,7 +15,7 @@ monogatari.storage({
 
 	baker: 'Crier',
 
-	hp:60,
+	hp: 60,
 	valor: 0,
 
 	Friendly: 0,
@@ -29,5 +29,9 @@ monogatari.storage({
 	Maya: 0,
 	Kai: 0,
 
+	// Flags
+	bar: false,
+	desk: false,
+	booth: false,
 	trained: false
 });
