@@ -1623,7 +1623,7 @@ monogatari.script({
 				'Don’t bother': {
 					'Text': 'Don’t bother',
 					'Do': 'jump DontBother'
-				},
+				},	
 
 				'Refuse, it seems like a hassle': {
 					'Text': 'Refuse, it seems like a hassle',
