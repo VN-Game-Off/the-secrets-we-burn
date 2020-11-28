@@ -27,7 +27,14 @@ monogatari.action('message').messages({
 		body: `
 		Valour represents your experience as an adventurer. Make choices that increase your skills in the face of adversity.
 		`
-	}
+	},
+
+	'Survival': {
+		title: 'TIP',
+		body: `
+		You’re about to make a skill choice. How do you react in an unknown environment? .
+		`
+	},
 });
 
 // Define the notifications used in the game
@@ -72,6 +79,10 @@ monogatari.assets('voices', {
 
 // Define the sounds used in the game.
 monogatari.assets('sounds', {
+	'stomach': 'Stomach Growl - Sound Effect for Editing.mp3',
+	'eating': 'BiteIntoAndChewApple.mp3',
+	'horse': '497693__leo153__2-horse-carriage.wav',
+	'door': '440644__seansecret__violently-closing-wooden-door.wav',
 
 	'arrowFly': 'Arrow Flying Past 1.wav',
 	'arrowFly2': 'Arrow Flying Past 2.wav',
@@ -132,7 +143,7 @@ monogatari.characters({
 	'p': {
 		name: '{{player.name}}'
 	},
-	
+
 	'b': {
 		name: '{{baker}}',
 		sprites: {
@@ -886,7 +897,7 @@ monogatari.script({
 
 	'StopRestChoice': [
 		'show message Valour',
-		function(){
+		function () {
 			increaseValour(10)
 			notify(`+10 Valour`)
 		},
@@ -898,7 +909,7 @@ monogatari.script({
 		'n On the other side, the roads are calm with only a few stray stragglers making their way home. ',
 		{
 			'Choice': {
-				'Find the guild':{
+				'Find the guild': {
 					'Text': 'Find the guild',
 					'Do': 'next'
 				}
@@ -910,8 +921,8 @@ monogatari.script({
 		'b Don’t be a stranger! I have a gift for you!',
 		'n My eyes meet with the enthusiastic figure in the shadows, lifting a lantern towards me. ',
 		'n Under the subtle glow, his body sits slumped opposite a butcher’s shop. His cart resting just off the side of the road. ',
-		function(){
-			monogatari.storage().baker='Rohese'
+		function () {
+			monogatari.storage().baker = 'Rohese'
 		},
 		'p Are you not going home?',
 		'b Of course, there’s near no-one to sell to so late, except the drunkards.',
@@ -920,7 +931,7 @@ monogatari.script({
 		'b But drunkards don’t appreciate genius. Try this.',
 		{
 			'Choice': {
-				'Politely decline':{
+				'Politely decline': {
 					'Text': 'Politely decline',
 					'Do': 'jump FriendlyDecline'
 				},
@@ -937,29 +948,227 @@ monogatari.script({
 	],
 
 	'FriendlyDecline': [
-		updatePersonality(friendly, 1),
-		notify(`+${friendly}`),
+		function () {
+			updatePersonality(friendly, 1)
+			notify(`+${friendly}`)
+		},
 		'p I’m not so hungry, but thank you.',
 		'jump AfterDecline'
 	],
 
 	'PlayfulDecline': [
-		updatePersonality(joking, 1),
-		notify(`+${joking}`),
+		function () {
+
+			updatePersonality(joking, 1)
+			notify(`+${joking}`)
+		},
 		'p I try not to make a habit of taking unidentified items from curious street vendors.',
 		'jump AfterDecline'
 	],
 
 	'AssertiveDecline': [
-		updatePersonality(assertive, 1),
-		notify(`+${assertive}`),
+		function () {
+			updatePersonality(assertive, 1)
+			notify(`+${assertive}`)
+		},
 		'I would rather not.',
 		'jump AfterDecline'
 	],
 
 	'AfterDecline': [
-		'Hello'
-	]
+		'b Oh, but it’ll be worth it! ',
+		'b You can’t humour an old man? I’ve worked very hard. ',
+		'play sound stomach',
+		'n I try to protest, but an audible cry from my stomach gives me away. ',
+		'n A sheepish smile later, my bottom is firmly planted on the cobblestone floor. ',
+		'n There’s still some time. ',
+		'n It wouldn’t hurt to give him my attention. ',
+		'n Rohese was a baker known for spending too much time in the tavern to make money and putting too many new ideas into his loaves. ',
+		'n The sweet smelling ale wafts from the tankard between us. ',
+		'p What is this time?',
+		'b Ah, that’s the thing. I’m not quite sure yet.',
+		'b I had already baked a batch of bread and forgetting myself, I put the same loaves back into the oven. ',
+		'p You baked it twice?',
+		'b That I did!',
+		'play sound rustle3',
+		'p Curious, I unwrap my second surprise of the day. The baked good inside is flat, hard, and dusted in flour. ',
+		'play sound eating',
+		'n One bite and the flattened loaf crunches between my teeth. Its flakiness is surprising and although a little hard, it’s sweet and warm with an unfamiliar spiciness. ',
+		'n I devour it in seconds. ',
+		'p Rohese! This is— ',
+		'b I know!',
+		'p It tastes divine!',
+		'b I know!',
+		'n The excitement in his tired eyes fades. ',
+		'b I’m not quite sure what to call it. ',
+		'b It’s not quite a loaf. Far too hard and crispy for that. ',
+		'p What else have you added to it?',
+		'n He taps his nose. ',
+		'n Baker’s secret.',
+		'play sound bell',
+		'n The curfew bell strikes and I remember my arrangement with Maya. ',
+		'n Savouring the last flakes on my lips, I give Rohese a knowing look. ',
+		'p Rohese, I have to go, but thank you very much for the sample. ',
+		'p I think you’re onto something with this double-baked bread.',
+		'b Of course I am. ',
+		'p Just don’t be out here too late. You’ll end up giving away all your goods without fair payment. ',
+		'b Pah, my recipes will keep them coming back. ',
+		'n I lick off the last fleck of pastry. ',
+		'p You’ve put cinnamon and honey in this, haven’t you? ',
+		'b What— Oh, you <i>cheeky</i> little gizzard, c’mere. ',
+		'play sound rustle',
+		'n He feigns offence, stuffing more neatly wrapped not-loaves into my satchel. ',
+		'b That nose of yours will be the death of me. Go on, get out here!',
+		'p Rohese, I can’t take these! ',
+		'b Pah! I’ll just make more.',
+		'b These are unsellable. Consider yourself the trial donkey for my genius invention. ',
+		'n I can’t help but laugh. Hwen was always full of small surprises. ',
+		'p I’m paying you next time I see you. Will you be alright going home?',
+		'n He shoos me again. ',
+		'b I don’t need help from a child. ',
+		'n I shrug, putting a loaf back into his lap. ',
+		'p Just in case you don’t remember this grand idea of yours tomorrow. ',
+		'n The flour trickles from my thigh as I rise to leave. ',
+		'b {{player.name}}?',
+		'p Hm?',
+		'b I’m thinking of calling them biscuits. ',
+		{
+			'Choice': {
+				'Sounds good': {
 
+					'Text': 'Sounds Good',
+					'Do': 'jump SoundsGood'
+				},
+
+				'Keep working on it.': {
+					'Text': 'Keep working on it.',
+					'Do': 'jump KeepWorkingOnIt'
+				}
+
+			}
+		},
+
+	],
+
+	'SoundsGood': [
+		'p I like it. Sounds good. ',
+		'jump FinishedEating'
+	],
+
+	'KeepWorkingOnIt': [
+		'p Maybe keep working on that one. Not sure it’ll catch on. ',
+		'jump FinishedEating'
+
+	],
+
+	'FinishedEating': [
+		'play sound footstepsFour',
+		'hide character b with fadeOut',
+		'n I smile and wave him goodbye, exiting the alley. My body is warm and rested, but there is still some unfinished business tonight.',
+		'jump Evening'
+	],
+
+	'Evening': [
+		'show scene nightTown',
+		'play sound bell',
+		// SFX: Gate rumbling,
+		'n Another low chime echoes through the air. The town gates rumble as they roll back their last bolt. ',
+		'n The night watch is about to begin. ',
+		'n My pace quickens and I soon find myself standing across from the adventurer’s guild. ',
+		'n I wasn’t difficult to locate, considering it was the only one in town. ',
+		'n Still, I can’t approach carelessly. I’m not familiar with this part of town. It’s should approach… ',
+		'show message Survival',
+		{
+			'Choice': {
+				'Fearlessly': {
+					'Text': 'Fearlessly and confidently',
+					'Do': 'jump Fearlessly'
+				},
+
+				'After Observation': {
+					'Text': 'After observing my surroundings',
+					'Do': 'jump Observation'
+				},
+
+				'Like a shadow; inconspicuous': {
+					'Text': 'Like a shadow; inconspicuous',
+					'Do': 'jump LikeShadow'
+				}
+			}
+		}
+	],
+
+	'Fearlessly': [
+		function () {
+			changeSkill('survival', 'strength')
+			notify('+Strength')
+		},
+		'n …fearlessly and confidently. Whatever is behind those walls is far more of a risk, if I appear weak and feeble. ',
+		{
+			'Conditional': {
+				'Condition': function () {
+					return monogatari.storage('trained') === true
+				},
+				'True': 'n Mustering what strength I can, I march across the road, hiding the tiredness in my gait.',
+				'False': 'n I’m warm and refreshed from the goods Rohese gave me as I stride across the road feeling confident about what comes next.',
+			}
+		}
+	],
+
+	'Observation': [
+		function () {
+			changeSkill('perception', 'strength')
+			notify('+Perception')
+		},
+		'n …after observing my surroundings. ',
+		'n It’s not that I don’t trust the townspeople of Hwen, but adventurer guilds in any town draw an unsavoury crowd.',
+		'n Maya should know this.',
+		'n Why she would sign us up after all this time, I can’t tell.',
+		'n But there are no immediate causes for concern. ',
+		'n No rowdy behaviour or miscreants lingering by the entrance.',
+		'n It’s enough for me to cross the narrow road. '
+	],
+
+	'LikeShadow': [
+		function () {
+			changeSkill('concealment', 'strength')
+			notify('+Concealment')
+		},
+
+		'n …like a shadow; inconspicuous. ',
+		'n A new adventurer crowd may excite Maya, but my most natural impulse is to cling to the shadows. ',
+		'n I go unnoticed. ',
+		'play sound rustle2',
+		'n Like ivy, I keep to the edges of the building, only crossing the narrow road when certain there are no immediate eyes on me. ',
+	],
+
+	'EntranceToGuild': [
+		'play sound horse',
+		'n The entrance of the guild seems no different from a small tavern. Above its door, I make out the discreet carvings of a dragon and lion. ',
+		'n I step aside as dark figures and drunk grunts pass me. ',
+		'play sound door',
+		'n They stumble through the doors with calculating glances before ducking into the shadows. ',
+		"n Whilst most people in Hwen meant no harm, it wasn’t a place the average contractor came for ‘heroic feats’.",
+		'n No, it was probably just errands going to the highest bidder. ',
+		"n Maybe if we’re lucky, we might gather the lost sheep of a wealthy farmer, or play private investigator for the adulterous couple. ",
+		'show character m shock with bounceIn',
+		'm How long were you planning to wallow in front of the guild?',
+		'p Maya! How long have you been here?',
+		'p I was about to go find you.',
+		'show character m neutral',
+		'm Long enough.',
+		'm I wanted to wait, but I wasn’t sure how much longer I could bear seeing you lost in introspective thought. ',
+		'show character m angry',
+		'm Do you have a whole monologue going on in there?',
+		'show character m shock',
+		'p You were scared to go in, weren’t you?',
+		'show character m shockBlush',
+		'm I was not! I— ',
+		'show character m sad',
+		'm Yes. Yes, I was scared. ',
+		'show character m angry',
+		'm Which is perfectly reasonable because that woman is <i>very</i> scary. '
+
+	]
 
 });
