@@ -120,6 +120,11 @@ function checkSurvival(){
     return monogatari.storage('survival').name.toLowerCase()
 }
 
+function checkInterpersonal(){
+    return monogatari.storage('interpersonal').name.toLowerCase()
+    
+}
+
 
 function increaseValour(value) {
     const toUpdate = monogatari.storage('valour')
@@ -164,6 +169,21 @@ const allSkills = {
     concealment: {
         name: 'Concealment',
         description: 'Where survival is concerned, my greatest asset is my ability to <b class="accent">conceal</b> myself. If I choose to be, I am neither here, nor there.'
+    },
+
+    empathy: {
+        name: 'Empathy',
+        description: 'Perhaps the most advantageous trait is my ability to <b class="accent">empathise</b> with others. I do not need to make an enemy of everyone I meet. '
+    },
+
+    deception: {
+        name: 'Deception',
+        description: 'Perhaps the most advantageous trait is my ability to <b class="accent">deceive</b> others. There’s no need to give up a truth so easily when a small lie will get me there.'
+    },
+
+    intimidation: {
+        name: 'Intimidation',
+        description: 'Perhaps the most advantageous trait is my capacity to <b class="accent">intimidate</b> others. Life seems a lot easier when others serve to please you. '
     }
 
 }

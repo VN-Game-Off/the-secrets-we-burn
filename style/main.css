@@ -291,8 +291,12 @@ game-screen[data-screen="game"] {
 [data-character="m"] {
 	/* height: 100%;
 	width: 100%; */
-	transform: translateY(-20%) scale(1.25);
 	/* overflow: hidden; */
+	transform: translateY(-20%) scale(1.25);
+}
+
+[data-character="k"] {
+	transform: translateY(-70%) scale(1.6);
 }
 
 .closer {
@@ -301,7 +305,6 @@ game-screen[data-screen="game"] {
 
 .further {
 	transform: scale(1);
-	;
 }
 
 /* [data-choice="Bow & Arrow"]{
@@ -750,6 +753,10 @@ input[type="range"]::-moz-range-progress {
 	}
 	[data-character="m"] {
 		transform: translateY(0) scale(1);
+	}
+
+	[data-character="k"] {
+		transform: translateY(-25%) scale(1);
 	}
 }
 

@@ -37,6 +37,13 @@ monogatari.action('message').messages({
 		You’re about to make a skill choice. How do you react in an unknown environment? .
 		`
 	},
+
+	'Interpersonal': {
+		title: 'TIP',
+		body: `
+		You’re about to make a skill choice! Your social skills may lack, but you excel at…
+		`
+	}
 });
 
 // Define the notifications used in the game
@@ -50,6 +57,117 @@ monogatari.action('notification').notifications({
 
 // Define the Particles JS Configurations used in the game
 monogatari.action('particles').particles({
+	'fireflies': {
+		'particles': {
+			'number': {
+				'value': 202,
+				'density': {
+					'enable': true,
+					'value_area': 800
+				}
+			},
+			'color': {
+				'value': '#e25822'
+			},
+			'shape': {
+				'type': 'circle',
+				'stroke': {
+					'width': 0,
+					'color': '#000000'
+				},
+				'polygon': {
+					'nb_sides': 5
+				},
+				'image': {
+					'src': 'img/github.svg',
+					'width': 100,
+					'height': 100
+				}
+			},
+			'opacity': {
+				'value': 0.9299789953020032,
+				'random': true,
+				'anim': {
+					'enable': true,
+					'speed': 1,
+					'opacity_min': 0,
+					'sync': false
+				}
+			},
+			'size': {
+				'value': 3,
+				'random': true,
+				'anim': {
+					'enable': false,
+					'speed': 4,
+					'size_min': 0.3,
+					'sync': false
+				}
+			},
+			'line_linked': {
+				'enable': false,
+				'distance': 150,
+				'color': '#ffffff',
+				'opacity': 0.4,
+				'width': 1
+			},
+			'move': {
+				'enable': true,
+				'speed': 3.017060304327615,
+				'direction': 'none',
+				'random': true,
+				'straight': false,
+				'out_mode': 'out',
+				'bounce': false,
+				'attract': {
+					'enable': false,
+					'rotateX': 1042.21783956259,
+					'rotateY': 600
+				}
+			}
+		},
+		'interactivity': {
+			'detect_on': 'canvas',
+			'events': {
+				'onhover': {
+					'enable': true,
+					'mode': 'bubble'
+				},
+				'onclick': {
+					'enable': true,
+					'mode': 'repulse'
+				},
+				'resize': true
+			},
+			'modes': {
+				'grab': {
+					'distance': 400,
+					'line_linked': {
+						'opacity': 1
+					}
+				},
+				'bubble': {
+					'distance': 250,
+					'size': 0,
+					'duration': 2,
+					'opacity': 0,
+					'speed': 3
+				},
+				'repulse': {
+					'distance': 400,
+					'duration': 0.4
+				},
+				'push': {
+					'particles_nb': 4
+				},
+				'remove': {
+					'particles_nb': 2
+				}
+			}
+		},
+		'retina_detect': true
+	},
+
 	'fireSparks': {
 		'particles': {
 			'number': {
@@ -227,6 +345,8 @@ monogatari.assets('sounds', {
 
 	'mudRun': 'Footsteps Dirt (Running) 5.wav',
 	'footstepsFour': 'footstepsLoop.mp3',
+	'woodStep': 'Wood footstep 2.wav',
+
 	'bell': 'Bell Sound Effect.mp3'
 });
 
@@ -289,6 +409,43 @@ monogatari.characters({
 			angryUI: 'MayaUIAngry.png',
 			happyUI: 'MayaUIHappy.png',
 			shockUI: 'MayaUIShock.png'
+		}
+	},
+
+	'k': {
+		name: '{{kaiName}}',
+		directory: 'Kai',
+
+		sprites: {
+			angryBlush: 'KaiBlushAngry.png',
+			neutralBlush: 'KaiBlushNeutral.png',
+			shockBlush: 'KaiBlushShock.png',
+			happyBlush: 'KaiBlushHappy.png',
+			sadBlush: 'KaiBlushSad.png',
+
+			angry: 'KaiAngry.png',
+			happy: 'KaiHappy.png',
+			neutral: 'KaiNeutral.png',
+			sad: 'KaiSad.png',
+			shock: 'KaiShock.png',
+
+			angrySweat: 'KaiSweatAngry.png',
+			happySweat: 'KaiSweatHappy.png',
+			neutralSweat: 'KaiSweatNeutral.png',
+			sadSweat: 'KaiSweatSad.png',
+			shockSweat: 'KaiSweatShock.png',
+
+			angryCloak: 'KaiCloakAngry.png',
+			happyCloak: 'KaiCloakHappy.png',
+			neutralCloak: 'KaiCloakNeutral.png',
+			sadCloak: 'KaiCloakSad.png',
+			shockCloak: 'KaiCloakShock.png',
+
+			angrySweatCloak: 'KaiCloakSweatAngry.png',
+			happySweatCloak: 'KaiCloakSweatHappy.png',
+			neutralSweatCloak: 'KaiCloakSweatNeutral.png',
+			sadSweatCloak: 'KaiCloakSweatSad.png',
+			shockSweatCloak: 'KaiCloakSweatShock.png',
 		}
 	},
 
@@ -1623,11 +1780,11 @@ monogatari.script({
 				'Don’t bother': {
 					'Text': 'Don’t bother',
 					'Do': 'jump DontBother'
-				},	
+				},
 
 				'Refuse, it seems like a hassle': {
 					'Text': 'Refuse, it seems like a hassle',
-					'Do': 'RefuseSharply'
+					'Do': 'jump RefuseSharply'
 				},
 
 				'Help Maya out, it can’t hurt': {
@@ -1677,11 +1834,11 @@ monogatari.script({
 			'Choice': {
 				'“Don’t start any fights…”': {
 					'Text': ' “Don’t start any fights…”',
-					'Do': 'DontStartFights'
+					'Do': 'jump DontStartFights'
 				},
 				'“Then I’ll come running.”': {
 					'Text': '“Then I’ll come running.”',
-					'Do': 'ThenIllComeRunning'
+					'Do': 'jump ThenIllComeRunning'
 				}
 			}
 		}
@@ -2135,9 +2292,603 @@ monogatari.script({
 
 		'show character m sad',
 		'm No… no, something smells fishy here. ',
-		'p Yeah, Maya. That’s the smell of people.'
+		'p Yeah, Maya. That’s the smell of people.',
+
+		'show character m angry',
+		'm Sometimes you are so rude.',
+
+		'show character m neutral',
+		'm OK, alternative plan! You sit down; I have something I want to check.',
+
+		'show character m happyUI',
+		'm Great!',
+
+		'hide character m with fadeOut',
+		'n Maya bounces off in the other direction, leaving me in a corner away from the rest of the guild. ',
+
+		// SFX: Crowd Laughing,
+
+		'n I expect her to be shooed away, but after a risky joke or two she fits right in. ',
+		'n Are my people skills that awful?',
+
+		'n …Is that even something I can fix?',
+
+		'jump Information'
+	],
+
+
+	'Information': [
+		'show character m angryBlush with fadeIn',
+		'n When Maya returns her face is flush and a little out of breath. ',
+
+		'm I got some information.',
+
+		'p That fast?',
+
+		'n She throws herself into the seat beside me. ',
+		'show character m happy',
+
+		'm I know a few tricks or two when it comes to making people talk.',
+
+		'p Maya, what did you do…?',
+
+		'show character m neutral',
+		'm Nothing I wouldn’t do again.',
+
+		'm Focus, {{player.name}}!',
+
+		'show character m angry',
+		'm What’s more important is how this whole thing is turning out to be a dud.',
+
+		'm It’s so frustrating. ',
+
+		'm Whatever froufrou prestigious quest is registered with the guild doesn’t matter.',
+		'show character m shock',
+
+		'm It’s a glorified notice board.',
+
+		'p Why can’t we just… put in a request?',
+
+		'p Put our names down officially for it, move on, get called in the next day.',
+
+		'p All this running around is… ',
+
+		{
+			'Choice': {
+				'“not what I expected.”': {
+					'Text': '“not what I expected.”',
+					'Do': 'jump NotWhatIExpected'
+				},
+
+				'“not the cardio I asked for.”': {
+					'Text': '“not the cardio I asked for.” ',
+					'Do': 'jump NotTheCardio'
+				},
+
+				'"“impractical.”': {
+					'Text': '“impractical.”',
+					'Do': 'jump Impractical'
+				}
+			}
+		}
+	],
+
+	'NotWhatIExpected': [
+		function () {
+			updatePersonality(friendly, 1)
+			notify(`+${friendly}`)
+		},
+
+		'p …not what I expected.',
+
+		'show character m sad',
+
+		'm I’m sorry.',
+		'p No, it’s OK. I’m just wondering if there’s something more useful we could do?',
+
+		'p I imagined we’d sign up and it’d be first come, first serve. ',
+
+		'jump Answer'
+	],
+
+	'NotTheCardio': [
+		function () {
+			updatePersonality(joking, 1)
+			notify(`+${joking}`)
+		},
+
+		'show character m sad',
+		'p …not the cardio I asked for. ',
+		'p Don’t get me wrong, it’s been uh, fun but I already trained pretty hard today. ',
+		'p My legs aren’t what they used to be.',
+
+		'show character m shock',
+		'm You’re only older than me by six months!',
+
+		'show character m neutral',
+		'p And I feel <i>every day</i> of it. ',
+
+		'p If you want some advice, six months from now isn’t looking so great for you either, so how about we start wrapping this up?',
+
+		'jump Answer'
+
+	],
+
+	'Impractical': [
+		function () {
+			updatePersonality(assertive, 1)
+			notify(`+${assertive}`)
+		},
+
+		'show character m sad',
+		'p …impractical.',
+		'p I’m not an expert, but if you’re running a profitable establishment, there should be some order to it all.',
+		'p Surely everyone else doesn’t waste their time like this?',
+		'jump Answer'
+	],
+
+	'Answer': [
+		'show character m sad',
+		'm I don’t like it either. ',
+		'm Even if we put in a request, from the sound of it, no-one would respond.',
+
+		'show character m angry',
+		'm The front desk <i>obviously</i> has favourites. They don’t even try to hide it. ',
+		'm We’re at the bottom of the food-chain.',
+
+		'show character m neutral',
+		'p Then we pick a different quest.',
+		'm <i>Or</i>, we find the contractor ourselves!',
+
+		'p Doesn’t that defeat the purpose of the guild?',
+
+		'show character m happy',
+		'm If we didn’t come here, we wouldn’t have known about the quest. Purpose fulfilled. ',
+
+		'm So, all we do now is… find this noble contractor and convince him to hire us.',
+
+		'show character m shock',
+		'm They’re probably here… watching… lurking… scoping out the competition.',
+
+		'show character m neutral',
+		'm If we find them, it’s faster, more efficient and shows initiative!',
+
+		'p Uh huh… ',
+
+		'show character m happy',
+		'm It won’t be hard!',
+
+		{
+			'Conditional': {
+				'Condition': function () {
+					// imgNotify('combat')
+					return checkWeapon()
+				},
+
+				'bow': 'jump BowAnswer',
+				'fists': 'jump CloseAnswer',
+				'sword': 'jump CloseAnswer'
+
+			}
+		},
+
+	],
+
+	'BowAnswer': [
+		'm After all, we’re both deadly with a bow.',
+		'jump AfterAnswer'
+	],
+
+	'CloseAnswer': [
+		'm After all, between us, we’ve got range and close combat perfected.',
+		'jump AfterAnswer'
+	],
+
+	'AfterAnswer': [
+
+		'm We just show them much better it is to hire a duo. A butt-kicking pair of adventurers with no flaws. ',
+
+		'show character m shock',
+
+		'm Oh, maybe you should…',
+
+		'p Not talk?',
+
+		'show character m neutralBlush',
+		'm I was going to say work on your social skills.',
+
+		'p Don’t worry, I’ll take baby steps. One person at a time. ',
+
+		'hide character m with fadeOut',
+
+		'n Maya pats me on the shoulder and leaves to disappear back into the fray.',
+
+		'n I try to stay alert, but it’s already been such a long day. ',
+		'n My head feels like a weight between my shoulders as I stare off into the distance. The conversations muddling together. ',
+
+		// VFX: Fading in and out of black like tired eyes?,
+
+		'n I snap back to attention, realising I’ve been staring at one person this whole time.',
+		'show character k neutralCloak at center with fadeIn',
+		// 'show particles fireflies',
+		// 'Hello'
+		{
+			'Conditional': {
+				'Condition': function () {
+					imgNotify('survival')
+					return checkSurvival()
+				},
+				'concealment': 'jump ConcealKaiMeet',
+				'strength': 'jump StrengthKaiMeet',
+				'perception': 'jump PerceptionMeet'
+			}
+		},
+
+
+	],
+
+	'ConcealKaiMeet': [
+		'n He tries to hide it, but being so conveniently placed in the shadows, it’s not a coincidence. ',
+		'n His stance suggests to leave him alone in a room where the best action was to appear favourable. ',
+		'n Away from the rest of the guild, he cloaks himself like someone who wanted to see and not be seen. ',
+		'show character k happyCloak',
+		'n Like I do.',
+		'jump PersonalSkillChoice'
+	],
+
+	'StrengthKaiMeet': [
+		'n Standing perfectly still, he tries to hide it. ',
+		'n But he doesn’t fit in amongst the rowdy, drunken fighters. ',
+		'n He’s too rigid, too aware and too upright. ',
+		'show character k happyCloak',
+		'n Too delicate looking. ',
+		'n How could I not notice?',
+		'jump PersonalSkillChoice'
+	],
+
+	'PerceptionMeet': [
+		'n Not only me, but everyone else in the room. ',
+		'show character k happyCloak',
+		'n He watches their conversations.',
+		'n He tries not to make it obvious, but I know the look.',
+		'n The distracted eyes that don’t draw attention.',
+		'n A body shifted away, relying only on his ears to search the room for answers.',
+		'n How could I not notice someone trying so hard to go unnoticed?',
+		'n And for how long has he been watching?',
+		'jump PersonalSkillChoice'
+	],
+
+	'PersonalSkillChoice': [
+		'n The lone wolf look is suspicious enough, but he appears so out of place that I’m curious.',
+
+		'n Perhaps asking the person who appears different will yield different results?',
+
+		'n Is that just my wishful thinking?',
+
+		'n Maya said my conversation skills suck, but there are other methods I can try.',
+
+		'n After all, I’m not so bad at… ',
+
+		'show message Interpersonal',
+
+		{
+			'Choice': {
+				'Empathy': {
+					'Text': 'Empathy',
+					'Do': 'jump EmpathySkill'
+				},
+				'Deception': {
+					'Text': 'Deception',
+					'Do': 'jump DeceptionSkill'
+				},
+				'Intimidate': {
+					'Text': 'Intimidate',
+					'Do': 'jump IntimidateSkill'
+				},
+			}
+		},
+
+	],
+
+	'EmpathySkill': [
+		function () {
+			changeSkill('interpersonal', 'empathy')
+			notify('+Empathy')
+		},
+
+		'n ...empathy.',
+
+		'n This stranger, whoever he is, is here alone. I can tell that much.',
+
+		'n Striking up a friendly, straightforward conversation could be a pleasant surprise.',
+
+		'n And it’s all I have.',
+
+		// [CHOICE: Strike up a conversation]
+
+
+		// [SFX: Foot steps]
+		'play sound woodStep',
+
+		// [Kai, closer?]
+
+
+		'p I don’t suppose you’re trying to make sense of all this too?',
+
+
+		'n I flash my best smile.',
+
+
+		'p I couldn’t help but notice you seemed to look a little lost.',
+		'show character k neutralCloak',
+
+		'k I suppose that was meant to be charming.',
+		'n His voice is smooth, like the silken strings of a lute.',
+
+		'k If not, then were you going for a bold, but distasteful pick-up line?',
+
+		'n I’m sorry, but you’re not my type.',
+
+		'p Wh—I was trying to be <i>nice.</i> ',
+
+
+		'show character k angryCloak',
+
+		'k Nice?',
+
+		'show character k happyCloak',
+
+		'k Do I look like someone who needs <i>nice</i>?',
+		'p I don’t know, but you look very <i>alone</i>, so. ',
+
+		'show character k shockCloak',
+
+		'k Touché. ',
+		'k I see I’ve now been reduced to pity from local orphans.',
+
+		'show character k happyCloak',
+
+		'k I suppose I deserve it. ',
+
+
+
+		'jump Reaction'
+		// [Kai, neutral] 
+	],
+
+	'DeceptionSkill': [
+		function () {
+			changeSkill('interpersonal', 'deception')
+			notify('+Deception')
+		},
+		'n …deception.',
+
+
+
+		'n This stranger, whoever he is, is hesitant to lower his guard. That much I can tell.',
+
+
+		'n Convincing him I’m not a threat may lead to results.',
+
+
+		'n I just have to look harmless.',
+
+
+		// [CHOICE: Strike up a conversation]
+
+		// [SFX: Foot steps]
+		'play sound woodStep',
+
+		// [Kai, closer?]
+
+
+		'p I believe there’s been a mistake.',
+
+
+		'p I flash my friendliest smile.',
+
+
+		'p I seem to have picked up the wrong purse.',
+
+		'p I don’t suppose this bag of coins is yours?',
+		'k I suppose that was meant to be believable.',
+		'n His voice is smooth, like the silken strings of a lute.',
+
+		'k Maybe it works on street vendors, but not me. ',
+		'p So this isn’t your bag of coin?',
+		'show character k angryCloak',
+
+		'k Nice try, but I’m not as desperate or simple-minded as your friends here. ',
+
+		'n He nods in the direction of the rest of the guild. ',
+
+		'p If that’s what you think of them, why are you here?',
+
+		'show character k sadCloak',
+		'n He sighs loudly. ',
+		'k I’m simply paying my penance.',
+
+		'show character k happySweatCloak',
+
+		'k Running into a cheap swindler must be my next punishment. ',
+
+
+		'jump Reaction'
+	],
+
+	'IntimidateSkill': [
+		function () {
+			changeSkill('interpersonal', 'intimidation')
+			notify('+Intimidation')
+		},
+		'n …intimidation.',
+
+		'n This stranger, whoever he is, looks a little out of his depth. That much I can tell.',
+
+
+		'n Perhaps, if he felt threatened, he’d observe less and speak more.',
+
+		'play sound woodStep',
+
+
+		'p I’m not sure you should have come alone.',
+
+		'p People like you don’t do well in a crowd like this.',
+
+		'show character k happyCloak',
+		'k I suppose that was meant to be intimidating.',
+		'n His voice is smooth, like the silken strings of a lute.',
+
+		'k I’m curious, is the big bad wolf act your usual, or did you just pick it up recently?',
+
+		'p Wh—I don’t think you realise who you’re dealing with. ',
+
+		'show character k shockCloak',
+
+		// SFX: ???
+		'n He pushes himself off the wall. ',
+
+		'show character k neutralCloak',
+
+		'k I think I do.',
+
+		'n The stranger towers over me.',
+
+		'n I’ve never considered myself short, but standing upright I hardly reach his shoulder.',
+
+		'show character k happyCloak',
+		// [Kai, cloak, happy]
+
+		'k When you try to solve things head first, it makes you an open book.',
+
+		'show character k sadCloak',
+		// [Kai, cloak, sad]
+
+		'k You think fear will get you what you want?',
+
+		// [Kai, cloak, angry]
+		'show character k angryCloak',
+		
+		'k You don’t know what it’s like to be afraid. ',
+		
+		'jump Reaction'
+		// [Kai, cloak, happy] 
+	],
+	
+	'Reaction': [
+		'show character k happyCloak',
+		'k But, enough of this. ',
+		'show character k neutralCloak',
+		'k What is it you want?',
+		'p I was just trying to make conversation. ',
+		
+		'n Although, now I’m certain it was a terrible idea.',
+		'show character k happyCloak',
+		'k Ah, now. Don’t lie to me. ',
+		'k I saw you and your friend running around like lost puppies. ',
+		
+		'k But, not before being slighted by everyone here.',
+		'show character k happyCloak',
+		
+		'k Seems making friends is not your forte.',
+		'k Nor is getting answers. ',
+		
+		'p Wow, going straight for the attack, huh?',
+		'show character k shockCloak',
+		
+		'p I’m not the one who came here alone. ',
+		'show character k happyCloak',
+		
+		'k And I have all the answers I need, so don’t think I have any ulterior motives here.',
+		'show character k shockCloak',
+		
+		'k Oh?',
+		'p Yeah.',
+		
+		'show character k happyCloak',
+		'k Dishonesty does not look very good on you.',
+		
+		'p I’m being honest.',
+		
+		'p Hwen’s just a temporary situation. I’m surprised they have a guild at all. ',
+		
+		'p You wouldn’t have seen me, but I was a pretty good adventurer.',
+		
+		'p I used to do this all the time. ',
+		
+		'p We’re just getting used to the new system. ',
+		
+		'show character k neutralCloak',
+		'k How interesting.',
+		
+		'k And how is that going?',
+		
+		'p Things are… slower than expected. ',
+		
+		'p But nothing I can’t overcome.',
+		'show character k shockCloak',
+		
+		'p We’re close to wrapping up a few loose ends on a quest. ',
+		'p Nothing big, just a noble. ',
+		
+		'show character k happyCloak',
+		'k Perhaps I was mistaken. ',
+		
+		'k You must know what you’re doing, to find a quest so fast.',
+		
+		{
+			'Conditional': {
+				'Condition': function(){
+					checkSurvival()
+				},
+				'strength': 'p It’s not an issue. I’m stronger than half the crowd here. ',
+				'perception': 'p It’s not so hard if you know where to look. Who to look out for. ',
+				'conceal': 'p It’s easier when people can’t tell they’re competing with you.'
+			}
+		},
+		
+		'p Getting a quest is child’s play. ',
+		
+		'show character k neutralCloak',
+		'p Plus, I’m kind of a big deal outside of Hwen.',
+		'show character k happyCloak',
+		
+		'k I see.',
+		'k Hwen is a rather small town, so maybe I’ll hear of you soon.',
+		
+		'k But from accents alone, I’m sure you know the people in here aren’t hwensmen. ',
+		
+		'k They lack that trustworthy local charm.',
+		
+		'show character k sadCloak',
+		
+		'k You understand, right? That they all have things they want to hide or protect?',
+		
+		'p I… don’t know why you’re telling me this. ',
+		
+		'show character k happyCloak',
+		'p Because I can’t bear to watch a puppy get kicked while it’s still down. ',
+		
+		
+		'show character k neutralCloak',
+		'k And because you say too much. ',
+		'show character k shockCloak',
+		
+		'k Nowhere near as much as your friend, but still too much.',
+		
+		'show character k happyCloak',
+		'n He extends his hand. ',
+		
+		'k It was nice meeting you, {{player.name}}. ',
+		'p Uh, I didn’t tell you my name. ',
+		
+		'show character k neutralCoat',
+		'k You didn’t need to. Your friend is <i>very</i> loud. ',
+
+		
+		
+		
 	]
-
-
+	
 
 });
