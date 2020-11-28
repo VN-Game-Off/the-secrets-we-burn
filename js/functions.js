@@ -12,6 +12,27 @@ function notify(myText) {
     setTimeout(()=> {destroyNotif()}, 2000)
 }
 
+function updatePersonality(trait, value){
+    const toUpdate = monogatari.storage()[trait]
+    monogatari.storage()[trait] = toUpdate + value
+}
+
+function checkPersonality () {
+    if (monogatari.storage(friendly) >= monogatari.storage(assertive)) {
+        if (monogatari.storage(friendly) >= monogatari.storage(joking)) {
+            return friendly
+        }
+        else {
+            return joking
+        }
+    }
+
+    else if (monogatari.storage(joking) >= monogatari.storage(assertive)) {
+        return joking
+    }
+    return assertive
+}
+
 function destroyNotif () {
     const toDestroy = document.getElementsByClassName("NOTIF")
     // console.log(toDestroy)
@@ -34,7 +55,8 @@ const allSkills = {
     sword: {
         name: 'Longsword',
         description: 'Nothing has felt more natural than my <b class="accent">sword</b> as an extension of myself. I feel swift and deadly with a blade by my side.'
-    }
+    },
+
 }
 
 function changeSkill(variable, name) {

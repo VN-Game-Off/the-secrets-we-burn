@@ -15,6 +15,12 @@ monogatari.action('message').messages({
 		body: `
 		You’re about to make your first skill choice! Skill choices shape your hero, choose carefully. It could later mean life or death.
 		`
+	},
+	'Personality': {
+		title: 'TIP',
+		body: `
+		Some choices shape your personality. Personality choices will begin to affect your future interactions.
+		`
 	}
 });
 
@@ -72,7 +78,8 @@ monogatari.assets('sounds', {
 	'mudRun': 'Footsteps Dirt (Running) 5.wav',
 	'water': 'Water 8.wav',
 	'rustle': 'rustle.mp3',
-	'rustle2': 'rustle2.mp3'
+	'rustle2': 'rustle2.mp3',
+	'wind': 'wind.mp3',
 });
 
 // Define the videos used in the game.
@@ -132,6 +139,10 @@ monogatari.characters({
 		}
 	}
 });
+
+const joking = 'Playful'
+const friendly = 'Friendly'
+const assertive = 'Assertive'
 
 monogatari.script({
 
@@ -296,7 +307,7 @@ monogatari.script({
 		"n As always, there’s a worrying amount of determination in her voice.",
 		'jump Flail{{combat.name}}'
 	],
-	
+
 	'FlailLongsword': [
 		"show character m shock",
 		'm I saw how you flailed about with your sword. ',
@@ -325,7 +336,7 @@ monogatari.script({
 		'jump FlailConcern'
 	],
 
-	'FlailBow & Arrow': [
+	'FlailBow': [
 		"show character m shock",
 		'm The MC I remember could hit a target with their eyes closed. ',
 		"show character m shockSweat",
@@ -334,7 +345,7 @@ monogatari.script({
 		'm I saw you miss… <i>thrice.</i>',
 		'jump FlailConcern'
 	],
-	
+
 	'FlailConcern': [
 		"show character m neutralSweat",
 		"n She sighs, giving me a concerned look. ",
@@ -349,7 +360,7 @@ monogatari.script({
 		"show character m angry",
 		"m You’re too young to be reminiscing glory days, {{player.name}}!",
 		"show character m shock",
-		"m Last year's {{combat.name}} could do serious damage. You practically tore through every monster you met! ",
+		"m Last year's <b class='accent'>{{combat.name}}</b> could do serious damage. You practically tore through every monster you met! ",
 		"p That was then. ",
 		"n She places a hand tentatively on my shoulder. ",
 		"show character m sad",
@@ -400,9 +411,274 @@ monogatari.script({
 		"show character m neutralSweat",
 		"m <i>I</i> don’t want you to regret anything… ",
 		"show character m shock",
-		"p There isn’t anything to regret. I like it here. It’s peaceful. Do you not like it here?"
+		"p There isn’t anything to regret. I like it here. It’s peaceful. Do you not like it here?",
+		"show character m sad",
+		"n Maya’s shoulder’s slump down, and for the first time my larger-than-life companion, looked small. ",
+		"m I just thought it was going to be something fun… that we could do together. I put a lot of effort into getting everything set-up and— ",
+		"m This is all my fault.",
+		"show character m neutral",
+		"n She straightens her posture, returning to her usual nonchalant self. ",
+		"show character m angrySweat",
+		"m That old woman in the guild is very mean, but no matter. ",
+		"show character m neutral",
+		"play sound rustle",
+		"Maya folds the parchment back into her satchel. ",
+		"show character m shock",
+		"m I know I’m simply destined to grow old and spend all my time haggling with street vendors. ",
+		"m I just thought I’d have one more rodeo before I accept my transformation into an old crone. ",
+		"show character m happy",
+		"n She laughs, but it doesn’t hide her disappointment. I know that I’ve always been like a… ",
+		{
+			'Choice': {
 
+				'Sister to her': {
+					'Text': 'Sister to her',
+					'Do': 'jump ChooseSister'
+				},
+				'Brother to her': {
+					'Text': 'Brother to her',
+					'Do': 'jump ChooseBrother'
+				},
+				'Sibling to her': {
+					'Text': 'Sibling to her',
+					'Do': 'jump ChooseSibling'
+				}
+			}
+		},
+	],
 
+	'ChooseSister': [
+		function () {
+			monogatari.storage().player.gender = 'female'
+		},
+		"n … sister to her. ",
+		'jump AfterGenderChoice'
+	],
 
+	'ChooseBrother': [
+		function () {
+			monogatari.storage().player.gender = 'male'
+		},
+		"n … brother to her.",
+		'jump AfterGenderChoice'
+	],
+
+	'ChooseSibling': [
+		function () {
+			monogatari.storage().player.gender = 'enby'
+		},
+		"n … sibling to her.",
+		'jump AfterGenderChoice'
+	],
+
+	'AfterGenderChoice': [
+		"n And even though she doesn’t show it, I know I’ve been neglecting her. It’s made things tense. ",
+		"n I should…",
+		"show message Personality",
+
+		{
+			'Choice': {
+				'Lighten the mood': {
+					'Text': 'Lighten the mood',
+					'Do': 'jump LightenTheMoodChoice'
+				},
+				'Set Boundaries': {
+					'Text': 'Set Boundaries',
+					'Do': 'jump SetBoundariesChoice'
+				},
+				'Console her': {
+					'Text': 'Console her',
+					'Do': 'jump ConsoleHerChoice'
+				}
+			}
+		}
+	],
+
+	'LightenTheMoodChoice': [
+		function () {
+			monogatari.storage()[joking] = 0
+			updatePersonality(joking, 1)
+			notify(`+${joking}`)
+		},
+		'n …lighten the mood. I don’t want to sour our relationship. ',
+		'p I don’t think cronehood could stop the legendary Maya from having an adventure.',
+		'show character m shockUI',
+		'm You think so?',
+		'm You think so?',
+		'play sound wind',
+		'p Of course! There’ll be legends about you, Maya, no doubt about that. Wait— ',
+		'p Do you hear that?',
+		'show character m shock',
+		'n She listens intensely. ',
+		'show character m sad',
+		'm I hear nothing.',
+		'show character m shockUI',
+		'p Shhh! ',
+		'p I hear it… ',
+		'p There are voices… they’re calling to me… they’re saying...',
+		'show character m shock',
+		'm What? What are they saying!',
+		'n I stand upright as if possessed. My eyes glaze over.',
+		'p Maya Maynard, <i>first</i> of her name; queen of vendors, leveller of bargains, keeper of docks! Not to mention, patron saint of tax evasion!',
+		'show character m happyUI',
+		'p May all <i>fear</i> her royal croneness. ',
+		'n Maya immediately assumes the role, curtsying and thanking imaginary civilians around her. Her hand extends for pleasantries as she blesses small would-be children. ',
+		'show character m shock',
+		'm I suppose these people would be terribly lost without me if I didn’t accept the position.',
+		'show character m neutralBlush',
+		'n I bow ceremoniously. ',
+		'We are forever in your debt, my lady. ',
+		'jump Admission'
+
+	],
+
+	'SetBoundariesChoice': [
+		function () {
+			monogatari.storage()[assertive] = 0
+			updatePersonality(assertive, 1)
+			notify(`+${assertive}`)
+		},
+		'n …set boundaries. She always goes too far.',
+		'show character m neutral',
+		'p Maya, I know you mean well, but I wish you’d ask me first.',
+		'p Even if your heart is in the right place I don’t see myself adventuring any time soon. ',
+		'show character m shock',
+		'm If I had asked you, it wouldn’t have been a surprise!',
+		'm That’s how surprises work!',
+		'show character m neutral',
+		'You can’t control <i>everything</i> in your life. ',
+		'p What’s wrong with trying to be in control?',
+		'show character m shockSweat',
+		'm Nothing! I just—sometimes things happen. ',
+		'show character m sadSweat',
+		'p We don’t have to agree on this. ',
+		'jump Admission'
+
+	],
+
+	'ConsoleHerChoice': [
+		function () {
+			monogatari.storage()[friendly] = 0
+			updatePersonality(friendly, 1)
+			notify(`+${friendly}`)
+		},
+		'n …console her. I know she meant well.',
+		'm I think you could still fit in a few things before cronehood hits.',
+		'show character m shock',
+		'm Such as?',
+		'p You know. Ruining lives, smuggling overdue library books, pillaging wishing fountains, wrecking <i>general</i> havoc… ',
+		'show character m angryUI',
+		'm I do hate that librarian… ',
+		'p And every havoc-wrecking crone will need a trusted lookout and sidekick. ',
+		'show character m happy',
+		'n She grins. ',
+		'm So you’re going to be my sidekick?',
+		'show character m sad',
+		'n But you’re so boring now. ',
+		'p That’s why they’ll never suspect it’s me. ',
+		'show character m happy',
+		'm Her eyes light up at the apparent ingenuity. ',
+		'show character m neutral',
+		'n You realise should they not believe us, I’d have to double-cross you and leave you for dead. ',
+		'p Naturally.',
+		'jump Admission'
+
+	],
+
+	'Admission': [
+		'show character m happy',
+		'm Oh, stop. You’re making me feel bad. ',
+		'm You act as though you’re not my best-friend. ',
+		'p Maya, I think I might be your only friend.',
+		'show character m shock',
+		'm That’s not true! I’ve made plenty of friends. ',
+		'm So many. You’re just my best one.',
+		'p Of course, always.',
+		'show character m happy',
+		'm And as my best friend, could you at least come down with me to the guild? ',
+		'm For moral support?',
+		'p This sounds like a trap. ',
+		'show character m shock',
+		'm What, no! It’s not a trap. ',
+		'm I told you that woman is <i>terrifying.</i> ',
+		'p Well, when you put it like that. Sure, I couldn’t let you walk into the clutches of an allegedly mean old woman. Not alone. ',
+		'show character m sadSweat',
+		'n She lowers her voice. ',
+		'm But do I have your word?',
+		'n I roll my eyes. ',
+		'p Yes, Maya. You have my word. ',
+		'show character m happy',
+		'n She sighs with relief.',
+		'm Thank heavens. ',
+		'show character m happySweat',
+		'm Yes, but I may have told one small teeny <i>tiny</i> white lie. ',
+		'p There’s the trap part.',
+		'm Not a trap, just a small <i>lie.</i>',
+		'p Alright, I’m listening.',
+		'show character m shockSweat',
+		'm Don’t hurt me and just remember the part where you said you were my friend forever. ',
+		'p I’m remembering… ',
+		'show character m happySweat',
+		'm So, I may have already signed us up for the adventurer’s guild. ',
+		'show character m shock',
+		'm It might even be possible that if we don’t go, I’ll owe a lot of money. ',
+		'm Because of sign-up fee penalties!',
+
+		'show character m sad',
+		'm Honestly, you too. Legally your name is already on the paperwork. ',
+		'p Oh Maya...',
+
+		'show character m shock',
+		'm I didn’t think it was going to be a problem! I was pretty sure you’d want to do it. ',
+		'm I also don’t think it’s legal to even charge that much for just paperwork. ',
+
+		'show character m sad',
+		'm What does “processing fees” even mean?',
+		'p Maya!',
+
+		'show character m shock',
+		'p I—When is this happening?',
+
+		'show character m sadSweat',
+		'm Tonight. ',
+
+		'n I furrow my brows. ',
+		'm The headache coming over me pales in comparison to what Maya has signed me up for.',
+		{
+			'Conditional': {
+				'Condition': checkPersonality,
+
+				[friendly]: 'jump friendlyProtest',
+				[joking]: 'jump playfulProtest',
+				[assertive]: 'jump assertiveProtest'
+			}
+		}
+	],
+
+	'playfulProtest': [
+		'p Cronedom could not come sooner for you.',
+		'jump ProtestOver'
+	],
+
+	'friendlyProtest': [
+		'p Maya… Maybe you should consider becoming a library apprentice.',
+		'jump ProtestOver'
+	],
+
+	'assertiveProtest': [
+		'p After we do this, you’re joining an ethics and economics class. ',
+		'p It’ll finally be the last time you get swindled by a fine print. ',
+		'jump ProtestOver'
+	],
+
+	'ProtestOver': [
+		'm You don’t mean that. ',
+		'n I throw her a threatening glare and she jumps back. ',
+		'show character m sad',
+		'p It’ll keep you out of trouble. ',
+		'm Just remember you love me and if you don’t want to see me hand over my life savings to a very scary lady, you’ll at least come!',
+		'show character m shock',
+		'm I’ll see you tonight, bye!',
 	]
+
 });
