@@ -26,5 +26,8 @@ monogatari.storage({
 	survival: {},
 	interpersonal: {},
 
+	Maya: 0,
+	Kai: 0,
+
 	trained: false
 });

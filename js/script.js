@@ -178,7 +178,8 @@ monogatari.assets('gallery', {
 
 // Define the music used in the game.
 monogatari.assets('music', {
-	'Day1': '2_Day_1_Master.mp3'
+	'Day1': '2_Day_1_Master.mp3',
+	'Night1': '3_Night_1_Master.mp3'
 });
 
 // Define the voice files used in the game.
@@ -188,6 +189,7 @@ monogatari.assets('voices', {
 
 // Define the sounds used in the game.
 monogatari.assets('sounds', {
+	'people': 'party-crowd-daniel_simon.mp3',
 	'stomach': 'Stomach Growl - Sound Effect for Editing.mp3',
 	'eating': 'BiteIntoAndChewApple.mp3',
 	'horse': '497693__leo153__2-horse-carriage.wav',
@@ -236,12 +238,14 @@ monogatari.assets('images', {
 // Define the backgrounds for each scene.
 monogatari.assets('scenes', {
 	'sunsetMountain': 'sunsetMountain.jpg',
-	'nightTown': 'ID003_Western-Castle_night.jpg'
+	'nightTown': 'ID003_Western-Castle_night.jpg',
+	'guild': 'guild.png'
 });
 
 
 // Define the Characters
 monogatari.characters({
+
 	'n': {
 		name: ''
 	},
@@ -253,12 +257,7 @@ monogatari.characters({
 		name: '{{player.name}}'
 	},
 
-	'b': {
-		name: '{{baker}}',
-		sprites: {
-			base: 'baker.png'
-		}
-	},
+	
 
 	'm': {
 		name: 'Maya',
@@ -286,7 +285,44 @@ monogatari.characters({
 			happyUI: 'MayaUIHappy.png',
 			shockUI: 'MayaUIShock.png'
 		}
+	},
+
+	// MOB CHARACTERS
+	'w': {
+		name: 'Woman'
+	},
+
+	'b': {
+		name: '{{baker}}',
+		sprites: {
+			base: 'baker.png'
+		}
+	},
+
+	'ssl': {
+		name: 'Short Scary Lady'
+	},
+
+	'oa': {
+		name: 'OPTIMISTIC ADVENTURER'
+	},
+
+	'wi': {
+		name: 'Wick'
+	},
+
+	'da': {
+		name: 'Doubtful Adventurer'
+	},
+
+	'ma': {
+		name: 'MEDIATING ADVENTURER'
+	},
+
+	'r': {
+		name: 'Raina'
 	}
+
 });
 
 const joking = 'Playful'
@@ -1297,7 +1333,7 @@ monogatari.script({
 				
 				'Concealment': 'jump MayaConcealment',
 				'Strength': 'jump MayaStrength',
-				'Perception': 'jump Maya Perception'
+				'Perception': 'jump MayaPerception'
 			}
 		}
 	],
@@ -1352,14 +1388,179 @@ monogatari.script({
 		'm Of course, I expect nothing less from our {{player.master}} of the night.',
 		'show character m happy',
 		'm We never know who might be lurking, ready to attack!',
+		'vibrate 100',
 		'n Maya jumps towards me, pointing her small arrowhead at my throat.',
 		'jump ActuallyEnter'
 	],
-
+	
 	'ActuallyEnter': [
+		'stop music with fade 3',
+		'play music Night1 with fade 5',
 		'n I roll my eyes.',
 		'p Are you done being dramatic?',
+		'show character m happy',
+		// [Maya, sad]
+		'show character m sad',
+		'n I wait for her to lead the way, but in the darkness, her honey-tinted eyes watch me expectantly.',
+		'n Ah.',
+		'p I guess I go in first?',
+		// [Maya, shock with blush]
+		'show character m shockBlush',
+		'm Maybe that’s for the best. Your charming, friendly face will probably work wonders on them.',
+		'm Sweeten the deal, so to speak.',
+		'm You told me my face scares infants.',
+		// [Maya, neutral with blush]
+		'show character m neutralBlush',
+		'm Things change!',
+		
+		'p And this has nothing to do with anything you may have said earlier to them?',
+		
+		// [Maya, angry with blush]
+		'show character m angryBlush',
+		
+		'm Of course not.',
+		
+		'm In no way does this have anything to do with perceived authority or prior encounters I may or may not have had.',
+		
+		'p Noted.',
+		
+		
+		// [Maya, neutral]
+		'show character m neutral',
+		
+		'She stands behind me with an encouraging smile. Her chest puffed out proudly for full effect. ',
 
+		{
+			'Choice': {
+				'Class': 'fadeIn',
+				'Enter the guild': {
+					'Text': 'Enter the guild',
+					'Do': 'next'
+				}
+			}
+		},
+
+		'hide character m with fadeIn',
+		'show scene guild',
+		'play sound door',
+		'play sound people with volume 20 loop',
+		'n The guild is small and cramped, with faces of all ages chattering at once. ',
+		'n Against the far wall, intimate booths are lit by dim sconce candlelights. Some empty, others serving a crowd.',
+		'p So, who do we talk to?',
+		'n My voice is lost against the clinking of tankards and warm, boisterous conversation. ',
+		'p Hm, Maya? Where was— ',
+		'n Behind me, a woman that is not Maya glares. ',
+		'p Um… ',
+
+		// SPRITE: Short Scary Lady
+		'w Are ye going to sit down, or are ye going to take a number?',
+		'n Her accent is thick and guttural. Her unsavoury frown is only intensified by her hunched, small stature. ',
+		'ssl I said, are ye setting or taking?',
+		'p Neither, sorry. I thought you were someone else. I’ll— ',
+		'ssl Pft. I’ve got <i>no</i> time for you fresh-faced babies.',
+		'ssl Find a place to sit, or get out of my way. ',
+
+		'n She scoffs, shaking her head and muttering to herself as she wipes the nearby tables. ',
+		'n I pick a seat, far, far away from her. ',
+		'n No wonder Maya didn’t want to come in first. ',
+		'n Leaning back into my seat, I observe the crowd. ',
+		'n A hushed conversation just opposite me catches my attention. ',
+
+		{
+			'Conditional':{
+				'Condition': function(){
+					return monogatari.storage('survival').name
+				},
+				'Strength': 'I lean forward with arms resting on a table. The key to not being noticed is to look like you belong.',
+				'Concealment': 'I twist myself to face away from them and avoid drawing attention. ',
+				'Perception': 'Two men and a woman are so engrossed in gossip that I don’t have to try hard to hear. '
+			}
+		},
+
+		'oa <i>Listen</i>, it’s a fortune. ',
+		'oa I could repair the fields with that kind of coin.',
+		'da It’s a suicide, Wick.',
+		'wi I’d like to call it a chance.',
+		'da Well, I call it a joke. You think anyone worth their salt would come looking through Hewn?',
+		'da And to post a job like <i>that?</i>',
+		'wi Why not! There’s good adventurers here.',
+		'n The doubtful adventurer pauses, then leaning in very slowly stares into Wick’s eyes.',
+		'da Did they drop you on your head as a child?',
+		'ma Oh, leave him be, Raina.',
+		'ma Neither of you could hack it, it’s a job for professionals.',
+		'r And you could do it?',
+		'ma I don’t need to.',
+		'ma I have prior engagements that leave me too busy for <i>errands</i>.',
+		'n The adventurer’s choke on their drinks at the words.',
+		'r Ha! You’re just scared. I know how your last engagement with a noble fared.',
+		'n The mediating adventurer’s face turns bright red.',
+
+		'show character m happy with zoomIn',
+		'm Did you hear?!',
+		'p Maya!',
+
+		'show character m shock',
+		'p Where did you go?',
+
+		{
+			'Choice': {
+				'Class': 'fadeIn',
+				'I came here for you.': {
+					'Text': 'I came here for <i>you.</i>',
+					'Do': 'jump ComplainToMaya'
+				},
+				'I was worried!': {
+					'Text': 'I was worried!',
+					'Do': 'jump QuestionMaya'
+				}
+			}
+		},
+	],
+
+	'ComplainToMaya': [
+		'show character m shockSweat',
+		'p I came here for you and you’re ditching me at the very first chance.',
+		'show character m sad',
+		'm I was trying to get us a head start.',
+		'show character m angry',
+		'n She slides into the seat beside me.',
+		'jump Schmooze'
+	],
+	
+	'QuestionMaya': [
+		function(){
+			updateRelationship('Maya', 5)
+			notify('+5 Maya')
+		},
+		'p I was worried.',
+		'p Where did you run off to?',
+		'p Was it because of that woman?',
+		'show character m shockSweat',
+		'm Oh, no. You saw her too?',
+		'n She slides into the free seat beside me.',
+		'show character m sadSweat',
+		'm Are you OK?',
+		'p Wh—Yes, I’m OK.',
+		'show character m happyUI',
+		'm Great, I need you in your best form.',
+		'm I got carried away collecting clues.',
+		'm People aren’t saying much, but it smells like something big is going to happen.',
+		'm An adventure!',
+		'p You managed to collect clues in the space of ten seconds?',
+		'show character m neutral',
+		'm {{player.name}}. I’m a professional.',
+		'jump Schmooze'
+	],
+	
+	'Schmooze': [
+		'show character m shock',
+		'm I was right behind you when I overheard the juiciest gossip.',
+
+		'p Overheard or eavesdropped?',
+		'm It’s called passing by strategically.',
+		'm Let me finish the story!',
+
+		'p OK, OK.'
 	]
 
 });

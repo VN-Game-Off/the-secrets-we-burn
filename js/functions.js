@@ -30,6 +30,11 @@ function updatePersonality(trait, value){
     monogatari.storage()[trait] = toUpdate + value
 }
 
+function updateRelationship(person, value){
+    const toUpdate = monogatari.storage()[person]
+    monogatari.storage()[person] = toUpdate + value
+}
+
 function checkPersonality () {
     if (monogatari.storage(friendly) >= monogatari.storage(assertive)) {
         if (monogatari.storage(friendly) >= monogatari.storage(joking)) {
