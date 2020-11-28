@@ -68,7 +68,7 @@ button {
 	width: 20rem;
 }
 
-.btn-container button.special{
+.btn-container button.special, [data-string="Close"]{
 	background: url('../assets/ui/close.png');
 	background-size: 100% 100%;
 	border: 1.5px solid #89744b;
@@ -263,7 +263,7 @@ game-screen[data-screen="game"]{
 [data-character="m"]{
 	/* height: 100%;
 	width: 100%; */
-	transform: translateY(-10%) scale(1.15);
+	transform: translateY(-20%) scale(1.25);
 	/* overflow: hidden; */
 }
 
@@ -344,11 +344,6 @@ h2[data-string="History"]{
 
 message-modal div{
 	padding: 0;
-}
-
-[data-string="Close"]{
-	background: url('../assets/ui/close.png');
-	/* padding: 10%; */
 }
 
 
@@ -702,9 +697,13 @@ input[type="range"]::-moz-range-progress {
 
 /** Medium Screens, Phablets (601px) **/
 
-@media screen and (min-width: 37.56255em) {
+@media screen and (min-width: 500px) {
 	/* Styles for the desktop version of the Quick Menu */
 	/* Quick Menu Style */
+
+	text-box, text-box::after{
+		bottom: 0;
+	}
 
 	h2 {
 		padding-top: 2%;
@@ -720,8 +719,9 @@ input[type="range"]::-moz-range-progress {
 
 
 	[data-component="quick-menu"] {
-		bottom: 20px;
-		
+		/* bottom: 20px; */
+		top:0;
+		bottom: auto;
 	}
 	/* Quick Menu Buttons Style */
 	[data-component="quick-menu"] button {
@@ -735,6 +735,10 @@ input[type="range"]::-moz-range-progress {
 	.skill-container img{
 		width: 100px;
 	}
+
+	[data-character="m"]{
+		transform: translateY(0) scale(1);
+	}
 }
 
 /** Medium Devices, Tablets (992px)**/
@@ -744,6 +748,8 @@ input[type="range"]::-moz-range-progress {
 		min-width: 200px;
 		width: 200px;
 	}
+
+	
 }
 
 /** HD Screen, Large Devices, Wide Screens, Desktop (1200px) **/

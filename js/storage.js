@@ -2,10 +2,12 @@
 
 // Persistent Storage Variable
 monogatari.storage({
+
 	player: {
-		name: '',
+		name: 'You',
 		gender: '',
 	},
+
 	hp:60,
 	valor: 0,
 

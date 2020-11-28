@@ -80,6 +80,7 @@ monogatari.assets('sounds', {
 	'rustle': 'rustle.mp3',
 	'rustle2': 'rustle2.mp3',
 	'wind': 'wind.mp3',
+	'footstepsFour': 'footstepsLoop.mp3'
 });
 
 // Define the videos used in the game.
@@ -108,7 +109,7 @@ monogatari.characters({
 	},
 
 	'p': {
-		name: 'You'
+		name: '{{player.name}}'
 	},
 
 	'm': {
@@ -278,7 +279,7 @@ monogatari.script({
 		"n I pivot back, catching the owner of the voice sprinting up the hillside. She waves at me wildly, balancing the bounce in her gait with the bobbing satchel at her hip.",
 		"show character m shockSweat with zoomIn",
 		"My best friend, Maya.",
-		"show character m shock",
+		"show character m shock at center",
 		"n I rest my stance and meet her a pitiful half way. Her dark curls drop in front of me when she catches up.",
 		"n {{player.name}}! I— You— Argh!",
 		"m <i>Fire.</i> My throat feels like it’s on fire!",
@@ -643,7 +644,7 @@ monogatari.script({
 		'm Tonight. ',
 
 		'n I furrow my brows. ',
-		'm The headache coming over me pales in comparison to what Maya has signed me up for.',
+		'n The headache coming over me pales in comparison to what Maya has signed me up for.',
 		{
 			'Conditional': {
 				'Condition': checkPersonality,
@@ -679,6 +680,10 @@ monogatari.script({
 		'm Just remember you love me and if you don’t want to see me hand over my life savings to a very scary lady, you’ll at least come!',
 		'show character m shock',
 		'm I’ll see you tonight, bye!',
+
+		'play sound footstepsFour',
+		'n I try to stop her, but like the trickster she is, Maya effortlessly slips out of my grasp. ',
+		'hide character m with zoomOut'
 	]
 
 });
