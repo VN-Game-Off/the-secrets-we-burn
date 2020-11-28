@@ -154,29 +154,6 @@ monogatari.translation('English', {
 	'Understood': 'Understood'
 })
 
-
-monogatari.storage({
-	skills: {
-		combat: {
-			img: '',
-			name: '',
-			desc: ''
-		},
-		survival: {
-			img: '',
-			name: '',
-			desc: ''
-		},
-		interpersonal: {
-			img: '',
-			name: '',
-			desc: ''
-		},
-	}
-})
-
-
-
 $_ready(() => {
 	// 2. Inside the $_ready function:
 	// $_('[data-ui="quick-menu"] [data-action="back"]').remove ();
@@ -236,6 +213,25 @@ $_ready(() => {
 		// monogatari.component('main-menu').addButton(pauseMenuButton);
 		// monogatari.component('main-menu').addButton(settingsButton);
 		monogatari.component('quick-menu').addButton(more);
+
+		monogatari.on ('didLoadGame', () => {
+			if (monogatari.storage('combat')!==''){
+				if (monogatari.storage('combat').name==='Bow & Arrow'){
+					changeSkill('combat', 'bow')
+				}
+				else if (monogatari.storage('combat').name==='Fists'){
+					changeSkill('combat', 'fists')
+				}
+				else{
+					changeSkill('combat', 'sword')
+				}
+			}
+
+			if (monogatari.storage('survival')!==''){
+				const survival = monogatari.storage('survival').name
+				changeSkill('survival',survival.toLowerCase())
+			}
+		});
 
 	});
 

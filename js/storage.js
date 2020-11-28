@@ -6,11 +6,21 @@ monogatari.storage({
 	player: {
 		name: 'You',
 		gender: '',
+
+		lord: 'Lord',
+		master: 'Master',
+
+		he: 'he',
+		him: 'him',
+		his: 'his',
+		heis: "he’s",
+		
+		man: 'man'
 	},
 
 	baker: 'Crier',
 
-	hp:60,
+	hp: 60,
 	valor: 0,
 
 	Friendly: 0,
@@ -21,5 +31,12 @@ monogatari.storage({
 	survival: {},
 	interpersonal: {},
 
+	Maya: 0,
+	Kai: 0,
+
+	// Flags
+	bar: false,
+	desk: false,
+	booth: false,
 	trained: false
 });

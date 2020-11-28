@@ -21,16 +21,24 @@ function notify(myText) {
     myNotification.classList.add("right");
 
     // Destroy element after 2 seconds
-    setTimeout(()=> {destroyNotif()}, 2000)
+    setTimeout(() => { destroyNotif() }, 2000)
 }
+
+
 
 // INPUT: Trait (friendly, playful, or assertive)
-function updatePersonality(trait, value){
+function updatePersonality(trait, value) {
     const toUpdate = monogatari.storage()[trait]
     monogatari.storage()[trait] = toUpdate + value
+    console.log(monogatari.storage()[trait])
 }
 
-function checkPersonality () {
+function updateRelationship(person, value) {
+    const toUpdate = monogatari.storage()[person]
+    monogatari.storage()[person] = toUpdate + value
+}
+
+function checkPersonality() {
     if (monogatari.storage(friendly) >= monogatari.storage(assertive)) {
         if (monogatari.storage(friendly) >= monogatari.storage(joking)) {
             return friendly
@@ -46,26 +54,80 @@ function checkPersonality () {
     return assertive
 }
 
-function checkWeapon(){
+function checkWeapon() {
 
-    if (monogatari.storage('combat').name==='Bow & Arrow'){
+    if (monogatari.storage('combat').name === 'Bow & Arrow') {
         return 'bow'
     }
 
-    else if (monogatari.storage('combat').name==='Fists'){
+    else if (monogatari.storage('combat').name === 'Fists') {
         return 'fists'
     }
 
     return 'sword'
 }
 
-function increaseValour(value){
-    const toUpdate = monogatari.storage('valour')
-    monogatari.storage().valour = toUpdate+value
-    
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function destroyNotif () {
+
+function imgNotify(variable) {
+    // const node = document.createTextNode(message)
+    // const name = monogatari.storage(skill).name
+
+    const imgElement = (document.getElementById(`${variable}-img`)).cloneNode(true)
+    let gameScreen = document.querySelector("game-screen");
+    gameScreen.appendChild(imgElement);
+
+    imgElement.classList.add("NOTIF")
+    imgElement.classList.add("animated");
+    imgElement.classList.add("bounceOut")
+    imgElement.classList.add("screen-center");
+
+    // Destroy element after 2 seconds
+    setTimeout(() => {
+        // imgElement.classList.add('bounceOut')
+        destroyNotif()
+    }, 2000)
+
+}
+
+function checkGender(add){
+
+    monogatari.storage('player').s = ''
+
+    if (monogatari.storage('gender')==='female'){
+        monogatari.storage('player').heis = 'she’s'
+        monogatari.storage('player').he = 'she'
+        monogatari.storage('player').man = 'woman'
+        monogatari.storage('player').lord = 'Lady'
+        monogatari.storage('player').master = 'Mistress'
+    }
+
+    else if (monogatari.storage('gender')==='enby'){
+        monogatari.storage('player').heis = 'they’re'
+        monogatari.storage('player').he = 'they'
+        monogatari.storage('player').man = 'person'
+        monogatari.storage('player').lord = 'Ruler'
+        monogatari.storage('player').master = 'Sovereign'
+        monogatari.storage('player').s = 's'
+
+    }
+}
+
+function checkSurvival(){
+    return monogatari.storage('survival').name.toLowerCase()
+}
+
+
+function increaseValour(value) {
+    const toUpdate = monogatari.storage('valour')
+    monogatari.storage().valour = toUpdate + value
+
+}
+
+function destroyNotif() {
     const toDestroy = document.getElementsByClassName("NOTIF")
     // console.log(toDestroy)
     // console.log("removed")
@@ -107,7 +169,7 @@ const allSkills = {
 }
 
 function changeSkill(variable, name) {
-    console.log('Is happening')
+    console.log(name)
     monogatari.storage()[variable] = allSkills[name]
 
     const nameElement = document.getElementById(`${variable}-name`)
@@ -120,7 +182,3 @@ function changeSkill(variable, name) {
     imgElement.setAttribute('src', `./assets/ui/skills/${name}.png`)
 }
 
-function imgNotify (skill, message){
-    const node = document.createTextNode(message)
-
-}

@@ -1,3 +1,0 @@
-const config = {
-    VAL: 'TEST'
-}
