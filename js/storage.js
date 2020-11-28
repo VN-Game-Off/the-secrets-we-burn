@@ -19,6 +19,7 @@ monogatari.storage({
 	},
 
 	baker: 'Crier',
+	kaiName: 'Cloaked Stranger',
 
 	hp: 60,
 	valor: 0,
