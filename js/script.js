@@ -292,6 +292,43 @@ monogatari.characters({
 		}
 	},
 
+	'k': {
+		name: 'Kai',
+		directory: 'Kai',
+
+		sprites: {
+			angryBlush: 'KaiBlushAngry.png',
+			neutralBlush: 'KaiBlushNeutral.png',
+			shockBlush: 'KaiBlushShock.png',
+			happyBlush: 'KaiBlushHappy.png',
+			sadBlush: 'KaiBlushSad.png',
+
+			angry: 'KaiAngry.png',
+			happy: 'KaiHappy.png',
+			neutral: 'KaiNeutral.png',
+			sad: 'KaiSad.png',
+			shock: 'KaiShock.png',
+
+			angrySweat: 'KaiSweatAngry.png',
+			happySweat: 'KaiSweatHappy.png',
+			neutralSweat: 'KaiSweatNeutral.png',
+			sadSweat: 'KaiSweatSad.png',
+			shockSweat: 'KaiSweatShock.png',
+
+			angryCloak: 'KaiCloakAngry.png',
+			happyCloak: 'KaiCloakHappy.png',
+			neutralCloak: 'KaiCloakNeutral.png',
+			sadCloak: 'KaiCloakSad.png',
+			shockCloak: 'KaiCloakShock.png',
+
+			angrySweatCloak: 'KaiCloakSweatAngry.png',
+			happySweatCloak: 'KaiCloakSweatHappy.png',
+			neutralSweatCloak: 'KaiCloakSweatNeutral.png',
+			sadSweatCloak: 'KaiCloakSweatSad.png',
+			shockSweatCloak: 'KaiCloakSweatShock.png',
+		}
+	},
+
 	// MOB CHARACTERS
 	'w': {
 		name: 'Woman'
@@ -1623,7 +1660,7 @@ monogatari.script({
 				'Don’t bother': {
 					'Text': 'Don’t bother',
 					'Do': 'jump DontBother'
-				},	
+				},
 
 				'Refuse, it seems like a hassle': {
 					'Text': 'Refuse, it seems like a hassle',
@@ -1677,11 +1714,11 @@ monogatari.script({
 			'Choice': {
 				'“Don’t start any fights…”': {
 					'Text': ' “Don’t start any fights…”',
-					'Do': 'DontStartFights'
+					'Do': 'jump DontStartFights'
 				},
 				'“Then I’ll come running.”': {
 					'Text': '“Then I’ll come running.”',
-					'Do': 'ThenIllComeRunning'
+					'Do': 'jump ThenIllComeRunning'
 				}
 			}
 		}
@@ -2136,13 +2173,13 @@ monogatari.script({
 		'show character m sad',
 		'm No… no, something smells fishy here. ',
 		'p Yeah, Maya. That’s the smell of people.',
-		
+
 		'show character m angry',
 		'm Sometimes you are so rude.',
-		
+
 		'show character m neutral',
 		'm OK, alternative plan! You sit down; I have something I want to check.',
-		
+
 		'show character m happyUI',
 		'm Great!',
 
@@ -2161,8 +2198,202 @@ monogatari.script({
 
 
 	'Information': [
-		
+		'show character m angryBlush with fadeIn',
+		'n When Maya returns her face is flush and a little out of breath. ',
+
+		'm I got some information.',
+
+		'p That fast?',
+
+		'n She throws herself into the seat beside me. ',
+		'show character m happy',
+
+		'm I know a few tricks or two when it comes to making people talk.',
+
+		'p Maya, what did you do…?',
+
+		'show character m neutral',
+		'm Nothing I wouldn’t do again.',
+
+		'm Focus, {{player.name}}!',
+
+		'show character m angry',
+		'm What’s more important is how this whole thing is turning out to be a dud.',
+
+		'm It’s so frustrating. ',
+
+		'm Whatever froufrou prestigious quest is registered with the guild doesn’t matter.',
+		'show character m shock',
+
+		'm It’s a glorified notice board.',
+
+		'p Why can’t we just… put in a request?',
+
+		'p Put our names down officially for it, move on, get called in the next day.',
+
+		'p All this running around is… ',
+
+		{
+			'Choice': {
+				'“not what I expected.”': {
+					'Text': '“not what I expected.”',
+					'Do': 'jump NotWhatIExpected'
+				},
+
+				'“not the cardio I asked for.”': {
+					'Text': '“not the cardio I asked for.” ',
+					'Do': 'jump NotTheCardio'
+				},
+
+				'"“impractical.”': {
+					'Text': '“impractical.”',
+					'Do': 'jump Impractical'
+				}
+			}
+		}
+	],
+
+	'NotWhatIExpected': [
+		function () {
+			updatePersonality(friendly, 1)
+			notify(`+${friendly}`)
+		},
+
+		'p …not what I expected.',
+
+		'show character m sad',
+
+		'm I’m sorry.',
+		'p No, it’s OK. I’m just wondering if there’s something more useful we could do?',
+
+		'p I imagined we’d sign up and it’d be first come, first serve. ',
+
+		'jump Answer'
+	],
+
+	'NotTheCardio': [
+		function () {
+			updatePersonality(joking, 1)
+			notify(`+${joking}`)
+		},
+
+		'show character m sad',
+		'p …not the cardio I asked for. ',
+		'p Don’t get me wrong, it’s been uh, fun but I already trained pretty hard today. ',
+		'p My legs aren’t what they used to be.',
+
+		'show character m shock',
+		'm You’re only older than me by six months!',
+
+		'show character m neutral',
+		'p And I feel <i>every day</i> of it. ',
+
+		'p If you want some advice, six months from now isn’t looking so great for you either, so how about we start wrapping this up?',
+
+		'jump Answer'
+
+	],
+
+	'Impractical': [
+		function () {
+			updatePersonality(assertive, 1)
+			notify(`+${assertive}`)
+		},
+
+		'show character m sad',
+		'p …impractical.',
+		'p I’m not an expert, but if you’re running a profitable establishment, there should be some order to it all.',
+		'p Surely everyone else doesn’t waste their time like this?',
+		'jump Answer'
+	],
+
+	'Answer': [
+		'show character m sad',
+		'm I don’t like it either. ',
+		'm Even if we put in a request, from the sound of it, no-one would respond.',
+
+		'show character m angry',
+		'm The front desk <i>obviously</i> has favourites. They don’t even try to hide it. ',
+		'm We’re at the bottom of the food-chain.',
+
+		'show character m neutral',
+		'p Then we pick a different quest.',
+		'm <i>Or</i>, we find the contractor ourselves!',
+
+		'p Doesn’t that defeat the purpose of the guild?',
+
+		'show character m happy',
+		'm If we didn’t come here, we wouldn’t have known about the quest. Purpose fulfilled. ',
+
+		'm So, all we do now is… find this noble contractor and convince him to hire us.',
+
+		'show character m shock',
+		'm They’re probably here… watching… lurking… scoping out the competition.',
+
+		'show character m neutral',
+		'm If we find them, it’s faster, more efficient and shows initiative!',
+
+		'p Uh huh… ',
+
+		'show character m happy',
+		'm It won’t be hard!',
+
+		{
+			'Conditional': {
+				'Condition': function () {
+					// imgNotify('combat')
+					return checkWeapon()
+				},
+
+				'bow': 'jump BowAnswer',
+				'fists': 'jump CloseAnswer',
+				'sword': 'jump CloseAnswer'
+
+			}
+		},
+
+	],
+
+	'BowAnswer': [
+		'm After all, we’re both deadly with a bow.',
+		'jump AfterAnswer'
+	],
+
+	'CloseAnswer': [
+		'm After all, between us, we’ve got range and close combat perfected.',
+		'jump AfterAnswer'
+	],
+
+	'AfterAnswer': [
+
+		'm We just show them much better it is to hire a duo. A butt-kicking pair of adventurers with no flaws. ',
+
+		'show character m shock',
+
+		'm Oh, maybe you should…',
+
+		'p Not talk?',
+
+		'show character m neutralBlush',
+		'm I was going to say work on your social skills.',
+
+		'p Don’t worry, I’ll take baby steps. One person at a time. ',
+
+		'hide character m with fadeOut',
+
+		'n Maya pats me on the shoulder and leaves to disappear back into the fray.',
+
+		'n I try to stay alert, but it’s already been such a long day. ',
+		'n My head feels like a weight between my shoulders as I stare off into the distance. The conversations muddling together. ',
+
+		// VFX: Fading in and out of black like tired eyes?,
+
+		'n I snap back to attention, realising I’ve been staring at one person this whole time.',
+		'show character k neutralCloak at center with fadeIn',
+
+
 	]
+
 
 
 
