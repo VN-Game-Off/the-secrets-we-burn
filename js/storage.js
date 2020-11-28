@@ -6,6 +6,11 @@ monogatari.storage({
 	player: {
 		name: 'You',
 		gender: '',
+		lord: 'Lord',
+		master: 'Master',
+		he: 'he',
+		him: 'him',
+		his: 'his'
 	},
 
 	baker: 'Crier',

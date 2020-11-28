@@ -48,7 +48,116 @@ monogatari.action('notification').notifications({
 
 // Define the Particles JS Configurations used in the game
 monogatari.action('particles').particles({
-
+    'fireSparks': {
+        'particles': {
+            'number': {
+                'value': 400,
+                'density': {
+                    'enable': true,
+                    'value_area': 3000
+                }
+            },
+            'color': {
+                'value': '#fc0000'
+            },
+            'shape': {
+                'type': 'circle',
+                'stroke': {
+                    'width': 0,
+                    'color': '#000000'
+                },
+                'polygon': {
+                    'nb_sides': 3
+                },
+                'image': {
+                    'src': 'img/github.svg',
+                    'width': 100,
+                    'height': 100
+                }
+            },
+            'opacity': {
+                'value': 0.5,
+                'random': true,
+                'anim': {
+                    'enable': false,
+                    'speed': 1,
+                    'opacity_min': 0.1,
+                    'sync': false
+                }
+            },
+            'size': {
+                'value': 2,
+                'random': true,
+                'anim': {
+                    'enable': true,
+                    'speed': 5,
+                    'size_min': 0,
+                    'sync': false
+                }
+            },
+            'line_linked': {
+                'enable': false,
+                'distance': 500,
+                'color': '#ffffff',
+                'opacity': 0.4,
+                'width': 2
+            },
+            'move': {
+                'enable': true,
+                'speed': 7.8914764163227265,
+                'direction': 'top',
+                'random': true,
+                'straight': false,
+                'out_mode': 'out',
+                'bounce': false,
+                'attract': {
+                    'enable': false,
+                    'rotateX': 600,
+                    'rotateY': 1200
+                }
+            }
+        },
+        'interactivity': {
+            'detect_on': 'canvas',
+            'events': {
+                'onhover': {
+                    'enable': false,
+                    'mode': 'bubble'
+                },
+                'onclick': {
+                    'enable': false,
+                    'mode': 'repulse'
+                },
+                'resize': true
+            },
+            'modes': {
+                'grab': {
+                    'distance': 400,
+                    'line_linked': {
+                        'opacity': 0.5
+                    }
+                },
+                'bubble': {
+                    'distance': 400,
+                    'size': 4,
+                    'duration': 0.3,
+                    'opacity': 1,
+                    'speed': 3
+                },
+                'repulse': {
+                    'distance': 200,
+                    'duration': 0.4
+                },
+                'push': {
+                    'particles_nb': 4
+                },
+                'remove': {
+                    'particles_nb': 2
+                }
+            }
+        },
+        'retina_detect': true
+    }
 });
 
 // Define the canvas objects used in the game
@@ -149,14 +258,6 @@ monogatari.characters({
 		sprites: {
 			base: 'baker.png'
 		}
-	},
-
-	'MAYA:': {
-		name: 'Maya'
-	},
-
-	'MC': {
-		name: '{{player.name}}'
 	},
 
 	'm': {
@@ -1088,6 +1189,8 @@ monogatari.script({
 		'show message Survival',
 		{
 			'Choice': {
+				'Class': 'fadeIn',
+
 				'Fearlessly': {
 					'Text': 'Fearlessly and confidently',
 					'Do': 'jump Fearlessly'
@@ -1162,7 +1265,7 @@ monogatari.script({
 		"n Whilst most people in Hwen meant no harm, it wasn’t a place the average contractor came for ‘heroic feats’.",
 		'n No, it was probably just errands going to the highest bidder. ',
 		"n Maybe if we’re lucky, we might gather the lost sheep of a wealthy farmer, or play private investigator for the adulterous couple. ",
-		'show character m shock with bounceIn',
+		'show character m shock with zoomIn',
 		'm How long were you planning to wallow in front of the guild?',
 		'p Maya! How long have you been here?',
 		'p I was about to go find you.',
@@ -1199,7 +1302,7 @@ monogatari.script({
 		}
 	],
 	
-	'MayaConcealment': [
+	'MayaStrength': [
 		'show character m neutral',
 		'm Yup, watching you look like a big dummy marching down here like you own the place. ',
 		'show character m happy',
@@ -1211,7 +1314,7 @@ monogatari.script({
 		'jump ActuallyEnter'
 	],
 	
-	'MayaStrength': [
+	'MayaPerception': [
 		'show character m shockSweat',
 		'm I was curious to see how long you’d stand there waiting. ',
 		'p And was your curiosity satisfied?',
@@ -1222,10 +1325,41 @@ monogatari.script({
 		'm And are you aware you’re not as short as you might think?',
 		'm I might have a chance, but I barely come up to your shoulder. ',
 		'p I was <i>not</i> standing in a bush. ',
-		'MC: I was not standing in a bush.',
 		'n She sighs hopelessly. Her hand over her heart.',
-		'MAYA: Whatever helps you sleep at night, {{player.name}}.'
 		
+		'm Whatever helps you sleep at night, {{player.name}}.',
+		'jump ActuallyEnter'
+	],
+	
+	'MayaConcealment': [
+		'show character m happy',
+		'm Hey, great minds think alike!',
+		function(){
+			if (monogatari.storage('player').gender==='female'){
+				monogatari.storage('player').lord = 'Lady'
+				monogatari.storage('player').master = 'Master'
+			}
+			
+			else if (monogatari.storage('player').gender==='enby'){
+				monogatari.storage('player').lord = 'Ruler'
+				monogatari.storage('player').master = 'Sovereign'
+			}
+		},
+		'show character m angry',
+		'm Except I wasn’t slinking around like a {{player.lord}} of darkness.',
+		'm I wasn’t slinking. I was being cautious.',
+		'show character m neutral',
+		'm Of course, I expect nothing less from our {{player.master}} of the night.',
+		'show character m happy',
+		'm We never know who might be lurking, ready to attack!',
+		'n Maya jumps towards me, pointing her small arrowhead at my throat.',
+		'jump ActuallyEnter'
+	],
+
+	'ActuallyEnter': [
+		'n I roll my eyes.',
+		'p Are you done being dramatic?',
+
 	]
 
 });
