@@ -359,7 +359,7 @@ monogatari.script({
 	// The game starts here.
 	'Start': [
 		'show scene sunsetMountain',
-		'play music Day1',
+		'play music Day1 loop',
 		'n I was not followed.',
 		'n I make sure of it as I set down my satchel, flask, and belongings on the weathered grass, glancing occasionally behind.',
 		'n I know I have nothing to hide. Nothing that would be seen as dangerous, or questionable, but I didn’t need the attention.',
@@ -1470,7 +1470,7 @@ monogatari.script({
 
 		'hide character m with fadeOut',
 		'stop music with fade 3',
-		'play music Night1 with fade 5',
+		'play music Night1 loop with fade 5',
 		'show scene guild with fadeIn',
 		'play sound door',
 		'play sound people with volume 5 loop',
@@ -1548,9 +1548,9 @@ monogatari.script({
 	],
 
 	'ComplainToMaya': [
-		function(){
-			imgNotify('combat')
-		},
+		// function(){
+		// 	imgNotify('combat')
+		// },
 		'show character m shockSweat',
 		'p I came here for you and you’re ditching me at the very first chance.',
 		'show character m sad',
@@ -2079,12 +2079,43 @@ monogatari.script({
 		'n Leia’s eyes trail up and down my frame with an unhidden distaste. ',
 		'm No, no we’re not threatening you!',
 
-		'n Then why does your friend here, look like {{player.heis}} built to crush skills?',
-		'n That’s just how {{player.he}} stand{{player.s}}!',
+		'fw Then why does your friend here, look like {{player.heis}} built to crush skills?',
+		'm That’s just how {{player.he}} stand{{player.s}}!',
+		'jump AfterBluff'
+	],
+
+	'ConcealmentBluff': [
+		'p Bold move.',
+		'n I slip myself between Maya and the elderly player. ',
+		// SFX: Cards on table
+		'n Sensing my presence, he fumbles with the cards and drops the deck with shaking hands.',
+
+		'om Oh, bugger. Where do you get off creeping up on an old man?',
+
+		'n The woman laughs, but the rest of the crowd turns to me with a scowl. ',
+		'fw Next time try to keep your nose out of other’s business, kid.',
+
+		'fw We’re quite fine with the way things are.',
 
 
+		'om No, I suddenly feel rather unsafe here. Do we have to continue?',
+
+		'show character m shock',
+		'fw No, I suppose we don’t.',
+		'jump AfterBluff'
+	],
+
+	'AfterBluff': [
+		'fw Next time, if you want to play the bluffing game, try to actually be good at it.',
+		// SFX: Cards on table, chair scraping,
+		'n She throws down the rest of the card and begins helping the old man out of his seat.',
+
+		'fw Let’s go, father.',
+		'vibrate 100',
+		'She clips my shoulder on the way out. ',
+
+		'fw Let’s go, father. ' 
 	]
-
 
 
 });
