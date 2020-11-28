@@ -1,5 +1,7 @@
 /* global monogatari */
 
+
+
 // Define the messages used in the game.
 monogatari.action('message').messages({
 	'Help': {
@@ -195,6 +197,7 @@ monogatari.assets('sounds', {
 	'horse': '497693__leo153__2-horse-carriage.wav',
 	'door': '440644__seansecret__violently-closing-wooden-door.wav',
 	'cards': '423767__someonecool15__card-shuffling.mp3',
+	'creak': '219499__jarredgibb__door-creak.wav',
 
 	'arrowFly': 'Arrow Flying Past 1.wav',
 	'arrowFly2': 'Arrow Flying Past 2.wav',
@@ -294,6 +297,10 @@ monogatari.characters({
 		name: 'Woman'
 	},
 
+	'fw': {
+		name: 'Freckled Woman'
+	},
+
 	'b': {
 		name: '{{baker}}',
 		sprites: {
@@ -335,6 +342,10 @@ monogatari.characters({
 
 	'rn': {
 		name: 'Reception'
+	},
+
+	'om': {
+		name: 'Older Man'
 	}
 
 });
@@ -846,7 +857,9 @@ monogatari.script({
 		'n The headache coming over me pales in comparison to what Maya has signed me up for.',
 		{
 			'Conditional': {
-				'Condition': checkPersonality,
+				'Condition': function(){
+					return checkPersonality()
+				},
 
 				[friendly]: 'jump friendlyProtest',
 				[joking]: 'jump playfulProtest',
@@ -917,7 +930,10 @@ monogatari.script({
 
 		{
 			'Conditional': {
-				'Condition': checkWeapon,
+				'Condition': function(){
+					imgNotify('combat')
+					return checkWeapon()
+				},
 				'bow': 'jump BowPushTrain',
 				'sword': 'jump SwordPushTrain',
 				'fists': 'jump FistsPushTrain'
@@ -1408,8 +1424,6 @@ monogatari.script({
 	],
 
 	'ActuallyEnter': [
-		'stop music with fade 3',
-		'play music Night1 with fade 5',
 		'n I roll my eyes.',
 		'p Are you done being dramatic?',
 		'show character m happy',
@@ -1454,10 +1468,12 @@ monogatari.script({
 			}
 		},
 
-		'hide character m with fadeIn',
-		'show scene guild',
+		'hide character m with fadeOut',
+		'stop music with fade 3',
+		'play music Night1 with fade 5',
+		'show scene guild with fadeIn',
 		'play sound door',
-		'play sound people with volume 20 loop',
+		'play sound people with volume 5 loop',
 		'n The guild is small and cramped, with faces of all ages chattering at once. ',
 		'n Against the far wall, intimate booths are lit by dim sconce candlelights. Some empty, others serving a crowd.',
 		'p So, who do we talk to?',
@@ -1532,6 +1548,9 @@ monogatari.script({
 	],
 
 	'ComplainToMaya': [
+		function(){
+			imgNotify('combat')
+		},
 		'show character m shockSweat',
 		'p I came here for you and you’re ditching me at the very first chance.',
 		'show character m sad',
@@ -1976,8 +1995,94 @@ monogatari.script({
 		'show character m happyUI',
 		
 		'm Room for two more?',
-
+		'show character m happy',
 		
+		'n No-one looks up.',
+		
+		'om It’s a two-person game, bugger off.',
+		'show character m angry',
+		
+		'n Maya brow twitches at the response.',
+		
+		'p That might be the best we’re going to get. We should just go.',
+		'show character m sad',
+		
+		'n She sighs, taking a half step in the other direction, then stops.',
+		'show character m shock',
+		'm It’s just, for a two person game you both play so <i>poorly.</i>',
+		
+		'p Ma—<i>Ow!</i>',
+		
+		'play sound dullThud',
+		'show character m neutral',
+		'n A dull pain shoots through my toes, a warning to keep my mouth shut.',
+		'n But it’s too late.',
+		'n The watery eyes and high pitched squeal from having my foot stomped on has already earned me several dubious looks.',
+		'om Big words from a small lass.',
+		'om I suggest you start learning to mind your own business.',
+		'om It’ll save you a lot of trouble.',
+		
+		'show character m happy',
+		'm Oh, we will.',
+		'm We just thought you could use some tips.',
+		
+		'n She glances overs over the board.',
+		'show character m sadSweat',
+		'm It’s the least we could do.',
+
+		'n I regret offering my help.',
+		{
+			'Conditional': {
+				'Condition': function(){
+					imgNotify('survival')
+					return checkSurvival()
+				},
+				'perception': 'jump PerceptionBluff',
+				'concealment': 'jump ConcealmentBluff',
+				'strength': 'jump StrengthBluff'
+			}
+		}
+	],
+
+	'PerceptionBluff':[
+		'p Anyone can tell you aren’t playing fairly.',
+		'n It’s fortunate that I don’t have to bluff. ',
+		'n It takes me glance to notice this game variation heavily favours one player.',
+		'fw What do you know?',
+		'p Maybe you could help me understand you’ve ended up with so little cards?',
+		'n The white-haired gentleman glances at his opponent’s deck and then scowls.',
+		'om You’ve been cheating!',
+		'fw You believe these bumpkin kids?',
+		'fw Trust your dusty mind to not remember losing three fights in a row.',
+		'n The old man frowns, taking calculating looks between the two decks.',
+		'om Then… how is it I’ve acquired so many tokens and not cards?',
+		'n The younger woman curses. Her full attention is now on me.',
+		'fw If you must know, his mind is not quite what it used to be.',
+		'fw I was <i>letting</i> him win.',
+		'jump AfterBluff'
+	],
+
+	'StrengthBluff': [
+		'show character m angry',
+		'n Maya stands behind my squared shoulders. It’s time for a good sheriff, bad sheriff routine.',
+		'n Except, I don’t remember which of us is the good sheriff.',
+		'p We’ll help for the right price.',
+		'show character m neutral',
+
+		'om Is that a threat?',
+
+		function(){
+			checkGender()
+		},
+
+		'Leia, this {{player.man}} is threatening us.',
+		'n Leia’s eyes trail up and down my frame with an unhidden distaste. ',
+		'm No, no we’re not threatening you!',
+
+		'n Then why does your friend here, look like {{player.heis}} built to crush skills?',
+		'n That’s just how {{player.he}} stand{{player.s}}!',
+
+
 	]
 
 
