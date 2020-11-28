@@ -42,6 +42,13 @@ button {
 	width: 15rem;
 }
 
+save-slot .badge, save-slot figcaption{
+	font-family: 'Cambo', sans-serif;
+	color: #8d8379;
+	font-weight: 400;
+}
+
+
 /* settings-screen, menu-screen {
 	color: white;
 } */
@@ -514,7 +521,12 @@ main-menu {
 	border-bottom: 1.5px solid rgb(144, 122, 78);
 	/* text-align: center; */
 	/* padding-top: 2%; */
-	font: 'Lora';
+	/* font: 'Lora'; */
+	color: rgb(185, 179, 171);
+	text-transform: uppercase;
+	/* text-align: center; */
+	text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	font-family: 'Lora';
 }
 
 [data-ui="say"] {
