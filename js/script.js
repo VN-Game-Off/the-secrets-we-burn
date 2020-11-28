@@ -151,6 +151,14 @@ monogatari.characters({
 		}
 	},
 
+	'MAYA:': {
+		name: 'Maya'
+	},
+
+	'MC': {
+		name: '{{player.name}}'
+	},
+
 	'm': {
 		name: 'Maya',
 		directory: 'Maya',
@@ -546,7 +554,7 @@ monogatari.script({
 		'show character m shockUI',
 		'm You think so?',
 		'm You think so?',
-		'play sound wind',
+		'play sound wind with volume 40',
 		'p Of course! There’ll be legends about you, Maya, no doubt about that. Wait— ',
 		'p Do you hear that?',
 		'show character m shock',
@@ -1112,12 +1120,13 @@ monogatari.script({
 				'True': 'n Mustering what strength I can, I march across the road, hiding the tiredness in my gait.',
 				'False': 'n I’m warm and refreshed from the goods Rohese gave me as I stride across the road feeling confident about what comes next.',
 			}
-		}
+		},
+		'jump EntranceToGuild'
 	],
 
 	'Observation': [
 		function () {
-			changeSkill('perception', 'strength')
+			changeSkill('survival', 'perception')
 			notify('+Perception')
 		},
 		'n …after observing my surroundings. ',
@@ -1126,12 +1135,13 @@ monogatari.script({
 		'n Why she would sign us up after all this time, I can’t tell.',
 		'n But there are no immediate causes for concern. ',
 		'n No rowdy behaviour or miscreants lingering by the entrance.',
-		'n It’s enough for me to cross the narrow road. '
+		'n It’s enough for me to cross the narrow road. ',
+		'jump EntranceToGuild'
 	],
 
 	'LikeShadow': [
 		function () {
-			changeSkill('concealment', 'strength')
+			changeSkill('survival', 'concealment')
 			notify('+Concealment')
 		},
 
@@ -1140,6 +1150,7 @@ monogatari.script({
 		'n I go unnoticed. ',
 		'play sound rustle2',
 		'n Like ivy, I keep to the edges of the building, only crossing the narrow road when certain there are no immediate eyes on me. ',
+		'jump EntranceToGuild'
 	],
 
 	'EntranceToGuild': [
@@ -1167,8 +1178,54 @@ monogatari.script({
 		'show character m sad',
 		'm Yes. Yes, I was scared. ',
 		'show character m angry',
-		'm Which is perfectly reasonable because that woman is <i>very</i> scary. '
-
+		'm Which is perfectly reasonable because that woman is <i>very</i> scary. ',
+		'n I smirk back at her. ',
+		'show character m neutralSweat',
+		'p So I’ve heard. ',
+		'show character m sadBlush',
+		'She nods, fumbling with a loose arrowhead between her fingers.',
+		'p So what were you doing instead? Watching me from the shadows?',
+		{
+			'Conditional': {
+				
+				'Condition': function(){
+					return monogatari.storage('survival').name
+				},
+				
+				'Concealment': 'jump MayaConcealment',
+				'Strength': 'jump MayaStrength',
+				'Perception': 'jump Maya Perception'
+			}
+		}
+	],
+	
+	'MayaConcealment': [
+		'show character m neutral',
+		'm Yup, watching you look like a big dummy marching down here like you own the place. ',
+		'show character m happy',
+		'm I respect it. ',
+		'p Can’t let people think they can walk all over me. ',
+		'm With arms like those, they wouldn’t dare. ',
+		'show character m happyUI',
+		'n She flexes, mimicking a hunched and confident walk. ',
+		'jump ActuallyEnter'
+	],
+	
+	'MayaStrength': [
+		'show character m shockSweat',
+		'm I was curious to see how long you’d stand there waiting. ',
+		'p And was your curiosity satisfied?',
+		'show character m angrySweat',
+		'm No, I only have more questions. ',
+		'show character m shockSweat',
+		'm Like, why did you spend so long standing in that bush?',
+		'm And are you aware you’re not as short as you might think?',
+		'm I might have a chance, but I barely come up to your shoulder. ',
+		'p I was <i>not</i> standing in a bush. ',
+		'MC: I was not standing in a bush.',
+		'n She sighs hopelessly. Her hand over her heart.',
+		'MAYA: Whatever helps you sleep at night, {{player.name}}.'
+		
 	]
 
 });
