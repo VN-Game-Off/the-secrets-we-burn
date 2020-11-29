@@ -34,7 +34,7 @@ monogatari.action('message').messages({
 	'Survival': {
 		title: 'TIP',
 		body: `
-		You’re about to make a skill choice. How do you react in an unknown environment? .
+		You’re about to make a skill choice. How do you react in an unknown environment?
 		`
 	},
 
@@ -95,7 +95,7 @@ monogatari.action('particles').particles({
 				}
 			},
 			'size': {
-				'value': 3,
+				'value': 2,
 				'random': true,
 				'anim': {
 					'enable': false,
@@ -391,114 +391,114 @@ monogatari.action('particles').particles({
 	},
 
 	'snow': {
-		'particles': {
-			'number': {
-				'value': 400,
-				'density': {
-					'enable': true,
-					'value_area': 800
+		"particles": {
+			"number": {
+				"value": 400,
+				"density": {
+					"enable": true,
+					"value_area": 800
 				}
 			},
-			'color': {
-				'value': '#fff'
+			"color": {
+				"value": "#fff"
 			},
-			'shape': {
-				'type': 'circle',
-				'stroke': {
-					'width': 0,
-					'color': '#000000'
+			"shape": {
+				"type": "circle",
+				"stroke": {
+					"width": 0,
+					"color": "#000000"
 				},
-				'polygon': {
-					'nb_sides': 5
+				"polygon": {
+					"nb_sides": 5
 				},
-				'image': {
-					'src': 'img\/github.svg',
-					'width': 100,
-					'height': 100
+				"image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
 				}
 			},
-			'opacity': {
-				'value': 0.5,
-				'random': true,
-				'anim': {
-					'enable': false,
-					'speed': 1,
-					'opacity_min': 0.1,
-					'sync': false
+			"opacity": {
+				"value": 0.23336639357242286,
+				"random": true,
+				"anim": {
+					"enable": false,
+					"speed": 1,
+					"opacity_min": 0.1,
+					"sync": false
 				}
 			},
-			'size': {
-				'value': 10,
-				'random': true,
-				'anim': {
-					'enable': false,
-					'speed': 40,
-					'size_min': 0.1,
-					'sync': false
+			"size": {
+				"value": 4,
+				"random": true,
+				"anim": {
+					"enable": false,
+					"speed": 40,
+					"size_min": 0.1,
+					"sync": false
 				}
 			},
-			'line_linked': {
-				'enable': false,
-				'distance': 500,
-				'color': '#ffffff',
-				'opacity': 0.4,
-				'width': 2
+			"line_linked": {
+				"enable": false,
+				"distance": 500,
+				"color": "#ffffff",
+				"opacity": 0.4,
+				"width": 2
 			},
-			'move': {
-				'enable': true,
-				'speed': 6,
-				'direction': 'bottom',
-				'random': false,
-				'straight': false,
-				'out_mode': 'out',
-				'bounce': false,
-				'attract': {
-					'enable': false,
-					'rotateX': 600,
-					'rotateY': 1200
+			"move": {
+				"enable": true,
+				"speed": 6,
+				"direction": "bottom",
+				"random": false,
+				"straight": false,
+				"out_mode": "out",
+				"bounce": false,
+				"attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 1200
 				}
 			}
 		},
-		'interactivity': {
-			'detect_on': 'canvas',
-			'events': {
-				'onhover': {
-					'enable': true,
-					'mode': 'bubble'
+		"interactivity": {
+			"detect_on": "canvas",
+			"events": {
+				"onhover": {
+					"enable": true,
+					"mode": "bubble"
 				},
-				'onclick': {
-					'enable': true,
-					'mode': 'repulse'
+				"onclick": {
+					"enable": true,
+					"mode": "repulse"
 				},
-				'resize': true
+				"resize": true
 			},
-			'modes': {
-				'grab': {
-					'distance': 400,
-					'line_linked': {
-						'opacity': 0.5
+			"modes": {
+				"grab": {
+					"distance": 400,
+					"line_linked": {
+						"opacity": 0.5
 					}
 				},
-				'bubble': {
-					'distance': 400,
-					'size': 4,
-					'duration': 0.3,
-					'opacity': 1,
-					'speed': 3
+				"bubble": {
+					"distance": 400,
+					"size": 4,
+					"duration": 0.3,
+					"opacity": 1,
+					"speed": 3
 				},
-				'repulse': {
-					'distance': 200,
-					'duration': 0.4
+				"repulse": {
+					"distance": 200,
+					"duration": 0.4
 				},
-				'push': {
-					'particles_nb': 4
+				"push": {
+					"particles_nb": 4
 				},
-				'remove': {
-					'particles_nb': 2
+				"remove": {
+					"particles_nb": 2
 				}
 			}
 		},
-		'retina_detect': true
+		"retina_detect": true
 	}
 })
 
@@ -844,7 +844,7 @@ monogatari.script({
 		"n One, two, one, two.",
 		"n My fists clench between the carved wood, allowing me to focus and convince myself I was pushing the fog from my mind’s eye.",
 		"n That I simply need practice.",
-		"n At some point, when I slipped these on, I felt most likely myself, but now…",
+		"n At some point, when I slipped these on, I felt most like myself, but now…",
 		"n I exhale. My chest tightens as I manoeuvre through the space in front.",
 		"n My footwork and stamina have gotten sloppy.",
 		"jump TalkToMaya"
@@ -941,7 +941,7 @@ monogatari.script({
 
 	'FlailBow': [
 		"show character m shock",
-		'm The MC I remember could hit a target with their eyes closed. ',
+		'm The {{player.name}} I remember could hit a target with their eyes closed. ',
 		"show character m shockSweat",
 		'm Now, you look like you need about four extra.',
 		'p Very funny. I just lost my focus, I’m still a good shot.',
@@ -963,7 +963,19 @@ monogatari.script({
 		"show character m angry",
 		"m You’re too young to be reminiscing glory days, {{player.name}}!",
 		"show character m shock",
-		"m Last year your {{combat.name}} could do serious damage. You practically tore through every monster you met! ",
+
+		{
+			'Conditional': {
+				'Condition': function () {
+					return checkWeapon()
+				},
+
+				'bow': 'm Last year your bow could do serious damage. You practically tore through every monster you met! ',
+				'sword': 'm Last year your longsword could do serious damage. You practically tore through every monster you met!',
+				'fists': 'm Last year your knuckle-dusters could do serious damage. You practically tore through every monster you met!'
+			}
+		},
+
 		"p That was then. ",
 		"n She places a hand tentatively on my shoulder. ",
 		"show character m sad",
@@ -1642,7 +1654,7 @@ monogatari.script({
 		'n Another low chime echoes through the air. The town gates rumble as they roll back their last bolt. ',
 		'n The night watch is about to begin. ',
 		'n My pace quickens and I soon find myself standing across from the adventurer’s guild. ',
-		'n I wasn’t difficult to locate, considering it was the only one in town. ',
+		'n It wasn’t difficult to locate, considering it was the only one in town. ',
 		'n Still, I can’t approach carelessly. I’m not familiar with this part of town. I should approach… ',
 		'show message Survival',
 		{
@@ -1828,7 +1840,7 @@ monogatari.script({
 		'show character m shockBlush',
 		'm Maybe that’s for the best. Your charming, friendly face will probably work wonders on them.',
 		'm Sweeten the deal, so to speak.',
-		'm You told me my face scares infants.',
+		'p You told me my face scares infants.',
 		// [Maya, neutral with blush]
 		'show character m neutralBlush',
 		'm Things change!',
@@ -1913,7 +1925,7 @@ monogatari.script({
 		'r And you could do it?',
 		'ma I don’t need to.',
 		'ma I have prior engagements that leave me too busy for <i>errands</i>.',
-		'n The adventurer’s choke on their drinks at the words.',
+		'n The adventurers choke on their drinks at the words.',
 		'r Ha! You’re just scared. I know how your last engagement with a noble fared.',
 		'n The mediating adventurer’s face turns bright red.',
 
@@ -2722,7 +2734,7 @@ monogatari.script({
 
 	'AfterAnswer': [
 
-		'm We just show them much better it is to hire a duo. A butt-kicking pair of adventurers with no flaws. ',
+		'm We just show them how much better it is to hire a duo. A butt-kicking pair of adventurers with no flaws. ',
 
 		'show character m shock',
 
@@ -3103,7 +3115,7 @@ monogatari.script({
 		'p I… don’t know why you’re telling me this. ',
 
 		'show character k happyCloak',
-		'p Because I can’t bear to watch a puppy get kicked while it’s still down. ',
+		'k Because I can’t bear to watch a puppy get kicked while it’s still down. ',
 
 
 		'show character k neutralCloak',
@@ -3327,7 +3339,7 @@ monogatari.script({
 		'show character m neutral',
 		'm I think you’re a bit of a quack. ',
 
-		'p Yeah, yeah, and what did your skills get you.',
+		'p Yeah, yeah, and what did your skills get you?',
 
 		'show character m sad',
 		'm Nothing…',
@@ -3537,7 +3549,7 @@ monogatari.script({
 	],
 
 	'TrainedSad': [
-		'show particles stars',
+		'show particles snow',
 
 		'n Once outside, my breath forms into puffs of vapour.',
 
@@ -3625,7 +3637,7 @@ monogatari.script({
 		'p That’s what I’m doing, isn’t it?',
 
 		'show character m sadSweat',
-		'p Her eyes well up. Like a broken dam, the words fall out.',
+		'n Her eyes well up. Like a broken dam, the words fall out.',
 
 		'm I wanted today to go well.',
 
@@ -3647,9 +3659,6 @@ monogatari.script({
 		'm This was meant to be a quick stop in our journey, and now we’ve taken a million steps backwards!',
 
 		'm We’ve been here for months!',
-
-		'show character m shockSweat',
-		'm Not like we used to! Not after… we had to come here.',
 
 		'm This was meant to be a quick stop in our journey, and now we’ve taken a million steps backwards!',
 
@@ -3862,7 +3871,7 @@ monogatari.script({
 
 		'm But, how will I know if it’s going to get better?',
 
-		'p You don’t. So, if you’re going to give it, do it, but don’t sulk about it. ',
+		'p You don’t. So, if you’re going to give up, do it, but don’t sulk about it. ',
 
 		'show character m sadBlush',
 
@@ -3915,7 +3924,7 @@ monogatari.script({
 
 	'WalkAlone': [
 		'show character m neutralSweat',
-		'Hey, {{player.name}} what are you doing tomorrow?',
+		'm Hey, {{player.name}} what are you doing tomorrow?',
 
 		'p Not sure.',
 		'show character m happy',
@@ -4186,7 +4195,7 @@ monogatari.script({
 		'n He straightens, brushing off the leaves in his cloak.',
 
 		'show character k happySweatCloak',
-		'n Can’t a man take a stroll on a fine day?',
+		'k Can’t a man take a stroll on a fine day?',
 
 		'p In a bush, completely out of town, alone?',
 
@@ -4319,7 +4328,7 @@ monogatari.script({
 	],
 
 	'AfterWeaponKai': [
-		'm No offence',
+		'p No offence.',
 		'show character k neutralCloak',
 
 		'k I suppose I have little time, anyway.',
@@ -4783,7 +4792,7 @@ monogatari.script({
 		'hide character k',
 		'show character m shockSweat',
 
-		'm {{player.name}}',
+		'm {{player.name}}.',
 
 		'm Hello?',
 
@@ -4816,7 +4825,7 @@ monogatari.script({
 
 				'“The pleasure is mine”': {
 					'Text': '“The pleasure is mine”',
-					'Do': 'PleasureIsMine'
+					'Do': 'jump PleasureIsMine'
 				}
 			}
 		}
@@ -4880,8 +4889,8 @@ monogatari.script({
 
 		'p It was either that, or we were both seeing ghosts. ',
 
-		'hide character m',
-		'show character k shock',
+		// 'hide character m',
+		'show character m shock',
 		'm Wait.',
 		'jump WeveMet'
 	],
@@ -4897,9 +4906,9 @@ monogatari.script({
 		'k Of course.',
 		'hide character k',
 		'show character m angrySweat',
-		
+
 		'n Maya’s eyes dart between us, connecting the dots.',
-		
+
 		'show character m shockSweat',
 		'm Why are you using your polite voice?',
 
@@ -4916,37 +4925,36 @@ monogatari.script({
 
 		'hide character k',
 		'show character m neutral',
-		
+
 		'm You were watching us?',
 
 		'hide character m',
 		'show character k neutral',
-		
-		
+
 		'k I merely asked around. ',
 		'k Trust that I heard good things. ',
-		
+
 		'hide character k',
 		'show character m neutral',
-		
+
 		'm Well, that’s good! Right, {{player.name}}?',
 		'show character m happyUI',
 		'm You can rest assured that you’re in safe hands. ',
-		
+
 		'm {{player.name}} is an amazing adventurer!',
-		
+
 		'hide character m',
 		'show character k happy',
 		'k That is a relief. I would hate to have made the wrong choice.',
-		
+
 		'show character k neutral',
 		'k I assume we are ready to go?',
-		
+
 		'hide character k',
 		'show character m happy',
 
 		'm If there’s nothing else, I don’t see why not!',
-		
+
 		// [SFX: Rumble/Large gates being drawn] 
 		'n Maya nods to the gates, and the guards roll back the large barriers.',
 
