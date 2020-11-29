@@ -535,13 +535,28 @@ monogatari.assets('voices', {
 
 // Define the sounds used in the game.
 monogatari.assets('sounds', {
+	'cardsOnTable': 'zapsplat_foley_cards_birthday_x5_fall_off_shelf_20593.mp3',
 	'people': 'party-crowd-daniel_simon.mp3',
+	'cupGently': 'household_cups_mugs_x2_pick_up_by_handles_from_table_001.mp3',
+	'gateRumble': 'zapsplat_foley_castle_dungeon_door_metal_large_heavy_open_001_50566.mp3',
+	'cupSlide': 'zapsplat_household_mug_cup_ceramic_slide_on_kitchen_worktop_001_34851.mp3',
+	'cupSlam': 'zapsplat_foley_paper_sheet_a4_slam_down_by_hand_on_glass_table_001_28576.mp3',
+	'chairScrape': 'zapsplat_household_chair_sofa_drag_concrete_wooden_legs_scrape_001_37918.mp3',
+	'woodDrag': 'zapsplat_household_plastic_bucket_empty_drag_on_wood_floor_001_23065.mp3',
+
+	'glassTap': 'zapsplat_cartoon_glass_tap_hit_002_26691.mp3',
+	'creepyTapping': 'zapsplat_impacts_glass_small_pane_taps_fingers_19360.mp3',
+
+	'gateLatch': 'gateLatch.mp3',
+
 	'stomach': 'Stomach Growl - Sound Effect for Editing.mp3',
 	'eating': 'BiteIntoAndChewApple.mp3',
 	'horse': '497693__leo153__2-horse-carriage.wav',
 	'door': '440644__seansecret__violently-closing-wooden-door.wav',
 	'cards': '423767__someonecool15__card-shuffling.mp3',
+
 	'creak': '219499__jarredgibb__door-creak.wav',
+	'creak2': 'creak.mp3',
 
 	'arrowFly': 'Arrow Flying Past 1.wav',
 	'arrowFly2': 'Arrow Flying Past 2.wav',
@@ -573,6 +588,12 @@ monogatari.assets('sounds', {
 	'mudRun': 'Footsteps Dirt (Running) 5.wav',
 	'footstepsFour': 'footstepsLoop.mp3',
 	'woodStep': 'Wood footstep 2.wav',
+	'woodStepsFour': 'lightWoodFootsteps.mp3',
+	'runningHeavy': 'runningHeavy.mp3',
+	'gravelRun': 'gravelRun.mp3',
+
+	'thud': 'musical_guitar_acoustic_lean_against_wall_hard.mp3',
+	'crash': 'zapsplat_vehicles_bicycles_5_fall_over_together_11670.mp3',
 
 	'bell': 'Bell Sound Effect.mp3'
 });
@@ -1359,7 +1380,7 @@ monogatari.script({
 			}
 		},
 
-		'play sound pullString3',
+		'play sound pullString2',
 
 		'n The first arrow hits the ground with a humiliating thwack, just like before. ',
 
@@ -1485,7 +1506,7 @@ monogatari.script({
 		'n Whatever happens from here on will require my full attention. I’ll find somewhere to rest nearby.',
 		'n With my bag slung over my shoulder, I venture back down the hillside towards the town. ',
 		'show scene nightTown with fadeIn',
-		// SFX: Quiet town ambience
+
 		'n On the other side, the roads are calm with only a few stray stragglers making their way home. ',
 		{
 			'Choice': {
@@ -1651,7 +1672,7 @@ monogatari.script({
 	'Evening': [
 		'show scene nightTown',
 		'play sound bell',
-		// SFX: Gate rumbling,
+		'play sound gateRumble',
 		'n Another low chime echoes through the air. The town gates rumble as they roll back their last bolt. ',
 		'n The night watch is about to begin. ',
 		'n My pace quickens and I soon find myself standing across from the adventurer’s guild. ',
@@ -2234,7 +2255,8 @@ monogatari.script({
 		'n Maya clasps her hands together in delight and makes her way towards the barkeep.',
 		'hide character m with fadeOut',
 		'play sound coins',
-		// SFX: Cup being put down on wooden surface. Or sliding across surface,
+	
+		'play sound cupSlide',
 		'bp And for you?',
 		'p I’m good for now. Thanks.',
 		'n He leaves, and Maya takes a swig of her own drink.',
@@ -2243,9 +2265,9 @@ monogatari.script({
 		'm This is terrible.',
 		// 'show character m sad with fadeIn',
 		'p Yeah, I could tell.',
-		// SFX: Cup putting put down aggressively
+		'play sound cupSlam',
 		'n She puts the tankard down, pretending to forget it was ever there. ',
-		// SFX: Cup being put down gently,
+		'play sound cupGently',
 		'ad First taste of Ol’ Meggy?',
 		'n A tall woman slides into the seat beside us. Her face shadowed by a large hood and thin strands of black hair.',
 		'show character m shockUI',
@@ -2500,7 +2522,7 @@ monogatari.script({
 	'ConcealmentBluff': [
 		'p Bold move.',
 		'n I slip myself between Maya and the elderly player. ',
-		// SFX: Cards on table
+		'play sound cardsOnTable',
 		'n Sensing my presence, he fumbles with the cards and drops the deck with shaking hands.',
 
 		'om Oh, bugger. Where do you get off creeping up on an old man?',
@@ -2520,7 +2542,8 @@ monogatari.script({
 
 	'AfterBluff': [
 		'fw Next time, if you want to play the bluffing game, try to actually be good at it.',
-		// SFX: Cards on table, chair scraping,
+		'play sound chairScrape',
+		'play sound cardsOnTable',
 		'n She throws down the rest of the card and begins helping the old man out of his seat.',
 
 		'fw Let’s go, father.',
@@ -2552,8 +2575,6 @@ monogatari.script({
 
 		'hide character m with fadeOut',
 		'n Maya bounces off in the other direction, leaving me in a corner away from the rest of the guild. ',
-
-		// SFX: Crowd Laughing,
 
 		'n I expect her to be shooed away, but after a risky joke or two she fits right in. ',
 		'n Are my people skills that awful?',
@@ -2855,8 +2876,6 @@ monogatari.script({
 
 		// [CHOICE: Strike up a conversation]
 
-
-		// [SFX: Foot steps]
 		'play sound woodStep',
 
 		// [Kai, closer?]
@@ -2925,8 +2944,7 @@ monogatari.script({
 
 		// [CHOICE: Strike up a conversation]
 
-		// [SFX: Foot steps]
-		'play sound woodStep',
+		'play sound woodStepsFour',
 
 		// [Kai, closer?]
 
@@ -2994,7 +3012,7 @@ monogatari.script({
 
 		'show character k shockCloak',
 
-		// SFX: ???
+		'play sound thud',
 		'n He pushes himself off the wall. ',
 
 		'show character k neutralCloak',
@@ -3775,7 +3793,8 @@ monogatari.script({
 		'hide character m',
 
 		'n I make a run for it, dashing through the alley.',
-		// SFX: Crash
+		
+		'play sound crash',
 
 		'n Turning the corner, I collide with a shop board left out on the street.',
 
@@ -3785,8 +3804,7 @@ monogatari.script({
 		'show character m neutral',
 		'm Oh, no.',
 
-		// SFX: Wooden pieces being dragged
-
+		'play sound woodDrag',
 		'n I roll over, lifting what’s left of the wooden victim underneath me.',
 
 		'n Several pieces and a misspelt sign.',
@@ -3810,14 +3828,15 @@ monogatari.script({
 		'm Well, <i>laying</i>.',
 
 		'hide character m with fadeOut',
-		// SFX: Running away
-		'play sound footstepsFour',
-
+		'play sound runningHeavy',
+		// 'play sound footstepsFour',
+		
 		'n She runs again.',
-
-		// [SFX: Different running] then [SFX: Thud, for grabbing maya]
+		
+		'play sound gravelRun',
 
 		'n I clamber to chase after, grabbing her when I catch up.',
+		'play sound thud',
 
 		'show character m happyBlush with fadeIn',
 
@@ -3968,8 +3987,7 @@ monogatari.script({
 
 		'hide character m',
 
-		// [SFX: Footsteps going away]
-		'play sound footstepsFour',
+		'play sound woodStepsFour',
 
 		'n She disappears out of sight. ',
 
@@ -3985,7 +4003,7 @@ monogatari.script({
 
 		'play sound rustle',
 
-		// [SFX: Tapping of glass] 
+		'play sound glassTap',
 		'n The rustling increases with a sinister tapping of glass.',
 
 		{
@@ -4024,33 +4042,32 @@ monogatari.script({
 
 		'play sound rustle4',
 
-		// [SFX: Creepy tapping] ,
+		'play sound creepyTapping',
 		'p Who’s there? Show yourself!',
-
+		
 		'n I reach for my weapon, tightening my grip. ',
 		'n The rustling stops, and a leaf floats down in front of me. ',
-
+		
 		'n Was it just the wind? I look up. ',
-
+		
 		'n A nearby tree brushes noisily against the upper window. ',
-
+		
 		'n I’m an idiot. ',
-
-		// [SFX: Gate latch opening, closing, creaking]
+		
+		'play sound gateLatch',
+		'play sound creak2',
 		'n I loosen up and hop the gate, not wanting to be outside any longer.',
-
+		
 		'n That night I get some well-deserved rest.',
-
+		
 		'jump Training'
-
+		
 	],
-
+	
 	'IntimidateFail': [
 		'play sound rustle4',
-		// [SFX: Creepy tapping] 
+		'play sound creepyTapping',
 		'n I don’t hesitate, yelling at the top of my lungs. ',
-
-		// [SFX: Heart beating] 
 
 		'p W-who’s there?',
 
@@ -4109,11 +4126,10 @@ monogatari.script({
 
 	'AssessFail': [
 		'play sound rustle',
-		// [SFX: Creepy tapping] 
+		'play sound creepyTapping',
 		'n My attention turns to the road behind me. ',
 		'n The rustling stops. ',
 		'n It becomes so quiet that I hear my own heart beat. ',
-		// [SFX: Heart beating] 
 
 		'n I convince myself that I would have noticed someone else nearby. ',
 
@@ -4662,7 +4678,7 @@ monogatari.script({
 		'play music Night1 with loop fade 5',
 
 		'show scene nightTown with fadeIn',
-		// [SFX: Gate closing] 
+		'play sound creak2',
 		'n I leave while it’s still dark.',
 		'n By the time I reach the town gates, the sun has only just begun to peek through the horizon.',
 
@@ -4672,7 +4688,7 @@ monogatari.script({
 		'n Maya chases after me, this time her arms filled with a bundle of bags and much more on her back. ',
 		'n It doesn’t slow her down. ',
 
-		// [SFX: Clatter noise of things being dropped] 
+		'play sound crash',
 
 		'n She drops the hoard by my feet. ',
 
@@ -4756,7 +4772,7 @@ monogatari.script({
 
 		'm Yup!',
 
-		// [SFX: Bag noise?? Like putting it over your shoulder] 
+		
 
 		'n She props the extra satchel over her shoulder and waits.',
 
@@ -4770,7 +4786,7 @@ monogatari.script({
 		'show character m shock',
 		'st Miss Maynard?',
 
-		// [SFX: Impact/Clatter] 
+		'play sound rustle2',
 		'n Maya swings round, nearly knocking the speaker with several bags.',
 
 		'm I’m so sorry!',
@@ -4960,7 +4976,7 @@ monogatari.script({
 
 		'm If there’s nothing else, I don’t see why not!',
 
-		// [SFX: Rumble/Large gates being drawn] 
+		'play sound gateRumble',
 		'n Maya nods to the gates, and the guards roll back the large barriers.',
 
 		'm I asked if they’d let us through a little earlier when we all arrived.',
