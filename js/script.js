@@ -997,7 +997,7 @@ monogatari.script({
 		"m But— {{player.name}}, we’re adventurers. ",
 		"p We <i>were</i> adventurers. ",
 		"show character m sad",
-		"n But you… you love adventuring. You love helping others!",
+		"m But you… you love adventuring. You love helping others!",
 		"show character m happy",
 		"m {{player.name}}… Just trust me. Once you go, you’ll completely change your mind. I know it. I know <i>you.</i> ",
 		"m We have a whole <i>life</i> of adventures waiting for us! One full of no regrets.",
@@ -4225,15 +4225,75 @@ monogatari.script({
 		'k For all you know, I was feeling weak and feeble.',
 		
 		'show character k happyCloak',
-
+		
 		'k I was hoping a local big bad wolf could give me advice?',
-
+		
 		'p I think you’re a little far out. ',
-
+		
 		'k It seems so.',
-
+		
 		'jump ForageExp'
-	]
+	],
+	
+	'ForageExp':[
+		'show character k neutralCloak',
+		'k If you must know, I was foraging. ',
+		
+		'show character k happySweatCloak',
+		'n He gestures loosely behind him. ',
+		
+		'k There’s a thistle that grows here. Useful for headaches, sores, imminent death from plague. That sort of thing. ',
+		
+		'k I had no idea I’d also witness the wild swinging of aspiring adventurers.',
+		
+		'p Wild?!',
+		
+		'show character k shockCloak',
+		
+		'k You were practising quite fervently. ',
+		
+		'show character k neutralCloak',
+		
+		'k Do you have a goal, or is it all that excess energy youth seem to have?',
+		
+		'n His question, although a little rude, takes me by surprise. ',
+		'p I started doing it to recover faster. Now it just feels good. ',
+		'show character k shockCloak',
+		'p Coming up here, losing steam. ',
+		
+		'show character k neutralCloak',
+		'k Ah, an injury?',
+		
+		'show character k happyCloak',
+		'n He raises his fists and takes a combative stance. ',
+
+		'k Perhaps, you need a sparring partner?',
+
+		'k See if you truly have recovered. ',
+
+		'n Is he serious?'
+
+		{
+			'Conditional': {
+				'Condition': function(){
+					return checkWeapon()
+				},
+
+				'bow': 'jump bowKai',
+				'fists': 'jump fistsKai',
+				'sword': 'jump swordKai',
+			}
+		}
+
+	],
+
+	'bowKai': [
+		'show character k shockCloak',
+		'p I could shoot an arrow before you threw your first punch.',
+		'p Ignoring that a fist against an arrow is hardly sparring.',
+
+		'jump AfterWeaponKai'
+	],
 
 
 });

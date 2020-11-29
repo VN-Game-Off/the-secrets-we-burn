@@ -230,7 +230,7 @@ $_ready(() => {
 
 			if (monogatari.storage('survival') && monogatari.storage('survival')!={}) {
 				const survival = monogatari.storage('survival').name
-
+				console.log(survival)
 				changeSkill('survival', survival.toLowerCase())
 			}
 
