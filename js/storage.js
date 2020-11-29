@@ -22,7 +22,7 @@ monogatari.storage({
 	kaiName: 'Cloaked Stranger',
 
 	hp: 60,
-	valor: 0,
+	valour: 0,
 
 	Friendly: 0,
 	Playful: 0,

@@ -4107,10 +4107,133 @@ monogatari.script({
 		'show scene sunsetMountain',
 
 		'n Morning feels like it comes too soon.',
-		'n Setting up a space under the beating sun, my eyes are still tired from sleeping in after yesterday’s ordeal.',
-		
-	]
 
+		'n Setting up a space under the beating sun, my eyes are still tired from sleeping in after yesterday’s ordeal.',
+
+
+		{
+			'Conditional':{
+				'Condition': function(){
+					return checkWeapon()
+				},
+
+				'bow': 'jump BowMorning',
+				'fists': 'jump FistsMorning',
+				'sword': 'jump SwordMorning'
+			}
+		}
+	],
+
+	'BowMorning': [
+		'n After Maya’s suggestion, I had my bow inspected, and she was right. ',
+		'n I had been wearing it down.',
+		'n Today, my shots feel more comfortable than they’ve been all week.',
+		'play sound pullString',
+		'n I draw back the arrow.',
+		'play sound releaseString',
+		'n A perfect shot lands at the centre of the bark. ',
+		'jump AfterWepPractice'
+
+	],
+
+	'SwordMorning': [
+		'n I raise my sword, this time more cautious about how I shift my weight.',
+
+		'n The swings come more naturally. ',
+		'play sound swordWhoosh',
+
+		'n Once again, I feel like myself.',
+		'jump AfterWepPractice'
+
+	],
+
+	'FistsMorning': [
+		'play sound punch',
+		'n I focus on my footwork a little more than usual, feeling it naturally transition into my punches.',
+		'play sound punch2',
+
+		'n The force is improved when I consider my legs and arms as one, complete movement. ',
+		'jump AfterWepPractice'
+
+	],
+
+	'AfterWepPractice': [
+		// Bush rustling
+
+		'n My focus is lost to a dark figure crouching in the bushes.',
+
+		'p Kai?',
+
+		'show character k neutralSweatCloak with fadeIn',
+
+		'n He lifts his head. Under the scrutinising gaze of the sun, he still chooses to wear a cloak. ',
+
+		'p What are you doing here… in the bushes?',
+
+		'show character k shockSweatCloak',
+		
+		'n He straightens, brushing off the leaves in his cloak.',
+		
+		'show character k happySweatCloak',
+		'n Can’t a man take a stroll on a fine day?',
+		
+		'p In a bush, completely out of town, alone?',
+		
+		'show character k happyCloak',
+		
+		'k Were you intending to join me?',
+		
+		'p Do I need to call a sheriff?',
+		
+		'show character k shockCloak',
+		
+		function(){
+			imgNotify('interpersonal')
+		},
+		
+		'jump {{interpersonal.name}}Remember'
+	],
+	
+	'EmpathyRemember': [
+		'k For all you know, I was so warmly approached by a stranger last night, that I decided to pay the kindness forward.',
+		
+		'p And to do that you… hide in the bushes?',
+		
+		'show character k happyCloak',
+		
+		'k The world is full of mysteries.',
+
+		'jump ForageExp'
+		
+	],
+	
+	'DeceptionRemember': [
+		'k For all you know, I dropped my purse back there.',
+		'show character k happyCloak',
+		'k Apparently, Hwen is full of kind swindlers, but I didn’t want to risk it. ',
+		
+		'p I thought that lie only worked on street vendors.',
+		
+		'k Doesn’t hurt to branch out.',
+
+		'jump ForageExp'
+		
+	],
+	
+	'IntimidationRemember': [
+		'show character k neutralCloak',
+		'k For all you know, I was feeling weak and feeble.',
+		
+		'show character k happyCloak',
+
+		'k I was hoping a local big bad wolf could give me advice?',
+
+		'p I think you’re a little far out. ',
+
+		'k It seems so.',
+
+		'jump ForageExp'
+	]
 
 
 });

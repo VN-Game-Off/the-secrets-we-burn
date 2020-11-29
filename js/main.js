@@ -214,26 +214,27 @@ $_ready(() => {
 		// monogatari.component('main-menu').addButton(settingsButton);
 		monogatari.component('quick-menu').addButton(more);
 
-		monogatari.on ('didLoadGame', () => {
+		monogatari.on('didLoadGame', () => {
 
-			if (monogatari.storage('combat')!==''){
-				if (monogatari.storage('combat').name==='Bow & Arrow'){
+			if (monogatari.storage('combat')) {
+				if (monogatari.storage('combat').name === 'Bow & Arrow') {
 					changeSkill('combat', 'bow')
 				}
-				else if (monogatari.storage('combat').name==='Fists'){
+				else if (monogatari.storage('combat').name === 'Fists') {
 					changeSkill('combat', 'fists')
 				}
-				else{
+				else {
 					changeSkill('combat', 'sword')
 				}
 			}
 
-			if (monogatari.storage('survival')!==''){
+			if (monogatari.storage('survival') && monogatari.storage('survival')!={}) {
 				const survival = monogatari.storage('survival').name
-				changeSkill('survival',survival.toLowerCase())
+
+				changeSkill('survival', survival.toLowerCase())
 			}
 
-			if (monogatari.storage('interpersonal')!==''){
+			if (monogatari.storage('interpersonal') && monogatari.storage('interpersonal')!={}) {
 				const personal = monogatari.storage('interpersonal').name
 				changeSkill('interpersonal', personal.toLowerCase())
 			}
