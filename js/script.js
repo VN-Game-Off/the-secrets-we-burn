@@ -1838,7 +1838,7 @@ monogatari.script({
 		},
 		'show character m angry',
 		'm Except I wasn’t slinking around like a {{player.lord}} of darkness.',
-		'm I wasn’t slinking. I was being cautious.',
+		'p I wasn’t slinking. I was being cautious.',
 		'show character m neutral',
 		'm Of course, I expect nothing less from our {{player.master}} of the night.',
 		'show character m happy',
