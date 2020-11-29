@@ -16,12 +16,19 @@ function notify(myText) {
 
     // Add classes
     myNotification.classList.add("NOTIF")
-    myNotification.classList.add("animated");
-    myNotification.classList.add("fadeOutUp")
-    myNotification.classList.add("right");
+    myNotification.classList.add("right")
+
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => { resolve() }, 2000)
+    })
+
+    promise.then(()=>{
+        myNotification.classList.add("animated");
+        myNotification.classList.add("fadeOutUp")
+    })
 
     // Destroy element after 2 seconds
-    setTimeout(() => { destroyNotif() }, 2000)
+    // setTimeout(() => { destroyNotif() }, 2000)
 }
 
 
@@ -68,7 +75,7 @@ function checkWeapon() {
 }
 
 function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 
@@ -93,15 +100,15 @@ function imgNotify(variable) {
 
 }
 
-function checkGender(){
+function checkGender() {
 
     monogatari.storage('player').s = ''
     monogatari.storage('player').doesnt = 'doesnt'
     monogatari.storage('player').He = 'He'
     monogatari.storage('player').hedoes = 'he does'
-    
-    if (monogatari.storage('player').gender==='female'){
-        
+
+    if (monogatari.storage('player').gender === 'female') {
+
         monogatari.storage('player').heis = 'she’s'
         monogatari.storage('player').he = 'she'
         monogatari.storage('player').man = 'woman'
@@ -113,8 +120,8 @@ function checkGender(){
         monogatari.storage('player').him = 'her'
         monogatari.storage('player').his = 'her'
     }
-    
-    else if (monogatari.storage('player').gender==='enby'){
+
+    else if (monogatari.storage('player').gender === 'enby') {
         monogatari.storage('player').heis = 'they’re'
         monogatari.storage('player').he = 'they'
         monogatari.storage('player').man = 'person'
@@ -129,13 +136,13 @@ function checkGender(){
     }
 }
 
-function checkSurvival(){
+function checkSurvival() {
     return monogatari.storage('survival').name.toLowerCase()
 }
 
-function checkInterpersonal(){
+function checkInterpersonal() {
     return monogatari.storage('interpersonal').name.toLowerCase()
-    
+
 }
 
 
@@ -144,7 +151,7 @@ function increaseValour(value) {
     monogatari.storage().valour = toUpdate + value
 
     const element = document.querySelector('#valour-name')
-    element.innerHTML = `${toUpdate+value}`
+    element.innerHTML = `${toUpdate + value}`
 
 }
 

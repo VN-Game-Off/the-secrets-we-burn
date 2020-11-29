@@ -95,7 +95,7 @@ monogatari.action('particles').particles({
 				}
 			},
 			'size': {
-				'value': 3,
+				'value': 2,
 				'random': true,
 				'anim': {
 					'enable': false,
@@ -391,114 +391,114 @@ monogatari.action('particles').particles({
 	},
 
 	'snow': {
-		'particles': {
-			'number': {
-				'value': 400,
-				'density': {
-					'enable': true,
-					'value_area': 800
+		"particles": {
+			"number": {
+				"value": 400,
+				"density": {
+					"enable": true,
+					"value_area": 800
 				}
 			},
-			'color': {
-				'value': '#fff'
+			"color": {
+				"value": "#fff"
 			},
-			'shape': {
-				'type': 'circle',
-				'stroke': {
-					'width': 0,
-					'color': '#000000'
+			"shape": {
+				"type": "circle",
+				"stroke": {
+					"width": 0,
+					"color": "#000000"
 				},
-				'polygon': {
-					'nb_sides': 5
+				"polygon": {
+					"nb_sides": 5
 				},
-				'image': {
-					'src': 'img\/github.svg',
-					'width': 100,
-					'height': 100
+				"image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
 				}
 			},
-			'opacity': {
-				'value': 0.5,
-				'random': true,
-				'anim': {
-					'enable': false,
-					'speed': 1,
-					'opacity_min': 0.1,
-					'sync': false
+			"opacity": {
+				"value": 0.23336639357242286,
+				"random": true,
+				"anim": {
+					"enable": false,
+					"speed": 1,
+					"opacity_min": 0.1,
+					"sync": false
 				}
 			},
-			'size': {
-				'value': 10,
-				'random': true,
-				'anim': {
-					'enable': false,
-					'speed': 40,
-					'size_min': 0.1,
-					'sync': false
+			"size": {
+				"value": 4,
+				"random": true,
+				"anim": {
+					"enable": false,
+					"speed": 40,
+					"size_min": 0.1,
+					"sync": false
 				}
 			},
-			'line_linked': {
-				'enable': false,
-				'distance': 500,
-				'color': '#ffffff',
-				'opacity': 0.4,
-				'width': 2
+			"line_linked": {
+				"enable": false,
+				"distance": 500,
+				"color": "#ffffff",
+				"opacity": 0.4,
+				"width": 2
 			},
-			'move': {
-				'enable': true,
-				'speed': 6,
-				'direction': 'bottom',
-				'random': false,
-				'straight': false,
-				'out_mode': 'out',
-				'bounce': false,
-				'attract': {
-					'enable': false,
-					'rotateX': 600,
-					'rotateY': 1200
+			"move": {
+				"enable": true,
+				"speed": 6,
+				"direction": "bottom",
+				"random": false,
+				"straight": false,
+				"out_mode": "out",
+				"bounce": false,
+				"attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 1200
 				}
 			}
 		},
-		'interactivity': {
-			'detect_on': 'canvas',
-			'events': {
-				'onhover': {
-					'enable': true,
-					'mode': 'bubble'
+		"interactivity": {
+			"detect_on": "canvas",
+			"events": {
+				"onhover": {
+					"enable": true,
+					"mode": "bubble"
 				},
-				'onclick': {
-					'enable': true,
-					'mode': 'repulse'
+				"onclick": {
+					"enable": true,
+					"mode": "repulse"
 				},
-				'resize': true
+				"resize": true
 			},
-			'modes': {
-				'grab': {
-					'distance': 400,
-					'line_linked': {
-						'opacity': 0.5
+			"modes": {
+				"grab": {
+					"distance": 400,
+					"line_linked": {
+						"opacity": 0.5
 					}
 				},
-				'bubble': {
-					'distance': 400,
-					'size': 4,
-					'duration': 0.3,
-					'opacity': 1,
-					'speed': 3
+				"bubble": {
+					"distance": 400,
+					"size": 4,
+					"duration": 0.3,
+					"opacity": 1,
+					"speed": 3
 				},
-				'repulse': {
-					'distance': 200,
-					'duration': 0.4
+				"repulse": {
+					"distance": 200,
+					"duration": 0.4
 				},
-				'push': {
-					'particles_nb': 4
+				"push": {
+					"particles_nb": 4
 				},
-				'remove': {
-					'particles_nb': 2
+				"remove": {
+					"particles_nb": 2
 				}
 			}
 		},
-		'retina_detect': true
+		"retina_detect": true
 	}
 })
 
@@ -966,7 +966,7 @@ monogatari.script({
 
 		{
 			'Conditional': {
-				'Condition': function(){
+				'Condition': function () {
 					return checkWeapon()
 				},
 
@@ -975,7 +975,7 @@ monogatari.script({
 				'fists': 'm Last year your knuckle-dusters could do serious damage. You practically tore through every monster you met!'
 			}
 		},
-		
+
 		"p That was then. ",
 		"n She places a hand tentatively on my shoulder. ",
 		"show character m sad",
@@ -3549,7 +3549,7 @@ monogatari.script({
 	],
 
 	'TrainedSad': [
-		'show particles stars',
+		'show particles snow',
 
 		'n Once outside, my breath forms into puffs of vapour.',
 
@@ -4906,9 +4906,9 @@ monogatari.script({
 		'k Of course.',
 		'hide character k',
 		'show character m angrySweat',
-		
+
 		'n Maya’s eyes dart between us, connecting the dots.',
-		
+
 		'show character m shockSweat',
 		'm Why are you using your polite voice?',
 
@@ -4925,36 +4925,36 @@ monogatari.script({
 
 		'hide character k',
 		'show character m neutral',
-		
+
 		'm You were watching us?',
 
 		'hide character m',
 		'show character k neutral',
-		
+
 		'k I merely asked around. ',
 		'k Trust that I heard good things. ',
-		
+
 		'hide character k',
 		'show character m neutral',
-		
+
 		'm Well, that’s good! Right, {{player.name}}?',
 		'show character m happyUI',
 		'm You can rest assured that you’re in safe hands. ',
-		
+
 		'm {{player.name}} is an amazing adventurer!',
-		
+
 		'hide character m',
 		'show character k happy',
 		'k That is a relief. I would hate to have made the wrong choice.',
-		
+
 		'show character k neutral',
 		'k I assume we are ready to go?',
-		
+
 		'hide character k',
 		'show character m happy',
 
 		'm If there’s nothing else, I don’t see why not!',
-		
+
 		// [SFX: Rumble/Large gates being drawn] 
 		'n Maya nods to the gates, and the guards roll back the large barriers.',
 

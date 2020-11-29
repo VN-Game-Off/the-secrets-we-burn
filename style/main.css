@@ -282,6 +282,8 @@ game-screen[data-screen="game"] {
 	/* -webkit-text-stroke: #141618 1px; */
 	/* font-weight: 400; */
 	text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55);
+	-webkit-text-stroke: 1px #151719;
+	font-weight: 600;
 }
 
 [data-speaking="n"] {
