@@ -648,7 +648,7 @@ monogatari.script({
 		"My best friend, Maya.",
 		"show character m shock at center",
 		"n I rest my stance and meet her a pitiful half way. Her dark curls drop in front of me when she catches up.",
-		"n {{player.name}}! I— You— Argh!",
+		"m {{player.name}}! I— You— Argh!",
 		"m <i>Fire.</i> My throat feels like it’s on fire!",
 		"p Maya, did you run up the entire hillside?",
 		"p How did you know I was here?",
@@ -697,7 +697,7 @@ monogatari.script({
 		"m You left yourself wide open for an attack!",
 		"show character m happy",
 		"n She mimics me, throwing soft punches at my center. I catch her fist, ending the playfulness.",
-		"p Don’t think I’m too tired to spar with you and <i>win>/i>.",
+		"p Don’t think I’m too tired to spar with you and <i>win</i>.",
 		'n Still, it was odd. She didn’t usually take interest in my training. It only reminded her of what had happened.',
 		'm With footwork like that, you’d injure yourself just punching air.',
 		'p I’m just a little tired, it’s getting late. ',
@@ -871,7 +871,6 @@ monogatari.script({
 		'n …lighten the mood. I don’t want to sour our relationship. ',
 		'p I don’t think cronehood could stop the legendary Maya from having an adventure.',
 		'show character m shockUI',
-		'm You think so?',
 		'm You think so?',
 		'play sound wind with volume 40',
 		'p Of course! There’ll be legends about you, Maya, no doubt about that. Wait— ',
@@ -1408,7 +1407,7 @@ monogatari.script({
 		'n The night watch is about to begin. ',
 		'n My pace quickens and I soon find myself standing across from the adventurer’s guild. ',
 		'n I wasn’t difficult to locate, considering it was the only one in town. ',
-		'n Still, I can’t approach carelessly. I’m not familiar with this part of town. It’s should approach… ',
+		'n Still, I can’t approach carelessly. I’m not familiar with this part of town. I should approach… ',
 		'show message Survival',
 		{
 			'Choice': {
@@ -1668,7 +1667,7 @@ monogatari.script({
 		'oa I could repair the fields with that kind of coin.',
 		'da It’s a suicide, Wick.',
 		'wi I’d like to call it a chance.',
-		'da Well, I call it a joke. You think anyone worth their salt would come looking through Hewn?',
+		'da Well, I call it a joke. You think anyone worth their salt would come looking through Hwen?',
 		'da And to post a job like <i>that?</i>',
 		'wi Why not! There’s good adventurers here.',
 		'n The doubtful adventurer pauses, then leaning in very slowly stares into Wick’s eyes.',
@@ -1831,7 +1830,7 @@ monogatari.script({
 		{
 			'Choice': {
 				'“Don’t start any fights…”': {
-					'Text': ' “Don’t start any fights…”',
+					'Text': ' “Don’t start any fights…” ',
 					'Do': 'jump DontStartFights'
 				},
 				'“Then I’ll come running.”': {
@@ -2354,7 +2353,7 @@ monogatari.script({
 
 		{
 			'Choice': {
-				
+
 				'“not what I expected.”': {
 					'Text': '“not what I expected.”',
 					'Do': 'jump NotWhatIExpected'
@@ -2419,7 +2418,7 @@ monogatari.script({
 			console.log(assertive)
 			updatePersonality(assertive, 1)
 			notify(`+${assertive}`)
-		},,
+		}, ,
 
 		'show character m sad',
 		'p …impractical.',
