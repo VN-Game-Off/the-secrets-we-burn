@@ -28,9 +28,9 @@ monogatari.storage({
 	Playful: 0,
 	Assertive: 0,
 
-	combat: {},
-	survival: {},
-	interpersonal: {},
+	combat: '',
+	survival: '',
+	interpersonal: '',
 
 	Maya: 0,
 	Kai: 0,

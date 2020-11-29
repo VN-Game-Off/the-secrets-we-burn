@@ -4104,7 +4104,11 @@ monogatari.script({
 		'show scene black with fadeIn',
 		'stop music with fade 3',
 		'play music Day2 with loop fade 5',
-		'show scene sunsetMountain'
+		'show scene sunsetMountain',
+
+		'n Morning feels like it comes too soon.',
+		'n Setting up a space under the beating sun, my eyes are still tired from sleeping in after yesterday’s ordeal.',
+		
 	]
 
 

@@ -215,7 +215,7 @@ $_ready(() => {
 		monogatari.component('quick-menu').addButton(more);
 
 		monogatari.on ('didLoadGame', () => {
-			
+
 			if (monogatari.storage('combat')!==''){
 				if (monogatari.storage('combat').name==='Bow & Arrow'){
 					changeSkill('combat', 'bow')
@@ -231,6 +231,11 @@ $_ready(() => {
 			if (monogatari.storage('survival')!==''){
 				const survival = monogatari.storage('survival').name
 				changeSkill('survival',survival.toLowerCase())
+			}
+
+			if (monogatari.storage('interpersonal')!==''){
+				const personal = monogatari.storage('interpersonal').name
+				changeSkill('interpersonal', personal.toLowerCase())
 			}
 		});
 
