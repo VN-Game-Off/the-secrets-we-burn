@@ -200,6 +200,8 @@ $_ready(() => {
 
 		// Remove Main Menu buttons
 		monogatari.component('main-menu').removeButton('Load');
+		monogatari.component('quick-menu').removeButton('Back');
+		monogatari.component('quick-menu').removeButton('Hide');
 		monogatari.component('main-menu').removeButton('Help');
 		monogatari.component('main-menu').removeButton('Settings');
 		monogatari.component('main-menu').removeButton('Start');

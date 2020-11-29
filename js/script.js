@@ -393,7 +393,7 @@ monogatari.action('particles').particles({
 	'snow': {
 		"particles": {
 			"number": {
-				"value": 400,
+				"value": 285,
 				"density": {
 					"enable": true,
 					"value_area": 800
@@ -418,7 +418,7 @@ monogatari.action('particles').particles({
 				}
 			},
 			"opacity": {
-				"value": 0.23336639357242286,
+				"value": 0.09167965461773755,
 				"random": true,
 				"anim": {
 					"enable": false,
@@ -428,7 +428,7 @@ monogatari.action('particles').particles({
 				}
 			},
 			"size": {
-				"value": 4,
+				"value": 2,
 				"random": true,
 				"anim": {
 					"enable": false,
@@ -446,7 +446,7 @@ monogatari.action('particles').particles({
 			},
 			"move": {
 				"enable": true,
-				"speed": 6,
+				"speed": 2,
 				"direction": "bottom",
 				"random": false,
 				"straight": false,
@@ -463,14 +463,14 @@ monogatari.action('particles').particles({
 			"detect_on": "canvas",
 			"events": {
 				"onhover": {
-					"enable": true,
+					"enable": false,
 					"mode": "bubble"
 				},
 				"onclick": {
-					"enable": true,
+					"enable": false,
 					"mode": "repulse"
 				},
-				"resize": true
+				"resize": false
 			},
 			"modes": {
 				"grab": {
@@ -487,11 +487,11 @@ monogatari.action('particles').particles({
 					"speed": 3
 				},
 				"repulse": {
-					"distance": 200,
-					"duration": 0.4
+					"distance": 1,
+					"duration": 0.01
 				},
 				"push": {
-					"particles_nb": 4
+					"particles_nb": 1
 				},
 				"remove": {
 					"particles_nb": 2
@@ -3437,13 +3437,15 @@ monogatari.script({
 				'Condition': function () {
 					return monogatari.storage('trained')
 				},
-				'True': 'jump RestedBread',
-				'False': 'jump TrainedSad'
+				'True': 'jump TrainedSad',
+				'False': 'jump RestedBread'
 			}
 		}
 	],
 
 	'RestedBread': [
+		'show particles snow',
+
 		'Once outside, I remember the somewhat crushed loaves in my satchel.',
 
 		'n I pull one out and pass it to Maya. ',
@@ -3545,6 +3547,8 @@ monogatari.script({
 		'm Oops.',
 
 		'n Every other attempt at conversation is answered with one-word phrases and nods.',
+
+		'hide particles',
 
 		'jump AskMayaPersonality'
 	],
