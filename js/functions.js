@@ -98,15 +98,19 @@ function checkGender(add){
     monogatari.storage('player').s = ''
     monogatari.storage('player').doesnt = 'doesnt'
     monogatari.storage('player').He = 'He'
+    monogatari.storage('player').hedoes = 'he does'
     
     if (monogatari.storage('gender')==='female'){
         monogatari.storage('player').heis = 'she’s'
         monogatari.storage('player').he = 'she'
         monogatari.storage('player').man = 'woman'
         monogatari.storage('player').lord = 'Lady'
-        monogatari.storage('player').master = 'Mistress',
-        monogatari.storage('player').doesnt = "doesn't",
+        monogatari.storage('player').master = 'Mistress'
+        monogatari.storage('player').doesnt = "doesn't"
         monogatari.storage('player').He = 'She'
+        monogatari.storage('player').hedoes = 'she does'
+        monogatari.storage('player').him = 'her'
+        monogatari.storage('player').his = 'her'
     }
     
     else if (monogatari.storage('gender')==='enby'){
@@ -118,6 +122,9 @@ function checkGender(add){
         monogatari.storage('player').s = 's'
         monogatari.storage('player').doesnt = "don't"
         monogatari.storage('player').He = 'They'
+        monogatari.storage('player').hedoes = 'they do'
+        monogatari.storage('player').him = 'them'
+        monogatari.storage('player').his = 'their'
     }
 }
 

@@ -523,7 +523,9 @@ monogatari.assets('music', {
 	'Day1': '2_Day_1_Master.mp3',
 	'Night1': '3_Night_1_Master.mp3',
 	'Night2': '9_Night_2_Master.mp3',
-	'Day2': '8_Day_2_Master.mp3'
+	'Day2': '8_Day_2_Master.mp3',
+	'Day3': '12_Day_3_Master.mp3',
+	'Night4': '20_Night_4_Master.mp3'
 });
 
 // Define the voice files used in the game.
@@ -590,7 +592,10 @@ monogatari.assets('scenes', {
 	'sunsetMountain': 'sunsetMountain.jpg',
 	'nightTown': 'ID003_Western-Castle_night.jpg',
 	'guild': 'guild.png',
-	'dayMountain': 'mountain.jpg'
+	'dayMountain': 'mountain.jpg',
+	'road': 'road.jpg',
+	'forest': 'forest.jpg',
+	'magicForest': 'MagicForest.jpg'
 });
 
 
@@ -971,6 +976,7 @@ monogatari.script({
 		"show character m shock",
 		"m Oh, seriously. Don’t make that face. It’s not the same, and that was an honest mistake!",
 		"n I throw her a look. ",
+		'm How would I know that bidding the contents of a seized ship was going to end in…',
 		"p Several tons of manure.",
 		"show character m angry",
 		"n She folds her arms. ",
@@ -4057,7 +4063,7 @@ monogatari.script({
 		{
 			'Conditional': {
 				'Condition': function () {
-					return monogatari.storage('survival') === 'perception' || monogatari.storage('survival') === 'concealment'
+					return monogatari.storage('survival').name === 'Perception' || monogatari.storage('survival').name === 'Concealment'
 				},
 
 				'True': 'jump AssessPass',
