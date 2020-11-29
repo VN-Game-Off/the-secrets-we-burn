@@ -93,14 +93,15 @@ function imgNotify(variable) {
 
 }
 
-function checkGender(add){
+function checkGender(){
 
     monogatari.storage('player').s = ''
     monogatari.storage('player').doesnt = 'doesnt'
     monogatari.storage('player').He = 'He'
     monogatari.storage('player').hedoes = 'he does'
     
-    if (monogatari.storage('gender')==='female'){
+    if (monogatari.storage('player').gender==='female'){
+        
         monogatari.storage('player').heis = 'she’s'
         monogatari.storage('player').he = 'she'
         monogatari.storage('player').man = 'woman'
@@ -113,7 +114,7 @@ function checkGender(add){
         monogatari.storage('player').his = 'her'
     }
     
-    else if (monogatari.storage('gender')==='enby'){
+    else if (monogatari.storage('player').gender==='enby'){
         monogatari.storage('player').heis = 'they’re'
         monogatari.storage('player').he = 'they'
         monogatari.storage('player').man = 'person'
