@@ -277,8 +277,230 @@ monogatari.action('particles').particles({
 			}
 		},
 		'retina_detect': true
+	},
+
+	'stars': {
+		'particles': {
+			'number': {
+				'value': 355,
+				'density': {
+					'enable': true,
+					'value_area': 789.1476416322727
+				}
+			},
+			'color': {
+				'value': '#ffffff'
+			},
+			'shape': {
+				'type': 'circle',
+				'stroke': {
+					'width': 0,
+					'color': '#000000'
+				},
+				'polygon': {
+					'nb_sides': 5
+				},
+				'image': {
+					'src': '',
+					'width': 100,
+					'height': 100
+				}
+			},
+			'opacity': {
+				'value': 0.48927153781200905,
+				'random': false,
+				'anim': {
+					'enable': true,
+					'speed': 0.2,
+					'opacity_min': 0,
+					'sync': false
+				}
+			},
+			'size': {
+				'value': 2,
+				'random': true,
+				'anim': {
+					'enable': true,
+					'speed': 2,
+					'size_min': 0,
+					'sync': false
+				}
+			},
+			'line_linked': {
+				'enable': false,
+				'distance': 150,
+				'color': '#ffffff',
+				'opacity': 0.4,
+				'width': 1
+			},
+			'move': {
+				'enable': true,
+				'speed': 0.2,
+				'direction': 'none',
+				'random': true,
+				'straight': false,
+				'out_mode': 'out',
+				'bounce': false,
+				'attract': {
+					'enable': false,
+					'rotateX': 600,
+					'rotateY': 1200
+				}
+			}
+		},
+		'interactivity': {
+			'detect_on': 'canvas',
+			'events': {
+				'onhover': {
+					'enable': true,
+					'mode': 'bubble'
+				},
+				'onclick': {
+					'enable': true,
+					'mode': 'push'
+				},
+				'resize': true
+			},
+			'modes': {
+				'grab': {
+					'distance': 400,
+					'line_linked': {
+						'opacity': 1
+					}
+				},
+				'bubble': {
+					'distance': 83.91608391608392,
+					'size': 1,
+					'duration': 3,
+					'opacity': 1,
+					'speed': 3
+				},
+				'repulse': {
+					'distance': 200,
+					'duration': 0.4
+				},
+				'push': {
+					'particles_nb': 4
+				},
+				'remove': {
+					'particles_nb': 2
+				}
+			}
+		},
+		'retina_detect': true
+	},
+
+	'snow': {
+		'particles': {
+			'number': {
+				'value': 400,
+				'density': {
+					'enable': true,
+					'value_area': 800
+				}
+			},
+			'color': {
+				'value': '#fff'
+			},
+			'shape': {
+				'type': 'circle',
+				'stroke': {
+					'width': 0,
+					'color': '#000000'
+				},
+				'polygon': {
+					'nb_sides': 5
+				},
+				'image': {
+					'src': 'img\/github.svg',
+					'width': 100,
+					'height': 100
+				}
+			},
+			'opacity': {
+				'value': 0.5,
+				'random': true,
+				'anim': {
+					'enable': false,
+					'speed': 1,
+					'opacity_min': 0.1,
+					'sync': false
+				}
+			},
+			'size': {
+				'value': 10,
+				'random': true,
+				'anim': {
+					'enable': false,
+					'speed': 40,
+					'size_min': 0.1,
+					'sync': false
+				}
+			},
+			'line_linked': {
+				'enable': false,
+				'distance': 500,
+				'color': '#ffffff',
+				'opacity': 0.4,
+				'width': 2
+			},
+			'move': {
+				'enable': true,
+				'speed': 6,
+				'direction': 'bottom',
+				'random': false,
+				'straight': false,
+				'out_mode': 'out',
+				'bounce': false,
+				'attract': {
+					'enable': false,
+					'rotateX': 600,
+					'rotateY': 1200
+				}
+			}
+		},
+		'interactivity': {
+			'detect_on': 'canvas',
+			'events': {
+				'onhover': {
+					'enable': true,
+					'mode': 'bubble'
+				},
+				'onclick': {
+					'enable': true,
+					'mode': 'repulse'
+				},
+				'resize': true
+			},
+			'modes': {
+				'grab': {
+					'distance': 400,
+					'line_linked': {
+						'opacity': 0.5
+					}
+				},
+				'bubble': {
+					'distance': 400,
+					'size': 4,
+					'duration': 0.3,
+					'opacity': 1,
+					'speed': 3
+				},
+				'repulse': {
+					'distance': 200,
+					'duration': 0.4
+				},
+				'push': {
+					'particles_nb': 4
+				},
+				'remove': {
+					'particles_nb': 2
+				}
+			}
+		},
+		'retina_detect': true
 	}
-});
+})
 
 // Define the canvas objects used in the game
 monogatari.action('canvas').objects({
@@ -299,7 +521,9 @@ monogatari.assets('gallery', {
 // Define the music used in the game.
 monogatari.assets('music', {
 	'Day1': '2_Day_1_Master.mp3',
-	'Night1': '3_Night_1_Master.mp3'
+	'Night1': '3_Night_1_Master.mp3',
+	'Night2': '9_Night_2_Master.mp3',
+	'Day2': '8_Day_2_Master.mp3'
 });
 
 // Define the voice files used in the game.
@@ -333,6 +557,7 @@ monogatari.assets('sounds', {
 
 	'punch': 'Punch 2.wav',
 	'punch2': 'Punch 8.wav',
+	'punch3': 'Realistic Punch 2.wav',
 
 	'water': 'Water 8.wav',
 	'wind': 'wind.mp3',
@@ -772,7 +997,7 @@ monogatari.script({
 		"m But— {{player.name}}, we’re adventurers. ",
 		"p We <i>were</i> adventurers. ",
 		"show character m sad",
-		"n But you… you love adventuring. You love helping others!",
+		"m But you… you love adventuring. You love helping others!",
 		"show character m happy",
 		"m {{player.name}}… Just trust me. Once you go, you’ll completely change your mind. I know it. I know <i>you.</i> ",
 		"m We have a whole <i>life</i> of adventures waiting for us! One full of no regrets.",
@@ -3006,8 +3231,1069 @@ monogatari.script({
 		'show character m shockSweat',
 		'm Let me see your eyes!',
 
+		'show character m neutral',
+		'n She stands on the tip of her toes, pulling my brow up to get a better look. ',
 
-	]
+		'm <i>Hm</i>, no signs of any imminent curses or impending doom.',
+		'show character m shock',
+
+		'm Show me your wrists!',
+
+		'n I oblige, turning over my arms. ',
+		'show character m angry',
+
+		'm No cursed marks of a chosen one.',
+
+		'show character m happy',
+		'm There’s hope for you yet.',
+		'm Even if you are talking to ghosts. ',
+
+		'show character m sad',
+
+		'm Even I would accept a ghost right now. ',
+
+		'jump ReturnDisappointed'
+
+	],
+
+	'Omnipotence': [
+		function () {
+			updatePersonality(joking, 1)
+			notify(`+${joking}`)
+		},
+		'show character m neutral',
+		'p I’m just getting closer to omnipotence. ',
+		'show character m angry',
+		'm Omnipo-what-now?',
+
+		'show character m shock',
+		'p I see all things, Maya. ',
+
+		'p The beginning and end of time.',
+
+		'show character m happy',
+		'm So was the invisible man from the past or the future?',
+
+		'p I haven’t quite mastered that part yet.',
+
+		'show character m neutral',
+		'm Fine, what about me?! What do you see?',
+
+		'n She closes her eyes, creases forming between her brows. ',
+
+		'm It doesn’t work like that. ',
+
+		'show character m happy',
+
+		'm Try anyway!',
+
+		'hide character m with fadeOut',
+		'show scene black with fadeIn',
+
+		'n I close my eyes.',
+
+		'p Hm, I’m… I’m seeing brief pain in your future. ',
+
+		'm Oh, no!',
+
+		'm How soon?',
+
+		'show scene guild with fadeIn',
+		'show character m shock with fadeIn',
+		'play sound punch3',
+
+		'show character m shockBlush',
+		'n I flick her forehead.',
+
+		'p That soon.',
+
+		'show character m angry',
+		'm Ow!',
+
+		'show character m sad',
+		'n She rubs her head, dissatisfied. ',
+
+		'show character m neutral',
+		'm I think you’re a bit of a quack. ',
+
+		'p Yeah, yeah, and what did your skills get you.',
+
+		'show character m sad',
+		'm Nothing…',
+
+		'jump ReturnDisappointed'
+
+	],
+
+	'ImSerious': [
+		function () {
+			updatePersonality(assertive, 1)
+			notify(`${assertive}+`)
+		},
+
+		'show character m sadSweat',
+		'p A man was right there.',
+		'p I wouldn’t lie to you. ',
+
+		'show character m neutral',
+		'm Oh, loosen up.',
+
+		'm I’m sure the invisible man was very lovely. ',
+
+		'show character m sad',
+		'm I hope you at least had better luck than I did. ',
+
+		'm All this kissing up and not a single bit of new information.',
+
+		'jump ReturnDisappointed'
+
+	],
+
+	'ReturnDisappointed': [
+
+		'show character m sadSweat',
+		'm No-one wanted to talk about the escort quest to me.',
+		'show character m shock',
+		'm Even after I gave them my best jokes. ',
+
+		'show character m sadSweat',
+		'm And my grape pudding recipe…',
+
+		'p You went that far?',
+		'show character m sad',
+		'm I was getting a good feeling.',
+		'm But no-one knew anything worthwhile. ',
+
+		'show character m sadSweat',
+		'm No clues on what this contractor might look like.',
+		'm Where they might be from, what accent they had?',
+
+		'show character m angry',
+		'm At some point, it sounded like they’re not even a noble, but a knight? Or a baron.',
+		'm It’s all a mess.',
+		'show character m shock',
+
+		'm Except for one part.',
+		'm We have to go through a forest, but they’ll pay handsomely.',
+
+		'p How handsomely?',
+		'show character m happy',
+		'm We’ll never have to work a day in our lives handsome.',
+		'show character m neutral',
+		'm Even then, no-one could agree on even how handsomely that was, whether it was hundreds or thousands. ',
+
+		'show character m sadSweat',
+		'p It’s starting to sound like a wives’ tale.',
+
+		'm …Yeah. It sounds like a fantasy. ',
+
+		'show character m neutralSweat',
+		'm Should we go? I’m hungry and tired.',
+
+		'show character m happy',
+		'm Now we’re on the same page.',
+
+		'p I could use some sleep finally. ',
+
+		'n Maya yawns, stretching out her back. ',
+
+		'm Lead the way.',
+
+		'hide character m with fadeOut',
+		'show scene black with fadeIn',
+
+		'show scene nightTown with fadeIn',
+		'stop music with fade 3',
+		'play music Night2 loop with fade 5',
+
+		'show character m neutral with fadeIn',
+
+		{
+			'Conditional': {
+				'Condition': function () {
+					return monogatari.storage('trained')
+				},
+				'True': 'jump RestedBread',
+				'False': 'jump TrainedSad'
+			}
+		}
+	],
+
+	'RestedBread': [
+		'Once outside, I remember the somewhat crushed loaves in my satchel.',
+
+		'n I pull one out and pass it to Maya. ',
+
+		'm What’s this?',
+
+		'p You said you were hungry.',
+
+		'n Curious, she unwraps it hastily.',
+
+		'show character m angry',
+
+		'n She looks up. ',
+
+		'm Burnt… bread?',
+
+		'p I know it looks like burnt bread, but it’s more than that. Trust me. ',
+
+		'n She takes a bite. ',
+
+		'show character m shockBlush',
+
+		'm Oh! This is good! Did you make this?',
+
+		'show character m angry',
+		'm Give me the recipe right now. ',
+
+		'p I didn’t make it. It’s one of Rohese’s ideas.',
+
+		'show character m shock',
+		'm Oh! This is good! Did you make this?',
+
+		'show character m shockBlush',
+		'm Oh! This is good! Did you make this?',
+
+		'show character m angry',
+		'm Give me the recipe right now.',
+
+		'show character m shock',
+		'p I didn’t make it. It’s one of Rohese’s ideas.',
+
+		'p Although this time it’s worth eating.',
+
+		'show character m happy',
+		'n Satisfied, Maya digs into it and eats as we walk down the streets.',
+
+		'show character m neutral',
+		'n She wipes her mouth of the crumbs but doesn’t say much else.',
+
+		'm It was kind of spicy?',
+
+		'p Ah… I think it’s cinnamon. Of course, Rohese wouldn’t tell me for certain.',
+
+		'show character m shock',
+		'm Oh!',
+
+		'm That makes sense.',
+		'show character m neutral',
+
+		'n She mumbles a few ingredients to herself, eventually forgetting I’m even here.',
+
+		'show character m sad',
+		'm Maya?',
+
+		'm …',
+
+		'show character m shock',
+		'm Maya!',
+
+		'show character m neutral',
+		'm Hm?',
+
+		'p I asked if you’re planning to replicate it.',
+
+		'show character m shock',
+		'm Oh, um. Maybe?',
+
+		'show character m neutral',
+		'm I’ll bring you some when I try.',
+
+		'p Can’t wait.',
+		'n Maya doesn’t reply.',
+
+		'p Maya.',
+		'm …',
+		'p Maya!',
+
+		'n I grab her by the wrist.',
+		'show character m shock',
+		'm What?',
+		'p You were walking the wrong way.',
+
+		'show character m neutral',
+		'm Hm? Oh.',
+
+		'm Wow, I didn’t notice.',
+
+		'show character m sad',
+		'm Oops.',
+
+		'n Every other attempt at conversation is answered with one-word phrases and nods.',
+
+		'jump AskMayaPersonality'
+	],
+
+	'TrainedSad': [
+		'show particles stars',
+
+		'n Once outside, my breath forms into puffs of vapour.',
+
+		'n I hadn’t prepared to be out for so long.',
+
+		'play sound footstepsFour',
+
+		'n Walking back, I try not to bring up the events in the guild, but it doesn’t matter.',
+
+		// 'show character m sad',
+
+		'n Maya’s silence is telling enough.',
+
+		'p Maya.',
+
+		'show character m sad',
+		'm …',
+
+		'p Maya!',
+
+		'n I grab her by the wrist.',
+
+		'm What?',
+
+		'p You were walking the wrong way.',
+
+		'show character m sad',
+		'm Hm? Oh.',
+
+		'show character m sadBlush',
+		'm Oops.',
+
+		'n She walks ahead of me, holding herself for warmth.',
+
+		'n Every other attempt at conversation is answered with one-word phrases and nods.',
+
+		'hide particles',
+
+		'jump AskMayaPersonality'
+
+	],
+
+	'AskMayaPersonality': [
+		{
+			'Choice': {
+				'Ask what’s wrong': {
+					'Text': 'Ask what’s wrong',
+					'Do': 'jump AskWhatsWrong'
+				},
+				'Leave her be': {
+					'Text': 'Leave her be',
+					'Do': 'jump LeaveHerBe '
+				}
+			}
+		}
+	],
+
+	'AskWhatsWrong': [
+		'show character m sad',
+		'n Maybe Maya doesn’t want to talk, but she can’t hide it from me.',
+
+		function () {
+			updateRelationship('Maya', 10)
+			notify('+10 Maya')
+		},
+		'p OK, what’s wrong?',
+		'show character m shockBlush',
+		'm Huh?',
+
+		'show character m sad',
+		'p You’re dragging your feet, kicking dirt, and nearly missed this turn.',
+		'p Come on, talk to me.',
+
+		'show character m sadSweat',
+		'm There’s nothing to talk about, I’m just tired.',
+
+		'p Maya… ',
+
+		'p I’m not walking home with you if you’re going to make it this painful every time you’re disappointed.',
+
+		'show character m shockSweat',
+		'm {{player.name}}, that’s not— ',
+
+		'show character m sadBlush',
+		'p That’s what I’m doing, isn’t it?',
+
+		'show character m sadSweat',
+		'p Her eyes well up. Like a broken dam, the words fall out.',
+
+		'm I wanted today to go well.',
+
+		'p It did!',
+
+		'show character m neutralSweat',
+		'p As far as I can tell, you’re alive and didn’t give over your life savings.',
+
+		'show character m shockSweat',
+		'm No, I know I just—I really wanted us to do something together.',
+
+		'show character m sadSweat',
+		'm I feel like it’s my fault we don’t do anything fun anymore.',
+
+		'p We have lots of fun.',
+		'show character m shockSweat',
+
+		'm Not like we used to! Not after… we had to come here.',
+		'm This was meant to be a quick stop in our journey, and now we’ve taken a million steps backwards!',
+
+		'm We’ve been here for months!',
+
+		'show character m shockSweat',
+		'm Not like we used to! Not after… we had to come here.',
+
+		'm This was meant to be a quick stop in our journey, and now we’ve taken a million steps backwards!',
+
+		'm We’ve been here for months!',
+
+		'show character m sad',
+		'm This whole time I’ve been doing nothing…',
+
+		'show character m sadSweat',
+		'm I thought if we did something more… it’d be a step in the right direction.',
+
+		'm Now, I just feel a little dumb.',
+
+		'n Oh, Maya…',
+
+		{
+			'Choice': {
+				'“This might be the right direction.”': {
+					'Text': '“This might be the right direction.”',
+					'Do': 'jump ReassureHer'
+				},
+
+				'“Only a little dumb?”': {
+					'Text': '“Only a <i>little</i> dumb?”',
+					'Do': 'jump JokeWithHer'
+				},
+
+				'“Don’t give up so easily.”': {
+					'Text': '“Don’t give up so easily.”',
+					'Do': 'jump EncourageHer'
+				}
+			}
+		}
+
+	],
+
+	'ReassureHer': [
+		function () {
+			updatePersonality(friendly, 1),
+				notify(`+${friendly}`)
+		},
+
+		'show character m sadSweat',
+		'p This might be the right direction.',
+		'p We don’t know that it’s not.',
+
+		'show character m angrySweat',
+		'm If it is, then it feels awful.',
+
+		'n I laugh.',
+
+		'show character m sadSweat',
+		'p You can’t expect to feel amazing all the time.',
+
+		'show character m neutral',
+		'p This is a learning experience.',
+
+		'show character m happy',
+		'p The Maya I know is only more dangerous now that she’s back in action.',
+
+		'show character m neutral',
+		'm A learning experience, huh…',
+
+		'm Maybe you’re right…',
+
+		'm I don’t know where this is heading, but that’s just as exciting.',
+
+		'show character m shock',
+		'm Kinda.',
+
+		'm It’s a little scary, but I’ll be positive.',
+		'show character m neutral',
+		'm We’re not going to be stuck here forever, right?',
+
+		'p Exactly.',
+
+		'show character m neutralSweat',
+		'm Thanks, {{player.name}}.',
+		'm I needed to hear that.',
+
+		'show character m neutral',
+		'm You’re a good friend.',
+		'p You’re a better one.',
+
+		'show character m happy',
+		'jump WalkAlone'
+	],
+
+	'JokeWithHer': [
+		function () {
+			updatePersonality(joking, 1)
+			notify(`+${joking}`)
+		},
+		'p Only a little dumb?',
+		'show character m shockBlush',
+
+		'p {{player.name}}!',
+
+		'show character m angryBlush',
+		'm I’m— I’m going to hurt you!',
+
+		'n I step back in anticipation.',
+		'p After everything I’ve done for you?!',
+
+		'show character m happy',
+		'n She raises her fists.',
+
+		'play sound footstepsFour',
+		'hide character m',
+
+		'n I make a run for it, dashing through the alley.',
+		// SFX: Crash
+
+		'n Turning the corner, I collide with a shop board left out on the street.',
+
+		'show character m happyBlush',
+		'n Maya’s laughter is practically a howl when she catches up.',
+
+		'show character m neutral',
+		'm Oh, no.',
+
+		// SFX: Wooden pieces being dragged
+
+		'n I roll over, lifting what’s left of the wooden victim underneath me.',
+
+		'n Several pieces and a misspelt sign.',
+
+		'p We’re going to get complaints.',
+
+		'show character m shockSweat',
+		'n Above us, a small light fades in from the upper window.',
+
+		'm Shh!',
+
+		'play sound footstepsFour',
+
+		'n She runs down the road.',
+
+		'p What, you’re going to leave me here?!',
+
+		'm You’re already a dead {{player.man}} walking!',
+
+		'show character m happy',
+		'm Well, <i>laying</i>.',
+
+		'hide character m with fadeOut',
+		// SFX: Running away
+		'play sound footstepsFour',
+
+		'n She runs again.',
+
+		// [SFX: Different running] then [SFX: Thud, for grabbing maya]
+
+		'n I clamber to chase after, grabbing her when I catch up.',
+
+		'show character m happyBlush with fadeIn',
+
+		'n Her eyes light up with renewed excitement.',
+
+		'show character m neutralBlush',
+
+		'm For the record, you definitely looked more dumb on the ground.',
+
+		'p I’ll accept that.',
+
+		'show character m neutral',
+		'p And I know you fell on purpose.',
+
+		'n I wince.',
+
+		'p You think I would ruin my back on purpose for you?',
+
+		'n She shrugs.',
+
+		'p Well, I’m glad one of us came out of this feeling better.',
+
+		'jump WalkAlone'
+	],
+
+	'EncourageHer': [
+		function () {
+			updatePersonality(assertive, 1)
+			notify(`+${assertive}`)
+		},
+
+		'show character m sadBlush',
+
+		'p I don’t remember the Maya I know giving up so easily. ',
+		'p What happened to the Maya who said she was needed for greater things?',
+
+
+		'show character m sad',
+		'm She’s still there…',
+		'p Well, we need her back. ',
+
+		'show character m shock',
+		'p Because if this Maya gives up after one bad day, I don’t know how we’re going to make it.',
+
+		'm Wha— How is this encouraging?',
+
+		'm Are you playing mind games with me?!',
+
+		'p I’m simply stating an observation.',
+
+		'p If you’re going to give up now, you’ll have no chance later. ',
+
+		'p Yeah, we’ve had better luck before, but we’ve had worse too.',
+
+		'show character m sadSweat',
+
+		'm But, how will I know if it’s going to get better?',
+
+		'p You don’t. So, if you’re going to give it, do it, but don’t sulk about it. ',
+
+		'show character m sadBlush',
+
+		'm {{player.name}}… ',
+
+		'n Her eyes well up again.',
+		'm When did you get so mean!',
+
+		'n She throws weak punches at my chest before reaching in for a hug.',
+
+		'p Maya?',
+
+		'show character m shockBlush',
+
+
+		{
+			'Conditional': {
+				'Condition': function () {
+					return monogatari.storage(assertive) >= 4
+				},
+
+				'True': 'm You always go for tough love. ',
+
+				'False': 'm I’m not used to your tough love. '
+			}
+		},
+
+		'show character m angryBlush',
+		'm It makes you sound like an ass, but I appreciate it. ',
+
+		'n She throws her hands up in the air, releasing me. ',
+
+
+		'show character m happyUI',
+		'm Hwen hasn’t seen the best, or last of us yet!',
+		'jump WalkAlone'
+
+	],
+
+	'LeaveHerBe': [
+
+		'n I won’t try to push her, she’ll talk when she needs to. ',
+
+		'n For now, I have to give her the space she needs. ',
+
+		'n We continue walking. Maya breaks the silence a little later.',
+
+		'jump WalkAlone'
+	],
+
+	'WalkAlone': [
+		'show character m neutralSweat',
+		'Hey, {{player.name}} what are you doing tomorrow?',
+
+		'p Not sure.',
+		'show character m happy',
+
+		'p Training, probably. ',
+		'p I should build my strength and technique back up if we’re going to be adventurers.',
+
+		'show character m neutralSweat',
+		'm Yeah… ',
+
+		'm That’s a good idea. ',
+
+		'n Maya looks over at the crossroad, where we split off to go home.',
+
+		'show character m neutral',
+
+		'm OK, I’ll see you tomorrow. ',
+
+		'p That’s it?',
+
+		'm Yup, I’ll tell you more later!',
+
+		'n She gives me a wave before stretching out her shoulders, feeling every muscle. ',
+
+		'show character m happy',
+		'm I’ve got a few things planned I want to try.',
+
+		'p Hm, if you say so.',
+
+		'show character m neutral',
+
+		'm I do.',
+		'm Goodnight!',
+
+		'p Goodnight, Maya.',
+
+		'hide character m',
+
+		// [SFX: Footsteps going away]
+		'play sound footstepsFour',
+
+		'n She disappears out of sight. ',
+
+		'n In the other direction, I make my way to my lodging above a quiet shop. ',
+
+		'n By now, the owners have closed up, but the back gate leads directly to my room. ',
+
+		'play sound rustle2',
+
+		'n My hand hovers over the wooden gate.',
+
+		'n I hesitate. A shiver runs up my spine. ',
+
+		'play sound rustle',
+
+		// [SFX: Tapping of glass] 
+		'n The rustling increases with a sinister tapping of glass.',
+
+		{
+			'Choice': {
+				'Turn around and yell': {
+					'Text': 'Turn around and yell',
+					'Do': 'jump TurnAround'
+				},
+
+				'Assess the situation': {
+					'Text': 'Assess the situation',
+					'Do': 'jump AssessTheSituation'
+				}
+			}
+		}
+	],
+
+	'TurnAround': [
+		{
+			'Conditional': {
+				'Condition': function () {
+					return monogatari.storage('interpersonal').name === 'Intimidation'
+				},
+				'True': 'jump IntimidatePass',
+				'False': 'jump IntimidateFail'
+			}
+		}
+	],
+
+	'IntimidatePass': [
+		function(){
+			imgNotify('interpersonal')
+			increaseValour(10)
+			notify('+10 Valour')
+		},
+
+		'play sound rustle4',
+
+		// [SFX: Creepy tapping] ,
+		'p Who’s there? Show yourself!',
+
+		'n I reach for my weapon, tightening my grip. ',
+		'n The rustling stops, and a leaf floats down in front of me. ',
+
+		'n Was it just the wind? I look up. ',
+
+		'n A nearby tree brushes noisily against the upper window. ',
+
+		'n I’m an idiot. ',
+
+		// [SFX: Gate latch opening, closing, creaking]
+		'n I loosen up and hop the gate, not wanting to be outside any longer.',
+
+		'n That night I get some well-deserved rest.',
+
+		'jump Training'
+
+	],
+
+	'IntimidateFail': [
+		'play sound rustle4',
+		// [SFX: Creepy tapping] 
+		'n I don’t hesitate, yelling at the top of my lungs. ',
+
+		// [SFX: Heart beating] 
+
+		'p W-who’s there?',
+
+		'n The words come like an uncontrolled squeak. My voice wavers. ',
+
+		'play sound rustle2',
+
+		'p I’m—I’m armed. ',
+
+		'n There’s no reply. ',
+
+		'n My eyes scan the darkness, but the rustling has stopped. ',
+
+		'n Feeling stupid, and a little scared, I hop the gate not wanting to be outside any longer. ',
+
+		'n That night, I get very little rest. ',
+
+		'jump Training'
+	],
+
+
+	'AssessTheSituation': [
+
+		{
+			'Conditional': {
+				'Condition': function(){
+					return monogatari.storage('survival') === 'perception' || monogatari.storage('survival') === 'concealment'
+				},
+
+				'True': 'jump AssessPass',
+				'False': 'jump AssessFail'
+			}
+		}
+		
+	],
+
+	'AssessPass': [
+		function(){
+			imgNotify('survival'),
+			increaseValour(10)
+			notify('+10 Valour')
+		},
+
+		'n My attention turns to the road behind me. ',
+
+		'play sound rustle3',
+		'n The rustling, although unexpected, is just a tree looming over the garden. ',
+		
+		'n I make a mental note to tell the owner to have it trimmed in the morning. ',
+		
+		'n Relieved, I unlock the gate and head inside for a restful night. ',
+
+		'jump Training'
+		
+	],
+	
+	'AssessFail': [
+		'play sound rustle',
+		// [SFX: Creepy tapping] 
+		'n My attention turns to the road behind me. ',
+		'n The rustling stops. ',
+		'n It becomes so quiet that I hear my own heart beat. ',
+		// [SFX: Heart beating] 
+
+		'n I convince myself that I would have noticed someone else nearby. ',
+
+		'n That it’s just the wind. ',
+		'n It doesn’t help. I fumble as I try to get over the gate and into my home. ',
+
+		'n That night, I get very little sleep. ',
+
+		'jump Training'
+	],
+
+	'Training': [
+		'show scene black with fadeIn',
+		'stop music with fade 3',
+		'play music Day2 with loop fade 5',
+		'show scene sunsetMountain',
+
+		'n Morning feels like it comes too soon.',
+
+		'n Setting up a space under the beating sun, my eyes are still tired from sleeping in after yesterday’s ordeal.',
+
+
+		{
+			'Conditional':{
+				'Condition': function(){
+					return checkWeapon()
+				},
+
+				'bow': 'jump BowMorning',
+				'fists': 'jump FistsMorning',
+				'sword': 'jump SwordMorning'
+			}
+		}
+	],
+
+	'BowMorning': [
+		'n After Maya’s suggestion, I had my bow inspected, and she was right. ',
+		'n I had been wearing it down.',
+		'n Today, my shots feel more comfortable than they’ve been all week.',
+		'play sound pullString',
+		'n I draw back the arrow.',
+		'play sound releaseString',
+		'n A perfect shot lands at the centre of the bark. ',
+		'jump AfterWepPractice'
+
+	],
+
+	'SwordMorning': [
+		'n I raise my sword, this time more cautious about how I shift my weight.',
+
+		'n The swings come more naturally. ',
+		'play sound swordWhoosh',
+
+		'n Once again, I feel like myself.',
+		'jump AfterWepPractice'
+
+	],
+
+	'FistsMorning': [
+		'play sound punch',
+		'n I focus on my footwork a little more than usual, feeling it naturally transition into my punches.',
+		'play sound punch2',
+
+		'n The force is improved when I consider my legs and arms as one, complete movement. ',
+		'jump AfterWepPractice'
+
+	],
+
+	'AfterWepPractice': [
+		// Bush rustling
+
+		'n My focus is lost to a dark figure crouching in the bushes.',
+
+		'p Kai?',
+
+		'show character k neutralSweatCloak with fadeIn',
+
+		'n He lifts his head. Under the scrutinising gaze of the sun, he still chooses to wear a cloak. ',
+
+		'p What are you doing here… in the bushes?',
+
+		'show character k shockSweatCloak',
+		
+		'n He straightens, brushing off the leaves in his cloak.',
+		
+		'show character k happySweatCloak',
+		'n Can’t a man take a stroll on a fine day?',
+		
+		'p In a bush, completely out of town, alone?',
+		
+		'show character k happyCloak',
+		
+		'k Were you intending to join me?',
+		
+		'p Do I need to call a sheriff?',
+		
+		'show character k shockCloak',
+		
+		function(){
+			imgNotify('interpersonal')
+		},
+		
+		'jump {{interpersonal.name}}Remember'
+	],
+	
+	'EmpathyRemember': [
+		'k For all you know, I was so warmly approached by a stranger last night, that I decided to pay the kindness forward.',
+		
+		'p And to do that you… hide in the bushes?',
+		
+		'show character k happyCloak',
+		
+		'k The world is full of mysteries.',
+
+		'jump ForageExp'
+		
+	],
+	
+	'DeceptionRemember': [
+		'k For all you know, I dropped my purse back there.',
+		'show character k happyCloak',
+		'k Apparently, Hwen is full of kind swindlers, but I didn’t want to risk it. ',
+		
+		'p I thought that lie only worked on street vendors.',
+		
+		'k Doesn’t hurt to branch out.',
+
+		'jump ForageExp'
+		
+	],
+	
+	'IntimidationRemember': [
+		'show character k neutralCloak',
+		'k For all you know, I was feeling weak and feeble.',
+		
+		'show character k happyCloak',
+		
+		'k I was hoping a local big bad wolf could give me advice?',
+		
+		'p I think you’re a little far out. ',
+		
+		'k It seems so.',
+		
+		'jump ForageExp'
+	],
+	
+	'ForageExp':[
+		'show character k neutralCloak',
+		'k If you must know, I was foraging. ',
+		
+		'show character k happySweatCloak',
+		'n He gestures loosely behind him. ',
+		
+		'k There’s a thistle that grows here. Useful for headaches, sores, imminent death from plague. That sort of thing. ',
+		
+		'k I had no idea I’d also witness the wild swinging of aspiring adventurers.',
+		
+		'p Wild?!',
+		
+		'show character k shockCloak',
+		
+		'k You were practising quite fervently. ',
+		
+		'show character k neutralCloak',
+		
+		'k Do you have a goal, or is it all that excess energy youth seem to have?',
+		
+		'n His question, although a little rude, takes me by surprise. ',
+		'p I started doing it to recover faster. Now it just feels good. ',
+		'show character k shockCloak',
+		'p Coming up here, losing steam. ',
+		
+		'show character k neutralCloak',
+		'k Ah, an injury?',
+		
+		'show character k happyCloak',
+		'n He raises his fists and takes a combative stance. ',
+
+		'k Perhaps, you need a sparring partner?',
+
+		'k See if you truly have recovered. ',
+
+		'n Is he serious?'
+
+		{
+			'Conditional': {
+				'Condition': function(){
+					return checkWeapon()
+				},
+
+				'bow': 'jump bowKai',
+				'fists': 'jump fistsKai',
+				'sword': 'jump swordKai',
+			}
+		}
+
+	],
+
+	'bowKai': [
+		'show character k shockCloak',
+		'p I could shoot an arrow before you threw your first punch.',
+		'p Ignoring that a fist against an arrow is hardly sparring.',
+
+		'jump AfterWeaponKai'
+	],
 
 
 });

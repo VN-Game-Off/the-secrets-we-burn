@@ -51,6 +51,10 @@ class Skills extends Monogatari.ScreenComponent {
             </div>
         </div>
 
+        <h3>Valour</h3>
+        <span class="skill-name" id="valour-name">0</span>
+        </div>
+
         <div class="skill-container"> 
             <div>
                 <span class="skill-name" id="relationships-name">???</span>

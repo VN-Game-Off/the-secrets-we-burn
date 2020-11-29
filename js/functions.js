@@ -130,6 +130,9 @@ function increaseValour(value) {
     const toUpdate = monogatari.storage('valour')
     monogatari.storage().valour = toUpdate + value
 
+    const element = document.querySelector('#valour-name')
+    element.innerHTML = `${toUpdate+value}`
+
 }
 
 function destroyNotif() {
