@@ -589,7 +589,8 @@ monogatari.assets('images', {
 monogatari.assets('scenes', {
 	'sunsetMountain': 'sunsetMountain.jpg',
 	'nightTown': 'ID003_Western-Castle_night.jpg',
-	'guild': 'guild.png'
+	'guild': 'guild.png',
+	'dayMountain': 'mountain.jpg'
 });
 
 
@@ -728,6 +729,10 @@ monogatari.characters({
 
 	'om': {
 		name: 'Older Man'
+	},
+
+	'st': {
+		name: 'Stranger'
 	}
 
 });
@@ -3991,7 +3996,7 @@ monogatari.script({
 	],
 
 	'IntimidatePass': [
-		function(){
+		function () {
 			imgNotify('interpersonal')
 			increaseValour(10)
 			notify('+10 Valour')
@@ -4051,7 +4056,7 @@ monogatari.script({
 
 		{
 			'Conditional': {
-				'Condition': function(){
+				'Condition': function () {
 					return monogatari.storage('survival') === 'perception' || monogatari.storage('survival') === 'concealment'
 				},
 
@@ -4059,13 +4064,13 @@ monogatari.script({
 				'False': 'jump AssessFail'
 			}
 		}
-		
+
 	],
 
 	'AssessPass': [
-		function(){
+		function () {
 			imgNotify('survival'),
-			increaseValour(10)
+				increaseValour(10)
 			notify('+10 Valour')
 		},
 
@@ -4073,15 +4078,15 @@ monogatari.script({
 
 		'play sound rustle3',
 		'n The rustling, although unexpected, is just a tree looming over the garden. ',
-		
+
 		'n I make a mental note to tell the owner to have it trimmed in the morning. ',
-		
+
 		'n Relieved, I unlock the gate and head inside for a restful night. ',
 
 		'jump Training'
-		
+
 	],
-	
+
 	'AssessFail': [
 		'play sound rustle',
 		// [SFX: Creepy tapping] 
@@ -4104,7 +4109,7 @@ monogatari.script({
 		'show scene black with fadeIn',
 		'stop music with fade 3',
 		'play music Day2 with loop fade 5',
-		'show scene sunsetMountain',
+		'show scene dayMountain',
 
 		'n Morning feels like it comes too soon.',
 
@@ -4112,8 +4117,8 @@ monogatari.script({
 
 
 		{
-			'Conditional':{
-				'Condition': function(){
+			'Conditional': {
+				'Condition': function () {
 					return checkWeapon()
 				},
 
@@ -4171,99 +4176,99 @@ monogatari.script({
 		'p What are you doing here… in the bushes?',
 
 		'show character k shockSweatCloak',
-		
+
 		'n He straightens, brushing off the leaves in his cloak.',
-		
+
 		'show character k happySweatCloak',
 		'n Can’t a man take a stroll on a fine day?',
-		
+
 		'p In a bush, completely out of town, alone?',
-		
+
 		'show character k happyCloak',
-		
+
 		'k Were you intending to join me?',
-		
+
 		'p Do I need to call a sheriff?',
-		
+
 		'show character k shockCloak',
-		
-		function(){
+
+		function () {
 			imgNotify('interpersonal')
 		},
-		
+
 		'jump {{interpersonal.name}}Remember'
 	],
-	
+
 	'EmpathyRemember': [
 		'k For all you know, I was so warmly approached by a stranger last night, that I decided to pay the kindness forward.',
-		
+
 		'p And to do that you… hide in the bushes?',
-		
+
 		'show character k happyCloak',
-		
+
 		'k The world is full of mysteries.',
 
 		'jump ForageExp'
-		
+
 	],
-	
+
 	'DeceptionRemember': [
 		'k For all you know, I dropped my purse back there.',
 		'show character k happyCloak',
 		'k Apparently, Hwen is full of kind swindlers, but I didn’t want to risk it. ',
-		
+
 		'p I thought that lie only worked on street vendors.',
-		
+
 		'k Doesn’t hurt to branch out.',
 
 		'jump ForageExp'
-		
+
 	],
-	
+
 	'IntimidationRemember': [
 		'show character k neutralCloak',
 		'k For all you know, I was feeling weak and feeble.',
-		
+
 		'show character k happyCloak',
-		
+
 		'k I was hoping a local big bad wolf could give me advice?',
-		
+
 		'p I think you’re a little far out. ',
-		
+
 		'k It seems so.',
-		
+
 		'jump ForageExp'
 	],
-	
-	'ForageExp':[
+
+	'ForageExp': [
 		'show character k neutralCloak',
 		'k If you must know, I was foraging. ',
-		
+
 		'show character k happySweatCloak',
 		'n He gestures loosely behind him. ',
-		
+
 		'k There’s a thistle that grows here. Useful for headaches, sores, imminent death from plague. That sort of thing. ',
-		
+
 		'k I had no idea I’d also witness the wild swinging of aspiring adventurers.',
-		
+
 		'p Wild?!',
-		
+
 		'show character k shockCloak',
-		
+
 		'k You were practising quite fervently. ',
-		
+
 		'show character k neutralCloak',
-		
+
 		'k Do you have a goal, or is it all that excess energy youth seem to have?',
-		
+
 		'n His question, although a little rude, takes me by surprise. ',
 		'p I started doing it to recover faster. Now it just feels good. ',
 		'show character k shockCloak',
 		'p Coming up here, losing steam. ',
-		
+
 		'show character k neutralCloak',
 		'k Ah, an injury?',
-		
+
 		'show character k happyCloak',
 		'n He raises his fists and takes a combative stance. ',
 
@@ -4271,11 +4276,12 @@ monogatari.script({
 
 		'k See if you truly have recovered. ',
 
-		'n Is he serious?'
+		'n Is he serious?',
+		'show character k shockCloak',
 
 		{
 			'Conditional': {
-				'Condition': function(){
+				'Condition': function () {
 					return checkWeapon()
 				},
 
@@ -4288,12 +4294,660 @@ monogatari.script({
 	],
 
 	'bowKai': [
-		'show character k shockCloak',
 		'p I could shoot an arrow before you threw your first punch.',
 		'p Ignoring that a fist against an arrow is hardly sparring.',
 
 		'jump AfterWeaponKai'
 	],
 
+	'swordKai': [
+		'p I guess you haven’t had a longsword come towards you at full speed. ',
+		'p It would not be pretty.',
+		'jump AfterWeaponKai'
+	],
+
+	'fistsKai': [
+		'p I don’t fight barehanded, so unless you want to get sliced in the face?',
+		'p Even if I took them off, you look like you bruise a lot easier than trees.',
+		'jump AfterWeaponKai'
+	],
+
+	'AfterWeaponKai': [
+		'm No offence',
+		'show character k neutralCloak',
+
+		'k I suppose I have little time, anyway.',
+
+		'k I have a date to attend. ',
+
+		'show character k happyCloak',
+		'k Good luck with the rest of your training.',
+
+		'hide character k with fadeOut',
+		'n He leaves quickly through the bushes. ',
+
+		'n There’s a clear path to the town he could have used…',
+
+		'n What a strange man.',
+
+		'show scene sunsetMountain',
+
+		'n I continue focusing on my technique. ',
+		'n After a few hours, I’m interrupted again, but by a more familiar voice. ',
+
+		'm {{player.name}}! {{player.name}}!',
+
+		'show character m happy with zoomIn',
+		'n I turn to Maya, mid-swing.',
+
+		'show character m shock with zoomIn',
+		'm Whoa, easy there. Were you going to hit me?',
+
+		'p What? Of course not.',
+		'm Then why do you look so annoyed?',
+
+		'p I’m just not used to being so popular.',
+		'show character m angry',
+		'm You forgot I was coming today, didn’t you?',
+
+		'show character m sad',
+		'm Well, at least one of us remembers things.',
+		'm <i>I</i> bring news. ',
+
+		'show character m happyUI',
+		'm We did it!',
+
+		'p Yay?',
+		'p What did we do?',
+
+		'show character m neutral',
+		'm Well, <i>I</i> figured it out.',
+		'm That escort quest?',
+
+		'show character m angry',
+		'm Everyone was being shady because the forest might be magic. ',
+
+		'show character m happy',
+		'm Good thing I’m not superstitious.',
+
+		'show character m neutral',
+		'p Good, so we know more about it now. ',
+		'p Cool.',
+
+		'show character m shock',
+		'm No, no. We don’t just know more about it. ',
+
+		'show character m happy',
+		'm We got picked to <i>do</i> it!',
+
+		'show character m happyUI',
+		'm We’re going to be heroes!',
+
+		'show character m shock',
+		'm They’ll probably knight us when we come out. ',
+
+		'show character m happy',
+		'm Always good to have a noble… or knight on your side.',
+
+		'show character m sad',
+		'm {{player.name}}…?',
+
+		'm You don’t seem… like you’re excited…',
+
+		'show character m shock',
+		'm I— I’m so sorry. You don’t mind that we do this, do you?',
+
+		'p No, I’m just surprised. ',
+
+		'p I…',
+
+		{
+			'Choice': {
+				'“am happy you’re in good spirits.”': {
+					'Text': '“am happy you’re in good spirits.”',
+					'Do': 'jump GoodSpirits'
+				},
+
+				'“am not too fond of dying.”': {
+					'Text': '“am not too fond of dying.”',
+					'Do': 'jump FondOfDying'
+				},
+
+				'“don’t want to take this lightly.”': {
+					'Text': '“don’t want to take this lightly.”',
+					'Do': 'jump TakeThisLightly'
+				}
+			}
+		}
+
+	],
+
+	'GoodSpirits': [
+		function () {
+			updatePersonality(friendly)
+			notify(`+${friendly}`)
+		},
+
+		'show character m neutral',
+		'p …am happy you’re in good spirits.',
+		'p You’re going to need it when we kick butts. ',
+
+		'show character m happyUI',
+		'm You think we might get to kick butts?!',
+
+		'show character m neutral',
+		'p Sure, plenty of forest butts to kick defending wealthy patrons.',
+		'p Seems only natural.',
+
+
+		'show character m shock',
+		'm You’re right. I can’t wait!',
+
+		'show character m neutral',
+		'p So, do we just… leave now?',
+
+		'm I like your eagerness.',
+		'show character m shock',
+		'm But we have to prepare!',
+		'm I already started, but I don’t think I can be too prepared, right?',
+
+		'show character m neutral',
+		'm Meet me at the town gates at dawn!',
+
+		'p Whoa, wait. Dawn?',
+		'p Did the client request this?',
+
+		'show character m happySweat',
+		'm <i>So</i>, I haven’t met them <i>officially</i>, but we agreed on dawn. ',
+		'p You haven’t met them. How?',
+		'p Should I be concerned?',
+
+		'show character m neutral',
+		'm Of course not! They’re paying a fortune.',
+		'm Then, I’ll see you in the morning.',
+
+		'show character m shock',
+		'm Don’t forget to pack what you need, and what you might need!',
+
+		'show character m neutral',
+		'n I nod reassuringly, knowing I will only bring my {{combat.name}} anyway.',
+
+		'hide character m with fadeOut',
+		'n I don’t train for much longer, knowing what staying out late did to me last time.',
+
+		'n For once, I let myself have an uneventful evening.',
+		'show scene black with with fadeIn',
+
+		'jump LeaveForJourney'
+
+	],
+
+	'FondOfDying': [
+		function () {
+			updatePersonality(joking, 1)
+			notify(`+${joking}`)
+		},
+
+		'show character m shock',
+		'p …am not too fond of dying.',
+		'show character m angry',
+
+		'p Call me a wuss, but excruciating death by magic forest isn’t on my bucket list.',
+
+		'm Oh, you are so dramatic.',
+
+		'show character m neutral',
+		'p Dramatic.',
+		'p Deeply concerned.',
+		'p Possibly reconsidering all life choices prior to this very moment. ',
+
+		'm OK, do you think you could do those things while being by my side as a heroic duo?',
+
+		'show character m happy',
+		'm I wouldn’t choose to perish any other way.',
+
+		'show character m neutral',
+		'm Perfect.',
+
+		'p So, what do we have to do?',
+
+		'm Well, I need to prepare. ',
+
+		'show character m shock',
+		'm You should grab anything you need too. ',
+
+		'm We’re meeting the client at dawn. ',
+
+		'show character m neutral',
+
+		'p You’ve met them?',
+
+		'show character m sadSweat',
+		'm No, not yet. I just found this out through the guild.',
+
+		'm That’s normal, right? For them not to show their face?',
+
+		'p Maybe they’re high profile. Maybe it really is a noble.',
+
+		'show character m shock',
+		'm You had doubts?',
+
+		'p Should I not have?',
+		'p I don’t usually put my full trust in vague, shady calls to forests.',
+
+
+		'show character m neutral',
+		'm True, but they’re paying half up front! We just have to show up.',
+
+		'n I smile teasingly.',
+
+		'p What could go wrong?',
+
+		'm Then, I’ll see you tomorrow?',
+
+		'show character m happy',
+		'p Where else would I be?',
+
+		'n She grins and leaves just as quickly as she appeared.',
+
+		'n Maya is terrible at hiding her excitement.',
+
+		'n The thought of going on an adventure again must make everything else pale in comparison.',
+
+		'n I just hope it doesn’t disappoint.',
+
+		'n I don’t train for much longer, knowing what staying out late did to me last time.',
+
+		'n For once, I let myself have an uneventful evening.',
+
+		'show scene black with fadeIn',
+		'jump LeaveForJourney'
+	],
+
+	'TakeThisLightly': [
+		function () {
+			updatePersonality(assertive, 1)
+			notify(`${assertive}+`)
+		},
+
+		'show character m angry',
+		'p …don’t want to take this lightly.',
+		'p I know you’re excited, but we should still be cautious for so many reasons.',
+
+		'show character m shock',
+		'm I am cautious!',
+
+		'show character m neutral',
+		'm Let’s just celebrate a little.',
+
+		'm They picked us over everyone else.',
+		'show character m angry',
+		'm Surely that’s worth something.',
+
+		'show character m sad',
+		'p If the rumours are true and the forest is magic, there’s a reason it’s paying so highly.',
+
+		'p Most people don’t make it out. ',
+
+		'show character m angrySweat',
+		'm Those people are amateurs. ',
+
+		'm We’ve got more adventuring experience than this entire town combined.',
+
+		'm A local forest is nothing!',
+
+		'p We should still prepare.',
+
+		'show character m happy',
+
+		'm My thoughts exactly!',
+
+		'show character m shock',
+
+		'I’ve already started, but you grab anything you think you might need. ',
+
+		'show character m neutral',
+
+		'm The client contacted us through the guild.',
+
+		'm We can meet them at dawn.',
+
+		'p Dawn?! That’s so soon.',
+
+		'm Did you have any other plans?',
+
+		'p …',
+
+		'show character m happy',
+
+		'm Great, then see you later.',
+
+		'p See you.',
+
+		'hide character m with fadeOut',
+
+		'n Maya disappears, leaving just as quickly as she came. ',
+
+		'n I don’t train for much longer, knowing what staying out late did to me last time.',
+
+		'n For once, I let myself have an uneventful evening.',
+
+		'show scene black with fadeIn',
+		'jump LeaveForJourney'
+
+	],
+
+	'LeaveForJourney': [
+		'stop music with fade 2',
+		'play music Night1 with loop fade 5',
+
+		'show scene nightTown with fadeIn',
+		// [SFX: Gate closing] 
+		'n I leave while it’s still dark.',
+		'n By the time I reach the town gates, the sun has only just begun to peek through the horizon.',
+
+		'play sound footstepsFour',
+		'm {{player.name}}!',
+
+		'n Maya chases after me, this time her arms filled with a bundle of bags and much more on her back. ',
+		'n It doesn’t slow her down. ',
+
+		// [SFX: Clatter noise of things being dropped] 
+
+		'n She drops the hoard by my feet. ',
+
+		'p Oh, thanks. I’ve always wanted… whatever all this is.',
+
+		'play sound dullThud',
+
+		'show character m angry with fadeIn',
+		'm Focus!',
+
+		'show character m neutral',
+		'p Ow, can we make a rule not to fight so early?',
+		'p I’m barely awake. ',
+
+		'm Well, try to look alive before the client gets here. ',
+
+		'm I brought as many things as I could think of. ',
+		'm We don’t have much information on the forest, other than people don’t want to go there.',
+
+		'p So this is…?',
+
+		'n I pick up a peculiar bottle with dark red contents. ',
+
+		'show character m happy',
+		'm It’s firebreath!',
+
+		'show character m shock',
+		'm I think it’s good for heartburns?',
+
+		'p And this?',
+
+		'show character m happy',
+		'm Oh, that one I made. ',
+
+		'm It’s like a combination of an axe meets knife meets reversible mace.',
+
+		'p Oh, of course.',
+
+		'p Always need to be ready to switch to my knife-axe-mace.',
+
+		'show character m sadSweat',
+		'm Honestly, I’m not sure how to use it without cutting myself.',
+
+		'show character m happySweat',
+		'm But it’s intimidating, at least?',
+
+		'p Definitely intimidating.',
+
+		'n She looks me over. ',
+		'show character m neutralSweat',
+
+		'm Did you not bring anything?',
+
+		// 'I tap my {{combat.name}}.',
+
+		'p It’s not exactly light. ',
+
+		'show character m angry',
+
+		'm I expected this might happen. ',
+		'show character m happy',
+		'm As fortune would have it, I am always ready.',
+
+		'show character m neutral',
+		'play sound rustle3',
+		'n She unloads a satchel and passes me several consumables and rations.',
+
+		'n The majority being home-cooked goods. ',
+
+		'show character m shock',
+		'm Where would you be if I wasn’t looking out for you?!',
+
+		'p Probably in bed. ',
+		'show character m neutral',
+
+		'p Thank you, Maya.',
+
+		'n I pack the various odd bits into my own satchel, distributing the weight evenly. ',
+
+		'p So, now we… wait?',
+
+		'm Yup!',
+
+		// [SFX: Bag noise?? Like putting it over your shoulder] 
+
+		'n She props the extra satchel over her shoulder and waits.',
+
+		'm Shouldn’t be long.',
+
+
+		'show character m sad',
+		'n We twiddle our thumbs for a moment, but Maya is noticeably anxious. ',
+		'n Whether it’s from excitement, I can’t tell. ',
+
+		'show character m shock',
+		'st Miss Maynard?',
+
+		// [SFX: Impact/Clatter] 
+		'n Maya swings round, nearly knocking the speaker with several bags.',
+
+		'm I’m so sorry!',
+
+		// 'show character k angry at right',
+		'show character m shockUI',
+		'm You must be…',
+		'hide character m',
+		'show character k sad',
+
+		'p Kai?',
+		'show character k happy',
+		'k It’s a pleasure to make your acquaintance.',
+
+		'n He extends his hand, but I don’t take it. ',
+		'show character k neutral',
+
+		'n The man in front of me looks every bit like the Kai from the guild, but they feel like two separate people. ',
+
+		'n His smile was smoothed over for something stoic and cold. ',
+
+		'n They only look the same, sound the same, and have the same name. ',
+
+		'hide character k',
+		'show character m shockSweat',
+
+		'm {{player.name}}',
+
+		'm Hello?',
+
+		'show character m angry',
+		'p Hm? Oh, sorry.',
+
+		'p This is… ',
+
+		'show character m happy',
+		'm Sir, Kai.',
+
+		'hide character m',
+		'show character k happy',
+
+		'k Just Kai is fine.',
+
+		'n He talks as though we’ve never met.',
+
+		{
+			'Choice': {
+				'“Did you plan this?”': {
+					'Text': '“Did you plan this?”',
+					'Do': 'jump DidYouKnow'
+				},
+
+				'“I’m glad you’re actually real.”': {
+					'Text': '“I’m glad you’re actually real.”',
+					'Do': 'jump ActuallyReal'
+				},
+
+				'“The pleasure is mine”': {
+					'Text': '“The pleasure is mine”',
+					'Do': 'PleasureIsMine'
+				}
+			}
+		}
+	],
+
+	'DidYouKnow': [
+		function () {
+			updatePersonality(assertive, 1)
+			notify(`+${assertive}`)
+		},
+
+		'p Did you plan this?',
+		'show character k shockSweat',
+		'k I’m sorry?',
+
+		'show character k angry',
+		'p Before, when we met.',
+		'p Did you plan this whole thing?',
+		'p Did you know who I was?',
+
+		'hide character k',
+		'show character m sadSweat',
+		'm {{player.name}}… what are you talking about?',
+
+		'p This isn’t the first time we’ve met. ',
+		'jump WeveMet'
+	],
+
+	'ActuallyReal': [
+		function () {
+			updatePersonality(joking, 1)
+			notify(`+${joking}`)
+		},
+
+		'show character k shockSweat',
+		'p I’m glad you’re actually real.',
+		'p With all the scepticism around the quest, I thought Maya was losing it.',
+
+		'hide character k',
+		'show character m shockBlush',
+
+		function () {
+			checkGender()
+		},
+
+		'm {{player.He}} {{player.doesnt}} mean that!',
+
+		'show character m angryBlush',
+		'm {{player.name}}, do you want us to look bad?',
+		'show character m neutralSweat',
+
+		'm I, for one, had no doubts.',
+
+		'hide character m',
+		'show character k happy',
+
+		'k That I was real?',
+
+		'hide character k',
+		'show character m angryBlush',
+
+		'p It was either that, or we were both seeing ghosts. ',
+
+		'hide character m',
+		'show character k shock',
+		'm Wait.',
+		'jump WeveMet'
+	],
+
+	'PleasureIsMine': [
+		function () {
+			updatePersonality(joking, 1)
+			notify(`+${joking}`)
+		},
+		'p The pleasure is mine. ',
+		'p I hope we can be amiable travel companions. ',
+
+		'k Of course.',
+		'hide character k',
+		'show character m angrySweat',
+		
+		'n Maya’s eyes dart between us, connecting the dots.',
+		
+		'show character m shockSweat',
+		'm Why are you using your polite voice?',
+
+		'jump WeveMet'
+
+	],
+
+	'WeveMet': [
+		'm You’ve met, before?',
+		'hide character m',
+		'show character k happy',
+		'k We have, yes. Briefly. ',
+		'k I don’t believe it’s too uncommon for an interested party to scope out the aspirants.',
+
+		'hide character k',
+		'show character m neutral',
+		
+		'm You were watching us?',
+
+		'hide character m',
+		'show character k neutral',
+		
+		
+		'k I merely asked around. ',
+		'k Trust that I heard good things. ',
+		
+		'hide character k',
+		'show character m neutral',
+		
+		'm Well, that’s good! Right, {{player.name}}?',
+		'show character m happyUI',
+		'm You can rest assured that you’re in safe hands. ',
+		
+		'm {{player.name}} is an amazing adventurer!',
+		
+		'hide character m',
+		'show character k happy',
+		'k That is a relief. I would hate to have made the wrong choice.',
+		
+		'show character k neutral',
+		'k I assume we are ready to go?',
+		
+		'hide character k',
+		'show character m happy',
+
+		'm If there’s nothing else, I don’t see why not!',
+		
+		// [SFX: Rumble/Large gates being drawn] 
+		'n Maya nods to the gates, and the guards roll back the large barriers.',
+
+		'm I asked if they’d let us through a little earlier when we all arrived.',
+
+		'jump Forest'
+
+	]
 
 });
