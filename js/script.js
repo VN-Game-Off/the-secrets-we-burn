@@ -1788,9 +1788,7 @@ monogatari.script({
 				},
 
 				'Help Maya out, it can’t hurt': {
-					'Text': `<i class="fas fa-gem"></i>Help Maya out, it can’t hurt
-
-					`,
+					'Text': 'Help Maya out, it can’t hurt',
 					'Do': 'jump CollectIntel',
 					'Clickable': function () {
 						return document.monetization && document.monetization.state === 'started'
@@ -1875,6 +1873,7 @@ monogatari.script({
 			updateRelationship('Maya', -5)
 			notify('-5 Maya')
 
+			console.log(assertive)
 			updatePersonality(assertive, 1)
 			setTimeout(() => { notify(`+${assertive}`) }, 2500)
 		},
@@ -2355,6 +2354,7 @@ monogatari.script({
 
 		{
 			'Choice': {
+				
 				'“not what I expected.”': {
 					'Text': '“not what I expected.”',
 					'Do': 'jump NotWhatIExpected'
@@ -2365,7 +2365,7 @@ monogatari.script({
 					'Do': 'jump NotTheCardio'
 				},
 
-				'"“impractical.”': {
+				'“impractical.”': {
 					'Text': '“impractical.”',
 					'Do': 'jump Impractical'
 				}
@@ -2416,9 +2416,10 @@ monogatari.script({
 
 	'Impractical': [
 		function () {
+			console.log(assertive)
 			updatePersonality(assertive, 1)
 			notify(`+${assertive}`)
-		},
+		},,
 
 		'show character m sad',
 		'p …impractical.',
@@ -2768,127 +2769,246 @@ monogatari.script({
 
 		// [Kai, cloak, angry]
 		'show character k angryCloak',
-		
+
 		'k You don’t know what it’s like to be afraid. ',
-		
+
 		'jump Reaction'
 		// [Kai, cloak, happy] 
 	],
-	
+
 	'Reaction': [
 		'show character k happyCloak',
 		'k But, enough of this. ',
 		'show character k neutralCloak',
 		'k What is it you want?',
 		'p I was just trying to make conversation. ',
-		
+
 		'n Although, now I’m certain it was a terrible idea.',
 		'show character k happyCloak',
 		'k Ah, now. Don’t lie to me. ',
 		'k I saw you and your friend running around like lost puppies. ',
-		
+
 		'k But, not before being slighted by everyone here.',
 		'show character k happyCloak',
-		
+
 		'k Seems making friends is not your forte.',
 		'k Nor is getting answers. ',
-		
+
 		'p Wow, going straight for the attack, huh?',
 		'show character k shockCloak',
-		
+
 		'p I’m not the one who came here alone. ',
 		'show character k happyCloak',
-		
+
 		'k And I have all the answers I need, so don’t think I have any ulterior motives here.',
 		'show character k shockCloak',
-		
+
 		'k Oh?',
 		'p Yeah.',
-		
+
 		'show character k happyCloak',
 		'k Dishonesty does not look very good on you.',
-		
+
 		'p I’m being honest.',
-		
+
 		'p Hwen’s just a temporary situation. I’m surprised they have a guild at all. ',
-		
+
 		'p You wouldn’t have seen me, but I was a pretty good adventurer.',
-		
+
 		'p I used to do this all the time. ',
-		
+
 		'p We’re just getting used to the new system. ',
-		
+
 		'show character k neutralCloak',
 		'k How interesting.',
-		
+
 		'k And how is that going?',
-		
+
 		'p Things are… slower than expected. ',
-		
+
 		'p But nothing I can’t overcome.',
 		'show character k shockCloak',
-		
+
 		'p We’re close to wrapping up a few loose ends on a quest. ',
 		'p Nothing big, just a noble. ',
-		
+
 		'show character k happyCloak',
 		'k Perhaps I was mistaken. ',
-		
+
 		'k You must know what you’re doing, to find a quest so fast.',
-		
+
 		{
 			'Conditional': {
-				'Condition': function(){
-					checkSurvival()
+				'Condition': function () {
+					return checkSurvival()
 				},
 				'strength': 'p It’s not an issue. I’m stronger than half the crowd here. ',
 				'perception': 'p It’s not so hard if you know where to look. Who to look out for. ',
-				'conceal': 'p It’s easier when people can’t tell they’re competing with you.'
+				'concealment': 'p It’s easier when people can’t tell they’re competing with you.'
 			}
 		},
-		
+
 		'p Getting a quest is child’s play. ',
-		
+
 		'show character k neutralCloak',
 		'p Plus, I’m kind of a big deal outside of Hwen.',
 		'show character k happyCloak',
-		
+
 		'k I see.',
 		'k Hwen is a rather small town, so maybe I’ll hear of you soon.',
-		
+
 		'k But from accents alone, I’m sure you know the people in here aren’t hwensmen. ',
-		
+
 		'k They lack that trustworthy local charm.',
-		
+
 		'show character k sadCloak',
-		
+
 		'k You understand, right? That they all have things they want to hide or protect?',
-		
+
 		'p I… don’t know why you’re telling me this. ',
-		
+
 		'show character k happyCloak',
 		'p Because I can’t bear to watch a puppy get kicked while it’s still down. ',
-		
-		
+
+
 		'show character k neutralCloak',
 		'k And because you say too much. ',
 		'show character k shockCloak',
-		
+
 		'k Nowhere near as much as your friend, but still too much.',
-		
+
 		'show character k happyCloak',
 		'n He extends his hand. ',
-		
+
 		'k It was nice meeting you, {{player.name}}. ',
 		'p Uh, I didn’t tell you my name. ',
-		
-		'show character k neutralCoat',
-		'k You didn’t need to. Your friend is <i>very</i> loud. ',
 
-		
-		
-		
+		'show character k neutralCloak',
+		'k You didn’t need to. Your friend is <i>very</i> loud. ',
+		'k If it makes you more comfortable, you can call me Kai.',
+		'show character k sadCloak',
+		function () {
+			monogatari.storage().kaiName = 'Kai'
+		},
+		'k To level the playing field. ',
+
+		'p OK, Kai. So, do you just hang out in the shadows waiting to give people advice, or…?',
+
+		'show character k happyCloak',
+
+		'k On the contrary, this is my first time. ',
+
+		'k Now, what did you think I could do for you?',
+		'p What do you mean?',
+
+		// [Kai, cloak, neutral]
+		'show character k neutralCloak',
+
+		'k I think we’ve established that you’re not here with honest intentions.',
+
+		// [Kai, cloak, happy]
+
+		'show character k happyCloak',
+		'k So, what is it really?',
+
+		'p I thought you might be useful.',
+
+		'k For?',
+
+		'k For… information.',
+
+		// [Kai, cloak, sad]
+		'show character k sadCloak',
+
+		'p Honestly, somewhat regretting it now.',
+
+		'k It would not be a first… It seems you have company.',
+
+		'show character k happyBlushCloak',
+		// [Show Maya, happy, blush, hide Kai]
+		'hide character k with fadeOut',
+		'show character m happyUI with fadeIn',
+
+		'm {{player.name}}! There you are!',
+
+		'p Oh, Maya. This is Kai. We had a short misunderstanding but I think—',
+
+		// [Maya, shock]
+		'show character m shock',
+
+		'm Who?',
+
+		'k Kai—',
+
+		'show character m shockSweat',
+		// [Maya, shock with sweat]
+
+		'I turn back, but the space where Kai stood is now empty.',
+
+		'p There was this shadowy cloak guy…',
+
+		// [Maya, sad with sweat]
+		'show character m sadSweat',
+
+		'm There’s no-one there.',
+
+		'p Well, I see that now, but he was there, Kai.',
+
+		'show character m angry',
+		// [Maya, angry]
+
+		'Maya squints at me. Hard.',
+
+		'p He was standing right in this corner.',
+
+		'p He’s probably just slipped through the back-door…',
+
+		'p I think you scared him off.',
+
+		'show character m shockSweat',
+		// [Maya, shock with sweat]
+
+		'm Are you… are you losing it?',
+
+		'show character m sadSweat',
+		// [Maya, sad with sweat]
+
+		'She mutters under her breath.',
+
+		'm Maybe we have been here too long.',
+
+		{
+			'Choice': {
+				'I promise, I’m not losing it.': {
+					'Text': 'I promise, I’m not losing it.',
+					'Do': 'jump NotLosingIt'
+				},
+				'I’m just getting closer to omnipotence.': {
+					'Text': 'I’m just getting closer to omnipotence.',
+					'Do': 'jump Omnipotence'
+				},
+				'Maya, I’m serious.': {
+					'Text': 'Maya, I’m serious.',
+					'Do': 'jump ImSerious'
+				}
+			}
+		}
+	],
+
+	'NotLosingIt': [
+		function () {
+			updatePersonality(friendly, 1)
+			notify(`+${friendly}`)
+		},
+		'show character m angry',
+		'p I promise, I’m not losing it.',
+		'm How can I be sure?',
+
+		'show character m shockSweat',
+		'm Let me see your eyes!',
+
+
 	]
-	
+
 
 });

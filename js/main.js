@@ -215,6 +215,7 @@ $_ready(() => {
 		monogatari.component('quick-menu').addButton(more);
 
 		monogatari.on ('didLoadGame', () => {
+			
 			if (monogatari.storage('combat')!==''){
 				if (monogatari.storage('combat').name==='Bow & Arrow'){
 					changeSkill('combat', 'bow')
