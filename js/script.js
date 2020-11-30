@@ -3564,9 +3564,6 @@ monogatari.script({
 		'm Oops.',
 
 		'n Every other attempt at conversation is answered with one-word phrases and nods.',
-
-		'hide particles',
-
 		'jump AskMayaPersonality'
 	],
 
@@ -3607,8 +3604,6 @@ monogatari.script({
 		'n She walks ahead of me, holding herself for warmth.',
 
 		'n Every other attempt at conversation is answered with one-word phrases and nods.',
-
-		'hide particles',
 
 		'jump AskMayaPersonality'
 
@@ -4141,10 +4136,12 @@ monogatari.script({
 	],
 
 	'Training': [
+		'hide particles with fadeOut',
 		'show scene black with fadeIn',
 		'stop music with fade 3',
 		'play music Day2 with loop fade 5',
-		'show scene dayMountain',
+		'wait 2000',
+		'show scene dayMountain with fadeIn',
 
 		'n Morning feels like it comes too soon.',
 
