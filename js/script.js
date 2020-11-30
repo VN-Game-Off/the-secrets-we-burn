@@ -722,7 +722,7 @@ monogatari.characters({
 	},
 
 	'oa': {
-		name: 'OPTIMISTIC ADVENTURER'
+		name: 'Optimistic Adventurer'
 	},
 
 	'wi': {
@@ -734,7 +734,7 @@ monogatari.characters({
 	},
 
 	'ma': {
-		name: 'MEDIATING ADVENTURER'
+		name: 'Mediating Adventurer'
 	},
 
 	'r': {
@@ -776,7 +776,7 @@ monogatari.script({
 		'n I was not followed.',
 		'n I make sure of it as I set down my satchel, flask, and belongings on the weathered grass, glancing occasionally behind.',
 		'n I know I have nothing to hide. Nothing that would be seen as dangerous, or questionable, but I didn’t need the attention.',
-		'n From here, the setting sun has only begun to soak the town below in its warm orange hue, and although beautiful, time is running out.',
+		'n From here, the setting sun has only begun to soak the town below in its warm hue, and although beautiful, time is running out.',
 		'n I steady my breath, ready to pull back my favoured...',
 
 		"show message Skill",
@@ -914,7 +914,7 @@ monogatari.script({
 		// "m How did you know I was here?",
 		"show character m angryBlush",
 		"n She waves her hand dismissively, trying to catch her breath.",
-		"m Why do— you always— hide when you train?",
+		"m Why do— you <i>always</i>— hide when you train?",
 		"play sound water",
 		"n Maya gasps, reaching out with grabbing hands for my leather-bound flask. I hand it over and once she’s emptied every drop, she returns to her usual rejuvenated spark.",
 		"show character m happyUI",
@@ -945,7 +945,7 @@ monogatari.script({
 		"p You have a lot of energy for a girl who can barely run up a hill. ",
 		"show character m happy",
 		"m I have a lot of energy for anyone.",
-		"p Must be nice. I think it’s fair to say I’m just a little tired, it is getting late.",
+		"p Must be nice. I think it’s fair to say I’m just a little tired, it <i>is</i> getting late.",
 		'jump FlailConcern'
 	],
 
@@ -969,6 +969,11 @@ monogatari.script({
 		'm Now, you look like you need about four extra.',
 		'p Very funny. I just lost my focus, I’m still a good shot.',
 		'm I saw you miss… <i>thrice.</i>',
+		'n Maya glances at my bow and I feel the warmth reach my cheeks. Maya doesn’t usually take interest in my training. I thought it only reminded her of what had happened.',
+		"show character m sadSweat",
+		'n She steps forward, peering at the quiver on my hips.', 
+		'm Maybe you need some refurbishing? A fresh set of bowstring and some goose-feathered arrows can go a long way.', 
+		'p I’ll try', 
 		'jump FlailConcern'
 	],
 
@@ -979,8 +984,8 @@ monogatari.script({
 		"m You’re practically losing your touch.",
 		"p Losing my touch? I’ve done this hundreds of times. ",
 		"p I’ve had songs written about me, Maya.",
-		"n Tutting, she shakes her head.",
 		"show character m shock",
+		"n Tutting, she shakes her head.",
 		"m That was an awful birthday present. ",
 		"m Wait, don’t deflect from this! I’ve noticed you creeping up here late at night, like some creepy old hermit. ",
 		"show character m angry",
@@ -1062,7 +1067,7 @@ monogatari.script({
 		"m That old woman in the guild is very mean, but no matter. ",
 		"show character m neutral",
 		"play sound rustle",
-		"Maya folds the parchment back into her satchel. ",
+		"n Maya folds the parchment back into her satchel. ",
 		"show character m shock",
 		"m I know I’m simply destined to grow old and spend all my time haggling with street vendors. ",
 		"m I just thought I’d have one more rodeo before I accept my transformation into an old crone. ",
@@ -1160,7 +1165,8 @@ monogatari.script({
 		'show character m shock',
 		'm What? What are they saying!',
 		'n I stand upright as if possessed. My eyes glaze over.',
-		'p Maya Maynard, <i>first</i> of her name; queen of vendors, leveller of bargains, keeper of docks! Not to mention, patron saint of tax evasion!',
+		'p Maya Maynard, <i>first</i> of her name; queen of vendors, leveller of bargains, keeper of docks!',
+		'P Not to mention, patron saint of tax evasion!',
 		'show character m happyUI',
 		'p May all <i>fear</i> her royal croneness. ',
 		'n Maya immediately assumes the role, curtsying and thanking imaginary civilians around her. Her hand extends for pleasantries as she blesses small would-be children. ',
@@ -1209,7 +1215,7 @@ monogatari.script({
 		'm Such as?',
 		'p You know. Ruining lives, smuggling overdue library books, pillaging wishing fountains, wrecking <i>general</i> havoc… ',
 		'show character m angryUI',
-		'm I do hate that librarian… ',
+		'm I <i>do</i> hate that librarian… ',
 		'p And every havoc-wrecking crone will need a trusted lookout and sidekick. ',
 		'show character m happy',
 		'n She grins. ',
@@ -1246,11 +1252,12 @@ monogatari.script({
 		'p Not alone. ',
 		'show character m sadSweat',
 		'n She lowers her voice. ',
-		'm But do I have your word?',
+		'm But do I have your <i>word?</i>',
 		'n I roll my eyes. ',
 		'p Yes, Maya. You have my word. ',
 		'show character m happy',
-		'n She sighs with relief.',
+		'n She sighs.',
+		'p So we’re good?',
 		'm Thank heavens. ',
 		'show character m happySweat',
 		'm Yes, but I may have told one small teeny <i>tiny</i> white lie. ',
@@ -1409,7 +1416,7 @@ monogatari.script({
 		},
 
 		'play sound arrowFly2 loop',
-		'Every shot after becomes more desperate and wild, I only care about the results. ',
+		'n Every shot after becomes more desperate and wild, I only care about the results. ',
 		'stop sound with fade 2',
 		'jump PushTrainEnd'
 	],
@@ -1476,8 +1483,8 @@ monogatari.script({
 			}
 		},
 		'play sound punch loop',
-		'I cross over to my rear hand, the one I use to guard, and throw continuous punches at the bare bark. ',
-		'My knuckles burn.',
+		'n I cross over to my rear hand, the one I use to guard, and throw continuous punches at the bare bark. ',
+		'n My knuckles burn.',
 		'stop sound with fade 2',
 		{
 			'Choice': {
@@ -1921,7 +1928,7 @@ monogatari.script({
 		'p So, who do we talk to?',
 		'n My voice is lost against the clinking of tankards and warm, boisterous conversation. ',
 		'p Hm, Maya? Where was— ',
-		'n Behind me, a woman that is not Maya glares. ',
+		'n Behind me, a woman glares. ',
 		'p Um… ',
 
 		// SPRITE: Short Scary Lady
@@ -3242,7 +3249,7 @@ monogatari.script({
 		'show character m angry',
 		// [Maya, angry]
 
-		'Maya squints at me. Hard.',
+		'n Maya squints at me. Hard.',
 
 		'p He was standing right in this corner.',
 
@@ -3258,7 +3265,7 @@ monogatari.script({
 		'show character m sadSweat',
 		// [Maya, sad with sweat]
 
-		'She mutters under her breath.',
+		'n She mutters something under her breath.',
 
 		'm Maybe we have been here too long.',
 
@@ -3484,7 +3491,7 @@ monogatari.script({
 	'RestedBread': [
 		'show particles snow',
 
-		'Once outside, I remember the somewhat crushed loaves in my satchel.',
+		'n Once outside, I remember the somewhat crushed loaves in my satchel.',
 
 		'n I pull one out and pass it to Maya. ',
 
@@ -3695,10 +3702,6 @@ monogatari.script({
 		'show character m shockSweat',
 
 		'm Not like we used to! Not after… we had to come here.',
-		'm This was meant to be a quick stop in our journey, and now we’ve taken a million steps backwards!',
-
-		'm We’ve been here for months!',
-
 		'm This was meant to be a quick stop in our journey, and now we’ve taken a million steps backwards!',
 
 		'm We’ve been here for months!',
@@ -4818,7 +4821,7 @@ monogatari.script({
 		'hide character m',
 		'show character k sad',
 
-		'p Kai?',
+		'n Kai?',
 		'show character k happy',
 		'k It’s a pleasure to make your acquaintance.',
 
