@@ -139,6 +139,13 @@ $_ready(() => {
 	// 2. Inside the $_ready function:
 	// $_('[data-ui="quick-menu"] [data-action="back"]').remove ();
 
+	monogatari.component('main-screen').template(() => {
+		return `
+			<img class="main-img animated heartBeat" src="./assets/images/BIGLOGO.png"></img>
+			<main-menu></main-menu>
+		`;
+	});
+
 	// console.log(menu)
 	monogatari.component('save-screen').template(() => {
 		return `
@@ -211,13 +218,13 @@ $_ready(() => {
 				}
 			}
 
-			if (monogatari.storage('survival') && monogatari.storage('survival')!={}) {
+			if (monogatari.storage('survival') && monogatari.storage('survival') != {}) {
 				const survival = monogatari.storage('survival').name
 				console.log(survival)
 				changeSkill('survival', survival.toLowerCase())
 			}
 
-			if (monogatari.storage('interpersonal') && monogatari.storage('interpersonal')!={}) {
+			if (monogatari.storage('interpersonal') && monogatari.storage('interpersonal') != {}) {
 				const personal = monogatari.storage('interpersonal').name
 				changeSkill('interpersonal', personal.toLowerCase())
 			}

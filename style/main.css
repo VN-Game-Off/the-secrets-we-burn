@@ -277,6 +277,15 @@ game-screen[data-screen="game"] {
 	overflow-y: hidden;
 }
 
+.main-img{
+	padding: 10%;
+	
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 25%;
+	/* max-height: 100vh; */
+}
+
 .NOTIF {
 	color: white;
 	/* -webkit-text-stroke: #141618 1px; */
@@ -399,12 +408,17 @@ h3 {
 	/* align-items: center; */
 }
 
+[data-screen]:not([data-screen="game"]){
+	background-image: url('../assets/images/coloredgrunge1920.jpg');
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
+}
+
 main-menu {
 	align-self: center;
 	flex-direction: column;
 	align-items: center;
 	position: absolute;
-	bottom: 0;
+	bottom: 20%;
 	/* width: 70%; */
 }
 
@@ -774,7 +788,13 @@ input[type="range"]::-moz-range-progress {
 
 /** HD Screen, Large Devices, Wide Screens, Desktop (1200px) **/
 
-@media screen and (min-width: 75em) {}
+@media screen and (min-width: 75em) {
+
+	.main-img{
+		max-width: 800px;
+		margin-top: 0;
+	}
+}
 
 /** Full HD Screen, Large Devices, Wide Screens, Large Desktops (1920px) **/
 
