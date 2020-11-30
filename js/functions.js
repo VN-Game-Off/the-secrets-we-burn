@@ -17,18 +17,19 @@ function notify(myText) {
     // Add classes
     myNotification.classList.add("NOTIF")
     myNotification.classList.add("right")
+    myNotification.classList.add("animated")
+    myNotification.classList.add("fadeInUp")
 
     const promise = new Promise((resolve, reject) => {
-        setTimeout(() => { resolve() }, 2000)
+        setTimeout(() => { resolve() }, 1500)
     })
 
-    promise.then(()=>{
-        myNotification.classList.add("animated");
+    promise.then(() => {
+        myNotification.classList.remove('fadeInUp')
         myNotification.classList.add("fadeOutUp")
+    }).then(() => {
+        setTimeout(() => { destroyNotif() }, 2000)
     })
-
-    // Destroy element after 2 seconds
-    // setTimeout(() => { destroyNotif() }, 2000)
 }
 
 
