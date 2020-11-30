@@ -2952,7 +2952,7 @@ monogatari.script({
 		'p I believe there’s been a mistake.',
 
 
-		'p I flash my friendliest smile.',
+		'n I flash my friendliest smile.',
 
 
 		'p I seem to have picked up the wrong purse.',
