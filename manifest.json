@@ -1,8 +1,8 @@
 {
-	"short_name": "Cardinal",
-	"name": "Cardinal Base",
-	"background_color": "#F7F7F7",
-	"theme_color": "#F7F7F7",
+	"short_name": "TSWB",
+	"name": "The Secrets We Burn",
+	"background_color": "#191d1e",
+	"theme_color": "#7d7165",
 	"orientation": "portrait",
 	"display": "fullscreen",
 	"start_url": "index.html",

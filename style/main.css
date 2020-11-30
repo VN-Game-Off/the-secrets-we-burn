@@ -19,14 +19,7 @@
 
 /* General Style */
 
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cambo&family=Lora:wght@400;500;600;700&family=PT+Serif&display=swap');
-@font-face {
-	font-family: 'League Spartan';
-	src: url('../assets/ui/fonts/leaguespartan-bold-webfont.woff2') format('woff2'), url('../assets/ui/fonts/leaguespartan-bold-webfont.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
 
 html {
 	overflow: hidden;
@@ -277,11 +270,20 @@ game-screen[data-screen="game"] {
 	overflow-y: hidden;
 }
 
+.main-img{
+	padding: 10%;
+	
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 25%;
+	/* max-height: 100vh; */
+}
+
 .NOTIF {
 	color: white;
 	/* -webkit-text-stroke: #141618 1px; */
 	/* font-weight: 400; */
-	text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.9);
+	text-shadow: 0px 0px 4px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 1);
 }
 
 [data-speaking="n"] {
@@ -352,7 +354,6 @@ button:hover {}
 	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
 	background-position: center;
 	background-size: cover;
-	font-family: 'Lato', sans-serif;
 	color: white;
 }
 
@@ -396,6 +397,8 @@ h3 {
 	/* background: url('../assets/ui/mainbg.png'); */
 	background-position: center;
 	background-size: cover;
+	background-image: url('../assets/images/coloredgrunge1920.jpg');
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
 	/* align-items: center; */
 }
 
@@ -404,7 +407,7 @@ main-menu {
 	flex-direction: column;
 	align-items: center;
 	position: absolute;
-	bottom: 0;
+	bottom: 20%;
 	/* width: 70%; */
 }
 
@@ -669,12 +672,14 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 input[type="range"]::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	appearance: none;
-	width: 10px;
+	width: 15px;
 	height: 25px;
+	border: none;
+	background: url('../assets/ui/handler.png');
+	background-size: contain;
+	border-radius: 0;
 	cursor: pointer;
-	box-shadow: -80px 0 0 80px rgb(138, 117, 75);
+	opacity: 1;
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -710,6 +715,7 @@ input[type=range]::-ms-fill-upper {
 }
 
 /* FILL */
+
 
 input[type="range"]::-moz-range-progress {
 	border-style: solid;
@@ -767,11 +773,23 @@ input[type="range"]::-moz-range-progress {
 		min-width: 200px;
 		width: 200px;
 	}
+
+	
 }
 
 /** HD Screen, Large Devices, Wide Screens, Desktop (1200px) **/
 
-@media screen and (min-width: 75em) {}
+@media screen and (min-width: 75em) {
+
+	.main-img{
+		max-width: 800px;
+		margin-top: 0;
+	}
+
+	main-menu{
+		bottom: 0;
+	}
+}
 
 /** Full HD Screen, Large Devices, Wide Screens, Large Desktops (1920px) **/
 
