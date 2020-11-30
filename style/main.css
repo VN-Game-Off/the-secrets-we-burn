@@ -773,6 +773,8 @@ input[type="range"]::-moz-range-progress {
 		min-width: 200px;
 		width: 200px;
 	}
+
+	
 }
 
 /** HD Screen, Large Devices, Wide Screens, Desktop (1200px) **/
@@ -782,6 +784,11 @@ input[type="range"]::-moz-range-progress {
 	.main-img{
 		max-width: 800px;
 		margin-top: 0;
+	}
+
+	main-menu{
+		bottom: 0;
+		
 	}
 }
 
