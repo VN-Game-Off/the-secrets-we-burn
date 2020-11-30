@@ -835,7 +835,7 @@ monogatari.script({
 		"play sound unsheathe with volume 40",
 		"n …sword.",
 		"n My hands wrap around the hilt. The two-sided blade has always been an extension of myself.",
-		"It was the only thing I knew best.",
+		"n It was the only thing I knew best.",
 		"play sound swordWoosh",
 		"n It’s ingrained now that my left foot steps forward, my right foot back, my knees bent.",
 		"n I repeat the mantra as I swivel to strike a non-existent enemy.",
@@ -1029,7 +1029,8 @@ monogatari.script({
 		"n The words sink in.",
 		"n Maya’s voice begins to feel more distant. ",
 		"show character m happyUI",
-		"m Think about it! Me and you, back in action. Slaying beasts, saving babies, kissing bards! I don’t think I even have enough B’s. ",
+		"m Think about it! Me and you, back in action. Slaying beasts, saving babies, kissing bards!",
+		"m I don’t think I even have enough B’s. ",
 		"m Maya.",
 		"show character m happy",
 		"m We can start tomorrow— No, today! As soon as the sun rises. ",
@@ -1049,11 +1050,11 @@ monogatari.script({
 		"show character m neutralSweat",
 		"m <i>I</i> don’t want you to regret anything… ",
 		"show character m shock",
-		"p There isn’t anything to regret. I like it here. It’s peaceful. Do you not like it here?",
+		"p There isn’t anything to regret. I like it here. It’s peaceful.",
+		"p Do you not like it here?",
 		"show character m sad",
 		"n Maya’s shoulder’s slump down, and for the first time my larger-than-life companion, looked small. ",
 		"m I just thought it was going to be something fun… that we could do together. I put a lot of effort into getting everything set-up and— ",
-		"m This is all my fault.",
 		"show character m neutral",
 		"n She straightens her posture, returning to her usual nonchalant self. ",
 		"show character m angrySweat",
@@ -1214,7 +1215,7 @@ monogatari.script({
 		'm But you’re so boring now. ',
 		'p That’s why they’ll never suspect it’s me. ',
 		'show character m happy',
-		'm Her eyes light up at the apparent ingenuity. ',
+		'n Her eyes light up at the apparent ingenuity. ',
 		'show character m neutral',
 		'm You realise should they not believe us, I’d have to double-cross you and leave you for dead. ',
 		'p Naturally.',
@@ -1238,7 +1239,8 @@ monogatari.script({
 		'show character m shock',
 		'm What, no! It’s not a trap. ',
 		'm I told you that woman is <i>terrifying.</i> ',
-		'p Well, when you put it like that. Sure, I couldn’t let you walk into the clutches of an allegedly mean old woman. Not alone. ',
+		'p Well, when you put it like that. Sure, I couldn’t let you walk into the clutches of an allegedly mean old woman. ',
+		'p Not alone. ',
 		'show character m sadSweat',
 		'n She lowers her voice. ',
 		'm But do I have your word?',
@@ -1605,7 +1607,7 @@ monogatari.script({
 		'b It’s not quite a loaf. Far too hard and crispy for that. ',
 		'p What else have you added to it?',
 		'n He taps his nose. ',
-		'n Baker’s secret.',
+		'b Baker’s secret.',
 		'play sound bell',
 		'n The curfew bell strikes and I remember my arrangement with Maya. ',
 		'n Savouring the last flakes on my lips, I give Rohese a knowing look. ',
@@ -1778,7 +1780,7 @@ monogatari.script({
 		'show character m neutralSweat',
 		'p So I’ve heard. ',
 		'show character m sadBlush',
-		'She nods, fumbling with a loose arrowhead between her fingers.',
+		'n She nods, fumbling with a loose arrowhead between her fingers.',
 		'p So what were you doing instead? Watching me from the shadows?',
 		{
 			'Conditional': {
@@ -1882,7 +1884,7 @@ monogatari.script({
 		// [Maya, neutral]
 		'show character m neutral',
 
-		'She stands behind me with an encouraging smile. Her chest puffed out proudly for full effect. ',
+		'n She stands behind me with an encouraging smile. Her chest puffed out proudly for full effect. ',
 
 		{
 			'Choice': {
@@ -2895,7 +2897,7 @@ monogatari.script({
 
 		'k If not, then were you going for a bold, but distasteful pick-up line?',
 
-		'n I’m sorry, but you’re not my type.',
+		'k I’m sorry, but you’re not my type.',
 
 		'p Wh—I was trying to be <i>nice.</i> ',
 
@@ -3066,7 +3068,7 @@ monogatari.script({
 		'p I’m not the one who came here alone. ',
 		'show character k happyCloak',
 
-		'k And I have all the answers I need, so don’t think I have any ulterior motives here.',
+		'p And I have all the answers I need, so don’t think I have any ulterior motives here.',
 		'show character k shockCloak',
 
 		'k Oh?',
