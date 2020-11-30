@@ -281,7 +281,7 @@ game-screen[data-screen="game"] {
 	color: white;
 	/* -webkit-text-stroke: #141618 1px; */
 	/* font-weight: 400; */
-	text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.9);
+	text-shadow: 0px 0px 4px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 1);
 }
 
 [data-speaking="n"] {

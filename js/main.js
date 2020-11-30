@@ -119,25 +119,6 @@ const buttonsWithIcons = [
 		}
 	},
 
-	{
-		string: 'SocialMedia',
-		icon: 'fas fa-share-alt icon',
-		data: {
-			action: 'open-screen',
-			open: 'help'
-		}
-	},
-
-	{
-		string: 'Help',
-		icon: 'fas fa-question-circle icon',
-		data: {
-			action: 'open-screen',
-			open: 'help'
-		}
-	},
-
-
 
 ]
 
