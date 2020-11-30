@@ -19,14 +19,7 @@
 
 /* General Style */
 
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cambo&family=Lora:wght@400;500;600;700&family=PT+Serif&display=swap');
-@font-face {
-	font-family: 'League Spartan';
-	src: url('../assets/ui/fonts/leaguespartan-bold-webfont.woff2') format('woff2'), url('../assets/ui/fonts/leaguespartan-bold-webfont.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
 
 html {
 	overflow: hidden;
@@ -361,7 +354,6 @@ button:hover {}
 	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
 	background-position: center;
 	background-size: cover;
-	font-family: 'Lato', sans-serif;
 	color: white;
 }
 
@@ -405,12 +397,9 @@ h3 {
 	/* background: url('../assets/ui/mainbg.png'); */
 	background-position: center;
 	background-size: cover;
-	/* align-items: center; */
-}
-
-[data-screen]:not([data-screen="game"]){
 	background-image: url('../assets/images/coloredgrunge1920.jpg');
 	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
+	/* align-items: center; */
 }
 
 main-menu {

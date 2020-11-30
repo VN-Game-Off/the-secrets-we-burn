@@ -38,7 +38,7 @@ monogatari.settings({
 	'LanguageSelectionScreen': true,
 
 	// Music for the Main Menu.
-	'MainScreenMusic': 'Day3',
+	'MainScreenMusic': 'Night1',
 
 	// Prefix for the Save Slots in Local Storage.
 	'SaveLabel': 'Save',

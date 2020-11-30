@@ -610,13 +610,13 @@ monogatari.assets('images', {
 
 // Define the backgrounds for each scene.
 monogatari.assets('scenes', {
-	'sunsetMountain': 'sunsetMountain.jpg',
-	'nightTown': 'ID003_Western-Castle_night.jpg',
-	'guild': 'guild.png',
-	'dayMountain': 'mountain.jpg',
-	'road': 'road.jpg',
-	'forest': 'forest.jpg',
-	'magicForest': 'MagicForest.jpg'
+	'sunsetMountain': 'sunsetMountain.webp',
+	'nightTown': 'ID003_Western-Castle_night.webp',
+	'guild': 'guild.webp',
+	'dayMountain': 'mountain.webp',
+	'road': 'road.webp',
+	'forest': 'forest.webp',
+	'magicForest': 'MagicForest.webp'
 });
 
 
@@ -640,27 +640,27 @@ monogatari.characters({
 		name: 'Maya',
 		directory: 'Maya',
 		sprites: {
-			angryBlush: 'MayaBlushAngry.png',
-			neutralBlush: 'MayaBlushNeutral.png',
-			shockBlush: 'MayaBlushShock.png',
-			happyBlush: 'MayaBlushHappy.png',
-			sadBlush: 'MayaBlushSad.png',
+			angryBlush: 'MayaBlushAngry.webp',
+			neutralBlush: 'MayaBlushNeutral.webp',
+			shockBlush: 'MayaBlushShock.webp',
+			happyBlush: 'MayaBlushHappy.webp',
+			sadBlush: 'MayaBlushSad.webp',
 
-			angry: 'MayaAngry.png',
-			happy: 'MayaHappy.png',
-			neutral: 'MayaNeutral.png',
-			sad: 'MayaSad.png',
-			shock: 'MayaShock.png',
+			angry: 'MayaAngry.webp',
+			happy: 'MayaHappy.webp',
+			neutral: 'MayaNeutral.webp',
+			sad: 'MayaSad.webp',
+			shock: 'MayaShock.webp',
 
-			angrySweat: 'MayaSweatAngry.png',
-			happySweat: 'MayaSweatHappy.png',
-			neutralSweat: 'MayaSweatNeutral.png',
-			sadSweat: 'MayaSweatSad.png',
-			shockSweat: 'MayaSweatShock.png',
+			angrySweat: 'MayaSweatAngry.webp',
+			happySweat: 'MayaSweatHappy.webp',
+			neutralSweat: 'MayaSweatNeutral.webp',
+			sadSweat: 'MayaSweatSad.webp',
+			shockSweat: 'MayaSweatShock.webp',
 
-			angryUI: 'MayaUIAngry.png',
-			happyUI: 'MayaUIHappy.png',
-			shockUI: 'MayaUIShock.png'
+			angryUI: 'MayaUIAngry.webp',
+			happyUI: 'MayaUIHappy.webp',
+			shockUI: 'MayaUIShock.webp'
 		}
 	},
 
@@ -669,35 +669,35 @@ monogatari.characters({
 		directory: 'Kai',
 
 		sprites: {
-			angryBlush: 'KaiBlushAngry.png',
-			neutralBlush: 'KaiBlushNeutral.png',
-			shockBlush: 'KaiBlushShock.png',
-			happyBlush: 'KaiBlushHappy.png',
-			sadBlush: 'KaiBlushSad.png',
+			angryBlush: 'KaiBlushAngry.webp',
+			neutralBlush: 'KaiBlushNeutral.webp',
+			shockBlush: 'KaiBlushShock.webp',
+			happyBlush: 'KaiBlushHappy.webp',
+			sadBlush: 'KaiBlushSad.webp',
 
-			angry: 'KaiAngry.png',
-			happy: 'KaiHappy.png',
-			neutral: 'KaiNeutral.png',
-			sad: 'KaiSad.png',
-			shock: 'KaiShock.png',
+			angry: 'KaiAngry.webp',
+			happy: 'KaiHappy.webp',
+			neutral: 'KaiNeutral.webp',
+			sad: 'KaiSad.webp',
+			shock: 'KaiShock.webp',
 
-			angrySweat: 'KaiSweatAngry.png',
-			happySweat: 'KaiSweatHappy.png',
-			neutralSweat: 'KaiSweatNeutral.png',
-			sadSweat: 'KaiSweatSad.png',
-			shockSweat: 'KaiSweatShock.png',
+			angrySweat: 'KaiSweatAngry.webp',
+			happySweat: 'KaiSweatHappy.webp',
+			neutralSweat: 'KaiSweatNeutral.webp',
+			sadSweat: 'KaiSweatSad.webp',
+			shockSweat: 'KaiSweatShock.webp',
 
-			angryCloak: 'KaiCloakAngry.png',
-			happyCloak: 'KaiCloakHappy.png',
-			neutralCloak: 'KaiCloakNeutral.png',
-			sadCloak: 'KaiCloakSad.png',
-			shockCloak: 'KaiCloakShock.png',
+			angryCloak: 'KaiCloakAngry.webp',
+			happyCloak: 'KaiCloakHappy.webp',
+			neutralCloak: 'KaiCloakNeutral.webp',
+			sadCloak: 'KaiCloakSad.webp',
+			shockCloak: 'KaiCloakShock.webp',
 
-			angrySweatCloak: 'KaiCloakSweatAngry.png',
-			happySweatCloak: 'KaiCloakSweatHappy.png',
-			neutralSweatCloak: 'KaiCloakSweatNeutral.png',
-			sadSweatCloak: 'KaiCloakSweatSad.png',
-			shockSweatCloak: 'KaiCloakSweatShock.png',
+			angrySweatCloak: 'KaiCloakSweatAngry.webp',
+			happySweatCloak: 'KaiCloakSweatHappy.webp',
+			neutralSweatCloak: 'KaiCloakSweatNeutral.webp',
+			sadSweatCloak: 'KaiCloakSweatSad.webp',
+			shockSweatCloak: 'KaiCloakSweatShock.webp',
 		}
 	},
 
@@ -713,7 +713,7 @@ monogatari.characters({
 	'b': {
 		name: '{{baker}}',
 		sprites: {
-			base: 'baker.png'
+			base: 'baker.webp'
 		}
 	},
 
