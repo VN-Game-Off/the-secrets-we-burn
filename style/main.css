@@ -669,12 +669,14 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 input[type="range"]::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	appearance: none;
-	width: 10px;
+	width: 15px;
 	height: 25px;
+	border: none;
+	background: url('../assets/ui/handler.png');
+	background-size: contain;
+	border-radius: 0;
 	cursor: pointer;
-	box-shadow: -80px 0 0 80px rgb(138, 117, 75);
+	opacity: 1;
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -710,6 +712,7 @@ input[type=range]::-ms-fill-upper {
 }
 
 /* FILL */
+
 
 input[type="range"]::-moz-range-progress {
 	border-style: solid;
