@@ -4999,9 +4999,6 @@ monogatari.script({
 		'm If there’s nothing else, I don’t see why not!',
 
 		'play sound gateRumble',
-		'n Maya nods to the gates, and the guards roll back the large barriers.',
-
-		'm I asked if they’d let us through a little earlier when we all arrived.',
 
 		'n Maya nods to the gates, and the guards roll back the large barriers.',
 
