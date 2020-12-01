@@ -35,31 +35,8 @@ class Skills extends Monogatari.ScreenComponent {
             </div>
         </div>
 
-        <h3>Personality</h3>
-        <div class="skill-container"> 
-            <div>
-                <span class="skill-name" id="personality-name">???</span>
-                <span class="skill-desc" id="personality-desc">Unknown</span>
-            </div>
-        </div>
-
-        <h3>Relationships</h3>
-        <div class="skill-container"> 
-            <div>
-                <span class="skill-name" id="relationships-name">???</span>
-                <span class="skill-desc" id="relationships-desc">Unknown</span>
-            </div>
-        </div>
-
         <h3>Valour</h3>
         <span class="skill-name" id="valour-name">0</span>
-        </div>
-
-        <div class="skill-container"> 
-            <div>
-                <span class="skill-name" id="relationships-name">???</span>
-                <span class="skill-desc" id="relationships-desc">Unknown</span>
-            </div>
         </div>
 
         </div>
