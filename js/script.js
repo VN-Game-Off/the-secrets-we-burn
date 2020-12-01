@@ -2073,7 +2073,7 @@ monogatari.script({
 					'Text': 'Help Maya out, it can’t hurt',
 					'Do': 'jump CollectIntel',
 					'Condition': function () {
-						return document.monetization && document.monetization.state === 'started'
+						return (document.monetization && document.monetization.state === 'started') || isMonetized
 					},
 					'Class': 'special tooltip'
 				},

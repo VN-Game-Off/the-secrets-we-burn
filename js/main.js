@@ -26,11 +26,27 @@
  * =============================================================================
  **/
 
+
+
 const { $_ready, $_ } = Monogatari;
 
 // 1. Outside the $_ready function:
 monogatari.registerComponent(Menu)
 monogatari.registerComponent(Skills)
+
+let isMonetized = false;
+
+function startEventHandler(event) {
+	console.log(event)
+	isMonetized = true;
+}
+
+if (document.monetization){
+	document
+	.monetization
+	.addEventListener('monetizationstart', startEventHandler)
+}
+
 // monogatari.registerComponent(ElementNew);
 
 // monogatari.registerComponent(FinalSave);
@@ -64,6 +80,7 @@ monogatari.registerComponent(Skills)
 // 		}
 // 	}
 // }
+
 
 document.addEventListener('mousedown', function (event) {
 	event.stopPropagation()
@@ -174,6 +191,8 @@ $_ready(() => {
 	})
 
 	monogatari.init('#monogatari').then(() => {
+
+
 		// 3. Inside the init function:
 
 		// Remove Quick Menu Buttons
