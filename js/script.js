@@ -776,7 +776,7 @@ monogatari.script({
 		'n I was not followed.',
 		'n I make sure of it as I set down my satchel, flask, and belongings on the weathered grass, glancing occasionally behind.',
 		'n I know I have nothing to hide. Nothing that would be seen as dangerous, or questionable, but I didn’t need the attention.',
-		'n From here, the setting sun has only begun to soak the town below in its warm hue, and although beautiful, time is running out.',
+		'n From here, the setting sun has only begun to soak the town below in its evening hue, and although beautiful, time is running out.',
 		'n I steady my breath, ready to pull back my favoured...',
 
 		"show message Skill",
@@ -864,7 +864,6 @@ monogatari.script({
 		'play sound punch',
 		"n The last time I entered a fight, I was nearly laughed out, but people seldom know what to do in wild close combat. I thrived on knowing it was my own power.",
 		'play sound punch2',
-		"n One, two, one, two.",
 		"n My fists clench between the carved wood, allowing me to focus and convince myself I was pushing the fog from my mind’s eye.",
 		"n That I simply need practice.",
 		"n At some point, when I slipped these on, I felt most like myself, but now…",
@@ -920,7 +919,7 @@ monogatari.script({
 		"show character m happyUI",
 		"p I wasn’t <i>hiding</i>. This is just a good spot to practice.",
 		"show character m angryUI",
-		"m I looked everywhere for you. If you had just told me you were going to train, I could have been helping with your form!",
+		"m I looked everywhere for you. If you told me you were going to train, I could have helped with your form!",
 		"n She folds her arms assertively.",
 		"n Whenever Maya took this stance, I knew I’d offended her in some way. Which was fine, because Maya was always offended.",
 		"show character m neutral",
@@ -938,10 +937,10 @@ monogatari.script({
 		"show character m shock",
 		'm I saw how you flailed about with your sword. ',
 		"show character m happy",
-		'n She mimics me, swaying about an invisible blade. She stops when our eyes connect and I avert my gaze.',
+		'n She mimics me, swaying about an invisible blade. She stops when our eyes connect.',
 		"show character m neutral",
 		"m Sorry.",
-		"n I nod, the soreness of her words still reaching me. Maya doesn’t usually take an interest in my training. I thought it only reminded her of what had happened.",
+		"n I nod, the soreness of her words still reaching me. Maya doesn’t usually take an interest in my training. She usually avoids me when I do.",
 		"p You have a lot of energy for a girl who can barely run up a hill. ",
 		"show character m happy",
 		"m I have a lot of energy for anyone.",
@@ -952,11 +951,11 @@ monogatari.script({
 	'FlailFists': [
 		"show character m shock",
 		"m I saw your shoddy footwork.",
-		"m You left yourself wide open for an attack!",
+		"m You were leaving yourself wide open for an attack!",
 		"show character m happy",
 		"n She mimics me, throwing soft punches at my center. I catch her fist, ending the playfulness.",
 		"p Don’t think I’m too tired to spar with you and <i>win</i>.",
-		'n Still, it was odd. She didn’t usually take interest in my training. It only reminded her of what had happened.',
+		'n Still, it was odd. She didn’t usually take interest in my training. She usually avoids me when I do.',
 		'm With footwork like that, you’d injure yourself just punching air.',
 		'p I’m just a little tired, it’s getting late. ',
 		'jump FlailConcern'
@@ -969,7 +968,7 @@ monogatari.script({
 		'm Now, you look like you need about four extra.',
 		'p Very funny. I just lost my focus, I’m still a good shot.',
 		'm I saw you miss… <i>thrice.</i>',
-		'n Maya glances at my bow and I feel the warmth reach my cheeks. Maya doesn’t usually take interest in my training. I thought it only reminded her of what had happened.',
+		'n Maya glances at my bow and I feel the warmth reach my cheeks. Maya doesn’t usually take interest in my training. She usually avoids me when I do.',
 		"show character m sadSweat",
 		'n She steps forward, peering at the quiver on my hips.', 
 		'm Maybe you need some refurbishing? A fresh set of bowstring and some goose-feathered arrows can go a long way.', 
@@ -980,14 +979,15 @@ monogatari.script({
 	'FlailConcern': [
 		"show character m neutralSweat",
 		"n She sighs, giving me a concerned look. ",
-		"m {{player.name}}, I care about you deeply, I do, but you’re getting… too comfortable here.",
+		"m {{player.name}}, I care about you deeply, I do, but you’re getting… too <i>comfortable</i> here.",
 		"m You’re practically losing your touch.",
 		"p Losing my touch? I’ve done this hundreds of times. ",
 		"p I’ve had songs written about me, Maya.",
 		"show character m shock",
 		"n Tutting, she shakes her head.",
 		"m That was an awful birthday present. ",
-		"m Wait, don’t deflect from this! I’ve noticed you creeping up here late at night, like some creepy old hermit. ",
+		"m Wait, don’t deflect from this!",
+		"m I’ve noticed you creeping up here late at night, like some dreadful old hermit. ",
 		"show character m angry",
 		"m You’re too young to be reminiscing glory days, {{player.name}}!",
 		"show character m shock",
@@ -1005,7 +1005,7 @@ monogatari.script({
 		},
 
 		"p That was then. ",
-		"n She places a hand tentatively on my shoulder. ",
+		"n She places a hand on my shoulder. ",
 		"show character m sad",
 		"m I know you miss being out there, even if you won’t say it to my face. ",
 		"show character m happy",
@@ -1016,7 +1016,7 @@ monogatari.script({
 		"show character m shock",
 		"m Oh, seriously. Don’t make that face. It’s not the same, and that was an honest mistake!",
 		"n I throw her a look. ",
-		'm How would I know that bidding the contents of a seized ship was going to end in…',
+		'm How would I know that bidding on the contents of a seized ship was going to end in…',
 		"p Several tons of manure.",
 		"show character m angry",
 		"n She folds her arms. ",
@@ -1027,9 +1027,9 @@ monogatari.script({
 		"m We’ll never speak of it again. ",
 		"show character m neutral",
 		"play sound rustle",
-		"n Maya reaches into her satchel and pulls out a tightly wound parchment bound by a simple string. ",
+		"n Maya reaches into her satchel and pulls out a parchment bound tightly by a simple string.",
 		"play sound rustle2",
-		"n Unfurled, it reveals a familiar coat of arms. A dragon and lion posed for an attack. ",
+		"n Unfurled, it reveals a familiar coat of arms. A dragon and lion posed for attack. ",
 		"show character m happy",
 		"m It’s an application for the adventurer’s guild. We can make it official!",
 		"n The words sink in.",
@@ -1043,23 +1043,21 @@ monogatari.script({
 		"p Maya, no.",
 		"m I know— Wait.",
 		"show character m neutral",
-		"m What do you mean, no?",
+		"m What do you mean, <i>no</i>?",
 		"p I’m not signing up to this. I’m not doing more “adventures” that end up being more trouble than they’re worth. ",
 		"show character m sadSweat",
-		"m But— {{player.name}}, we’re adventurers. ",
+		"m But— {{player.name}}, we’re <i>adventurers</i>. ",
 		"p We <i>were</i> adventurers. ",
 		"show character m sad",
 		"m But you… you love adventuring. You love helping others!",
 		"show character m happy",
 		"m {{player.name}}… Just trust me. Once you go, you’ll completely change your mind. I know it. I know <i>you.</i> ",
 		"m We have a whole <i>life</i> of adventures waiting for us! One full of no regrets.",
-		"show character m neutralSweat",
-		"m <i>I</i> don’t want you to regret anything… ",
 		"show character m shock",
 		"p There isn’t anything to regret. I like it here. It’s peaceful.",
 		"p Do you not like it here?",
 		"show character m sad",
-		"n Maya’s shoulders slump down, and for the first time my larger-than-life companion, looked small. ",
+		"n Maya’s shoulders slump down, and for the first time my larger-than-life companion, looks small. ",
 		"m I just thought it was going to be something fun… that we could do together. I put a lot of effort into getting everything set-up and— ",
 		"show character m neutral",
 		"n She straightens her posture, returning to her usual nonchalant self. ",
@@ -1174,7 +1172,7 @@ monogatari.script({
 		'm I suppose these people would be terribly lost without me if I didn’t accept the position.',
 		'show character m neutralBlush',
 		'n I bow ceremoniously. ',
-		'We are forever in your debt, my lady. ',
+		'p We are forever in your debt, my lady. ',
 		'jump Admission'
 
 	],
@@ -1193,7 +1191,7 @@ monogatari.script({
 		'm If I had asked you, it wouldn’t have been a surprise!',
 		'm That’s how surprises work!',
 		'show character m neutral',
-		'You can’t control <i>everything</i> in your life. ',
+		'm You can’t control <i>everything</i> in your life. ',
 		'p What’s wrong with trying to be in control?',
 		'show character m shockSweat',
 		'm Nothing! I just—sometimes things happen. ',
@@ -1257,8 +1255,8 @@ monogatari.script({
 		'p Yes, Maya. You have my word. ',
 		'show character m happy',
 		'n She sighs.',
-		'p So we’re good?',
 		'm Thank heavens. ',
+		'p So we’re good?',
 		'show character m happySweat',
 		'm Yes, but I may have told one small teeny <i>tiny</i> white lie. ',
 		'p There’s the trap part.',
@@ -1403,7 +1401,7 @@ monogatari.script({
 		'n The next shot is the same. ',
 		'n Victory only comes to me when an arrow finally connects with the base of a tree trunk. ',
 		'play sound rustle2',
-		'n It almost makes the heat in my upper back worth it. ',
+		'n I ignore the tension building behind my shoulder. ',
 		'n My focus shifts from the posture of my arm and bow, and more on the targets before me. ',
 		{
 			'Choice': {
@@ -1503,7 +1501,7 @@ monogatari.script({
 	],
 
 	'PushTrainEnd': [
-		'n After more rounds, the warm purple and orange tones of the sky slip into a star-spangled blackness. ',
+		'n After more rounds, the warm tones of the sky slip into a star-spangled blackness. ',
 		// CHANGE BG HERE
 		'play sound bell',
 		'n In the distance the curfew bells harmonise, stirring the local wildlife. ',
@@ -1546,7 +1544,7 @@ monogatari.script({
 		function () {
 			monogatari.storage().baker = 'Rohese'
 		},
-		'p Are you not going home?',
+		'p Are you not going home? It’s already cold out.',
 		'b Of course, there’s near no-one to sell to so late, except the drunkards.',
 		'play sound rustle4',
 		'n From his cart he pulls out an item wrapped in paper and presents it to me. ',
@@ -1601,14 +1599,16 @@ monogatari.script({
 	'AfterDecline': [
 		'b Oh, but it’ll be worth it! ',
 		'b You can’t humour an old man? I’ve worked very hard. ',
+		'b Sit, sit! Warm yourself with something worthwhile.',
 		'play sound stomach',
 		'n I try to protest, but an audible cry from my stomach gives me away. ',
 		'n A sheepish smile later, my bottom is firmly planted on the cobblestone floor. ',
 		'n There’s still some time. ',
 		'n It wouldn’t hurt to give him my attention. ',
+		'n He was after all, always alone.',
 		'n Rohese was a baker known for spending too much time in the tavern to make money and putting too many new ideas into his loaves. ',
 		'n The sweet smelling ale wafts from the tankard between us. ',
-		'p What is this time?',
+		'p What is it this time?',
 		'b Ah, that’s the thing. I’m not quite sure yet.',
 		'b I had already baked a batch of bread and forgetting myself, I put the same loaves back into the oven. ',
 		'p You baked it twice?',
@@ -1658,14 +1658,14 @@ monogatari.script({
 		{
 			'Choice': {
 				'Class': 'fadeIn',
-				'Sounds good': {
+				'“Sounds good”': {
 
-					'Text': 'Sounds Good',
+					'Text': '“Sounds Good”',
 					'Do': 'jump SoundsGood'
 				},
 
-				'Keep working on it.': {
-					'Text': 'Keep working on it.',
+				'“Keep working on it.”': {
+					'Text': '“Keep working on it.”',
 					'Do': 'jump KeepWorkingOnIt'
 				}
 
@@ -1688,7 +1688,7 @@ monogatari.script({
 	'FinishedEating': [
 		'play sound footstepsFour',
 		'hide character b with fadeOut',
-		'n I smile and wave him goodbye, exiting the alley. My body is warm and rested, but there is still some unfinished business tonight.',
+		'n I smile and wave him goodbye, exiting the alley. My body is warm and rested, but the night is still young.',
 		'jump Evening'
 	],
 
@@ -1767,7 +1767,7 @@ monogatari.script({
 		'n A new adventurer crowd may excite Maya, but my most natural impulse is to cling to the shadows. ',
 		'n I go unnoticed. ',
 		'play sound rustle2',
-		'n Like ivy, I keep to the edges of the building, only crossing the narrow road when certain there are no immediate eyes on me. ',
+		'n Like ivy, I keep to the edges of the building, only crossing the narrow road when certain there are no discerning eyes on me. ',
 		'jump EntranceToGuild'
 	],
 
@@ -1852,7 +1852,7 @@ monogatari.script({
 		function () {
 			if (monogatari.storage('player').gender === 'female') {
 				monogatari.storage('player').lord = 'Lady'
-				monogatari.storage('player').master = 'Master'
+				monogatari.storage('player').master = 'Mistress'
 			}
 
 			else if (monogatari.storage('player').gender === 'enby') {
@@ -1862,7 +1862,7 @@ monogatari.script({
 		},
 		'show character m angry',
 		'm Except I wasn’t slinking around like a {{player.lord}} of darkness.',
-		'p I wasn’t slinking. I was being cautious.',
+		'p I wasn’t <i>slinking</i>. I was being cautious.',
 		'show character m neutral',
 		'm Of course, I expect nothing less from our {{player.master}} of the night.',
 		'show character m happy',
@@ -1937,6 +1937,7 @@ monogatari.script({
 		'ssl I said, are ye setting or taking?',
 		'p Neither, sorry. I thought you were someone else. I’ll— ',
 		'ssl Pft. I’ve got <i>no</i> time for you fresh-faced babies.',
+		'ssl Always wanderin’ around in here with a cluesless look on their faces.',
 		'ssl Find a place to sit, or get out of my way. ',
 
 		'n She scoffs, shaking her head and muttering to herself as she wipes the nearby tables. ',
@@ -1967,7 +1968,7 @@ monogatari.script({
 		'da Did they drop you on your head as a child?',
 		'ma Oh, leave him be, Raina.',
 		'ma Neither of you could hack it, it’s a job for professionals.',
-		'r And you could do it?',
+		'r And you could do it? You’ll freeze to death the moment you leave.',
 		'ma I don’t need to.',
 		'ma I have prior engagements that leave me too busy for <i>errands</i>.',
 		'n The adventurers choke on their drinks at the words.',
@@ -1985,11 +1986,11 @@ monogatari.script({
 			'Choice': {
 				'Class': 'fadeIn',
 				'I came here for you.': {
-					'Text': 'I came here for <i>you.</i>',
+					'Text': '“I came here for <i>you.</i>”',
 					'Do': 'jump ComplainToMaya'
 				},
 				'I was worried!': {
-					'Text': 'I was worried!',
+					'Text': '“I was worried!”',
 					'Do': 'jump QuestionMaya'
 				}
 			}
@@ -2070,7 +2071,7 @@ monogatari.script({
 				'Class': 'fadeIn',
 
 				'Don’t bother': {
-					'Text': 'Don’t bother',
+					'Text': 'Don’t bother, it won’t work',
 					'Do': 'jump DontBother'
 				},
 
@@ -2175,7 +2176,7 @@ monogatari.script({
 		'show character m happy',
 		'm Great, so—',
 		'show character m angry',
-		'm What, really?',
+		'm What, <i>really?</i>',
 		// 'show character m angry',
 		'p Maya, I only came down because you got us into this mess.',
 		'p I’m not going to escalate it and start making enemies here.',
@@ -2280,8 +2281,9 @@ monogatari.script({
 		'n Maya clasps her hands together in delight and makes her way towards the barkeep.',
 		'hide character m with fadeOut',
 		'play sound coins',
-	
+		'For a bar, the selection is rather light, but Maya orders herself a drink, anyway.',
 		'play sound cupSlide',
+		'Of course, she asks for anything that’s extremely watered down.',
 		'bp And for you?',
 		'p I’m good for now. Thanks.',
 		'n He leaves, and Maya takes a swig of her own drink.',
@@ -2336,6 +2338,8 @@ monogatari.script({
 		'p I’m a little surprised about how busy this place is.',
 
 		'p I didn’t think Hwen would be an adventuring hotspot.',
+
+		'ad It’s not always <it>this</i> busy.', 
 
 		'show character m happy',
 
@@ -2413,7 +2417,7 @@ monogatari.script({
 		'rn The front desk is for applications and request fulfilment.',
 		'p What about general inquiries?',
 
-		'rn We don’t <i>do</i> general inquiries. Try the town crier, next.',
+		'rn We don’t <i>do</i> general inquiries. Try the town crier, <i>next.</i>',
 		'show character m shock with fadeIn',
 		'm The town crier isn’t back till morning!',
 
@@ -2426,7 +2430,7 @@ monogatari.script({
 		'show character m sad',
 		'm Let’s just… try somewhere else.',
 
-		'n May turns around in a hurry, searching for another source of information.',
+		'n Maya turns around in a hurry, searching for another source of information.',
 		'jump CollectIntelCheckpoint'
 	],
 
@@ -2469,15 +2473,15 @@ monogatari.script({
 
 		'n She sighs, taking a half step in the other direction, then stops.',
 		'show character m shock',
-		'm It’s just, for a two person game you both play so <i>poorly.</i>',
+		'm It’s just, for a <i>two</i> person game you both play so <i>poorly.</i>',
 
 		'p Ma—<i>Ow!</i>',
 
 		'play sound dullThud',
 		'show character m neutral',
-		'n A dull pain shoots through my toes, a warning to keep my mouth shut.',
+		'n A dull pain shoots through my toes. A warning to keep my mouth shut.',
 		'n But it’s too late.',
-		'n The watery eyes and high pitched squeal from having my foot stomped on has already earned me several dubious looks.',
+		'n The watery eyes and high pitched squeal from having my foot stomped on earns me several dubious looks.',
 		'om Big words from a small lass.',
 		'om I suggest you start learning to mind your own business.',
 		'om It’ll save you a lot of trouble.',
@@ -2513,7 +2517,7 @@ monogatari.script({
 		'n The white-haired gentleman glances at his opponent’s deck and then scowls.',
 		'om You’ve been cheating!',
 		'fw You believe these bumpkin kids?',
-		'fw Trust your dusty mind to not remember losing three fights in a row.',
+		'fw Trust your dusty mind to not remember losing three matches in a row.',
 		'n The old man frowns, taking calculating looks between the two decks.',
 		'om Then… how is it I’ve acquired so many tokens and not cards?',
 		'n The younger woman curses. Her full attention is now on me.',
@@ -2541,6 +2545,9 @@ monogatari.script({
 
 		'fw Then why does your friend here, look like {{player.heis}} built to crush skills?',
 		'm That’s just how {{player.he}} stand{{player.s}}!',
+		'n Maya slams me in the stomach with the back of her hand.', 
+		'show character m angry',
+		'n Ease up, would you?',
 		'jump AfterBluff'
 	],
 
@@ -2573,7 +2580,14 @@ monogatari.script({
 
 		'fw Let’s go, father.',
 		'vibrate 100',
-		'She clips my shoulder on the way out. ',
+		'n She clips my shoulder on the way out. ',
+		'p That could have gone worse.', 
+		'show character m shock', 
+		'm Yeah, it could have gone better too!',
+		'p I was following your lead!',
+		'm show character m sad', 
+		'm I know. Don’t worry about it.', 
+		'm Let’s try somewhere else.',
 		'jump CollectIntelCheckpoint'
 	],
 
@@ -2783,6 +2797,8 @@ monogatari.script({
 
 		'm We just show them how much better it is to hire a duo. A butt-kicking pair of adventurers with no flaws. ',
 
+		'm That’s not impossible, right?', 
+
 		'show character m shock',
 
 		'm Oh, maybe you should…',
@@ -2805,6 +2821,7 @@ monogatari.script({
 
 		'n I snap back to attention, realising I’ve been staring at one person this whole time.',
 		'show character k neutralCloak at center with fadeIn',
+		'n No-one else seems to notice him, but he notices me',
 		// 'show particles fireflies',
 		// 'Hello'
 		{
@@ -2909,15 +2926,13 @@ monogatari.script({
 
 		'p I don’t suppose you’re trying to make sense of all this too?',
 
-
 		'n I flash my best smile.',
-
 
 		'p I couldn’t help but notice you seemed to look a little lost.',
 		'show character k neutralCloak',
 
-		'k I suppose that was meant to be charming.',
-		'n His voice is smooth, like the silken strings of a lute.',
+		'k I suppose that was meant to be charming?',
+		'n His voice is smooth like velvet.',
 
 		'k If not, then were you going for a bold, but distasteful pick-up line?',
 
@@ -2943,8 +2958,6 @@ monogatari.script({
 		'show character k happyCloak',
 
 		'k I suppose I deserve it. ',
-
-
 
 		'jump Reaction'
 		// [Kai, neutral] 
@@ -2980,18 +2993,19 @@ monogatari.script({
 
 		'n I flash my friendliest smile.',
 
-
 		'p I seem to have picked up the wrong purse.',
 
 		'p I don’t suppose this bag of coins is yours?',
-		'k I suppose that was meant to be believable.',
-		'n His voice is smooth, like the silken strings of a lute.',
+
+		'n I pull out my own decent, albeit nearly empty, purse.',
+		'k I suppose that was meant to be believable?',
+		'n His voice is smooth like velvet.',
 
 		'k Maybe it works on street vendors, but not me. ',
-		'p So this isn’t your bag of coin?',
+		'p So this <i>isn’t</i> your bag of coin?',
 		'show character k angryCloak',
 
-		'k Nice try, but I’m not as desperate or simple-minded as your friends here. ',
+		'k Your efforts are admirable, but I’m not as desperate or simple-minded as your friends here. ',
 
 		'n He nods in the direction of the rest of the guild. ',
 
@@ -3029,8 +3043,8 @@ monogatari.script({
 		'p People like you don’t do well in a crowd like this.',
 
 		'show character k happyCloak',
-		'k I suppose that was meant to be intimidating.',
-		'n His voice is smooth, like the silken strings of a lute.',
+		'k I suppose that was meant to be intimidating?',
+		'n His voice is smooth like velvet.',
 
 		'k I’m curious, is the big bad wolf act your usual, or did you just pick it up recently?',
 
@@ -3105,11 +3119,11 @@ monogatari.script({
 
 		'p Hwen’s just a temporary situation. I’m surprised they have a guild at all. ',
 
-		'p You wouldn’t have seen me, but I was a pretty good adventurer.',
+		'p You wouldn’t have seen me around, but I was a pretty good adventurer.',
 
 		'p I used to do this all the time. ',
 
-		'p We’re just getting used to the new system. ',
+		'p We’re just getting used to the new system. Checking out the local hotspot. ',
 
 		'show character k neutralCloak',
 		'k How interesting.',
@@ -3121,7 +3135,7 @@ monogatari.script({
 		'p But nothing I can’t overcome.',
 		'show character k shockCloak',
 
-		'p We’re close to wrapping up a few loose ends on a quest. ',
+		'p We’re even close to wrapping up a few loose ends on a quest. ',
 		'p Nothing big, just a noble. ',
 
 		'show character k happyCloak',
@@ -3149,7 +3163,7 @@ monogatari.script({
 		'k I see.',
 		'k Hwen is a rather small town, so maybe I’ll hear of you soon.',
 
-		'k But from accents alone, I’m sure you know the people in here aren’t hwensmen. ',
+		'k But from accents alone, I’m sure you know the people in here aren’t Hwensmen. ',
 
 		'k They lack that trustworthy local charm.',
 
@@ -3214,7 +3228,7 @@ monogatari.script({
 
 		'p Honestly, somewhat regretting it now.',
 
-		'k It would not be a first… It seems you have company.',
+		'k It would not be a first… Ah, it seems you have company.',
 
 		'show character k happyBlushCloak',
 		// [Show Maya, happy, blush, hide Kai]
@@ -3267,21 +3281,21 @@ monogatari.script({
 
 		'n She mutters something under her breath.',
 
-		'm Maybe we have been here too long.',
+		'm Maybe we <i>have</i> been here too long.',
 
 		{
 			'Choice': {
 				'Class': 'fadeIn',
 				'I promise, I’m not losing it.': {
-					'Text': 'I promise, I’m not losing it.',
+					'Text': '“I promise, I’m not losing it.”',
 					'Do': 'jump NotLosingIt'
 				},
-				'I’m just getting closer to omnipotence.': {
-					'Text': 'I’m just getting closer to omnipotence.',
+				'I’m just getting closer to omnipotence.”': {
+					'Text': '“I’m just getting closer to omnipotence.',
 					'Do': 'jump Omnipotence'
 				},
 				'Maya, I’m serious.': {
-					'Text': 'Maya, I’m serious.',
+					'Text': '“Maya, I’m serious.”',
 					'Do': 'jump ImSerious'
 				}
 			}
@@ -3421,7 +3435,7 @@ monogatari.script({
 	'ReturnDisappointed': [
 
 		'show character m sadSweat',
-		'm No-one wanted to talk about the escort quest to me.',
+		'm No-one wanted to talk to me about the escort quest.',
 		'show character m shock',
 		'm Even after I gave them my best jokes. ',
 
@@ -3452,19 +3466,22 @@ monogatari.script({
 		'm Even then, no-one could agree on even how handsomely that was, whether it was hundreds or thousands. ',
 
 		'show character m sadSweat',
-		'p It’s starting to sound like a wives’ tale.',
+		'p It’s starting to sound like a wives’ tale',
+		'p And a complete shot in the dark.',
 
-		'm …Yeah. It sounds like a fantasy. ',
+		'm …Yeah. It does sound like a fantasy, doesn’t it? ',
+
+		'n Maya fails to stifle her yawn.',
 
 		'show character m neutralSweat',
 		'm Should we go? I’m hungry and tired.',
 
 		'show character m happy',
-		'm Now we’re on the same page.',
+		'p Now we’re on the same page.',
 
 		'p I could use some sleep finally. ',
 
-		'n Maya yawns, stretching out her back. ',
+		'n Maya yawns once more, stretching out her back. ',
 
 		'm Lead the way.',
 
@@ -3520,18 +3537,6 @@ monogatari.script({
 
 		'p I didn’t make it. It’s one of Rohese’s ideas.',
 
-		'show character m shock',
-		'm Oh! This is good! Did you make this?',
-
-		'show character m shockBlush',
-		'm Oh! This is good! Did you make this?',
-
-		'show character m angry',
-		'm Give me the recipe right now.',
-
-		'show character m shock',
-		'p I didn’t make it. It’s one of Rohese’s ideas.',
-
 		'p Although this time it’s worth eating.',
 
 		'show character m happy',
@@ -3576,7 +3581,7 @@ monogatari.script({
 
 		'p Maya.',
 		'm …',
-		'p Maya!',
+		'p Maya! Where are you going?!',
 
 		'n I grab her by the wrist.',
 		'show character m shock',
@@ -3661,7 +3666,7 @@ monogatari.script({
 			updateRelationship('Maya', 10)
 			notify('+10 Maya')
 		},
-		'p OK, what’s wrong?',
+		'p What’s wrong?',
 		'show character m shockBlush',
 		'm Huh?',
 
@@ -3763,7 +3768,9 @@ monogatari.script({
 		'p The Maya I know is only more dangerous now that she’s back in action.',
 
 		'show character m neutral',
-		'm A learning experience, huh…',
+		'm Yeah... I am dangerous!',
+
+		'n She takes a moment to consider my words.', 
 
 		'm Maybe you’re right…',
 
@@ -3873,7 +3880,7 @@ monogatari.script({
 
 		'n I wince.',
 
-		'p You think I would ruin my back on purpose for you?',
+		'p You think I would ruin my back on purpose for <i>you</i>?',
 
 		'n She shrugs.',
 
@@ -3961,7 +3968,7 @@ monogatari.script({
 
 		'n For now, I have to give her the space she needs. ',
 
-		'n We continue walking. Maya breaks the silence a little later.',
+		'n We walk for a while, until Maya breaks the silence. ',
 
 		'jump WalkAlone'
 	],
@@ -4069,7 +4076,8 @@ monogatari.script({
 		'n I reach for my weapon, tightening my grip. ',
 		'n The rustling stops, and a leaf floats down in front of me. ',
 		
-		'n Was it just the wind? I look up. ',
+		'n Was it just the wind?',
+		'n  I look up. ',
 		
 		'n A nearby tree brushes noisily against the upper window. ',
 		
@@ -4137,7 +4145,7 @@ monogatari.script({
 		'play sound rustle3',
 		'n The rustling, although unexpected, is just a tree looming over the garden. ',
 
-		'n I make a mental note to tell the owner to have it trimmed in the morning. ',
+		'n I make a mental note to tell the owner to have it trimmed in the morning.',
 
 		'n Relieved, I unlock the gate and head inside for a restful night. ',
 
@@ -4236,7 +4244,7 @@ monogatari.script({
 
 		'show character k shockSweatCloak',
 
-		'n He straightens, brushing off the leaves in his cloak.',
+		'n He straightens, brushing off the leaves on his person.',
 
 		'show character k happySweatCloak',
 		'k Can’t a man take a stroll on a fine day?',
@@ -4259,6 +4267,7 @@ monogatari.script({
 	],
 
 	'EmpathyRemember': [
+		// Kai remembers your conversation.
 		'k For all you know, I was so warmly approached by a stranger last night, that I decided to pay the kindness forward.',
 
 		'p And to do that you… hide in the bushes?',
@@ -4272,6 +4281,7 @@ monogatari.script({
 	],
 
 	'DeceptionRemember': [
+		// Kai remembers your conversation.
 		'k For all you know, I dropped my purse back there.',
 		'show character k happyCloak',
 		'k Apparently, Hwen is full of kind swindlers, but I didn’t want to risk it. ',
@@ -4285,6 +4295,7 @@ monogatari.script({
 	],
 
 	'IntimidationRemember': [
+		// Kai remembers your conversation.
 		'show character k neutralCloak',
 		'k For all you know, I was feeling weak and feeble.',
 
@@ -4397,7 +4408,7 @@ monogatari.script({
 		'm {{player.name}}! {{player.name}}!',
 
 		'show character m happy with zoomIn',
-		'n I turn to Maya, mid-swing.',
+		'n I turn to Maya mid-swing.',
 
 		'show character m shock with zoomIn',
 		'm Whoa, easy there. Were you going to hit me?',
@@ -4430,8 +4441,8 @@ monogatari.script({
 		'm Good thing I’m not superstitious.',
 
 		'show character m neutral',
-		'p Good, so we know more about it now. ',
-		'p Cool.',
+		'p Wait. Magic?',
+		'p That sounds like a lot, but at least we know more about it now.',
 
 		'show character m shock',
 		'm No, no. We don’t just know more about it. ',
@@ -4664,7 +4675,7 @@ monogatari.script({
 
 		'show character m shock',
 
-		'I’ve already started, but you grab anything you think you might need. ',
+		'm I’ve already started, but you grab anything you think you might need. ',
 
 		'show character m neutral',
 
@@ -4766,7 +4777,7 @@ monogatari.script({
 
 		'm Did you not bring anything?',
 
-		// 'I tap my {{combat.name}}.',
+		// 'n I tap my {{combat.name}}.',
 
 		'p It’s not exactly light. ',
 
@@ -4796,12 +4807,9 @@ monogatari.script({
 
 		'm Yup!',
 
-		
-
 		'n She props the extra satchel over her shoulder and waits.',
 
 		'm Shouldn’t be long.',
-
 
 		'show character m sad',
 		'n We twiddle our thumbs for a moment, but Maya is noticeably anxious. ',
@@ -4825,7 +4833,7 @@ monogatari.script({
 		'show character k happy',
 		'k It’s a pleasure to make your acquaintance.',
 
-		'n He extends his hand, but I don’t take it. ',
+		'n He extends his hand, but I can’t bring myself to take it. ',
 		'show character k neutral',
 
 		'n The man in front of me looks every bit like the Kai from the guild, but they feel like two separate people. ',

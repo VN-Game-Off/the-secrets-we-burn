@@ -172,7 +172,7 @@ const allSkills = {
 
     fists: {
         name: 'Fists',
-        description: 'Upfront and person, my <b class="accent">fists</b> are the deadliest weapon I own. I feel most in tune with just my body.'
+        description: 'Upfront and personal, my <b class="accent">fists</b> are the deadliest weapon I own. I feel most in tune with just my body.'
     },
 
     sword: {
