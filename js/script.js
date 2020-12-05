@@ -3920,9 +3920,11 @@ monogatari.script({
 
 		'show character m sadSweat',
 
-		'm But, how will I know if it’s going to get better?',
+		'm But, what if things don’t get better?',
 
-		'p You don’t. So, if you’re going to give up, do it, but don’t sulk about it. ',
+		'p What if they do?',
+		'p We can’t expect ourselves to know these things.',
+		'p So, if you’re going to give up, do it, but don’t sulk about it. ',
 
 		'show character m sadBlush',
 
@@ -4212,7 +4214,7 @@ monogatari.script({
 		'n I raise my sword, this time more cautious about how I shift my weight.',
 
 		'n The swings come more naturally. ',
-		'play sound swordWhoosh',
+		'play sound swordWoosh',
 
 		'n Once again, I feel like myself.',
 		'jump AfterWepPractice'

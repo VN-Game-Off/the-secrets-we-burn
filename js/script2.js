@@ -40,7 +40,7 @@ monogatari.script({
 
         'hide character k',
         'show character m shock',
-        'n Maya’s gasps is almost performative.',
+        'n Maya’s gasp is almost performative.',
 
         'm Oh! It’s closer than I expected!',
         'show character m neutral',
@@ -108,6 +108,7 @@ monogatari.script({
 
         'k From there, I can make my own way.',
         'k I would go around, but time is of the essence. ',
+        'k Through the forest is the quickest way.',
 
         'hide character k',
         'show character m shock',
@@ -153,6 +154,7 @@ monogatari.script({
         'p Yes, she is.',
 
         'k I see.',
+        'show character k shock',
         'p She just wants to make a good first impression.',
 
         'hide character k',
@@ -187,7 +189,7 @@ monogatari.script({
             })
         },
 
-        'n I share a hopeful glance with Kai and venture into the unknown.',
+        'n I exchange a hopeful glance with Kai and we venture into the unknown.',
 
         'show scene magicForest with fadeIn',
         'show character m happy',
@@ -231,11 +233,11 @@ monogatari.script({
         'n Kai holds me by the neck of my tunic, his other hand extends outwards.',
 
         'k Quickly, before you choke to death.',
-        'n My hands grab onto his forearm.',
+        'n I grab onto his forearm. ',
 
         'show character k neutralSweat',
         // [SFX: Twigs breaking]
-        'n I’m lifted through the mud and debris, but for Kai, it seems effortless.',
+        'n My body is lifted across mud and debris, but for Kai, it seems effortless.',
 
         'n I try to speak, but the air is stolen from my lungs.',
 
@@ -263,7 +265,7 @@ monogatari.script({
         'show character m mayaShock',
         'm Who would go through all that effort?',
         'm No-one ever comes here.',
-
+        'n Maya folds her arms, seemingly more concerned about the nuisance it caused, rather than the danger.',
         'jump Conversation'
 
     ],
@@ -274,7 +276,7 @@ monogatari.script({
                 mayaFalls: true
             })
         },
-        'n I share a hopeful glance with Kai and venture into the unknown.',
+        'n I exchange a hopeful glance with Kai and we venture into the unknown.',
         'show scene magicForest',
         'stop music with fade 3',
         'play music Night4 with fade 5 loop',
@@ -593,7 +595,7 @@ monogatari.script({
         'p Sorry, we’re nearly done.',
 
         'show character k shock',
-        'n He perks up, seemingly brought out of thought.',
+        'n He perks up, visibly brought out of thought.',
 
         'k Done with?',
 
@@ -638,7 +640,6 @@ monogatari.script({
         'show character m neutral',
         'm OK, I lied a bit.',
 
-
         'show character m angry',
         'm I was worried, because half this town can’t read, but I poured my blood, sweat, and soul into those words.',
 
@@ -657,7 +658,7 @@ monogatari.script({
 
         'm Ah, it was great.',
 
-        'm Survival skills were pretty much a must.',
+        'm Survival skills were a must.',
 
         'm Whatever we didn’t know, we just picked up on the way.',
 
@@ -855,7 +856,7 @@ monogatari.script({
 
         'p Maya.',
         'show character m shock',
-        'm What! Maybe, he’s bitter about all the attention',
+        'm What! Maybe, he’s bitter about all the attention!',
 
         'show character m sadSweat',
         'p You’re being rude.',
@@ -869,9 +870,8 @@ monogatari.script({
         'n I throw her a knowing look.',
 
         'm I’m sorry if I offended you, Kai.',
-        'm I… ',
 
-        'm I’m not good with—',
+        'm Admittedly, I’m not very good with—',
 
         'hide character m',
         'show character k angry',
@@ -891,7 +891,7 @@ monogatari.script({
 
         'hide character m',
         'show character k neutralSweat',
-        'n He sighs but looks incredibly frustrated. ',
+        'n Frustration comes out through his sigh. ',
 
         'show character k neutral',
         'k Not all of us can show proper decorum.',
@@ -910,7 +910,7 @@ monogatari.script({
         {
             'Choice': {
                 'Encourage Kai ':{
-                    'Text': 'Encourage Kai',
+                    'Text': 'Encourage Kai to open up later',
                     'Do': 'jump EncourageKai '
                 },
 
@@ -1057,10 +1057,10 @@ monogatari.script({
         'm {{player.name}}… ',
 
         'n I sigh, straightening myself out.',
-        'n I may have just made this worse.',
+        'n I may have just made this worse, but I won’t let anyone belittle my friends.',
 
         'show character m sad',
-        'n Maya looks at me pleadingly. I know she’s scared of what I might say next.',
+        'n Without saying it, Maya begs me to not escalate this.',
 
         'p I’m willing to accept that we don’t know you very well either.',
 
