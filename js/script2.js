@@ -251,6 +251,12 @@ monogatari.script({
         'hide character k',
         'show character m sadSweat',
         'm Maya joins us, watching each step timidly.',
+        'm Are you OK?', 
+        'p Yeah, I’m fine… How did you know there was a hole there?', 
+        'show character m shock',
+        'm I saw a dip in the ground.',
+        'show character m sad',
+        'n Her eyes scrutinise the green below us.',
         'm Does… it usually grow like this?',
 
         'n Across the ground, large circular patches of soft moss cover the ground.',
@@ -895,7 +901,7 @@ monogatari.script({
 
         'show character k neutral',
         'k Not all of us can show proper decorum.',
-        'k I accept this… apology.',
+        'k I accept this… <i>apology</i>.',
 
         'n I swoop in before Maya can take offence at his tone.',
 
@@ -1017,7 +1023,6 @@ monogatari.script({
         'hide character m',
         'show character k neutralSweat',
 
-        'p No-one here is trying to create a façade.',
         'p However, whether I trust Maya or not is none of your concern.',
 
         'p It’s not even a question.',
@@ -1110,27 +1115,31 @@ monogatari.script({
 
         'n It doesn’t change.',
 
-        'n Little conversation happens while she’s gone.',
+        'n Kai appears content to sit almost perfectly still in silence.', 
+        'n I direct my attention to inspecting the flora nearby, looking for signs of anything else out of the ordinary.', 
+        'n Some of it is useful, but I admit it’s partially to avoid a conversation.', 
+        'n I only hope it’s not noticeable.', 
+        'n Especially when I’m resorting to counting how many veins there are on this leaf.', 
 
         'show character k shock',
-        'n She returns half an hour later, with a bundle of dry wood in her arms, reddened eyes and a smile.',
+        'n Maya returns half an hour later, with a bundle of dry wood in her arms, reddened eyes and a smile.',
 
         'hide character k',
         'show character m neutralSweat',
         'm Found a place!',
         
-        'n She leads us deeper into the forest, where the trees are older and the thicket denser.',
+        'n She leads us deeper into the forest, where the trees are older and the thicket, denser.',
         
         'jump APlaceToCamp'
     ],
     
     'GiveKaispace': [
         'show character m sad',
-        'n Maya gives Kai a wary look. His attitude most likely hurt her a little.',
+        'n Maya gives Kai a wary look. His attitude likely hurt her a little.',
         
         'show character m sadBlush',
         
-        'n She’s so used to making friends, Kai’s demeanour is probably a little insulting.',
+        'n She’s so used to making friends, Kai’s demeanour is probably taken personally.',
         
         'show character m sad',
         'n We can’t go on like this. ',
@@ -1142,7 +1151,7 @@ monogatari.script({
         'show character m shock',
         'p And maybe later, Kai can trust us.',
 
-        'n I turn to him, knowingly.',
+        'n I remember our first meeting.',
 
         'hide character m',
         'show character k shock',
@@ -1233,11 +1242,12 @@ monogatari.script({
         'm Maybe, it is magic!',
 
         'p I think I have more faith in your cooking abilities.',
-        'p But this does look like a good spot, let’s get Kai.',
+        'p But this does look like a good spot.',
+        'p Let’s get Kai and set up here.',
 
         'n In less than an hour, we reach Kai again.',
 
-        'n His mood considerably calmer than earlier.',
+        'n His mood is considerably calmer than earlier.',
 
         'jump APlaceToCamp'
     ],
@@ -1265,7 +1275,7 @@ monogatari.script({
         'hide character k',
         'show character m neutralSweat',
         'm Or maybe we lost track of time.',
-        'm There’s nothing that can change time, right?',
+        'm There’s nothing that can change <i>time</i>, right?',
         
         'p It doesn’t matter… ',
         'p It’s unsafe to be out in the open like this. ',
