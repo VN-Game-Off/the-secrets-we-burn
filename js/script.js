@@ -4577,7 +4577,7 @@ monogatari.script({
 		'm OK, do you think you could do those things while being by my side as a heroic duo?',
 
 		'show character m happy',
-		'm I wouldn’t choose to perish any other way.',
+		'p I wouldn’t choose to perish any other way.',
 
 		'show character m neutral',
 		'm Perfect.',
