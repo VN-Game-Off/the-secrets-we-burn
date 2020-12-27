@@ -1254,15 +1254,15 @@ monogatari.script({
 
     'APlaceToCamp': [
         'show character m shockSweat',
-        'm It’s gotten darker than I expected.',
-        'm …It can’t already be night. ',
+        'm It’s darker than I expected.',
+        'm …It can’t already be night already?. ',
         'm We’ve only been here a few hours.',
         
         'm It should be afternoon, at most!',
         
         'hide character m',
         'show character k neutralSweat',
-        'k I’ve… heard rumours about something like this.',
+        'k  So, the rumours may be true...',
         'p What rumours?',
         
         'show character k sadSweat',
